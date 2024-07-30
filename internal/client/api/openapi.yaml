@@ -1,0 +1,5663 @@
+openapi: 3.1.0
+info:
+  description: |2
+
+    Artifacts is an API-based MMO game where you can manage 5 characters to explore, fight, gather resources, craft items and much more.
+
+    Website: https://artifactsmmo.com/
+
+    Documentation: https://docs.artifactsmmo.com/
+
+    OpenAPI Spec: https://api.artifactsmmo.com/openapi.json
+  title: Artifacts API
+  version: "1.1"
+servers:
+- url: /
+paths:
+  /my/{name}/action/move:
+    post:
+      description: Moves a character on the map using the map's X and Y position.
+      operationId: action_move_my__name__action_move_post
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DestinationSchema'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CharacterMovementResponseSchema'
+          description: The character has moved successfully.
+        "498":
+          description: Character not found.
+        "499":
+          description: Character in cooldown.
+        "490":
+          description: Character already at destination.
+        "404":
+          description: Map not found.
+        "486":
+          description: Character is locked. Action is already in progress.
+      security:
+      - JWTBearer: []
+      summary: Action Move
+      tags:
+      - My characters
+  /my/{name}/action/equip/:
+    post:
+      description: Equip an item on your character.
+      operationId: action_equip_item_my__name__action_equip__post
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EquipSchema'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EquipmentResponseSchema'
+          description: The item has been successfully equipped on your character.
+        "404":
+          description: Item not found.
+        "498":
+          description: Character not found.
+        "499":
+          description: Character in cooldown.
+        "486":
+          description: Character is locked. Action is already in progress.
+        "478":
+          description: Missing item or insufficient quantity in your inventory.
+        "496":
+          description: Character level is insufficient.
+        "491":
+          description: Slot is not empty.
+        "485":
+          description: This item is already equipped.
+      security:
+      - JWTBearer: []
+      summary: Action Equip Item
+      tags:
+      - My characters
+  /my/{name}/action/unequip/:
+    post:
+      description: Unequip an item on your character.
+      operationId: action_unequip_item_my__name__action_unequip__post
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnequipSchema'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EquipmentResponseSchema'
+          description: The item has been successfully unequipped and added in his
+            inventory.
+        "404":
+          description: Item not found.
+        "498":
+          description: Character not found.
+        "499":
+          description: Character in cooldown.
+        "486":
+          description: Character is locked. Action is already in progress.
+        "491":
+          description: Slot is empty.
+        "497":
+          description: Character inventory is full.
+      security:
+      - JWTBearer: []
+      summary: Action Unequip Item
+      tags:
+      - My characters
+  /my/{name}/action/fight:
+    post:
+      description: Start a fight against a monster on the character's map.
+      operationId: action_fight_my__name__action_fight_post
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CharacterFightResponseSchema'
+          description: The fight ended successfully.
+        "498":
+          description: Character not found.
+        "499":
+          description: Character in cooldown.
+        "598":
+          description: Monster not found on this map.
+        "486":
+          description: Character is locked. Action is already in progress.
+        "497":
+          description: Character inventory is full.
+      security:
+      - JWTBearer: []
+      summary: Action Fight
+      tags:
+      - My characters
+  /my/{name}/action/gathering:
+    post:
+      description: Harvest a resource on the character's map.
+      operationId: action_gathering_my__name__action_gathering_post
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SkillResponseSchema'
+          description: The resource has been successfully gathered.
+        "498":
+          description: Character not found.
+        "499":
+          description: Character in cooldown.
+        "598":
+          description: Resource not found on this map.
+        "486":
+          description: Character is locked. Action is already in progress.
+        "493":
+          description: Not skill level required.
+        "497":
+          description: Character inventory is full.
+      security:
+      - JWTBearer: []
+      summary: Action Gathering
+      tags:
+      - My characters
+  /my/{name}/action/crafting:
+    post:
+      description: Crafting an item. The character must be on a map with a workshop.
+      operationId: action_crafting_my__name__action_crafting_post
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CraftingSchema'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SkillResponseSchema'
+          description: The item was successfully crafted.
+        "404":
+          description: Craft not found.
+        "598":
+          description: Workshop not found on this map.
+        "498":
+          description: Character not found.
+        "497":
+          description: Character inventory is full.
+        "499":
+          description: Character in cooldown.
+        "486":
+          description: Character is locked. Action is already in progress.
+        "493":
+          description: Not skill level required.
+        "478":
+          description: Missing item or insufficient quantity in your inventory.
+      security:
+      - JWTBearer: []
+      summary: Action Crafting
+      tags:
+      - My characters
+  /my/{name}/action/bank/deposit:
+    post:
+      description: Deposit an item in a bank on the character's map.
+      operationId: action_deposit_bank_my__name__action_bank_deposit_post
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SimpleItemSchema'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionItemBankReponseSchema'
+          description: Item successfully deposited in your bank.
+        "598":
+          description: Bank not found on this map.
+        "404":
+          description: Item not found.
+        "498":
+          description: Character not found.
+        "499":
+          description: Character in cooldown.
+        "486":
+          description: Character is locked. Action is already in progress.
+        "478":
+          description: Missing item or insufficient quantity in your inventory.
+      security:
+      - JWTBearer: []
+      summary: Action Deposit Bank
+      tags:
+      - My characters
+  /my/{name}/action/bank/deposit/gold:
+    post:
+      description: Deposit golds in a bank on the character's map.
+      operationId: action_deposit_bank_gold_my__name__action_bank_deposit_gold_post
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DepositWithdrawGoldSchema'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoldResponseSchema'
+          description: Golds successfully deposited in your bank.
+        "598":
+          description: Bank not found on this map.
+        "492":
+          description: Insufficient golds on your character.
+        "498":
+          description: Character not found.
+        "499":
+          description: Character in cooldown.
+        "486":
+          description: Character is locked. Action is already in progress.
+        "478":
+          description: Missing item or insufficient quantity in your inventory.
+      security:
+      - JWTBearer: []
+      summary: Action Deposit Bank Gold
+      tags:
+      - My characters
+  /my/{name}/action/recycling:
+    post:
+      description: Recyling an item. The character must be on a map with a workshop
+        (only for equipments and weapons).
+      operationId: action_recycling_my__name__action_recycling_post
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RecyclingSchema'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecylingResponseSchema'
+          description: The items were successfully recycled.
+        "404":
+          description: Item not found.
+        "598":
+          description: Workshop not found on this map.
+        "498":
+          description: Character not found.
+        "497":
+          description: Character inventory is full.
+        "499":
+          description: Character in cooldown.
+        "486":
+          description: Character is locked. Action is already in progress.
+        "493":
+          description: Not skill level required.
+        "478":
+          description: Missing item or insufficient quantity in your inventory.
+        "473":
+          description: This item cannot be recycled.
+      security:
+      - JWTBearer: []
+      summary: Action Recycling
+      tags:
+      - My characters
+  /my/{name}/action/bank/withdraw:
+    post:
+      description: Take an item from your bank and put it in the character's inventory.
+      operationId: action_withdraw_bank_my__name__action_bank_withdraw_post
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SimpleItemSchema'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionItemBankReponseSchema'
+          description: Item successfully withdraw from your bank.
+        "404":
+          description: Item not found.
+        "498":
+          description: Character not found.
+        "499":
+          description: Character in cooldown.
+        "486":
+          description: Character is locked. Action is already in progress.
+        "497":
+          description: Character inventory is full.
+        "598":
+          description: Bank not found on this map.
+        "478":
+          description: Missing item or insufficient quantity in your inventory.
+      security:
+      - JWTBearer: []
+      summary: Action Withdraw Bank
+      tags:
+      - My characters
+  /my/{name}/action/bank/withdraw/gold:
+    post:
+      description: Withdraw gold from your bank.
+      operationId: action_withdraw_bank_gold_my__name__action_bank_withdraw_gold_post
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DepositWithdrawGoldSchema'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoldResponseSchema'
+          description: Golds successfully withdraw from your bank.
+        "498":
+          description: Character not found.
+        "499":
+          description: Character in cooldown.
+        "486":
+          description: Character is locked. Action is already in progress.
+        "598":
+          description: Bank not found on this map.
+        "460":
+          description: Insufficient golds in your bank.
+      security:
+      - JWTBearer: []
+      summary: Action Withdraw Bank Gold
+      tags:
+      - My characters
+  /my/{name}/action/ge/buy:
+    post:
+      description: Buy an item at the Grand Exchange on the character's map.
+      operationId: action_ge_buy_item_my__name__action_ge_buy_post
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GETransactionItemSchema'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GETransactionResponseSchema'
+          description: Item successfully buy from the Grand Exchange.
+        "598":
+          description: Grand Exchange not found on this map.
+        "498":
+          description: Character not found.
+        "497":
+          description: Character inventory is full.
+        "499":
+          description: Character in cooldown.
+        "486":
+          description: Character is locked. Action is already in progress.
+        "492":
+          description: Insufficient golds on your character.
+        "480":
+          description: No stock for this item.
+        "482":
+          description: No item at this price.
+      security:
+      - JWTBearer: []
+      summary: Action Ge Buy Item
+      tags:
+      - My characters
+  /my/{name}/action/ge/sell:
+    post:
+      description: Sell an item at the Grand Exchange on the character's map.
+      operationId: action_ge_sell_item_my__name__action_ge_sell_post
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GETransactionItemSchema'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GETransactionResponseSchema'
+          description: Item successfully sell at the Grand Exchange.
+        "498":
+          description: Character not found.
+        "499":
+          description: Character in cooldown.
+        "404":
+          description: Item not found.
+        "486":
+          description: Character is locked. Action is already in progress.
+        "478":
+          description: Missing item or insufficient quantity in your inventory.
+        "482":
+          description: No item at this price.
+        "598":
+          description: Grand Exchange not found on this map.
+      security:
+      - JWTBearer: []
+      summary: Action Ge Sell Item
+      tags:
+      - My characters
+  /my/{name}/action/task/new:
+    post:
+      description: Accepting a new task.
+      operationId: action_accept_new_task_my__name__action_task_new_post
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskResponseSchema'
+          description: New task successfully accepted.
+        "498":
+          description: Character not found.
+        "499":
+          description: Character in cooldown.
+        "486":
+          description: Character is locked. Action is already in progress.
+        "598":
+          description: Tasks Master not found on this map.
+        "489":
+          description: Character already has a task.
+      security:
+      - JWTBearer: []
+      summary: Action Accept New Task
+      tags:
+      - My characters
+  /my/{name}/action/task/complete:
+    post:
+      description: Complete a task.
+      operationId: action_complete_task_my__name__action_task_complete_post
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskRewardResponseSchema'
+          description: The task has been successfully completed.
+        "498":
+          description: Character not found.
+        "499":
+          description: Character in cooldown.
+        "486":
+          description: Character is locked. Action is already in progress.
+        "598":
+          description: Tasks Master not found on this map.
+        "488":
+          description: Character has not completed the task.
+        "487":
+          description: Character has no task.
+        "497":
+          description: Character inventory is full.
+      security:
+      - JWTBearer: []
+      summary: Action Complete Task
+      tags:
+      - My characters
+  /my/{name}/action/task/exchange:
+    post:
+      description: Exchange 3 tasks coins for a random reward. Rewards are exclusive
+        resources for crafting  items.
+      operationId: action_task_exchange_my__name__action_task_exchange_post
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskRewardResponseSchema'
+          description: The tasks coins have been successfully exchanged.
+        "498":
+          description: Character not found.
+        "499":
+          description: Character in cooldown.
+        "486":
+          description: Character is locked. Action is already in progress.
+        "598":
+          description: Tasks Master not found on this map.
+        "478":
+          description: Missing item or insufficient quantity in your inventory.
+        "497":
+          description: Character inventory is full.
+      security:
+      - JWTBearer: []
+      summary: Action Task Exchange
+      tags:
+      - My characters
+  /my/{name}/action/delete:
+    post:
+      description: Delete an item from your character's inventory.
+      operationId: action_delete_item_my__name__action_delete_post
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SimpleItemSchema'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteItemResponseSchema'
+          description: Item successfully deleted from your character.
+        "498":
+          description: Character not found.
+        "499":
+          description: Character in cooldown.
+        "486":
+          description: Character is locked. Action is already in progress.
+        "478":
+          description: Missing item or insufficient quantity in your inventory.
+      security:
+      - JWTBearer: []
+      summary: Action Delete Item
+      tags:
+      - My characters
+  /my/{name}/logs:
+    get:
+      description: History of your character's last 300 actions.
+      operationId: get_character_logs_my__name__logs_get
+      parameters:
+      - description: Name of your character.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: Name of your character.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: Page number
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - description: Page size
+        explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 50
+          description: Page size
+          maximum: 100
+          minimum: 1
+          title: Size
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataPage_ActionSchema_'
+          description: Successfully fetched logs.
+        "404":
+          description: Logs not found.
+        "498":
+          description: Character not found.
+      security:
+      - JWTBearer: []
+      summary: Get Character Logs
+      tags:
+      - My characters
+  /my/logs:
+    get:
+      description: History of the last 300 actions of all your characters.
+      operationId: get_all_characters_logs_my_logs_get
+      parameters:
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: Page number
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - description: Page size
+        explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 50
+          description: Page size
+          maximum: 100
+          minimum: 1
+          title: Size
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataPage_ActionSchema_'
+          description: Successfully fetched logs.
+        "404":
+          description: Logs not found.
+      security:
+      - JWTBearer: []
+      summary: Get All Characters Logs
+      tags:
+      - My characters
+  /my/characters:
+    get:
+      description: List of your characters.
+      operationId: get_my_characters_my_characters_get
+      parameters:
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: Page number
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - description: Page size
+        explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 50
+          description: Page size
+          maximum: 100
+          minimum: 1
+          title: Size
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataPage_MyCharacterSchema_'
+          description: Successfully fetched items.
+        "404":
+          description: Characters not found.
+      security:
+      - JWTBearer: []
+      summary: Get My Characters
+      tags:
+      - My characters
+  /my/bank/items:
+    get:
+      description: Fetch all items in your bank.
+      operationId: get_bank_items_my_bank_items_get
+      parameters:
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: Page number
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - description: Page size
+        explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 50
+          description: Page size
+          maximum: 100
+          minimum: 1
+          title: Size
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataPage_SimpleItemSchema_'
+          description: Successfully fetched items.
+        "404":
+          description: Items not found.
+      security:
+      - JWTBearer: []
+      summary: Get Bank Items
+      tags:
+      - My account
+  /my/bank/gold:
+    get:
+      description: Fetch golds in your bank.
+      operationId: get_bank_golds_my_bank_gold_get
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoldBankResponseSchema'
+          description: Successfully fetched golds.
+      security:
+      - JWTBearer: []
+      summary: Get Bank Golds
+      tags:
+      - My account
+  /my/change_password:
+    post:
+      description: Change your account password. Changing the password reset the account
+        token.
+      operationId: change_password_my_change_password_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangePassword'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseSchema'
+          description: Password changed successfully.
+        "458":
+          description: Use a different password.
+      security:
+      - JWTBearer: []
+      summary: Change Password
+      tags:
+      - My account
+  /characters/create:
+    post:
+      description: Create new character on your account. You can create up to 5 characters.
+      operationId: create_character_characters_create_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddCharacterSchema'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CharacterResponseSchema'
+          description: Successfully created character.
+        "494":
+          description: Name already used.
+        "495":
+          description: Maximum characters reached on your account.
+      security:
+      - JWTBearer: []
+      summary: Create Character
+      tags:
+      - Characters
+  /characters/:
+    get:
+      description: Fetch characters details.
+      operationId: get_all_characters_characters__get
+      parameters:
+      - description: Default sort by total XP.
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          description: Default sort by total XP.
+          enum:
+          - woodcutting
+          - mining
+          - fishing
+          - weaponcrafting
+          - gearcrafting
+          - jewelrycrafting
+          - cooking
+          title: Sort
+          type: string
+        style: form
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: Page number
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - description: Page size
+        explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 50
+          description: Page size
+          maximum: 100
+          minimum: 1
+          title: Size
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataPage_CharacterSchema_'
+          description: Successfully fetched characters details.
+        "404":
+          description: Characters not found.
+      summary: Get All Characters
+      tags:
+      - Characters
+  /characters/{name}:
+    get:
+      description: Retrieve the details of a character.
+      operationId: get_character_characters__name__get
+      parameters:
+      - description: The character name.
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          description: The character name.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Character name
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CharacterResponseSchema'
+          description: Successfully fetched character.
+        "404":
+          description: Character not found.
+      summary: Get Character
+      tags:
+      - Characters
+  /maps/:
+    get:
+      description: Fetch maps details.
+      operationId: get_all_maps_maps__get
+      parameters:
+      - description: Type of content on the map.
+        explode: true
+        in: query
+        name: content_type
+        required: false
+        schema:
+          description: Type of content on the map.
+          enum:
+          - monster
+          - resource
+          - workshop
+          - bank
+          - grand_exchange
+          title: Content type
+          type: string
+        style: form
+      - description: Content code on the map.
+        explode: true
+        in: query
+        name: content_code
+        required: false
+        schema:
+          description: Content code on the map.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Content code
+          type: string
+        style: form
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: Page number
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - description: Page size
+        explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 50
+          description: Page size
+          maximum: 100
+          minimum: 1
+          title: Size
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataPage_MapSchema_'
+          description: Successfully fetched maps details.
+        "404":
+          description: Maps not found.
+      summary: Get All Maps
+      tags:
+      - Maps
+  /maps/{x}/{y}:
+    get:
+      description: Retrieve the details of a map.
+      operationId: get_map_maps__x___y__get
+      parameters:
+      - description: The position x of the map.
+        explode: false
+        in: path
+        name: x
+        required: true
+        schema:
+          description: The position x of the map.
+          title: Position X
+          type: integer
+        style: simple
+      - description: The position X of the map.
+        explode: false
+        in: path
+        name: "y"
+        required: true
+        schema:
+          description: The position X of the map.
+          title: Position Y
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MapResponseSchema'
+          description: Successfully fetched map.
+        "404":
+          description: Map not found.
+      summary: Get Map
+      tags:
+      - Maps
+  /items/:
+    get:
+      description: Fetch items details.
+      operationId: get_all_items_items__get
+      parameters:
+      - description: Minimum level items.
+        explode: true
+        in: query
+        name: min_level
+        required: false
+        schema:
+          description: Minimum level items.
+          minimum: 0
+          title: Minimum level
+          type: integer
+        style: form
+      - description: Maximum level items.
+        explode: true
+        in: query
+        name: max_level
+        required: false
+        schema:
+          description: Maximum level items.
+          minimum: 0
+          title: Maximum level
+          type: integer
+        style: form
+      - description: Name of the item.
+        explode: true
+        in: query
+        name: name
+        required: false
+        schema:
+          description: Name of the item.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Item name
+          type: string
+        style: form
+      - description: Type of items.
+        explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          description: Type of items.
+          enum:
+          - consumable
+          - body_armor
+          - weapon
+          - resource
+          - leg_armor
+          - helmet
+          - boots
+          - shield
+          - amulet
+          - ring
+          title: Type
+          type: string
+        style: form
+      - description: Skill to craft items.
+        explode: true
+        in: query
+        name: craft_skill
+        required: false
+        schema:
+          description: Skill to craft items.
+          enum:
+          - weaponcrafting
+          - gearcrafting
+          - jewelrycrafting
+          - cooking
+          - woodcutting
+          - mining
+          title: Crafting skill
+          type: string
+        style: form
+      - description: Item code of items used as material for crafting.
+        example: copper_ore
+        explode: true
+        in: query
+        name: craft_material
+        required: false
+        schema:
+          description: Item code of items used as material for crafting.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Crafting material
+          type: string
+        style: form
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: Page number
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - description: Page size
+        explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 50
+          description: Page size
+          maximum: 100
+          minimum: 1
+          title: Size
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataPage_ItemSchema_'
+          description: Fetch items details.
+        "404":
+          description: Items not found.
+      summary: Get All Items
+      tags:
+      - Items
+  /items/{code}:
+    get:
+      description: Retrieve the details of a item.
+      operationId: get_item_items__code__get
+      parameters:
+      - description: The code of the item.
+        example: wooden_sword
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          description: The code of the item.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Item code
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemResponseSchema'
+          description: Successfully fetched item.
+        "404":
+          description: Item not found.
+      summary: Get Item
+      tags:
+      - Items
+  /monsters/:
+    get:
+      description: Fetch monsters details.
+      operationId: get_all_monsters_monsters__get
+      parameters:
+      - description: Monster minimum level.
+        explode: true
+        in: query
+        name: min_level
+        required: false
+        schema:
+          description: Monster minimum level.
+          minimum: 0
+          title: Minimum level
+          type: integer
+        style: form
+      - description: Monster maximum level.
+        explode: true
+        in: query
+        name: max_level
+        required: false
+        schema:
+          description: Monster maximum level.
+          minimum: 0
+          title: Maximum level
+          type: integer
+        style: form
+      - description: Item code of the drop.
+        example: green_slimeball
+        explode: true
+        in: query
+        name: drop
+        required: false
+        schema:
+          description: Item code of the drop.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Drop
+          type: string
+        style: form
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: Page number
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - description: Page size
+        explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 50
+          description: Page size
+          maximum: 100
+          minimum: 1
+          title: Size
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataPage_MonsterSchema_'
+          description: Successfully fetched monsters details.
+        "404":
+          description: Monsters not found.
+      summary: Get All Monsters
+      tags:
+      - Monsters
+  /monsters/{code}:
+    get:
+      description: Retrieve the details of a monster.
+      operationId: get_monster_monsters__code__get
+      parameters:
+      - description: The code of the monster.
+        example: red_slime
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          description: The code of the monster.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Monster code
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonsterResponseSchema'
+          description: Successfully fetched monster.
+        "404":
+          description: Monster not found.
+      summary: Get Monster
+      tags:
+      - Monsters
+  /resources/:
+    get:
+      description: Fetch resources details.
+      operationId: get_all_resources_resources__get
+      parameters:
+      - description: Skill minimum level.
+        explode: true
+        in: query
+        name: min_level
+        required: false
+        schema:
+          description: Skill minimum level.
+          minimum: 0
+          title: Minimum level
+          type: integer
+        style: form
+      - description: Skill maximum level.
+        explode: true
+        in: query
+        name: max_level
+        required: false
+        schema:
+          description: Skill maximum level.
+          minimum: 0
+          title: Maximum level
+          type: integer
+        style: form
+      - description: The code of the skill.
+        explode: true
+        in: query
+        name: skill
+        required: false
+        schema:
+          description: The code of the skill.
+          enum:
+          - mining
+          - woodcutting
+          - fishing
+          title: Skill code
+          type: string
+        style: form
+      - description: Item code of the drop.
+        example: copper_ore
+        explode: true
+        in: query
+        name: drop
+        required: false
+        schema:
+          description: Item code of the drop.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Drop
+          type: string
+        style: form
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: Page number
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - description: Page size
+        explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 50
+          description: Page size
+          maximum: 100
+          minimum: 1
+          title: Size
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataPage_ResourceSchema_'
+          description: Successfully fetched resources details.
+        "404":
+          description: Ressources not found.
+      summary: Get All Resources
+      tags:
+      - Resources
+  /resources/{code}:
+    get:
+      description: Retrieve the details of a resource.
+      operationId: get_resources_resources__code__get
+      parameters:
+      - description: The code of the resource.
+        example: copper_rocks
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          description: The code of the resource.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Resource code
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceResponseSchema'
+          description: Successfully fetched resource.
+        "404":
+          description: Ressource not found.
+      summary: Get Resources
+      tags:
+      - Resources
+  /events/:
+    get:
+      description: Fetch events details.
+      operationId: get_all_events_events__get
+      parameters:
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: Page number
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - description: Page size
+        explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 50
+          description: Page size
+          maximum: 100
+          minimum: 1
+          title: Size
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataPage_EventSchema_'
+          description: Successfully fetched events details.
+        "404":
+          description: Events not found.
+      summary: Get All Events
+      tags:
+      - Events
+  /ge/:
+    get:
+      description: Fetch Grand Exchange items details.
+      operationId: get_all_ge_items_ge__get
+      parameters:
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: Page number
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - description: Page size
+        explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          default: 50
+          description: Page size
+          maximum: 100
+          minimum: 1
+          title: Size
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataPage_GEItemSchema_'
+          description: Fetch Grand Exchange items details.
+        "404":
+          description: Item not found.
+      summary: Get All Ge Items
+      tags:
+      - Grand Exchange
+  /ge/{code}:
+    get:
+      description: Retrieve the details of a Grand Exchange item.
+      operationId: get_ge_item_ge__code__get
+      parameters:
+      - description: The code of the item.
+        example: fire_staff
+        explode: false
+        in: path
+        name: code
+        required: true
+        schema:
+          description: The code of the item.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Item code
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GEItemResponseSchema'
+          description: Successfully fetched Grand Exchange item.
+        "404":
+          description: Item not found.
+      summary: Get Ge Item
+      tags:
+      - Grand Exchange
+  /accounts/create:
+    post:
+      description: Create an account.
+      operationId: create_account_accounts_create_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddAccountSchema'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseSchema'
+          description: Account created successfully.
+        "456":
+          description: Username already used.
+        "457":
+          description: Email already used.
+      summary: Create Account
+      tags:
+      - Accounts
+  /token/:
+    post:
+      description: Use your account as HTTPBasic Auth to generate your token to use
+        the API. You can also generate your token directly on the website.
+      operationId: generate_token_token__post
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponseSchema'
+          description: Token generated successfully
+        "455":
+          description: Token generation failed.
+      security:
+      - HTTPBasic: []
+      summary: Generate Token
+      tags:
+      - Token
+  /:
+    get:
+      description: Return the status of the game server.
+      operationId: get_status__get
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponseSchema'
+          description: Successful Response
+      summary: Get Status
+components:
+  schemas:
+    ActionItemBankReponseSchema:
+      example:
+        data:
+          item: ""
+          bank:
+          - code: code
+            quantity: 1
+          - code: code
+            quantity: 1
+          character: ""
+          cooldown: ""
+      properties:
+        data:
+          $ref: '#/components/schemas/BankItemSchema'
+      required:
+      - data
+      title: ActionItemBankReponseSchema
+    ActionSchema:
+      example:
+        character: character
+        cooldown_expiration: 2000-01-23T04:56:07.000+00:00
+        cooldown: 0
+        description: description
+        created_at: 2000-01-23T04:56:07.000+00:00
+        type: type
+        account: account
+        content: ""
+      properties:
+        character:
+          description: Character name.
+          title: Character
+          type: string
+        account:
+          description: Account character.
+          title: Account
+          type: string
+        type:
+          description: Type of action.
+          title: Type
+          type: string
+        description:
+          description: Description of action.
+          title: Description
+          type: string
+        content: {}
+        cooldown:
+          description: Cooldown in seconds.
+          title: Cooldown
+          type: integer
+        cooldown_expiration:
+          description: Datetime of cooldown expiration.
+          format: date-time
+          title: Cooldown Expiration
+          type: string
+        created_at:
+          description: Datetime of creation.
+          format: date-time
+          title: Created At
+          type: string
+      required:
+      - account
+      - character
+      - content
+      - cooldown
+      - cooldown_expiration
+      - created_at
+      - description
+      - type
+      title: ActionSchema
+    AddAccountSchema:
+      example:
+        password: password
+        email: email
+        username: username
+      properties:
+        username:
+          description: Your desired username.
+          maxLength: 32
+          minLength: 6
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Username
+          type: string
+        password:
+          description: Your password.
+          maxLength: 50
+          minLength: 5
+          pattern: "^[^\\s]+$"
+          title: Password
+          type: string
+        email:
+          description: Your email.
+          format: email
+          title: Email
+          type: string
+      required:
+      - email
+      - password
+      - username
+      title: AddAccountSchema
+    AddCharacterSchema:
+      example:
+        name: name
+        skin: men1
+      properties:
+        name:
+          description: Your desired character name. It's unique and all players can
+            see it.
+          maxLength: 12
+          minLength: 3
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Name
+          type: string
+        skin:
+          description: Your desired skin.
+          enum:
+          - men1
+          - men2
+          - men3
+          - women1
+          - women2
+          - women3
+          title: Skin
+          type: string
+      required:
+      - name
+      - skin
+      title: AddCharacterSchema
+    AnnoncementSchema:
+      example:
+        created_at: 2000-01-23T04:56:07.000+00:00
+        message: message
+      properties:
+        message:
+          description: Annoncement text.
+          title: Message
+          type: string
+        created_at:
+          format: date-time
+          nullable: true
+          type: string
+      required:
+      - message
+      title: AnnoncementSchema
+    BankItemSchema:
+      example:
+        item: ""
+        bank:
+        - code: code
+          quantity: 1
+        - code: code
+          quantity: 1
+        character: ""
+        cooldown: ""
+      properties:
+        cooldown:
+          allOf:
+          - $ref: '#/components/schemas/CooldownSchema'
+          description: Cooldown details.
+        item:
+          allOf:
+          - $ref: '#/components/schemas/ItemSchema'
+          description: Item details.
+        bank:
+          description: Items in your banks.
+          items:
+            $ref: '#/components/schemas/SimpleItemSchema'
+          type: array
+        character:
+          allOf:
+          - $ref: '#/components/schemas/CharacterSchema'
+          description: Player details.
+      required:
+      - bank
+      - character
+      - cooldown
+      - item
+      title: BankItemSchema
+    BlockedHitsSchema:
+      properties:
+        fire:
+          description: The amount of fire hits blocked.
+          title: Fire
+          type: integer
+        earth:
+          description: The amount of earth hits blocked.
+          title: Earth
+          type: integer
+        water:
+          description: The amount of water hits blocked.
+          title: Water
+          type: integer
+        air:
+          description: The amount of air hits blocked.
+          title: Air
+          type: integer
+        total:
+          description: The amount of total hits blocked.
+          title: Total
+          type: integer
+      required:
+      - air
+      - earth
+      - fire
+      - total
+      - water
+      title: BlockedHitsSchema
+    ChangePassword:
+      example:
+        password: password
+      properties:
+        password:
+          description: Your password.
+          maxLength: 50
+          minLength: 5
+          pattern: "^[^\\s]+$"
+          title: Password
+          type: string
+      required:
+      - password
+      title: ChangePassword
+    CharacterFightDataSchema:
+      example:
+        character: ""
+        cooldown: ""
+        fight: ""
+      properties:
+        cooldown:
+          allOf:
+          - $ref: '#/components/schemas/CooldownSchema'
+          description: Cooldown details.
+        fight:
+          allOf:
+          - $ref: '#/components/schemas/FightSchema'
+          description: Fight details.
+        character:
+          allOf:
+          - $ref: '#/components/schemas/CharacterSchema'
+          description: Player details.
+      required:
+      - character
+      - cooldown
+      - fight
+      title: CharacterFightDataSchema
+    CharacterFightResponseSchema:
+      example:
+        data:
+          character: ""
+          cooldown: ""
+          fight: ""
+      properties:
+        data:
+          $ref: '#/components/schemas/CharacterFightDataSchema'
+      required:
+      - data
+      title: CharacterFightResponseSchema
+    CharacterMovementDataSchema:
+      example:
+        character: ""
+        cooldown: ""
+        destination: ""
+      properties:
+        cooldown:
+          allOf:
+          - $ref: '#/components/schemas/CooldownSchema'
+          description: Cooldown details
+        destination:
+          allOf:
+          - $ref: '#/components/schemas/DestinationResponseSchema'
+          description: Destination details.
+        character:
+          allOf:
+          - $ref: '#/components/schemas/CharacterSchema'
+          description: Character details.
+      required:
+      - character
+      - cooldown
+      - destination
+      title: CharacterMovementDataSchema
+    CharacterMovementResponseSchema:
+      example:
+        data:
+          character: ""
+          cooldown: ""
+          destination: ""
+      properties:
+        data:
+          $ref: '#/components/schemas/CharacterMovementDataSchema'
+      required:
+      - data
+      title: CharacterMovementResponseSchema
+    CharacterResponseSchema:
+      example:
+        data:
+          amulet_slot: amulet_slot
+          inventory_slot15_quantity: 4
+          hp: 6
+          inventory_slot2_quantity: 4
+          critical_strike: 2
+          inventory_slot8_quantity: 7
+          cooldown: 3
+          gearcrafting_level: 4
+          inventory_slot16_quantity: 6
+          inventory_slot3_quantity: 0
+          res_water: 4
+          attack_water: 6
+          artifact2_slot: artifact2_slot
+          inventory_slot9_quantity: 9
+          max_xp: 1
+          inventory_slot10_quantity: 0
+          task_total: 8
+          weaponcrafting_max_xp: 1
+          consumable1_slot: consumable1_slot
+          inventory_slot7_quantity: 4
+          skin: men1
+          helmet_slot: helmet_slot
+          res_air: 8
+          ring1_slot: ring1_slot
+          dmg_air: 7
+          gold: 5
+          inventory_slot11_quantity: 9
+          gearcrafting_max_xp: 9
+          woodcutting_level: 2
+          leg_armor_slot: leg_armor_slot
+          artifact3_slot: artifact3_slot
+          mining_level: 7
+          cooldown_expiration: 2000-01-23T04:56:07.000+00:00
+          woodcutting_xp: 4
+          haste: 1
+          inventory_slot20: inventory_slot20
+          inventory_slot11: inventory_slot11
+          task_progress: 1
+          inventory_slot10: inventory_slot10
+          inventory_slot13: inventory_slot13
+          inventory_slot12: inventory_slot12
+          inventory_slot15: inventory_slot15
+          inventory_slot14: inventory_slot14
+          inventory_slot13_quantity: 7
+          inventory_slot17: inventory_slot17
+          inventory_slot16: inventory_slot16
+          x: 7
+          inventory_slot19: inventory_slot19
+          "y": 3
+          inventory_slot18: inventory_slot18
+          task_type: task_type
+          res_earth: 0
+          attack_fire: 6
+          dmg_water: 0
+          inventory_slot18_quantity: 4
+          total_xp: 5
+          stamina: 6
+          mining_max_xp: 3
+          inventory_slot12_quantity: 0
+          mining_xp: 9
+          inventory_slot5_quantity: 4
+          body_armor_slot: body_armor_slot
+          fishing_xp: 1
+          shield_slot: shield_slot
+          level: 0
+          weaponcrafting_xp: 7
+          cooking_max_xp: 3
+          task: task
+          gearcrafting_xp: 5
+          res_fire: 6
+          name: name
+          jewelrycrafting_xp: 6
+          inventory_slot1_quantity: 3
+          attack_air: 3
+          artifact1_slot: artifact1_slot
+          inventory_slot4_quantity: 6
+          speed: 2
+          boots_slot: boots_slot
+          inventory_slot20_quantity: 0
+          inventory_slot17_quantity: 8
+          fishing_level: 1
+          jewelrycrafting_level: 9
+          inventory_slot14_quantity: 5
+          woodcutting_max_xp: 7
+          attack_earth: 5
+          jewelrycrafting_max_xp: 8
+          cooking_level: 9
+          dmg_earth: 7
+          consumable1_slot_quantity: 7
+          inventory_slot9: inventory_slot9
+          cooking_xp: 6
+          inventory_slot3: inventory_slot3
+          inventory_slot19_quantity: 3
+          inventory_slot4: inventory_slot4
+          inventory_slot1: inventory_slot1
+          inventory_slot2: inventory_slot2
+          consumable2_slot: consumable2_slot
+          inventory_slot7: inventory_slot7
+          inventory_slot8: inventory_slot8
+          inventory_slot5: inventory_slot5
+          inventory_slot6: inventory_slot6
+          ring2_slot: ring2_slot
+          weapon_slot: weapon_slot
+          inventory_max_items: 2
+          xp: 6
+          fishing_max_xp: 1
+          weaponcrafting_level: 6
+          inventory_slot6_quantity: 1
+          consumable2_slot_quantity: 5
+          dmg_fire: 3
+      properties:
+        data:
+          $ref: '#/components/schemas/CharacterSchema'
+      required:
+      - data
+      title: CharacterResponseSchema
+    CharacterSchema:
+      example:
+        amulet_slot: amulet_slot
+        inventory_slot15_quantity: 4
+        hp: 6
+        inventory_slot2_quantity: 4
+        critical_strike: 2
+        inventory_slot8_quantity: 7
+        cooldown: 3
+        gearcrafting_level: 4
+        inventory_slot16_quantity: 6
+        inventory_slot3_quantity: 0
+        res_water: 4
+        attack_water: 6
+        artifact2_slot: artifact2_slot
+        inventory_slot9_quantity: 9
+        max_xp: 1
+        inventory_slot10_quantity: 0
+        task_total: 8
+        weaponcrafting_max_xp: 1
+        consumable1_slot: consumable1_slot
+        inventory_slot7_quantity: 4
+        skin: men1
+        helmet_slot: helmet_slot
+        res_air: 8
+        ring1_slot: ring1_slot
+        dmg_air: 7
+        gold: 5
+        inventory_slot11_quantity: 9
+        gearcrafting_max_xp: 9
+        woodcutting_level: 2
+        leg_armor_slot: leg_armor_slot
+        artifact3_slot: artifact3_slot
+        mining_level: 7
+        cooldown_expiration: 2000-01-23T04:56:07.000+00:00
+        woodcutting_xp: 4
+        haste: 1
+        inventory_slot20: inventory_slot20
+        inventory_slot11: inventory_slot11
+        task_progress: 1
+        inventory_slot10: inventory_slot10
+        inventory_slot13: inventory_slot13
+        inventory_slot12: inventory_slot12
+        inventory_slot15: inventory_slot15
+        inventory_slot14: inventory_slot14
+        inventory_slot13_quantity: 7
+        inventory_slot17: inventory_slot17
+        inventory_slot16: inventory_slot16
+        x: 7
+        inventory_slot19: inventory_slot19
+        "y": 3
+        inventory_slot18: inventory_slot18
+        task_type: task_type
+        res_earth: 0
+        attack_fire: 6
+        dmg_water: 0
+        inventory_slot18_quantity: 4
+        total_xp: 5
+        stamina: 6
+        mining_max_xp: 3
+        inventory_slot12_quantity: 0
+        mining_xp: 9
+        inventory_slot5_quantity: 4
+        body_armor_slot: body_armor_slot
+        fishing_xp: 1
+        shield_slot: shield_slot
+        level: 0
+        weaponcrafting_xp: 7
+        cooking_max_xp: 3
+        task: task
+        gearcrafting_xp: 5
+        res_fire: 6
+        name: name
+        jewelrycrafting_xp: 6
+        inventory_slot1_quantity: 3
+        attack_air: 3
+        artifact1_slot: artifact1_slot
+        inventory_slot4_quantity: 6
+        speed: 2
+        boots_slot: boots_slot
+        inventory_slot20_quantity: 0
+        inventory_slot17_quantity: 8
+        fishing_level: 1
+        jewelrycrafting_level: 9
+        inventory_slot14_quantity: 5
+        woodcutting_max_xp: 7
+        attack_earth: 5
+        jewelrycrafting_max_xp: 8
+        cooking_level: 9
+        dmg_earth: 7
+        consumable1_slot_quantity: 7
+        inventory_slot9: inventory_slot9
+        cooking_xp: 6
+        inventory_slot3: inventory_slot3
+        inventory_slot19_quantity: 3
+        inventory_slot4: inventory_slot4
+        inventory_slot1: inventory_slot1
+        inventory_slot2: inventory_slot2
+        consumable2_slot: consumable2_slot
+        inventory_slot7: inventory_slot7
+        inventory_slot8: inventory_slot8
+        inventory_slot5: inventory_slot5
+        inventory_slot6: inventory_slot6
+        ring2_slot: ring2_slot
+        weapon_slot: weapon_slot
+        inventory_max_items: 2
+        xp: 6
+        fishing_max_xp: 1
+        weaponcrafting_level: 6
+        inventory_slot6_quantity: 1
+        consumable2_slot_quantity: 5
+        dmg_fire: 3
+      properties:
+        name:
+          description: Name of the character.
+          title: Name
+          type: string
+        skin:
+          description: Character skin code.
+          enum:
+          - men1
+          - men2
+          - men3
+          - women1
+          - women2
+          - women3
+          title: Skin
+          type: string
+        level:
+          description: Combat level.
+          title: Level
+          type: integer
+        xp:
+          description: The current xp level of the combat level.
+          title: Xp
+          type: integer
+        max_xp:
+          description: XP required to level up the character.
+          title: Max Xp
+          type: integer
+        total_xp:
+          description: Total XP of your character.
+          title: Total Xp
+          type: integer
+        gold:
+          description: The numbers of golds on this character.
+          title: Gold
+          type: integer
+        speed:
+          description: "*Not available, on the roadmap. Character movement speed."
+          title: Speed
+          type: integer
+        mining_level:
+          description: Mining level.
+          title: Mining Level
+          type: integer
+        mining_xp:
+          description: The current xp level of the Mining skill.
+          title: Mining Xp
+          type: integer
+        mining_max_xp:
+          description: Mining XP required to level up the skill.
+          title: Mining Max Xp
+          type: integer
+        woodcutting_level:
+          description: Woodcutting level.
+          title: Woodcutting Level
+          type: integer
+        woodcutting_xp:
+          description: The current xp level of the Woodcutting skill.
+          title: Woodcutting Xp
+          type: integer
+        woodcutting_max_xp:
+          description: Woodcutting XP required to level up the skill.
+          title: Woodcutting Max Xp
+          type: integer
+        fishing_level:
+          description: Fishing level.
+          title: Fishing Level
+          type: integer
+        fishing_xp:
+          description: The current xp level of the Fishing skill.
+          title: Fishing Xp
+          type: integer
+        fishing_max_xp:
+          description: Fishing XP required to level up the skill.
+          title: Fishing Max Xp
+          type: integer
+        weaponcrafting_level:
+          description: Weaponcrafting level.
+          title: Weaponcrafting Level
+          type: integer
+        weaponcrafting_xp:
+          description: The current xp level of the Weaponcrafting skill.
+          title: Weaponcrafting Xp
+          type: integer
+        weaponcrafting_max_xp:
+          description: Weaponcrafting XP required to level up the skill.
+          title: Weaponcrafting Max Xp
+          type: integer
+        gearcrafting_level:
+          description: Gearcrafting level.
+          title: Gearcrafting Level
+          type: integer
+        gearcrafting_xp:
+          description: The current xp level of the Gearcrafting skill.
+          title: Gearcrafting Xp
+          type: integer
+        gearcrafting_max_xp:
+          description: Gearcrafting XP required to level up the skill.
+          title: Gearcrafting Max Xp
+          type: integer
+        jewelrycrafting_level:
+          description: Jewelrycrafting level.
+          title: Jewelrycrafting Level
+          type: integer
+        jewelrycrafting_xp:
+          description: The current xp level of the Jewelrycrafting skill.
+          title: Jewelrycrafting Xp
+          type: integer
+        jewelrycrafting_max_xp:
+          description: Jewelrycrafting XP required to level up the skill.
+          title: Jewelrycrafting Max Xp
+          type: integer
+        cooking_level:
+          description: The current xp level of the Cooking skill.
+          title: Cooking Level
+          type: integer
+        cooking_xp:
+          description: Cooking XP.
+          title: Cooking Xp
+          type: integer
+        cooking_max_xp:
+          description: Cooking XP required to level up the skill.
+          title: Cooking Max Xp
+          type: integer
+        hp:
+          description: Character HP.
+          title: Hp
+          type: integer
+        haste:
+          description: '*Character Haste. Increase speed attack (reduce fight cooldown)'
+          title: Haste
+          type: integer
+        critical_strike:
+          description: "*Not available, on the roadmap. Character Cricial Strike.\
+            \ Critical strikes increase the attack's damage."
+          title: Critical Strike
+          type: integer
+        stamina:
+          description: "*Not available, on the roadmap. Regenerates life at the start\
+            \ of each turn."
+          title: Stamina
+          type: integer
+        attack_fire:
+          description: Fire attack.
+          title: Attack Fire
+          type: integer
+        attack_earth:
+          description: Earth attack.
+          title: Attack Earth
+          type: integer
+        attack_water:
+          description: Water attack.
+          title: Attack Water
+          type: integer
+        attack_air:
+          description: Air attack.
+          title: Attack Air
+          type: integer
+        dmg_fire:
+          description: '% Fire damage.'
+          title: Dmg Fire
+          type: integer
+        dmg_earth:
+          description: '% Earth damage.'
+          title: Dmg Earth
+          type: integer
+        dmg_water:
+          description: '% Water damage.'
+          title: Dmg Water
+          type: integer
+        dmg_air:
+          description: '% Air damage.'
+          title: Dmg Air
+          type: integer
+        res_fire:
+          description: '% Fire resistance.'
+          title: Res Fire
+          type: integer
+        res_earth:
+          description: '% Earth resistance.'
+          title: Res Earth
+          type: integer
+        res_water:
+          description: '% Water resistance.'
+          title: Res Water
+          type: integer
+        res_air:
+          description: '% Air resistance.'
+          title: Res Air
+          type: integer
+        x:
+          description: Character x coordinate.
+          title: X
+          type: integer
+        "y":
+          description: Character y coordinate.
+          title: "Y"
+          type: integer
+        cooldown:
+          description: Cooldown in seconds.
+          title: Cooldown
+          type: integer
+        cooldown_expiration:
+          format: date-time
+          nullable: true
+          type: string
+        weapon_slot:
+          description: Weapon slot.
+          title: Weapon Slot
+          type: string
+        shield_slot:
+          description: Shield slot.
+          title: Shield Slot
+          type: string
+        helmet_slot:
+          description: Helmet slot.
+          title: Helmet Slot
+          type: string
+        body_armor_slot:
+          description: Body armor slot.
+          title: Body Armor Slot
+          type: string
+        leg_armor_slot:
+          description: Leg armor slot.
+          title: Leg Armor Slot
+          type: string
+        boots_slot:
+          description: Boots slot.
+          title: Boots Slot
+          type: string
+        ring1_slot:
+          description: Ring 1 slot.
+          title: Ring1 Slot
+          type: string
+        ring2_slot:
+          description: Ring 2 slot.
+          title: Ring2 Slot
+          type: string
+        amulet_slot:
+          description: Amulet slot.
+          title: Amulet Slot
+          type: string
+        artifact1_slot:
+          description: Artifact 1 slot.
+          title: Artifact1 Slot
+          type: string
+        artifact2_slot:
+          description: Artifact 2 slot.
+          title: Artifact2 Slot
+          type: string
+        artifact3_slot:
+          description: Artifact 3 slot.
+          title: Artifact3 Slot
+          type: string
+        consumable1_slot:
+          description: Consumable 1 slot.
+          title: Consumable1 Slot
+          type: string
+        consumable1_slot_quantity:
+          description: Consumable 1 quantity.
+          title: Consumable1 Slot Quantity
+          type: integer
+        consumable2_slot:
+          description: Consumable 2 slot.
+          title: Consumable2 Slot
+          type: string
+        consumable2_slot_quantity:
+          description: Consumable 2 quantity.
+          title: Consumable2 Slot Quantity
+          type: integer
+        inventory_slot1:
+          description: Inventory slot 1.
+          title: Inventory Slot1
+          type: string
+        inventory_slot1_quantity:
+          description: Inventory 1 quantity.
+          title: Inventory Slot1 Quantity
+          type: integer
+        inventory_slot2:
+          description: Inventory slot 2.
+          title: Inventory Slot2
+          type: string
+        inventory_slot2_quantity:
+          description: Inventory 2 quantity.
+          title: Inventory Slot2 Quantity
+          type: integer
+        inventory_slot3:
+          description: Inventory slot 3.
+          title: Inventory Slot3
+          type: string
+        inventory_slot3_quantity:
+          description: Inventory 3 quantity.
+          title: Inventory Slot3 Quantity
+          type: integer
+        inventory_slot4:
+          description: Inventory slot 4.
+          title: Inventory Slot4
+          type: string
+        inventory_slot4_quantity:
+          description: Inventory 4 quantity.
+          title: Inventory Slot4 Quantity
+          type: integer
+        inventory_slot5:
+          description: Inventory slot 5.
+          title: Inventory Slot5
+          type: string
+        inventory_slot5_quantity:
+          description: Inventory 5 quantity.
+          title: Inventory Slot5 Quantity
+          type: integer
+        inventory_slot6:
+          description: Inventory slot 6.
+          title: Inventory Slot6
+          type: string
+        inventory_slot6_quantity:
+          description: Inventory 6 quantity.
+          title: Inventory Slot6 Quantity
+          type: integer
+        inventory_slot7:
+          description: Inventory slot 7.
+          title: Inventory Slot7
+          type: string
+        inventory_slot7_quantity:
+          description: Inventory 7 quantity.
+          title: Inventory Slot7 Quantity
+          type: integer
+        inventory_slot8:
+          description: Inventory slot 8.
+          title: Inventory Slot8
+          type: string
+        inventory_slot8_quantity:
+          description: Inventory 8 quantity.
+          title: Inventory Slot8 Quantity
+          type: integer
+        inventory_slot9:
+          description: Inventory slot 9.
+          title: Inventory Slot9
+          type: string
+        inventory_slot9_quantity:
+          description: Inventory 9 quantity.
+          title: Inventory Slot9 Quantity
+          type: integer
+        inventory_slot10:
+          description: Inventory slot 10.
+          title: Inventory Slot10
+          type: string
+        inventory_slot10_quantity:
+          description: Inventory 10 quantity.
+          title: Inventory Slot10 Quantity
+          type: integer
+        inventory_slot11:
+          description: Inventory slot 11.
+          title: Inventory Slot11
+          type: string
+        inventory_slot11_quantity:
+          description: Inventory 11 quantity.
+          title: Inventory Slot11 Quantity
+          type: integer
+        inventory_slot12:
+          description: Inventory slot 12.
+          title: Inventory Slot12
+          type: string
+        inventory_slot12_quantity:
+          description: Inventory 12 quantity.
+          title: Inventory Slot12 Quantity
+          type: integer
+        inventory_slot13:
+          description: Inventory slot 13.
+          title: Inventory Slot13
+          type: string
+        inventory_slot13_quantity:
+          description: Inventory 13 quantity.
+          title: Inventory Slot13 Quantity
+          type: integer
+        inventory_slot14:
+          description: Inventory slot 14.
+          title: Inventory Slot14
+          type: string
+        inventory_slot14_quantity:
+          description: Inventory 14 quantity.
+          title: Inventory Slot14 Quantity
+          type: integer
+        inventory_slot15:
+          description: Inventory slot 15.
+          title: Inventory Slot15
+          type: string
+        inventory_slot15_quantity:
+          description: Inventory 15 quantity.
+          title: Inventory Slot15 Quantity
+          type: integer
+        inventory_slot16:
+          description: Inventory slot 16.
+          title: Inventory Slot16
+          type: string
+        inventory_slot16_quantity:
+          description: Inventory 16 quantity.
+          title: Inventory Slot16 Quantity
+          type: integer
+        inventory_slot17:
+          description: Inventory slot 17.
+          title: Inventory Slot17
+          type: string
+        inventory_slot17_quantity:
+          description: Inventory 17 quantity.
+          title: Inventory Slot17 Quantity
+          type: integer
+        inventory_slot18:
+          description: Inventory slot 18.
+          title: Inventory Slot18
+          type: string
+        inventory_slot18_quantity:
+          description: Inventory 18 quantity.
+          title: Inventory Slot18 Quantity
+          type: integer
+        inventory_slot19:
+          description: Inventory slot 19.
+          title: Inventory Slot19
+          type: string
+        inventory_slot19_quantity:
+          description: Inventory 19 quantity.
+          title: Inventory Slot19 Quantity
+          type: integer
+        inventory_slot20:
+          description: Inventory slot 20.
+          title: Inventory Slot20
+          type: string
+        inventory_slot20_quantity:
+          description: Inventory 20 quantity.
+          title: Inventory Slot20 Quantity
+          type: integer
+        inventory_max_items:
+          description: Inventory max items.
+          title: Inventory Max Items
+          type: integer
+        task:
+          description: Task in proggress.
+          title: Task
+          type: string
+        task_type:
+          description: Task type.
+          title: Task Type
+          type: string
+        task_progress:
+          description: Task progression.
+          title: Task Progress
+          type: integer
+        task_total:
+          description: Task total objective.
+          title: Task Total
+          type: integer
+      required:
+      - amulet_slot
+      - artifact1_slot
+      - artifact2_slot
+      - artifact3_slot
+      - attack_air
+      - attack_earth
+      - attack_fire
+      - attack_water
+      - body_armor_slot
+      - boots_slot
+      - consumable1_slot
+      - consumable1_slot_quantity
+      - consumable2_slot
+      - consumable2_slot_quantity
+      - cooking_level
+      - cooking_max_xp
+      - cooking_xp
+      - cooldown
+      - critical_strike
+      - dmg_air
+      - dmg_earth
+      - dmg_fire
+      - dmg_water
+      - fishing_level
+      - fishing_max_xp
+      - fishing_xp
+      - gearcrafting_level
+      - gearcrafting_max_xp
+      - gearcrafting_xp
+      - gold
+      - haste
+      - helmet_slot
+      - hp
+      - inventory_max_items
+      - inventory_slot1
+      - inventory_slot10
+      - inventory_slot10_quantity
+      - inventory_slot11
+      - inventory_slot11_quantity
+      - inventory_slot12
+      - inventory_slot12_quantity
+      - inventory_slot13
+      - inventory_slot13_quantity
+      - inventory_slot14
+      - inventory_slot14_quantity
+      - inventory_slot15
+      - inventory_slot15_quantity
+      - inventory_slot16
+      - inventory_slot16_quantity
+      - inventory_slot17
+      - inventory_slot17_quantity
+      - inventory_slot18
+      - inventory_slot18_quantity
+      - inventory_slot19
+      - inventory_slot19_quantity
+      - inventory_slot1_quantity
+      - inventory_slot2
+      - inventory_slot20
+      - inventory_slot20_quantity
+      - inventory_slot2_quantity
+      - inventory_slot3
+      - inventory_slot3_quantity
+      - inventory_slot4
+      - inventory_slot4_quantity
+      - inventory_slot5
+      - inventory_slot5_quantity
+      - inventory_slot6
+      - inventory_slot6_quantity
+      - inventory_slot7
+      - inventory_slot7_quantity
+      - inventory_slot8
+      - inventory_slot8_quantity
+      - inventory_slot9
+      - inventory_slot9_quantity
+      - jewelrycrafting_level
+      - jewelrycrafting_max_xp
+      - jewelrycrafting_xp
+      - leg_armor_slot
+      - level
+      - max_xp
+      - mining_level
+      - mining_max_xp
+      - mining_xp
+      - name
+      - res_air
+      - res_earth
+      - res_fire
+      - res_water
+      - ring1_slot
+      - ring2_slot
+      - shield_slot
+      - skin
+      - speed
+      - stamina
+      - task
+      - task_progress
+      - task_total
+      - task_type
+      - total_xp
+      - weapon_slot
+      - weaponcrafting_level
+      - weaponcrafting_max_xp
+      - weaponcrafting_xp
+      - woodcutting_level
+      - woodcutting_max_xp
+      - woodcutting_xp
+      - x
+      - xp
+      - "y"
+      title: CharacterSchema
+    CooldownSchema:
+      properties:
+        totalSeconds:
+          description: The total seconds of the cooldown.
+          title: Totalseconds
+          type: integer
+        remainingSeconds:
+          description: The remaning seconds of the cooldown.
+          title: Remainingseconds
+          type: integer
+        expiration:
+          description: The expiration of the cooldown.
+          format: date-time
+          title: Expiration
+          type: string
+        reason:
+          description: The reason of the cooldown.
+          enum:
+          - movement
+          - fight
+          - crafting
+          - gathering
+          - buy_ge
+          - sell_ge
+          - delete_item
+          - deposit_bank
+          - withdraw_bank
+          - equip
+          - unequip
+          - task
+          - recycling
+          title: Reason
+          type: string
+      required:
+      - expiration
+      - reason
+      - remainingSeconds
+      - totalSeconds
+      title: CooldownSchema
+    CraftSchema:
+      properties:
+        skill:
+          enum:
+          - weaponcrafting
+          - gearcrafting
+          - jewelrycrafting
+          - cooking
+          - woodcutting
+          - mining
+          nullable: true
+          type: string
+        level:
+          nullable: true
+          type: integer
+        items:
+          description: List of items required to craft the item.
+          items: {}
+          type: array
+        quantity:
+          nullable: true
+          type: integer
+      title: CraftSchema
+    CraftingSchema:
+      example:
+        code: code
+        quantity: 1
+      properties:
+        code:
+          description: Craft code.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Craft code
+          type: string
+        quantity:
+          default: 1
+          description: Quantity of items to craft.
+          minimum: 1.0
+          title: Quantity
+          type: integer
+      required:
+      - code
+      title: CraftingSchema
+    DataPage_ActionSchema_:
+      example:
+        total: 0
+        pages: 0
+        data:
+        - character: character
+          cooldown_expiration: 2000-01-23T04:56:07.000+00:00
+          cooldown: 0
+          description: description
+          created_at: 2000-01-23T04:56:07.000+00:00
+          type: type
+          account: account
+          content: ""
+        - character: character
+          cooldown_expiration: 2000-01-23T04:56:07.000+00:00
+          cooldown: 0
+          description: description
+          created_at: 2000-01-23T04:56:07.000+00:00
+          type: type
+          account: account
+          content: ""
+        size: 1
+        page: 1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/ActionSchema'
+          type: array
+        total:
+          minimum: 0.0
+          nullable: true
+          type: integer
+        page:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        size:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        pages:
+          minimum: 0.0
+          nullable: true
+          type: integer
+      required:
+      - data
+      - page
+      - size
+      - total
+      title: "DataPage[ActionSchema]"
+    DataPage_CharacterSchema_:
+      example:
+        total: 0
+        pages: 0
+        data:
+        - amulet_slot: amulet_slot
+          inventory_slot15_quantity: 4
+          hp: 6
+          inventory_slot2_quantity: 4
+          critical_strike: 2
+          inventory_slot8_quantity: 7
+          cooldown: 3
+          gearcrafting_level: 4
+          inventory_slot16_quantity: 6
+          inventory_slot3_quantity: 0
+          res_water: 4
+          attack_water: 6
+          artifact2_slot: artifact2_slot
+          inventory_slot9_quantity: 9
+          max_xp: 1
+          inventory_slot10_quantity: 0
+          task_total: 8
+          weaponcrafting_max_xp: 1
+          consumable1_slot: consumable1_slot
+          inventory_slot7_quantity: 4
+          skin: men1
+          helmet_slot: helmet_slot
+          res_air: 8
+          ring1_slot: ring1_slot
+          dmg_air: 7
+          gold: 5
+          inventory_slot11_quantity: 9
+          gearcrafting_max_xp: 9
+          woodcutting_level: 2
+          leg_armor_slot: leg_armor_slot
+          artifact3_slot: artifact3_slot
+          mining_level: 7
+          cooldown_expiration: 2000-01-23T04:56:07.000+00:00
+          woodcutting_xp: 4
+          haste: 1
+          inventory_slot20: inventory_slot20
+          inventory_slot11: inventory_slot11
+          task_progress: 1
+          inventory_slot10: inventory_slot10
+          inventory_slot13: inventory_slot13
+          inventory_slot12: inventory_slot12
+          inventory_slot15: inventory_slot15
+          inventory_slot14: inventory_slot14
+          inventory_slot13_quantity: 7
+          inventory_slot17: inventory_slot17
+          inventory_slot16: inventory_slot16
+          x: 7
+          inventory_slot19: inventory_slot19
+          "y": 3
+          inventory_slot18: inventory_slot18
+          task_type: task_type
+          res_earth: 0
+          attack_fire: 6
+          dmg_water: 0
+          inventory_slot18_quantity: 4
+          total_xp: 5
+          stamina: 6
+          mining_max_xp: 3
+          inventory_slot12_quantity: 0
+          mining_xp: 9
+          inventory_slot5_quantity: 4
+          body_armor_slot: body_armor_slot
+          fishing_xp: 1
+          shield_slot: shield_slot
+          level: 0
+          weaponcrafting_xp: 7
+          cooking_max_xp: 3
+          task: task
+          gearcrafting_xp: 5
+          res_fire: 6
+          name: name
+          jewelrycrafting_xp: 6
+          inventory_slot1_quantity: 3
+          attack_air: 3
+          artifact1_slot: artifact1_slot
+          inventory_slot4_quantity: 6
+          speed: 2
+          boots_slot: boots_slot
+          inventory_slot20_quantity: 0
+          inventory_slot17_quantity: 8
+          fishing_level: 1
+          jewelrycrafting_level: 9
+          inventory_slot14_quantity: 5
+          woodcutting_max_xp: 7
+          attack_earth: 5
+          jewelrycrafting_max_xp: 8
+          cooking_level: 9
+          dmg_earth: 7
+          consumable1_slot_quantity: 7
+          inventory_slot9: inventory_slot9
+          cooking_xp: 6
+          inventory_slot3: inventory_slot3
+          inventory_slot19_quantity: 3
+          inventory_slot4: inventory_slot4
+          inventory_slot1: inventory_slot1
+          inventory_slot2: inventory_slot2
+          consumable2_slot: consumable2_slot
+          inventory_slot7: inventory_slot7
+          inventory_slot8: inventory_slot8
+          inventory_slot5: inventory_slot5
+          inventory_slot6: inventory_slot6
+          ring2_slot: ring2_slot
+          weapon_slot: weapon_slot
+          inventory_max_items: 2
+          xp: 6
+          fishing_max_xp: 1
+          weaponcrafting_level: 6
+          inventory_slot6_quantity: 1
+          consumable2_slot_quantity: 5
+          dmg_fire: 3
+        - amulet_slot: amulet_slot
+          inventory_slot15_quantity: 4
+          hp: 6
+          inventory_slot2_quantity: 4
+          critical_strike: 2
+          inventory_slot8_quantity: 7
+          cooldown: 3
+          gearcrafting_level: 4
+          inventory_slot16_quantity: 6
+          inventory_slot3_quantity: 0
+          res_water: 4
+          attack_water: 6
+          artifact2_slot: artifact2_slot
+          inventory_slot9_quantity: 9
+          max_xp: 1
+          inventory_slot10_quantity: 0
+          task_total: 8
+          weaponcrafting_max_xp: 1
+          consumable1_slot: consumable1_slot
+          inventory_slot7_quantity: 4
+          skin: men1
+          helmet_slot: helmet_slot
+          res_air: 8
+          ring1_slot: ring1_slot
+          dmg_air: 7
+          gold: 5
+          inventory_slot11_quantity: 9
+          gearcrafting_max_xp: 9
+          woodcutting_level: 2
+          leg_armor_slot: leg_armor_slot
+          artifact3_slot: artifact3_slot
+          mining_level: 7
+          cooldown_expiration: 2000-01-23T04:56:07.000+00:00
+          woodcutting_xp: 4
+          haste: 1
+          inventory_slot20: inventory_slot20
+          inventory_slot11: inventory_slot11
+          task_progress: 1
+          inventory_slot10: inventory_slot10
+          inventory_slot13: inventory_slot13
+          inventory_slot12: inventory_slot12
+          inventory_slot15: inventory_slot15
+          inventory_slot14: inventory_slot14
+          inventory_slot13_quantity: 7
+          inventory_slot17: inventory_slot17
+          inventory_slot16: inventory_slot16
+          x: 7
+          inventory_slot19: inventory_slot19
+          "y": 3
+          inventory_slot18: inventory_slot18
+          task_type: task_type
+          res_earth: 0
+          attack_fire: 6
+          dmg_water: 0
+          inventory_slot18_quantity: 4
+          total_xp: 5
+          stamina: 6
+          mining_max_xp: 3
+          inventory_slot12_quantity: 0
+          mining_xp: 9
+          inventory_slot5_quantity: 4
+          body_armor_slot: body_armor_slot
+          fishing_xp: 1
+          shield_slot: shield_slot
+          level: 0
+          weaponcrafting_xp: 7
+          cooking_max_xp: 3
+          task: task
+          gearcrafting_xp: 5
+          res_fire: 6
+          name: name
+          jewelrycrafting_xp: 6
+          inventory_slot1_quantity: 3
+          attack_air: 3
+          artifact1_slot: artifact1_slot
+          inventory_slot4_quantity: 6
+          speed: 2
+          boots_slot: boots_slot
+          inventory_slot20_quantity: 0
+          inventory_slot17_quantity: 8
+          fishing_level: 1
+          jewelrycrafting_level: 9
+          inventory_slot14_quantity: 5
+          woodcutting_max_xp: 7
+          attack_earth: 5
+          jewelrycrafting_max_xp: 8
+          cooking_level: 9
+          dmg_earth: 7
+          consumable1_slot_quantity: 7
+          inventory_slot9: inventory_slot9
+          cooking_xp: 6
+          inventory_slot3: inventory_slot3
+          inventory_slot19_quantity: 3
+          inventory_slot4: inventory_slot4
+          inventory_slot1: inventory_slot1
+          inventory_slot2: inventory_slot2
+          consumable2_slot: consumable2_slot
+          inventory_slot7: inventory_slot7
+          inventory_slot8: inventory_slot8
+          inventory_slot5: inventory_slot5
+          inventory_slot6: inventory_slot6
+          ring2_slot: ring2_slot
+          weapon_slot: weapon_slot
+          inventory_max_items: 2
+          xp: 6
+          fishing_max_xp: 1
+          weaponcrafting_level: 6
+          inventory_slot6_quantity: 1
+          consumable2_slot_quantity: 5
+          dmg_fire: 3
+        size: 1
+        page: 1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/CharacterSchema'
+          type: array
+        total:
+          minimum: 0.0
+          nullable: true
+          type: integer
+        page:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        size:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        pages:
+          minimum: 0.0
+          nullable: true
+          type: integer
+      required:
+      - data
+      - page
+      - size
+      - total
+      title: "DataPage[CharacterSchema]"
+    DataPage_EventSchema_:
+      example:
+        total: 0
+        pages: 0
+        data:
+        - duration: 0
+          name: name
+          created_at: 2000-01-23T04:56:07.000+00:00
+          expiration: 2000-01-23T04:56:07.000+00:00
+          previous_skin: previous_skin
+          map: ""
+        - duration: 0
+          name: name
+          created_at: 2000-01-23T04:56:07.000+00:00
+          expiration: 2000-01-23T04:56:07.000+00:00
+          previous_skin: previous_skin
+          map: ""
+        size: 1
+        page: 1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/EventSchema'
+          type: array
+        total:
+          minimum: 0.0
+          nullable: true
+          type: integer
+        page:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        size:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        pages:
+          minimum: 0.0
+          nullable: true
+          type: integer
+      required:
+      - data
+      - page
+      - size
+      - total
+      title: "DataPage[EventSchema]"
+    DataPage_GEItemSchema_:
+      example:
+        total: 0
+        pages: 0
+        data:
+        - item: item
+          price: 6
+          stock: 0
+        - item: item
+          price: 6
+          stock: 0
+        size: 1
+        page: 1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/GEItemSchema'
+          type: array
+        total:
+          minimum: 0.0
+          nullable: true
+          type: integer
+        page:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        size:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        pages:
+          minimum: 0.0
+          nullable: true
+          type: integer
+      required:
+      - data
+      - page
+      - size
+      - total
+      title: "DataPage[GEItemSchema]"
+    DataPage_ItemSchema_:
+      example:
+        total: 0
+        pages: 0
+        data:
+        - effects:
+          - ""
+          - ""
+          code: code
+          level: 1
+          subtype: subtype
+          name: name
+          craft: ""
+          description: description
+          type: type
+        - effects:
+          - ""
+          - ""
+          code: code
+          level: 1
+          subtype: subtype
+          name: name
+          craft: ""
+          description: description
+          type: type
+        size: 1
+        page: 1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/ItemSchema'
+          type: array
+        total:
+          minimum: 0.0
+          nullable: true
+          type: integer
+        page:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        size:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        pages:
+          minimum: 0.0
+          nullable: true
+          type: integer
+      required:
+      - data
+      - page
+      - size
+      - total
+      title: "DataPage[ItemSchema]"
+    DataPage_MapSchema_:
+      example:
+        total: 0
+        pages: 0
+        data:
+        - name: name
+          skin: skin
+          x: 0
+          "y": 6
+          content: ""
+        - name: name
+          skin: skin
+          x: 0
+          "y": 6
+          content: ""
+        size: 1
+        page: 1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/MapSchema'
+          type: array
+        total:
+          minimum: 0.0
+          nullable: true
+          type: integer
+        page:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        size:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        pages:
+          minimum: 0.0
+          nullable: true
+          type: integer
+      required:
+      - data
+      - page
+      - size
+      - total
+      title: "DataPage[MapSchema]"
+    DataPage_MonsterSchema_:
+      example:
+        total: 0
+        pages: 0
+        data:
+        - attack_fire: 1
+          code: code
+          level: 0
+          hp: 6
+          attack_air: 2
+          res_air: 2
+          res_water: 3
+          attack_water: 5
+          golds: golds
+          drops:
+          - ""
+          - ""
+          res_fire: 7
+          name: name
+          attack_earth: 5
+          res_earth: 9
+        - attack_fire: 1
+          code: code
+          level: 0
+          hp: 6
+          attack_air: 2
+          res_air: 2
+          res_water: 3
+          attack_water: 5
+          golds: golds
+          drops:
+          - ""
+          - ""
+          res_fire: 7
+          name: name
+          attack_earth: 5
+          res_earth: 9
+        size: 1
+        page: 1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/MonsterSchema'
+          type: array
+        total:
+          minimum: 0.0
+          nullable: true
+          type: integer
+        page:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        size:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        pages:
+          minimum: 0.0
+          nullable: true
+          type: integer
+      required:
+      - data
+      - page
+      - size
+      - total
+      title: "DataPage[MonsterSchema]"
+    DataPage_MyCharacterSchema_:
+      example:
+        total: 0
+        pages: 0
+        data:
+        - amulet_slot: amulet_slot
+          inventory_slot15_quantity: 4
+          hp: 6
+          inventory_slot2_quantity: 4
+          critical_strike: 2
+          inventory_slot8_quantity: 7
+          cooldown: 3
+          gearcrafting_level: 4
+          inventory_slot16_quantity: 6
+          inventory_slot3_quantity: 0
+          res_water: 4
+          attack_water: 6
+          artifact2_slot: artifact2_slot
+          inventory_slot9_quantity: 9
+          max_xp: 1
+          inventory_slot10_quantity: 0
+          task_total: 8
+          weaponcrafting_max_xp: 1
+          consumable1_slot: consumable1_slot
+          inventory_slot7_quantity: 4
+          skin: men1
+          helmet_slot: helmet_slot
+          res_air: 8
+          ring1_slot: ring1_slot
+          dmg_air: 7
+          gold: 5
+          inventory_slot11_quantity: 9
+          gearcrafting_max_xp: 9
+          woodcutting_level: 2
+          leg_armor_slot: leg_armor_slot
+          artifact3_slot: artifact3_slot
+          mining_level: 7
+          cooldown_expiration: 2000-01-23T04:56:07.000+00:00
+          woodcutting_xp: 4
+          haste: 1
+          inventory_slot20: inventory_slot20
+          inventory_slot11: inventory_slot11
+          task_progress: 1
+          inventory_slot10: inventory_slot10
+          inventory_slot13: inventory_slot13
+          inventory_slot12: inventory_slot12
+          inventory_slot15: inventory_slot15
+          inventory_slot14: inventory_slot14
+          inventory_slot13_quantity: 7
+          inventory_slot17: inventory_slot17
+          inventory_slot16: inventory_slot16
+          x: 7
+          inventory_slot19: inventory_slot19
+          "y": 3
+          inventory_slot18: inventory_slot18
+          task_type: task_type
+          res_earth: 0
+          attack_fire: 6
+          dmg_water: 0
+          inventory_slot18_quantity: 4
+          total_xp: 5
+          stamina: 6
+          mining_max_xp: 3
+          inventory_slot12_quantity: 0
+          mining_xp: 9
+          inventory_slot5_quantity: 4
+          body_armor_slot: body_armor_slot
+          fishing_xp: 1
+          shield_slot: shield_slot
+          level: 0
+          weaponcrafting_xp: 7
+          cooking_max_xp: 3
+          task: task
+          gearcrafting_xp: 5
+          res_fire: 6
+          name: name
+          jewelrycrafting_xp: 6
+          inventory_slot1_quantity: 3
+          attack_air: 3
+          artifact1_slot: artifact1_slot
+          inventory_slot4_quantity: 6
+          speed: 2
+          boots_slot: boots_slot
+          inventory_slot20_quantity: 0
+          inventory_slot17_quantity: 8
+          fishing_level: 1
+          jewelrycrafting_level: 9
+          inventory_slot14_quantity: 5
+          woodcutting_max_xp: 7
+          attack_earth: 5
+          jewelrycrafting_max_xp: 8
+          cooking_level: 9
+          dmg_earth: 7
+          consumable1_slot_quantity: 7
+          inventory_slot9: inventory_slot9
+          cooking_xp: 6
+          inventory_slot3: inventory_slot3
+          inventory_slot19_quantity: 3
+          inventory_slot4: inventory_slot4
+          inventory_slot1: inventory_slot1
+          inventory_slot2: inventory_slot2
+          consumable2_slot: consumable2_slot
+          inventory_slot7: inventory_slot7
+          inventory_slot8: inventory_slot8
+          inventory_slot5: inventory_slot5
+          inventory_slot6: inventory_slot6
+          ring2_slot: ring2_slot
+          weapon_slot: weapon_slot
+          inventory_max_items: 2
+          xp: 6
+          fishing_max_xp: 1
+          weaponcrafting_level: 6
+          inventory_slot6_quantity: 1
+          consumable2_slot_quantity: 5
+          dmg_fire: 3
+          account: account
+        - amulet_slot: amulet_slot
+          inventory_slot15_quantity: 4
+          hp: 6
+          inventory_slot2_quantity: 4
+          critical_strike: 2
+          inventory_slot8_quantity: 7
+          cooldown: 3
+          gearcrafting_level: 4
+          inventory_slot16_quantity: 6
+          inventory_slot3_quantity: 0
+          res_water: 4
+          attack_water: 6
+          artifact2_slot: artifact2_slot
+          inventory_slot9_quantity: 9
+          max_xp: 1
+          inventory_slot10_quantity: 0
+          task_total: 8
+          weaponcrafting_max_xp: 1
+          consumable1_slot: consumable1_slot
+          inventory_slot7_quantity: 4
+          skin: men1
+          helmet_slot: helmet_slot
+          res_air: 8
+          ring1_slot: ring1_slot
+          dmg_air: 7
+          gold: 5
+          inventory_slot11_quantity: 9
+          gearcrafting_max_xp: 9
+          woodcutting_level: 2
+          leg_armor_slot: leg_armor_slot
+          artifact3_slot: artifact3_slot
+          mining_level: 7
+          cooldown_expiration: 2000-01-23T04:56:07.000+00:00
+          woodcutting_xp: 4
+          haste: 1
+          inventory_slot20: inventory_slot20
+          inventory_slot11: inventory_slot11
+          task_progress: 1
+          inventory_slot10: inventory_slot10
+          inventory_slot13: inventory_slot13
+          inventory_slot12: inventory_slot12
+          inventory_slot15: inventory_slot15
+          inventory_slot14: inventory_slot14
+          inventory_slot13_quantity: 7
+          inventory_slot17: inventory_slot17
+          inventory_slot16: inventory_slot16
+          x: 7
+          inventory_slot19: inventory_slot19
+          "y": 3
+          inventory_slot18: inventory_slot18
+          task_type: task_type
+          res_earth: 0
+          attack_fire: 6
+          dmg_water: 0
+          inventory_slot18_quantity: 4
+          total_xp: 5
+          stamina: 6
+          mining_max_xp: 3
+          inventory_slot12_quantity: 0
+          mining_xp: 9
+          inventory_slot5_quantity: 4
+          body_armor_slot: body_armor_slot
+          fishing_xp: 1
+          shield_slot: shield_slot
+          level: 0
+          weaponcrafting_xp: 7
+          cooking_max_xp: 3
+          task: task
+          gearcrafting_xp: 5
+          res_fire: 6
+          name: name
+          jewelrycrafting_xp: 6
+          inventory_slot1_quantity: 3
+          attack_air: 3
+          artifact1_slot: artifact1_slot
+          inventory_slot4_quantity: 6
+          speed: 2
+          boots_slot: boots_slot
+          inventory_slot20_quantity: 0
+          inventory_slot17_quantity: 8
+          fishing_level: 1
+          jewelrycrafting_level: 9
+          inventory_slot14_quantity: 5
+          woodcutting_max_xp: 7
+          attack_earth: 5
+          jewelrycrafting_max_xp: 8
+          cooking_level: 9
+          dmg_earth: 7
+          consumable1_slot_quantity: 7
+          inventory_slot9: inventory_slot9
+          cooking_xp: 6
+          inventory_slot3: inventory_slot3
+          inventory_slot19_quantity: 3
+          inventory_slot4: inventory_slot4
+          inventory_slot1: inventory_slot1
+          inventory_slot2: inventory_slot2
+          consumable2_slot: consumable2_slot
+          inventory_slot7: inventory_slot7
+          inventory_slot8: inventory_slot8
+          inventory_slot5: inventory_slot5
+          inventory_slot6: inventory_slot6
+          ring2_slot: ring2_slot
+          weapon_slot: weapon_slot
+          inventory_max_items: 2
+          xp: 6
+          fishing_max_xp: 1
+          weaponcrafting_level: 6
+          inventory_slot6_quantity: 1
+          consumable2_slot_quantity: 5
+          dmg_fire: 3
+          account: account
+        size: 1
+        page: 1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/MyCharacterSchema'
+          type: array
+        total:
+          minimum: 0.0
+          nullable: true
+          type: integer
+        page:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        size:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        pages:
+          minimum: 0.0
+          nullable: true
+          type: integer
+      required:
+      - data
+      - page
+      - size
+      - total
+      title: "DataPage[MyCharacterSchema]"
+    DataPage_ResourceSchema_:
+      example:
+        total: 0
+        pages: 0
+        data:
+        - drops:
+          - ""
+          - ""
+          code: code
+          level: 0
+          skill: mining
+          name: name
+        - drops:
+          - ""
+          - ""
+          code: code
+          level: 0
+          skill: mining
+          name: name
+        size: 1
+        page: 1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/ResourceSchema'
+          type: array
+        total:
+          minimum: 0.0
+          nullable: true
+          type: integer
+        page:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        size:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        pages:
+          minimum: 0.0
+          nullable: true
+          type: integer
+      required:
+      - data
+      - page
+      - size
+      - total
+      title: "DataPage[ResourceSchema]"
+    DataPage_SimpleItemSchema_:
+      example:
+        total: 0
+        pages: 0
+        data:
+        - code: code
+          quantity: 1
+        - code: code
+          quantity: 1
+        size: 1
+        page: 1
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/SimpleItemSchema'
+          type: array
+        total:
+          minimum: 0.0
+          nullable: true
+          type: integer
+        page:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        size:
+          minimum: 1.0
+          nullable: true
+          type: integer
+        pages:
+          minimum: 0.0
+          nullable: true
+          type: integer
+      required:
+      - data
+      - page
+      - size
+      - total
+      title: "DataPage[SimpleItemSchema]"
+    DeleteItemResponseSchema:
+      example:
+        data:
+          item: ""
+          character: ""
+          cooldown: ""
+      properties:
+        data:
+          $ref: '#/components/schemas/DeleteItemSchema'
+      required:
+      - data
+      title: DeleteItemResponseSchema
+    DeleteItemSchema:
+      example:
+        item: ""
+        character: ""
+        cooldown: ""
+      properties:
+        cooldown:
+          allOf:
+          - $ref: '#/components/schemas/CooldownSchema'
+          description: Cooldown details.
+        item:
+          allOf:
+          - $ref: '#/components/schemas/SimpleItemSchema'
+          description: Item details.
+        character:
+          allOf:
+          - $ref: '#/components/schemas/CharacterSchema'
+          description: Player details.
+      required:
+      - character
+      - cooldown
+      - item
+      title: DeleteItemSchema
+    DepositWithdrawGoldSchema:
+      example:
+        quantity: 1
+      properties:
+        quantity:
+          description: Quantity of gold.
+          minimum: 1.0
+          title: Quantity
+          type: integer
+      required:
+      - quantity
+      title: DepositWithdrawGoldSchema
+    DestinationResponseSchema:
+      properties:
+        name:
+          description: The name of the destination.
+          title: Name
+          type: string
+        x:
+          description: The x coordinate of the destination.
+          title: X
+          type: integer
+        "y":
+          description: The y coordinate of the destination.
+          title: "Y"
+          type: integer
+        content: {}
+      required:
+      - content
+      - name
+      - x
+      - "y"
+      title: DestinationResponseSchema
+    DestinationSchema:
+      example:
+        x: 0
+        "y": 6
+      properties:
+        x:
+          description: The x coordinate of the destination.
+          title: X
+          type: integer
+        "y":
+          description: The y coordinate of the destination.
+          title: "Y"
+          type: integer
+      required:
+      - x
+      - "y"
+      title: DestinationSchema
+    DropSchema:
+      properties:
+        code:
+          description: The code of the item.
+          title: Code
+          type: string
+        quantity:
+          description: The quantity of the item.
+          title: Quantity
+          type: integer
+      required:
+      - code
+      - quantity
+      title: DropSchema
+    EquipRequestSchema:
+      example:
+        item: ""
+        character: ""
+        cooldown: ""
+        slot: weapon
+      properties:
+        cooldown:
+          allOf:
+          - $ref: '#/components/schemas/CooldownSchema'
+          description: Cooldown details.
+        slot:
+          description: Item slot.
+          enum:
+          - weapon
+          - shield
+          - helmet
+          - body_armor
+          - leg_armor
+          - boots
+          - ring1
+          - ring2
+          - amulet
+          - artifact1
+          - artifact2
+          - artifact3
+          - consumable1
+          - consumable2
+          title: Slot
+          type: string
+        item:
+          allOf:
+          - $ref: '#/components/schemas/ItemSchema'
+          description: Item details.
+        character:
+          allOf:
+          - $ref: '#/components/schemas/CharacterSchema'
+          description: Player details.
+      required:
+      - character
+      - cooldown
+      - item
+      - slot
+      title: EquipRequestSchema
+    EquipSchema:
+      example:
+        code: code
+        slot: weapon
+      properties:
+        code:
+          description: Item code.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Code
+          type: string
+        slot:
+          description: Item slot.
+          enum:
+          - weapon
+          - shield
+          - helmet
+          - body_armor
+          - leg_armor
+          - boots
+          - ring1
+          - ring2
+          - amulet
+          - artifact
+          - artifact2
+          - artifact3
+          - consumable1
+          - consumable2
+          title: Slot
+          type: string
+      required:
+      - code
+      - slot
+      title: EquipSchema
+    EquipmentResponseSchema:
+      example:
+        data:
+          item: ""
+          character: ""
+          cooldown: ""
+          slot: weapon
+      properties:
+        data:
+          $ref: '#/components/schemas/EquipRequestSchema'
+      required:
+      - data
+      title: EquipmentResponseSchema
+    EventSchema:
+      example:
+        duration: 0
+        name: name
+        created_at: 2000-01-23T04:56:07.000+00:00
+        expiration: 2000-01-23T04:56:07.000+00:00
+        previous_skin: previous_skin
+        map: ""
+      properties:
+        name:
+          description: Name of the event.
+          title: Name
+          type: string
+        map:
+          allOf:
+          - $ref: '#/components/schemas/MapSchema'
+          description: Map of the event.
+        previous_skin:
+          description: Previous map skin.
+          title: Previous Skin
+          type: string
+        duration:
+          description: Duration in minutes.
+          title: Duration
+          type: integer
+        expiration:
+          description: Expiration datetime.
+          format: date-time
+          title: Expiration
+          type: string
+        created_at:
+          description: Start datetime.
+          format: date-time
+          title: Created At
+          type: string
+      required:
+      - created_at
+      - duration
+      - expiration
+      - map
+      - name
+      - previous_skin
+      title: EventSchema
+    FightSchema:
+      properties:
+        xp:
+          description: The amount of xp gained by the fight.
+          title: Xp
+          type: integer
+        gold:
+          description: The amount of gold gained by the fight.
+          title: Gold
+          type: integer
+        drops:
+          description: The items dropped by the fight.
+          items:
+            $ref: '#/components/schemas/DropSchema'
+          type: array
+        turns:
+          description: Numbers of the turns of the combat.
+          title: Turns
+          type: integer
+        monster_blocked_hits:
+          allOf:
+          - $ref: '#/components/schemas/BlockedHitsSchema'
+          description: The amount of blocked hits by the monster.
+        player_blocked_hits:
+          allOf:
+          - $ref: '#/components/schemas/BlockedHitsSchema'
+          description: The amount of blocked hits by the player.
+        logs:
+          description: The fight logs.
+          items:
+            type: string
+          type: array
+        result:
+          description: The result of the fight.
+          enum:
+          - win
+          - lose
+          title: Result
+          type: string
+      required:
+      - drops
+      - gold
+      - logs
+      - monster_blocked_hits
+      - player_blocked_hits
+      - result
+      - turns
+      - xp
+      title: FightSchema
+    GEItemResponseSchema:
+      example:
+        data:
+          item: item
+          price: 6
+          stock: 0
+      properties:
+        data:
+          $ref: '#/components/schemas/GEItemSchema'
+      required:
+      - data
+      title: GEItemResponseSchema
+    GEItemSchema:
+      example:
+        item: item
+        price: 6
+        stock: 0
+      properties:
+        item:
+          description: Item code.
+          title: Item
+          type: string
+        stock:
+          description: Item stock.
+          title: Stock
+          type: integer
+        price:
+          description: Item value.
+          title: Price
+          type: integer
+      required:
+      - item
+      - price
+      - stock
+      title: GEItemSchema
+    GETransactionItemSchema:
+      example:
+        code: code
+        quantity: 4
+        price: 1
+      properties:
+        code:
+          description: Item code.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Code
+          type: string
+        quantity:
+          description: Item quantity.
+          maximum: 50.0
+          minimum: 1.0
+          title: Quantity
+          type: integer
+        price:
+          description: Item price. Item price validation protects you if the price
+            has changed since you last checked the buy/sale price of an item.
+          minimum: 1.0
+          title: Price
+          type: integer
+      required:
+      - code
+      - price
+      - quantity
+      title: GETransactionItemSchema
+    GETransactionListSchema:
+      example:
+        character: ""
+        cooldown: ""
+        transaction: ""
+      properties:
+        cooldown:
+          allOf:
+          - $ref: '#/components/schemas/CooldownSchema'
+          description: Cooldown details.
+        transaction:
+          allOf:
+          - $ref: '#/components/schemas/GETransactionSchema'
+          description: Transaction details.
+        character:
+          allOf:
+          - $ref: '#/components/schemas/CharacterSchema'
+          description: Character details.
+      required:
+      - character
+      - cooldown
+      - transaction
+      title: GETransactionListSchema
+    GETransactionResponseSchema:
+      example:
+        data:
+          character: ""
+          cooldown: ""
+          transaction: ""
+      properties:
+        data:
+          $ref: '#/components/schemas/GETransactionListSchema'
+      required:
+      - data
+      title: GETransactionResponseSchema
+    GETransactionSchema:
+      properties:
+        item:
+          description: Item code.
+          title: Item
+          type: string
+        quantity:
+          description: Item quantity.
+          title: Quantity
+          type: integer
+        price:
+          description: Item price.
+          title: Price
+          type: integer
+        total_price:
+          description: Total price of the transaction.
+          title: Total Price
+          type: integer
+      required:
+      - item
+      - price
+      - quantity
+      - total_price
+      title: GETransactionSchema
+    GoldBankResponseSchema:
+      example:
+        data:
+          quantity: 0
+      properties:
+        data:
+          $ref: '#/components/schemas/GoldSchema'
+      required:
+      - data
+      title: GoldBankResponseSchema
+    GoldResponseSchema:
+      example:
+        data:
+          bank: ""
+          character: ""
+          cooldown: ""
+      properties:
+        data:
+          $ref: '#/components/schemas/GoldTransactionSchema'
+      required:
+      - data
+      title: GoldResponseSchema
+    GoldSchema:
+      example:
+        quantity: 0
+      properties:
+        quantity:
+          description: Quantity of gold.
+          minimum: 0.0
+          title: Quantity
+          type: integer
+      required:
+      - quantity
+      title: GoldSchema
+    GoldTransactionSchema:
+      example:
+        bank: ""
+        character: ""
+        cooldown: ""
+      properties:
+        cooldown:
+          allOf:
+          - $ref: '#/components/schemas/CooldownSchema'
+          description: Cooldown details.
+        bank:
+          allOf:
+          - $ref: '#/components/schemas/GoldSchema'
+          description: Bank details.
+        character:
+          allOf:
+          - $ref: '#/components/schemas/CharacterSchema'
+          description: Player details.
+      required:
+      - bank
+      - character
+      - cooldown
+      title: GoldTransactionSchema
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+      title: HTTPValidationError
+    ItemResponseSchema:
+      example:
+        data:
+          item: ""
+          ge:
+            item: item
+            price: 6
+            stock: 0
+      properties:
+        data:
+          $ref: '#/components/schemas/SingleItemSchema'
+      required:
+      - data
+      title: ItemResponseSchema
+    ItemSchema:
+      example:
+        effects:
+        - ""
+        - ""
+        code: code
+        level: 1
+        subtype: subtype
+        name: name
+        craft: ""
+        description: description
+        type: type
+      properties:
+        name:
+          description: Item name.
+          title: Name
+          type: string
+        code:
+          description: Item code. This is the item's unique identifier (ID).
+          title: Code
+          type: string
+        level:
+          description: Item level.
+          minimum: 1.0
+          title: Level
+          type: integer
+        type:
+          description: Item type.
+          title: Type
+          type: string
+        subtype:
+          description: Item subtype.
+          title: Subtype
+          type: string
+        description:
+          description: Item description.
+          title: Description
+          type: string
+        effects:
+          description: "List of object effects. For equipment, it will include item\
+            \ stats."
+          items: {}
+          type: array
+        craft:
+          allOf:
+          - $ref: '#/components/schemas/CraftSchema'
+          description: Craft information. If applicable.
+      required:
+      - code
+      - description
+      - level
+      - name
+      - subtype
+      - type
+      title: ItemSchema
+    MapResponseSchema:
+      example:
+        data:
+          name: name
+          skin: skin
+          x: 0
+          "y": 6
+          content: ""
+      properties:
+        data:
+          $ref: '#/components/schemas/MapSchema'
+      required:
+      - data
+      title: MapResponseSchema
+    MapSchema:
+      example:
+        name: name
+        skin: skin
+        x: 0
+        "y": 6
+        content: ""
+      properties:
+        name:
+          description: Name of the map.
+          title: Name
+          type: string
+        skin:
+          description: Skin of the map.
+          title: Skin
+          type: string
+        x:
+          description: Position X of the map.
+          title: X
+          type: integer
+        "y":
+          description: Position Y of the map.
+          title: "Y"
+          type: integer
+        content: {}
+      required:
+      - content
+      - name
+      - skin
+      - x
+      - "y"
+      title: MapSchema
+    MonsterResponseSchema:
+      example:
+        data:
+          attack_fire: 1
+          code: code
+          level: 0
+          hp: 6
+          attack_air: 2
+          res_air: 2
+          res_water: 3
+          attack_water: 5
+          golds: golds
+          drops:
+          - ""
+          - ""
+          res_fire: 7
+          name: name
+          attack_earth: 5
+          res_earth: 9
+      properties:
+        data:
+          $ref: '#/components/schemas/MonsterSchema'
+      required:
+      - data
+      title: MonsterResponseSchema
+    MonsterSchema:
+      example:
+        attack_fire: 1
+        code: code
+        level: 0
+        hp: 6
+        attack_air: 2
+        res_air: 2
+        res_water: 3
+        attack_water: 5
+        golds: golds
+        drops:
+        - ""
+        - ""
+        res_fire: 7
+        name: name
+        attack_earth: 5
+        res_earth: 9
+      properties:
+        name:
+          description: Name of the monster.
+          title: Name
+          type: string
+        code:
+          description: The code of the monster. This is the monster's unique identifier
+            (ID).
+          title: Code
+          type: string
+        level:
+          description: Monster level.
+          title: Level
+          type: integer
+        hp:
+          description: Monster hit points.
+          title: Hp
+          type: integer
+        attack_fire:
+          description: Monster fire attack.
+          title: Attack Fire
+          type: integer
+        attack_earth:
+          description: Monster earth attack.
+          title: Attack Earth
+          type: integer
+        attack_water:
+          description: Monster water attack.
+          title: Attack Water
+          type: integer
+        attack_air:
+          description: Monster air attack.
+          title: Attack Air
+          type: integer
+        res_fire:
+          description: Monster % fire resistance.
+          title: Res Fire
+          type: integer
+        res_earth:
+          description: Monster % earth resistance.
+          title: Res Earth
+          type: integer
+        res_water:
+          description: Monster % water resistance.
+          title: Res Water
+          type: integer
+        res_air:
+          description: Monster % air resistance.
+          title: Res Air
+          type: integer
+        golds:
+          description: "Monster golds drop. This is a minimum-maximum range (example:\
+            \ 0-5, the player drops between 0 and 5 golds after killing the monster.). "
+          title: Golds
+          type: string
+        drops:
+          description: 'Monster drops. This is a list of items that the monster drops
+            after killing the monster. '
+          items: {}
+          type: array
+      required:
+      - attack_air
+      - attack_earth
+      - attack_fire
+      - attack_water
+      - code
+      - drops
+      - golds
+      - hp
+      - level
+      - name
+      - res_air
+      - res_earth
+      - res_fire
+      - res_water
+      title: MonsterSchema
+    MyCharacterSchema:
+      example:
+        amulet_slot: amulet_slot
+        inventory_slot15_quantity: 4
+        hp: 6
+        inventory_slot2_quantity: 4
+        critical_strike: 2
+        inventory_slot8_quantity: 7
+        cooldown: 3
+        gearcrafting_level: 4
+        inventory_slot16_quantity: 6
+        inventory_slot3_quantity: 0
+        res_water: 4
+        attack_water: 6
+        artifact2_slot: artifact2_slot
+        inventory_slot9_quantity: 9
+        max_xp: 1
+        inventory_slot10_quantity: 0
+        task_total: 8
+        weaponcrafting_max_xp: 1
+        consumable1_slot: consumable1_slot
+        inventory_slot7_quantity: 4
+        skin: men1
+        helmet_slot: helmet_slot
+        res_air: 8
+        ring1_slot: ring1_slot
+        dmg_air: 7
+        gold: 5
+        inventory_slot11_quantity: 9
+        gearcrafting_max_xp: 9
+        woodcutting_level: 2
+        leg_armor_slot: leg_armor_slot
+        artifact3_slot: artifact3_slot
+        mining_level: 7
+        cooldown_expiration: 2000-01-23T04:56:07.000+00:00
+        woodcutting_xp: 4
+        haste: 1
+        inventory_slot20: inventory_slot20
+        inventory_slot11: inventory_slot11
+        task_progress: 1
+        inventory_slot10: inventory_slot10
+        inventory_slot13: inventory_slot13
+        inventory_slot12: inventory_slot12
+        inventory_slot15: inventory_slot15
+        inventory_slot14: inventory_slot14
+        inventory_slot13_quantity: 7
+        inventory_slot17: inventory_slot17
+        inventory_slot16: inventory_slot16
+        x: 7
+        inventory_slot19: inventory_slot19
+        "y": 3
+        inventory_slot18: inventory_slot18
+        task_type: task_type
+        res_earth: 0
+        attack_fire: 6
+        dmg_water: 0
+        inventory_slot18_quantity: 4
+        total_xp: 5
+        stamina: 6
+        mining_max_xp: 3
+        inventory_slot12_quantity: 0
+        mining_xp: 9
+        inventory_slot5_quantity: 4
+        body_armor_slot: body_armor_slot
+        fishing_xp: 1
+        shield_slot: shield_slot
+        level: 0
+        weaponcrafting_xp: 7
+        cooking_max_xp: 3
+        task: task
+        gearcrafting_xp: 5
+        res_fire: 6
+        name: name
+        jewelrycrafting_xp: 6
+        inventory_slot1_quantity: 3
+        attack_air: 3
+        artifact1_slot: artifact1_slot
+        inventory_slot4_quantity: 6
+        speed: 2
+        boots_slot: boots_slot
+        inventory_slot20_quantity: 0
+        inventory_slot17_quantity: 8
+        fishing_level: 1
+        jewelrycrafting_level: 9
+        inventory_slot14_quantity: 5
+        woodcutting_max_xp: 7
+        attack_earth: 5
+        jewelrycrafting_max_xp: 8
+        cooking_level: 9
+        dmg_earth: 7
+        consumable1_slot_quantity: 7
+        inventory_slot9: inventory_slot9
+        cooking_xp: 6
+        inventory_slot3: inventory_slot3
+        inventory_slot19_quantity: 3
+        inventory_slot4: inventory_slot4
+        inventory_slot1: inventory_slot1
+        inventory_slot2: inventory_slot2
+        consumable2_slot: consumable2_slot
+        inventory_slot7: inventory_slot7
+        inventory_slot8: inventory_slot8
+        inventory_slot5: inventory_slot5
+        inventory_slot6: inventory_slot6
+        ring2_slot: ring2_slot
+        weapon_slot: weapon_slot
+        inventory_max_items: 2
+        xp: 6
+        fishing_max_xp: 1
+        weaponcrafting_level: 6
+        inventory_slot6_quantity: 1
+        consumable2_slot_quantity: 5
+        dmg_fire: 3
+        account: account
+      properties:
+        name:
+          description: Name of the character.
+          title: Name
+          type: string
+        skin:
+          description: Character skin code.
+          enum:
+          - men1
+          - men2
+          - men3
+          - women1
+          - women2
+          - women3
+          title: Skin
+          type: string
+        level:
+          description: Combat level.
+          title: Level
+          type: integer
+        xp:
+          description: The current xp level of the combat level.
+          title: Xp
+          type: integer
+        max_xp:
+          description: XP required to level up the character.
+          title: Max Xp
+          type: integer
+        total_xp:
+          description: Total XP of your character.
+          title: Total Xp
+          type: integer
+        gold:
+          description: The numbers of golds on this character.
+          title: Gold
+          type: integer
+        speed:
+          description: "*Not available, on the roadmap. Character movement speed."
+          title: Speed
+          type: integer
+        mining_level:
+          description: Mining level.
+          title: Mining Level
+          type: integer
+        mining_xp:
+          description: The current xp level of the Mining skill.
+          title: Mining Xp
+          type: integer
+        mining_max_xp:
+          description: Mining XP required to level up the skill.
+          title: Mining Max Xp
+          type: integer
+        woodcutting_level:
+          description: Woodcutting level.
+          title: Woodcutting Level
+          type: integer
+        woodcutting_xp:
+          description: The current xp level of the Woodcutting skill.
+          title: Woodcutting Xp
+          type: integer
+        woodcutting_max_xp:
+          description: Woodcutting XP required to level up the skill.
+          title: Woodcutting Max Xp
+          type: integer
+        fishing_level:
+          description: Fishing level.
+          title: Fishing Level
+          type: integer
+        fishing_xp:
+          description: The current xp level of the Fishing skill.
+          title: Fishing Xp
+          type: integer
+        fishing_max_xp:
+          description: Fishing XP required to level up the skill.
+          title: Fishing Max Xp
+          type: integer
+        weaponcrafting_level:
+          description: Weaponcrafting level.
+          title: Weaponcrafting Level
+          type: integer
+        weaponcrafting_xp:
+          description: The current xp level of the Weaponcrafting skill.
+          title: Weaponcrafting Xp
+          type: integer
+        weaponcrafting_max_xp:
+          description: Weaponcrafting XP required to level up the skill.
+          title: Weaponcrafting Max Xp
+          type: integer
+        gearcrafting_level:
+          description: Gearcrafting level.
+          title: Gearcrafting Level
+          type: integer
+        gearcrafting_xp:
+          description: The current xp level of the Gearcrafting skill.
+          title: Gearcrafting Xp
+          type: integer
+        gearcrafting_max_xp:
+          description: Gearcrafting XP required to level up the skill.
+          title: Gearcrafting Max Xp
+          type: integer
+        jewelrycrafting_level:
+          description: Jewelrycrafting level.
+          title: Jewelrycrafting Level
+          type: integer
+        jewelrycrafting_xp:
+          description: The current xp level of the Jewelrycrafting skill.
+          title: Jewelrycrafting Xp
+          type: integer
+        jewelrycrafting_max_xp:
+          description: Jewelrycrafting XP required to level up the skill.
+          title: Jewelrycrafting Max Xp
+          type: integer
+        cooking_level:
+          description: The current xp level of the Cooking skill.
+          title: Cooking Level
+          type: integer
+        cooking_xp:
+          description: Cooking XP.
+          title: Cooking Xp
+          type: integer
+        cooking_max_xp:
+          description: Cooking XP required to level up the skill.
+          title: Cooking Max Xp
+          type: integer
+        hp:
+          description: Character HP.
+          title: Hp
+          type: integer
+        haste:
+          description: '*Character Haste. Increase speed attack (reduce fight cooldown)'
+          title: Haste
+          type: integer
+        critical_strike:
+          description: "*Not available, on the roadmap. Character Cricial Strike.\
+            \ Critical strikes increase the attack's damage."
+          title: Critical Strike
+          type: integer
+        stamina:
+          description: "*Not available, on the roadmap. Regenerates life at the start\
+            \ of each turn."
+          title: Stamina
+          type: integer
+        attack_fire:
+          description: Fire attack.
+          title: Attack Fire
+          type: integer
+        attack_earth:
+          description: Earth attack.
+          title: Attack Earth
+          type: integer
+        attack_water:
+          description: Water attack.
+          title: Attack Water
+          type: integer
+        attack_air:
+          description: Air attack.
+          title: Attack Air
+          type: integer
+        dmg_fire:
+          description: '% Fire damage.'
+          title: Dmg Fire
+          type: integer
+        dmg_earth:
+          description: '% Earth damage.'
+          title: Dmg Earth
+          type: integer
+        dmg_water:
+          description: '% Water damage.'
+          title: Dmg Water
+          type: integer
+        dmg_air:
+          description: '% Air damage.'
+          title: Dmg Air
+          type: integer
+        res_fire:
+          description: '% Fire resistance.'
+          title: Res Fire
+          type: integer
+        res_earth:
+          description: '% Earth resistance.'
+          title: Res Earth
+          type: integer
+        res_water:
+          description: '% Water resistance.'
+          title: Res Water
+          type: integer
+        res_air:
+          description: '% Air resistance.'
+          title: Res Air
+          type: integer
+        x:
+          description: Character x coordinate.
+          title: X
+          type: integer
+        "y":
+          description: Character y coordinate.
+          title: "Y"
+          type: integer
+        cooldown:
+          description: Cooldown in seconds.
+          title: Cooldown
+          type: integer
+        cooldown_expiration:
+          format: date-time
+          nullable: true
+          type: string
+        weapon_slot:
+          description: Weapon slot.
+          title: Weapon Slot
+          type: string
+        shield_slot:
+          description: Shield slot.
+          title: Shield Slot
+          type: string
+        helmet_slot:
+          description: Helmet slot.
+          title: Helmet Slot
+          type: string
+        body_armor_slot:
+          description: Body armor slot.
+          title: Body Armor Slot
+          type: string
+        leg_armor_slot:
+          description: Leg armor slot.
+          title: Leg Armor Slot
+          type: string
+        boots_slot:
+          description: Boots slot.
+          title: Boots Slot
+          type: string
+        ring1_slot:
+          description: Ring 1 slot.
+          title: Ring1 Slot
+          type: string
+        ring2_slot:
+          description: Ring 2 slot.
+          title: Ring2 Slot
+          type: string
+        amulet_slot:
+          description: Amulet slot.
+          title: Amulet Slot
+          type: string
+        artifact1_slot:
+          description: Artifact 1 slot.
+          title: Artifact1 Slot
+          type: string
+        artifact2_slot:
+          description: Artifact 2 slot.
+          title: Artifact2 Slot
+          type: string
+        artifact3_slot:
+          description: Artifact 3 slot.
+          title: Artifact3 Slot
+          type: string
+        consumable1_slot:
+          description: Consumable 1 slot.
+          title: Consumable1 Slot
+          type: string
+        consumable1_slot_quantity:
+          description: Consumable 1 quantity.
+          title: Consumable1 Slot Quantity
+          type: integer
+        consumable2_slot:
+          description: Consumable 2 slot.
+          title: Consumable2 Slot
+          type: string
+        consumable2_slot_quantity:
+          description: Consumable 2 quantity.
+          title: Consumable2 Slot Quantity
+          type: integer
+        inventory_slot1:
+          description: Inventory slot 1.
+          title: Inventory Slot1
+          type: string
+        inventory_slot1_quantity:
+          description: Inventory 1 quantity.
+          title: Inventory Slot1 Quantity
+          type: integer
+        inventory_slot2:
+          description: Inventory slot 2.
+          title: Inventory Slot2
+          type: string
+        inventory_slot2_quantity:
+          description: Inventory 2 quantity.
+          title: Inventory Slot2 Quantity
+          type: integer
+        inventory_slot3:
+          description: Inventory slot 3.
+          title: Inventory Slot3
+          type: string
+        inventory_slot3_quantity:
+          description: Inventory 3 quantity.
+          title: Inventory Slot3 Quantity
+          type: integer
+        inventory_slot4:
+          description: Inventory slot 4.
+          title: Inventory Slot4
+          type: string
+        inventory_slot4_quantity:
+          description: Inventory 4 quantity.
+          title: Inventory Slot4 Quantity
+          type: integer
+        inventory_slot5:
+          description: Inventory slot 5.
+          title: Inventory Slot5
+          type: string
+        inventory_slot5_quantity:
+          description: Inventory 5 quantity.
+          title: Inventory Slot5 Quantity
+          type: integer
+        inventory_slot6:
+          description: Inventory slot 6.
+          title: Inventory Slot6
+          type: string
+        inventory_slot6_quantity:
+          description: Inventory 6 quantity.
+          title: Inventory Slot6 Quantity
+          type: integer
+        inventory_slot7:
+          description: Inventory slot 7.
+          title: Inventory Slot7
+          type: string
+        inventory_slot7_quantity:
+          description: Inventory 7 quantity.
+          title: Inventory Slot7 Quantity
+          type: integer
+        inventory_slot8:
+          description: Inventory slot 8.
+          title: Inventory Slot8
+          type: string
+        inventory_slot8_quantity:
+          description: Inventory 8 quantity.
+          title: Inventory Slot8 Quantity
+          type: integer
+        inventory_slot9:
+          description: Inventory slot 9.
+          title: Inventory Slot9
+          type: string
+        inventory_slot9_quantity:
+          description: Inventory 9 quantity.
+          title: Inventory Slot9 Quantity
+          type: integer
+        inventory_slot10:
+          description: Inventory slot 10.
+          title: Inventory Slot10
+          type: string
+        inventory_slot10_quantity:
+          description: Inventory 10 quantity.
+          title: Inventory Slot10 Quantity
+          type: integer
+        inventory_slot11:
+          description: Inventory slot 11.
+          title: Inventory Slot11
+          type: string
+        inventory_slot11_quantity:
+          description: Inventory 11 quantity.
+          title: Inventory Slot11 Quantity
+          type: integer
+        inventory_slot12:
+          description: Inventory slot 12.
+          title: Inventory Slot12
+          type: string
+        inventory_slot12_quantity:
+          description: Inventory 12 quantity.
+          title: Inventory Slot12 Quantity
+          type: integer
+        inventory_slot13:
+          description: Inventory slot 13.
+          title: Inventory Slot13
+          type: string
+        inventory_slot13_quantity:
+          description: Inventory 13 quantity.
+          title: Inventory Slot13 Quantity
+          type: integer
+        inventory_slot14:
+          description: Inventory slot 14.
+          title: Inventory Slot14
+          type: string
+        inventory_slot14_quantity:
+          description: Inventory 14 quantity.
+          title: Inventory Slot14 Quantity
+          type: integer
+        inventory_slot15:
+          description: Inventory slot 15.
+          title: Inventory Slot15
+          type: string
+        inventory_slot15_quantity:
+          description: Inventory 15 quantity.
+          title: Inventory Slot15 Quantity
+          type: integer
+        inventory_slot16:
+          description: Inventory slot 16.
+          title: Inventory Slot16
+          type: string
+        inventory_slot16_quantity:
+          description: Inventory 16 quantity.
+          title: Inventory Slot16 Quantity
+          type: integer
+        inventory_slot17:
+          description: Inventory slot 17.
+          title: Inventory Slot17
+          type: string
+        inventory_slot17_quantity:
+          description: Inventory 17 quantity.
+          title: Inventory Slot17 Quantity
+          type: integer
+        inventory_slot18:
+          description: Inventory slot 18.
+          title: Inventory Slot18
+          type: string
+        inventory_slot18_quantity:
+          description: Inventory 18 quantity.
+          title: Inventory Slot18 Quantity
+          type: integer
+        inventory_slot19:
+          description: Inventory slot 19.
+          title: Inventory Slot19
+          type: string
+        inventory_slot19_quantity:
+          description: Inventory 19 quantity.
+          title: Inventory Slot19 Quantity
+          type: integer
+        inventory_slot20:
+          description: Inventory slot 20.
+          title: Inventory Slot20
+          type: string
+        inventory_slot20_quantity:
+          description: Inventory 20 quantity.
+          title: Inventory Slot20 Quantity
+          type: integer
+        inventory_max_items:
+          description: Inventory max items.
+          title: Inventory Max Items
+          type: integer
+        task:
+          description: Task in proggress.
+          title: Task
+          type: string
+        task_type:
+          description: Task type.
+          title: Task Type
+          type: string
+        task_progress:
+          description: Task progression.
+          title: Task Progress
+          type: integer
+        task_total:
+          description: Task total objective.
+          title: Task Total
+          type: integer
+        account:
+          description: Account name. Only included on your own characters.
+          title: Account
+          type: string
+      required:
+      - account
+      - amulet_slot
+      - artifact1_slot
+      - artifact2_slot
+      - artifact3_slot
+      - attack_air
+      - attack_earth
+      - attack_fire
+      - attack_water
+      - body_armor_slot
+      - boots_slot
+      - consumable1_slot
+      - consumable1_slot_quantity
+      - consumable2_slot
+      - consumable2_slot_quantity
+      - cooking_level
+      - cooking_max_xp
+      - cooking_xp
+      - cooldown
+      - critical_strike
+      - dmg_air
+      - dmg_earth
+      - dmg_fire
+      - dmg_water
+      - fishing_level
+      - fishing_max_xp
+      - fishing_xp
+      - gearcrafting_level
+      - gearcrafting_max_xp
+      - gearcrafting_xp
+      - gold
+      - haste
+      - helmet_slot
+      - hp
+      - inventory_max_items
+      - inventory_slot1
+      - inventory_slot10
+      - inventory_slot10_quantity
+      - inventory_slot11
+      - inventory_slot11_quantity
+      - inventory_slot12
+      - inventory_slot12_quantity
+      - inventory_slot13
+      - inventory_slot13_quantity
+      - inventory_slot14
+      - inventory_slot14_quantity
+      - inventory_slot15
+      - inventory_slot15_quantity
+      - inventory_slot16
+      - inventory_slot16_quantity
+      - inventory_slot17
+      - inventory_slot17_quantity
+      - inventory_slot18
+      - inventory_slot18_quantity
+      - inventory_slot19
+      - inventory_slot19_quantity
+      - inventory_slot1_quantity
+      - inventory_slot2
+      - inventory_slot20
+      - inventory_slot20_quantity
+      - inventory_slot2_quantity
+      - inventory_slot3
+      - inventory_slot3_quantity
+      - inventory_slot4
+      - inventory_slot4_quantity
+      - inventory_slot5
+      - inventory_slot5_quantity
+      - inventory_slot6
+      - inventory_slot6_quantity
+      - inventory_slot7
+      - inventory_slot7_quantity
+      - inventory_slot8
+      - inventory_slot8_quantity
+      - inventory_slot9
+      - inventory_slot9_quantity
+      - jewelrycrafting_level
+      - jewelrycrafting_max_xp
+      - jewelrycrafting_xp
+      - leg_armor_slot
+      - level
+      - max_xp
+      - mining_level
+      - mining_max_xp
+      - mining_xp
+      - name
+      - res_air
+      - res_earth
+      - res_fire
+      - res_water
+      - ring1_slot
+      - ring2_slot
+      - shield_slot
+      - skin
+      - speed
+      - stamina
+      - task
+      - task_progress
+      - task_total
+      - task_type
+      - total_xp
+      - weapon_slot
+      - weaponcrafting_level
+      - weaponcrafting_max_xp
+      - weaponcrafting_xp
+      - woodcutting_level
+      - woodcutting_max_xp
+      - woodcutting_xp
+      - x
+      - xp
+      - "y"
+      title: MyCharacterSchema
+    RecyclingDataSchema:
+      example:
+        character: ""
+        cooldown: ""
+        details: ""
+      properties:
+        cooldown:
+          allOf:
+          - $ref: '#/components/schemas/CooldownSchema'
+          description: Cooldown details.
+        details:
+          allOf:
+          - $ref: '#/components/schemas/RecyclingItemsSchema'
+          description: Craft details.
+        character:
+          allOf:
+          - $ref: '#/components/schemas/CharacterSchema'
+          description: Player details.
+      required:
+      - character
+      - cooldown
+      - details
+      title: RecyclingDataSchema
+    RecyclingItemsSchema:
+      properties:
+        items:
+          description: Objects received.
+          items:
+            $ref: '#/components/schemas/DropSchema'
+          type: array
+      required:
+      - items
+      title: RecyclingItemsSchema
+    RecyclingSchema:
+      example:
+        code: code
+        quantity: 1
+      properties:
+        code:
+          description: Item code.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Item code
+          type: string
+        quantity:
+          default: 1
+          description: Quantity of items to recycle.
+          minimum: 1.0
+          title: Quantity
+          type: integer
+      required:
+      - code
+      title: RecyclingSchema
+    RecylingResponseSchema:
+      example:
+        data:
+          character: ""
+          cooldown: ""
+          details: ""
+      properties:
+        data:
+          $ref: '#/components/schemas/RecyclingDataSchema'
+      required:
+      - data
+      title: RecylingResponseSchema
+    ResourceResponseSchema:
+      example:
+        data:
+          drops:
+          - ""
+          - ""
+          code: code
+          level: 0
+          skill: mining
+          name: name
+      properties:
+        data:
+          $ref: '#/components/schemas/ResourceSchema'
+      required:
+      - data
+      title: ResourceResponseSchema
+    ResourceSchema:
+      example:
+        drops:
+        - ""
+        - ""
+        code: code
+        level: 0
+        skill: mining
+        name: name
+      properties:
+        name:
+          description: The name of the resource
+          title: Name
+          type: string
+        code:
+          description: The code of the resource. This is the monster's unique identifier
+            (ID).
+          title: Code
+          type: string
+        skill:
+          description: The skill required to gather this resource.
+          enum:
+          - mining
+          - woodcutting
+          - fishing
+          title: Skill code
+          type: string
+        level:
+          description: The skill level required to gather this resource.
+          title: Level
+          type: integer
+        drops:
+          description: The drops of this resource.
+          items: {}
+          type: array
+      required:
+      - code
+      - drops
+      - level
+      - name
+      - skill
+      title: ResourceSchema
+    ResponseSchema:
+      example:
+        message: message
+      properties:
+        message:
+          title: Message
+          type: string
+      required:
+      - message
+      title: ResponseSchema
+    SimpleItemSchema:
+      example:
+        code: code
+        quantity: 1
+      properties:
+        code:
+          description: Item code.
+          pattern: "^[a-zA-Z0-9_-]+$"
+          title: Code
+          type: string
+        quantity:
+          description: Item quantity.
+          minimum: 1.0
+          title: Quantity
+          type: integer
+      required:
+      - code
+      - quantity
+      title: SimpleItemSchema
+    SingleItemSchema:
+      example:
+        item: ""
+        ge:
+          item: item
+          price: 6
+          stock: 0
+      properties:
+        item:
+          allOf:
+          - $ref: '#/components/schemas/ItemSchema'
+          description: Item information.
+        ge:
+          $ref: '#/components/schemas/GEItemSchema'
+      required:
+      - item
+      title: SingleItemSchema
+    SkillDataSchema:
+      example:
+        character: ""
+        cooldown: ""
+        details: ""
+      properties:
+        cooldown:
+          allOf:
+          - $ref: '#/components/schemas/CooldownSchema'
+          description: Cooldown details.
+        details:
+          allOf:
+          - $ref: '#/components/schemas/SkillInfoSchema'
+          description: Craft details.
+        character:
+          allOf:
+          - $ref: '#/components/schemas/CharacterSchema'
+          description: Player details.
+      required:
+      - character
+      - cooldown
+      - details
+      title: SkillDataSchema
+    SkillInfoSchema:
+      properties:
+        xp:
+          description: The amount of xp gained.
+          title: Xp
+          type: integer
+        items:
+          description: Objects received.
+          items:
+            $ref: '#/components/schemas/DropSchema'
+          type: array
+      required:
+      - items
+      - xp
+      title: SkillInfoSchema
+    SkillResponseSchema:
+      example:
+        data:
+          character: ""
+          cooldown: ""
+          details: ""
+      properties:
+        data:
+          $ref: '#/components/schemas/SkillDataSchema'
+      required:
+      - data
+      title: SkillResponseSchema
+    StatusResponseSchema:
+      example:
+        data:
+          characters_online: 0
+          last_wipe: last_wipe
+          version: version
+          announcements:
+          - created_at: 2000-01-23T04:56:07.000+00:00
+            message: message
+          - created_at: 2000-01-23T04:56:07.000+00:00
+            message: message
+          next_wipe: next_wipe
+          status: status
+      properties:
+        data:
+          $ref: '#/components/schemas/StatusSchema'
+      required:
+      - data
+      title: StatusResponseSchema
+    StatusSchema:
+      example:
+        characters_online: 0
+        last_wipe: last_wipe
+        version: version
+        announcements:
+        - created_at: 2000-01-23T04:56:07.000+00:00
+          message: message
+        - created_at: 2000-01-23T04:56:07.000+00:00
+          message: message
+        next_wipe: next_wipe
+        status: status
+      properties:
+        status:
+          description: Server status
+          title: Status
+          type: string
+        version:
+          description: Game version.
+          title: Version
+          type: string
+        characters_online:
+          title: Characters Online
+          type: integer
+        announcements:
+          items:
+            $ref: '#/components/schemas/AnnoncementSchema'
+          type: array
+        last_wipe:
+          description: Last server wipe.
+          title: Last Wipe
+          type: string
+        next_wipe:
+          description: Next server wipe.
+          title: Next Wipe
+          type: string
+      required:
+      - last_wipe
+      - next_wipe
+      - status
+      - version
+      title: StatusSchema
+    TaskDataSchema:
+      example:
+        character: ""
+        task: ""
+        cooldown: ""
+      properties:
+        cooldown:
+          allOf:
+          - $ref: '#/components/schemas/CooldownSchema'
+          description: Cooldown details.
+        task:
+          allOf:
+          - $ref: '#/components/schemas/TaskSchema'
+          description: Task details.
+        character:
+          allOf:
+          - $ref: '#/components/schemas/CharacterSchema'
+          description: Player details.
+      required:
+      - character
+      - cooldown
+      - task
+      title: TaskDataSchema
+    TaskResponseSchema:
+      example:
+        data:
+          character: ""
+          task: ""
+          cooldown: ""
+      properties:
+        data:
+          $ref: '#/components/schemas/TaskDataSchema'
+      required:
+      - data
+      title: TaskResponseSchema
+    TaskRewardDataSchema:
+      example:
+        reward: ""
+        character: ""
+        cooldown: ""
+      properties:
+        cooldown:
+          allOf:
+          - $ref: '#/components/schemas/CooldownSchema'
+          description: Cooldown details.
+        reward:
+          allOf:
+          - $ref: '#/components/schemas/TaskRewardSchema'
+          description: Reward details.
+        character:
+          allOf:
+          - $ref: '#/components/schemas/CharacterSchema'
+          description: Player details.
+      required:
+      - character
+      - cooldown
+      - reward
+      title: TaskRewardDataSchema
+    TaskRewardResponseSchema:
+      example:
+        data:
+          reward: ""
+          character: ""
+          cooldown: ""
+      properties:
+        data:
+          $ref: '#/components/schemas/TaskRewardDataSchema'
+      required:
+      - data
+      title: TaskRewardResponseSchema
+    TaskRewardSchema:
+      properties:
+        code:
+          description: Item code.
+          title: Code
+          type: string
+        quantity:
+          description: Item quantity.
+          title: Quantity
+          type: integer
+      required:
+      - code
+      - quantity
+      title: TaskRewardSchema
+    TaskSchema:
+      properties:
+        code:
+          description: Task objective.
+          title: Code
+          type: string
+        type: {}
+        total:
+          description: The total required to complete the task.
+          title: Total
+          type: integer
+      required:
+      - code
+      - total
+      - type
+      title: TaskSchema
+    TokenResponseSchema:
+      example:
+        token: token
+      properties:
+        token:
+          title: Token
+          type: string
+      required:
+      - token
+      title: TokenResponseSchema
+    UnequipSchema:
+      example:
+        slot: weapon
+      properties:
+        slot:
+          description: Item slot.
+          enum:
+          - weapon
+          - shield
+          - helmet
+          - body_armor
+          - leg_armor
+          - boots
+          - ring1
+          - ring2
+          - amulet
+          - artifact
+          - artifact2
+          - artifact3
+          - consumable1
+          - consumable2
+          title: Slot
+          type: string
+      required:
+      - slot
+      title: UnequipSchema
+    ValidationError:
+      properties:
+        loc:
+          items:
+            $ref: '#/components/schemas/ValidationError_loc_inner'
+          type: array
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    ValidationError_loc_inner:
+      anyOf:
+      - type: string
+      - type: integer
+  securitySchemes:
+    JWTBearer:
+      scheme: bearer
+      type: http
+    HTTPBasic:
+      scheme: basic
+      type: http
