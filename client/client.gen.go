@@ -160,9 +160,9 @@ const (
 
 // Defines values for GetAllItemsItemsGetParamsType.
 const (
-	GetAllItemsItemsGetParamsTypeAmulet     GetAllItemsItemsGetParamsType = "amulet"
-	GetAllItemsItemsGetParamsTypeBodyArmor  GetAllItemsItemsGetParamsType = "body_armor"
-	GetAllItemsItemsGetParamsTypeBoots      GetAllItemsItemsGetParamsType = "boots"
+	GetAllItemsItemsGetParamsTypeAmulet    GetAllItemsItemsGetParamsType = "amulet"
+	GetAllItemsItemsGetParamsTypeBodyArmor GetAllItemsItemsGetParamsType = "body_armor"
+	GetAllItemsItemsGetParamsTypeBoots     GetAllItemsItemsGetParamsType = "boots"
 	GetAllItemsItemsGetParamsTypeConsumable GetAllItemsItemsGetParamsType = "consumable"
 	GetAllItemsItemsGetParamsTypeHelmet     GetAllItemsItemsGetParamsType = "helmet"
 	GetAllItemsItemsGetParamsTypeLegArmor   GetAllItemsItemsGetParamsType = "leg_armor"

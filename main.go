@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/promiseofcake/artifactsmmo-cli/internal/client"
+	"github.com/promiseofcake/artifactsmmo-cli/client"
 )
 
 func main() {
