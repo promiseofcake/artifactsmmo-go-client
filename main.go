@@ -10,37 +10,29 @@ import (
 	"github.com/promiseofcake/artifactsmmo-cli/internal/client"
 )
 
-type AuthTransport struct {
-	Token string
-}
-
-func (b AuthTransport) RoundTrip(req *http.Request) (*http.Response, error) {
-	clonedReq := req.Clone(req.Context())
-	clonedReq.Header.Set("Authorization", "Bearer "+b.Token)
-	return http.DefaultTransport.RoundTrip(clonedReq)
-}
 func main() {
 	token := os.Getenv("MMO_TOKEN")
 	if token == "" {
 		log.Fatal("no token")
 	}
 
-	transport := AuthTransport{
-		Token: token,
-	}
+	ctx := context.Background()
 
-	cfg := client.NewConfiguration()
-	cfg.Host = "api.artifactsmmo.com"
-	cfg.Scheme = "https"
-	cfg.HTTPClient = &http.Client{
-		Transport: transport,
-	}
-
-	c := client.NewAPIClient(cfg)
-	s, resp, err := c.MyCharactersAPI.GetCharacterLogsMyNameLogsGet(context.Background(), "Ragnor").Execute()
+	c, err := client.NewClientWithResponses("https://api.artifactsmmo.com", client.WithRequestEditorFn(func(ctx context.Context, req *http.Request) error {
+		req.Header.Set("Authorization", "Bearer "+token)
+		return nil
+	}))
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println(s, resp)
+	resp, err := c.ActionMoveMyNameActionMovePostWithResponse(ctx, "Rangor", client.ActionMoveMyNameActionMovePostJSONRequestBody{
+		X: 5,
+		Y: 5,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(string(resp.Body))
 }
