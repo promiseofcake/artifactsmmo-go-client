@@ -1,6 +1,0 @@
-{
-  "packageName": "client",
-  "packageVersion": "1.0.0",
-  "generateInterfaces": true,
-  "withGoMod": false
-}
