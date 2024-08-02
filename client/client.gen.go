@@ -91,7 +91,7 @@ const (
 // Defines values for EquipSchemaSlot.
 const (
 	EquipSchemaSlotAmulet      EquipSchemaSlot = "amulet"
-	EquipSchemaSlotArtifact    EquipSchemaSlot = "artifact"
+	EquipSchemaSlotArtifact1   EquipSchemaSlot = "artifact1"
 	EquipSchemaSlotArtifact2   EquipSchemaSlot = "artifact2"
 	EquipSchemaSlotArtifact3   EquipSchemaSlot = "artifact3"
 	EquipSchemaSlotBodyArmor   EquipSchemaSlot = "body_armor"
@@ -112,16 +112,6 @@ const (
 	Win  FightSchemaResult = "win"
 )
 
-// Defines values for MyCharacterSchemaSkin.
-const (
-	Men1   MyCharacterSchemaSkin = "men1"
-	Men2   MyCharacterSchemaSkin = "men2"
-	Men3   MyCharacterSchemaSkin = "men3"
-	Women1 MyCharacterSchemaSkin = "women1"
-	Women2 MyCharacterSchemaSkin = "women2"
-	Women3 MyCharacterSchemaSkin = "women3"
-)
-
 // Defines values for ResourceSchemaSkill.
 const (
 	ResourceSchemaSkillFishing     ResourceSchemaSkill = "fishing"
@@ -129,10 +119,17 @@ const (
 	ResourceSchemaSkillWoodcutting ResourceSchemaSkill = "woodcutting"
 )
 
+// Defines values for TaskSchemaType.
+const (
+	Crafts    TaskSchemaType = "crafts"
+	Monsters  TaskSchemaType = "monsters"
+	Resources TaskSchemaType = "resources"
+)
+
 // Defines values for UnequipSchemaSlot.
 const (
 	UnequipSchemaSlotAmulet      UnequipSchemaSlot = "amulet"
-	UnequipSchemaSlotArtifact    UnequipSchemaSlot = "artifact"
+	UnequipSchemaSlotArtifact1   UnequipSchemaSlot = "artifact1"
 	UnequipSchemaSlotArtifact2   UnequipSchemaSlot = "artifact2"
 	UnequipSchemaSlotArtifact3   UnequipSchemaSlot = "artifact3"
 	UnequipSchemaSlotBodyArmor   UnequipSchemaSlot = "body_armor"
@@ -160,9 +157,9 @@ const (
 
 // Defines values for GetAllItemsItemsGetParamsType.
 const (
-	GetAllItemsItemsGetParamsTypeAmulet    GetAllItemsItemsGetParamsType = "amulet"
-	GetAllItemsItemsGetParamsTypeBodyArmor GetAllItemsItemsGetParamsType = "body_armor"
-	GetAllItemsItemsGetParamsTypeBoots     GetAllItemsItemsGetParamsType = "boots"
+	GetAllItemsItemsGetParamsTypeAmulet     GetAllItemsItemsGetParamsType = "amulet"
+	GetAllItemsItemsGetParamsTypeBodyArmor  GetAllItemsItemsGetParamsType = "body_armor"
+	GetAllItemsItemsGetParamsTypeBoots      GetAllItemsItemsGetParamsType = "boots"
 	GetAllItemsItemsGetParamsTypeConsumable GetAllItemsItemsGetParamsType = "consumable"
 	GetAllItemsItemsGetParamsTypeHelmet     GetAllItemsItemsGetParamsType = "helmet"
 	GetAllItemsItemsGetParamsTypeLegArmor   GetAllItemsItemsGetParamsType = "leg_armor"
@@ -188,6 +185,7 @@ const (
 	GrandExchange GetAllMapsMapsGetParamsContentType = "grand_exchange"
 	Monster       GetAllMapsMapsGetParamsContentType = "monster"
 	Resource      GetAllMapsMapsGetParamsContentType = "resource"
+	TasksMaster   GetAllMapsMapsGetParamsContentType = "tasks_master"
 	Workshop      GetAllMapsMapsGetParamsContentType = "workshop"
 )
 
@@ -198,36 +196,9 @@ const (
 	Woodcutting GetAllResourcesResourcesGetParamsSkill = "woodcutting"
 )
 
-// ActionItemBankReponseSchema defines model for ActionItemBankReponseSchema.
-type ActionItemBankReponseSchema struct {
+// ActionItemBankResponseSchema defines model for ActionItemBankResponseSchema.
+type ActionItemBankResponseSchema struct {
 	Data BankItemSchema `json:"data"`
-}
-
-// ActionSchema defines model for ActionSchema.
-type ActionSchema struct {
-	// Account Account character.
-	Account string `json:"account"`
-
-	// Character Character name.
-	Character string `json:"character"`
-
-	// Content Content of action.
-	Content interface{} `json:"content"`
-
-	// Cooldown Cooldown in seconds.
-	Cooldown int `json:"cooldown"`
-
-	// CooldownExpiration Datetime of cooldown expiration.
-	CooldownExpiration time.Time `json:"cooldown_expiration"`
-
-	// CreatedAt Datetime of creation.
-	CreatedAt time.Time `json:"created_at"`
-
-	// Description Description of action.
-	Description string `json:"description"`
-
-	// Type Type of action.
-	Type string `json:"type"`
 }
 
 // AddAccountSchema defines model for AddAccountSchema.
@@ -254,24 +225,13 @@ type AddCharacterSchema struct {
 // AddCharacterSchemaSkin Your desired skin.
 type AddCharacterSchemaSkin string
 
-// AnnoncementSchema defines model for AnnoncementSchema.
-type AnnoncementSchema struct {
-	// CreatedAt Datetime of the annoncement.
-	CreatedAt *AnnoncementSchema_CreatedAt `json:"created_at,omitempty"`
+// AnnouncementSchema defines model for AnnouncementSchema.
+type AnnouncementSchema struct {
+	// CreatedAt Datetime of the announcement.
+	CreatedAt *time.Time `json:"created_at,omitempty"`
 
-	// Message Annoncement text.
+	// Message Announcement text.
 	Message string `json:"message"`
-}
-
-// AnnoncementSchemaCreatedAt0 defines model for .
-type AnnoncementSchemaCreatedAt0 = time.Time
-
-// AnnoncementSchemaCreatedAt1 defines model for .
-type AnnoncementSchemaCreatedAt1 = interface{}
-
-// AnnoncementSchema_CreatedAt Datetime of the annoncement.
-type AnnoncementSchema_CreatedAt struct {
-	union json.RawMessage
 }
 
 // BankItemSchema defines model for BankItemSchema.
@@ -411,7 +371,7 @@ type CharacterSchema struct {
 	// CooldownExpiration Datetime Cooldown expiration.
 	CooldownExpiration *CharacterSchema_CooldownExpiration `json:"cooldown_expiration,omitempty"`
 
-	// CriticalStrike *Not available, on the roadmap. Character Cricial Strike. Critical strikes increase the attack's damage.
+	// CriticalStrike *Not available, on the roadmap. Character Critical   Strike. Critical strikes increase the attack's damage.
 	CriticalStrike int `json:"critical_strike"`
 
 	// DmgAir % Air damage.
@@ -456,127 +416,130 @@ type CharacterSchema struct {
 	// Hp Character HP.
 	Hp int `json:"hp"`
 
+	// Inventory List of inventory slots.
+	Inventory *[]InventorySlot `json:"inventory,omitempty"`
+
 	// InventoryMaxItems Inventory max items.
 	InventoryMaxItems int `json:"inventory_max_items"`
 
-	// InventorySlot1 Inventory slot 1.
+	// InventorySlot1 Deprecated** Inventory slot 1.
 	InventorySlot1 string `json:"inventory_slot1"`
 
-	// InventorySlot10 Inventory slot 10.
+	// InventorySlot10 Deprecated** Inventory slot 10.
 	InventorySlot10 string `json:"inventory_slot10"`
 
-	// InventorySlot10Quantity Inventory 10 quantity.
+	// InventorySlot10Quantity Deprecated** Inventory 10 quantity.
 	InventorySlot10Quantity int `json:"inventory_slot10_quantity"`
 
-	// InventorySlot11 Inventory slot 11.
+	// InventorySlot11 Deprecated** Inventory slot 11.
 	InventorySlot11 string `json:"inventory_slot11"`
 
-	// InventorySlot11Quantity Inventory 11 quantity.
+	// InventorySlot11Quantity Deprecated** Inventory 11 quantity.
 	InventorySlot11Quantity int `json:"inventory_slot11_quantity"`
 
-	// InventorySlot12 Inventory slot 12.
+	// InventorySlot12 Deprecated** nventory slot 12.
 	InventorySlot12 string `json:"inventory_slot12"`
 
-	// InventorySlot12Quantity Inventory 12 quantity.
+	// InventorySlot12Quantity Deprecated** Inventory 12 quantity.
 	InventorySlot12Quantity int `json:"inventory_slot12_quantity"`
 
-	// InventorySlot13 Inventory slot 13.
+	// InventorySlot13 Deprecated** Inventory slot 13.
 	InventorySlot13 string `json:"inventory_slot13"`
 
-	// InventorySlot13Quantity Inventory 13 quantity.
+	// InventorySlot13Quantity Deprecated** Inventory 13 quantity.
 	InventorySlot13Quantity int `json:"inventory_slot13_quantity"`
 
-	// InventorySlot14 Inventory slot 14.
+	// InventorySlot14 Deprecated** Inventory slot 14.
 	InventorySlot14 string `json:"inventory_slot14"`
 
-	// InventorySlot14Quantity Inventory 14 quantity.
+	// InventorySlot14Quantity Deprecated** Inventory 14 quantity.
 	InventorySlot14Quantity int `json:"inventory_slot14_quantity"`
 
-	// InventorySlot15 Inventory slot 15.
+	// InventorySlot15 Deprecated** Inventory slot 15.
 	InventorySlot15 string `json:"inventory_slot15"`
 
-	// InventorySlot15Quantity Inventory 15 quantity.
+	// InventorySlot15Quantity Deprecated** Inventory 15 quantity.
 	InventorySlot15Quantity int `json:"inventory_slot15_quantity"`
 
-	// InventorySlot16 Inventory slot 16.
+	// InventorySlot16 Deprecated** Inventory slot 16.
 	InventorySlot16 string `json:"inventory_slot16"`
 
-	// InventorySlot16Quantity Inventory 16 quantity.
+	// InventorySlot16Quantity Deprecated** Inventory 16 quantity.
 	InventorySlot16Quantity int `json:"inventory_slot16_quantity"`
 
-	// InventorySlot17 Inventory slot 17.
+	// InventorySlot17 Deprecated** Inventory slot 17.
 	InventorySlot17 string `json:"inventory_slot17"`
 
-	// InventorySlot17Quantity Inventory 17 quantity.
+	// InventorySlot17Quantity Deprecated** Inventory 17 quantity.
 	InventorySlot17Quantity int `json:"inventory_slot17_quantity"`
 
-	// InventorySlot18 Inventory slot 18.
+	// InventorySlot18 Deprecated** Inventory slot 18.
 	InventorySlot18 string `json:"inventory_slot18"`
 
-	// InventorySlot18Quantity Inventory 18 quantity.
+	// InventorySlot18Quantity Deprecated** Inventory 18 quantity.
 	InventorySlot18Quantity int `json:"inventory_slot18_quantity"`
 
-	// InventorySlot19 Inventory slot 19.
+	// InventorySlot19 Deprecated** Inventory slot 19.
 	InventorySlot19 string `json:"inventory_slot19"`
 
-	// InventorySlot19Quantity Inventory 19 quantity.
+	// InventorySlot19Quantity Deprecated** Inventory 19 quantity.
 	InventorySlot19Quantity int `json:"inventory_slot19_quantity"`
 
-	// InventorySlot1Quantity Inventory 1 quantity.
+	// InventorySlot1Quantity Deprecated** Inventory 1 quantity.
 	InventorySlot1Quantity int `json:"inventory_slot1_quantity"`
 
-	// InventorySlot2 Inventory slot 2.
+	// InventorySlot2 Deprecated** Inventory slot 2.
 	InventorySlot2 string `json:"inventory_slot2"`
 
-	// InventorySlot20 Inventory slot 20.
+	// InventorySlot20 Deprecated** Inventory slot 20.
 	InventorySlot20 string `json:"inventory_slot20"`
 
-	// InventorySlot20Quantity Inventory 20 quantity.
+	// InventorySlot20Quantity Deprecated** Inventory 20 quantity.
 	InventorySlot20Quantity int `json:"inventory_slot20_quantity"`
 
-	// InventorySlot2Quantity Inventory 2 quantity.
+	// InventorySlot2Quantity Deprecated** Inventory 2 quantity.
 	InventorySlot2Quantity int `json:"inventory_slot2_quantity"`
 
-	// InventorySlot3 Inventory slot 3.
+	// InventorySlot3 Deprecated** Inventory slot 3.
 	InventorySlot3 string `json:"inventory_slot3"`
 
-	// InventorySlot3Quantity Inventory 3 quantity.
+	// InventorySlot3Quantity Deprecated** Inventory 3 quantity.
 	InventorySlot3Quantity int `json:"inventory_slot3_quantity"`
 
-	// InventorySlot4 Inventory slot 4.
+	// InventorySlot4 Deprecated** Inventory slot 4.
 	InventorySlot4 string `json:"inventory_slot4"`
 
-	// InventorySlot4Quantity Inventory 4 quantity.
+	// InventorySlot4Quantity Deprecated** Inventory 4 quantity.
 	InventorySlot4Quantity int `json:"inventory_slot4_quantity"`
 
-	// InventorySlot5 Inventory slot 5.
+	// InventorySlot5 Deprecated** Inventory slot 5.
 	InventorySlot5 string `json:"inventory_slot5"`
 
-	// InventorySlot5Quantity Inventory 5 quantity.
+	// InventorySlot5Quantity Deprecated** Inventory 5 quantity.
 	InventorySlot5Quantity int `json:"inventory_slot5_quantity"`
 
-	// InventorySlot6 Inventory slot 6.
+	// InventorySlot6 Deprecated** Inventory slot 6.
 	InventorySlot6 string `json:"inventory_slot6"`
 
-	// InventorySlot6Quantity Inventory 6 quantity.
+	// InventorySlot6Quantity Deprecated** Inventory 6 quantity.
 	InventorySlot6Quantity int `json:"inventory_slot6_quantity"`
 
-	// InventorySlot7 Inventory slot 7.
+	// InventorySlot7 Deprecated** Inventory slot 7.
 	InventorySlot7 string `json:"inventory_slot7"`
 
-	// InventorySlot7Quantity Inventory 7 quantity.
+	// InventorySlot7Quantity Deprecated** Inventory 7 quantity.
 	InventorySlot7Quantity int `json:"inventory_slot7_quantity"`
 
-	// InventorySlot8 Inventory slot 8.
+	// InventorySlot8 Deprecated** Inventory slot 8.
 	InventorySlot8 string `json:"inventory_slot8"`
 
-	// InventorySlot8Quantity Inventory 8 quantity.
+	// InventorySlot8Quantity Deprecated** Inventory 8 quantity.
 	InventorySlot8Quantity int `json:"inventory_slot8_quantity"`
 
-	// InventorySlot9 Inventory slot 9.
+	// InventorySlot9 Deprecated** Inventory slot 9.
 	InventorySlot9 string `json:"inventory_slot9"`
 
-	// InventorySlot9Quantity Inventory 9 quantity.
+	// InventorySlot9Quantity Deprecated** Inventory 9 quantity.
 	InventorySlot9Quantity int `json:"inventory_slot9_quantity"`
 
 	// JewelrycraftingLevel Jewelrycrafting level.
@@ -639,7 +602,7 @@ type CharacterSchema struct {
 	// Stamina *Not available, on the roadmap. Regenerates life at the start of each turn.
 	Stamina int `json:"stamina"`
 
-	// Task Task in proggress.
+	// Task Task in progress.
 	Task string `json:"task"`
 
 	// TaskProgress Task progression.
@@ -707,11 +670,11 @@ type CooldownSchema struct {
 	// Reason The reason of the cooldown.
 	Reason CooldownSchemaReason `json:"reason"`
 
-	// RemainingSeconds The remaning seconds of the cooldown.
-	RemainingSeconds int `json:"remainingSeconds"`
+	// RemainingSeconds The remaining seconds of the cooldown.
+	RemainingSeconds int `json:"remaining_seconds"`
 
 	// TotalSeconds The total seconds of the cooldown.
-	TotalSeconds int `json:"totalSeconds"`
+	TotalSeconds int `json:"total_seconds"`
 }
 
 // CooldownSchemaReason The reason of the cooldown.
@@ -720,7 +683,7 @@ type CooldownSchemaReason string
 // CraftSchema defines model for CraftSchema.
 type CraftSchema struct {
 	// Items List of items required to craft the item.
-	Items *[]interface{} `json:"items,omitempty"`
+	Items *[]SimpleItemSchema `json:"items,omitempty"`
 
 	// Level The skill level required to craft the item.
 	Level *CraftSchema_Level `json:"level,omitempty"`
@@ -772,59 +735,6 @@ type CraftingSchema struct {
 
 	// Quantity Quantity of items to craft.
 	Quantity *int `json:"quantity,omitempty"`
-}
-
-// DataPageActionSchema defines model for DataPage_ActionSchema_.
-type DataPageActionSchema struct {
-	Data  []ActionSchema              `json:"data"`
-	Page  DataPageActionSchema_Page   `json:"page"`
-	Pages *DataPageActionSchema_Pages `json:"pages,omitempty"`
-	Size  DataPageActionSchema_Size   `json:"size"`
-	Total DataPageActionSchema_Total  `json:"total"`
-}
-
-// DataPageActionSchemaPage0 defines model for .
-type DataPageActionSchemaPage0 = int
-
-// DataPageActionSchemaPage1 defines model for .
-type DataPageActionSchemaPage1 = interface{}
-
-// DataPageActionSchema_Page defines model for DataPageActionSchema.Page.
-type DataPageActionSchema_Page struct {
-	union json.RawMessage
-}
-
-// DataPageActionSchemaPages0 defines model for .
-type DataPageActionSchemaPages0 = int
-
-// DataPageActionSchemaPages1 defines model for .
-type DataPageActionSchemaPages1 = interface{}
-
-// DataPageActionSchema_Pages defines model for DataPageActionSchema.Pages.
-type DataPageActionSchema_Pages struct {
-	union json.RawMessage
-}
-
-// DataPageActionSchemaSize0 defines model for .
-type DataPageActionSchemaSize0 = int
-
-// DataPageActionSchemaSize1 defines model for .
-type DataPageActionSchemaSize1 = interface{}
-
-// DataPageActionSchema_Size defines model for DataPageActionSchema.Size.
-type DataPageActionSchema_Size struct {
-	union json.RawMessage
-}
-
-// DataPageActionSchemaTotal0 defines model for .
-type DataPageActionSchemaTotal0 = int
-
-// DataPageActionSchemaTotal1 defines model for .
-type DataPageActionSchemaTotal1 = interface{}
-
-// DataPageActionSchema_Total defines model for DataPageActionSchema.Total.
-type DataPageActionSchema_Total struct {
-	union json.RawMessage
 }
 
 // DataPageCharacterSchema defines model for DataPage_CharacterSchema_.
@@ -1039,6 +949,59 @@ type DataPageItemSchema_Total struct {
 	union json.RawMessage
 }
 
+// DataPageLogSchema defines model for DataPage_LogSchema_.
+type DataPageLogSchema struct {
+	Data  []LogSchema              `json:"data"`
+	Page  DataPageLogSchema_Page   `json:"page"`
+	Pages *DataPageLogSchema_Pages `json:"pages,omitempty"`
+	Size  DataPageLogSchema_Size   `json:"size"`
+	Total DataPageLogSchema_Total  `json:"total"`
+}
+
+// DataPageLogSchemaPage0 defines model for .
+type DataPageLogSchemaPage0 = int
+
+// DataPageLogSchemaPage1 defines model for .
+type DataPageLogSchemaPage1 = interface{}
+
+// DataPageLogSchema_Page defines model for DataPageLogSchema.Page.
+type DataPageLogSchema_Page struct {
+	union json.RawMessage
+}
+
+// DataPageLogSchemaPages0 defines model for .
+type DataPageLogSchemaPages0 = int
+
+// DataPageLogSchemaPages1 defines model for .
+type DataPageLogSchemaPages1 = interface{}
+
+// DataPageLogSchema_Pages defines model for DataPageLogSchema.Pages.
+type DataPageLogSchema_Pages struct {
+	union json.RawMessage
+}
+
+// DataPageLogSchemaSize0 defines model for .
+type DataPageLogSchemaSize0 = int
+
+// DataPageLogSchemaSize1 defines model for .
+type DataPageLogSchemaSize1 = interface{}
+
+// DataPageLogSchema_Size defines model for DataPageLogSchema.Size.
+type DataPageLogSchema_Size struct {
+	union json.RawMessage
+}
+
+// DataPageLogSchemaTotal0 defines model for .
+type DataPageLogSchemaTotal0 = int
+
+// DataPageLogSchemaTotal1 defines model for .
+type DataPageLogSchemaTotal1 = interface{}
+
+// DataPageLogSchema_Total defines model for DataPageLogSchema.Total.
+type DataPageLogSchema_Total struct {
+	union json.RawMessage
+}
+
 // DataPageMapSchema defines model for DataPage_MapSchema_.
 type DataPageMapSchema struct {
 	Data  []MapSchema              `json:"data"`
@@ -1142,59 +1105,6 @@ type DataPageMonsterSchemaTotal1 = interface{}
 
 // DataPageMonsterSchema_Total defines model for DataPageMonsterSchema.Total.
 type DataPageMonsterSchema_Total struct {
-	union json.RawMessage
-}
-
-// DataPageMyCharacterSchema defines model for DataPage_MyCharacterSchema_.
-type DataPageMyCharacterSchema struct {
-	Data  []MyCharacterSchema              `json:"data"`
-	Page  DataPageMyCharacterSchema_Page   `json:"page"`
-	Pages *DataPageMyCharacterSchema_Pages `json:"pages,omitempty"`
-	Size  DataPageMyCharacterSchema_Size   `json:"size"`
-	Total DataPageMyCharacterSchema_Total  `json:"total"`
-}
-
-// DataPageMyCharacterSchemaPage0 defines model for .
-type DataPageMyCharacterSchemaPage0 = int
-
-// DataPageMyCharacterSchemaPage1 defines model for .
-type DataPageMyCharacterSchemaPage1 = interface{}
-
-// DataPageMyCharacterSchema_Page defines model for DataPageMyCharacterSchema.Page.
-type DataPageMyCharacterSchema_Page struct {
-	union json.RawMessage
-}
-
-// DataPageMyCharacterSchemaPages0 defines model for .
-type DataPageMyCharacterSchemaPages0 = int
-
-// DataPageMyCharacterSchemaPages1 defines model for .
-type DataPageMyCharacterSchemaPages1 = interface{}
-
-// DataPageMyCharacterSchema_Pages defines model for DataPageMyCharacterSchema.Pages.
-type DataPageMyCharacterSchema_Pages struct {
-	union json.RawMessage
-}
-
-// DataPageMyCharacterSchemaSize0 defines model for .
-type DataPageMyCharacterSchemaSize0 = int
-
-// DataPageMyCharacterSchemaSize1 defines model for .
-type DataPageMyCharacterSchemaSize1 = interface{}
-
-// DataPageMyCharacterSchema_Size defines model for DataPageMyCharacterSchema.Size.
-type DataPageMyCharacterSchema_Size struct {
-	union json.RawMessage
-}
-
-// DataPageMyCharacterSchemaTotal0 defines model for .
-type DataPageMyCharacterSchemaTotal0 = int
-
-// DataPageMyCharacterSchemaTotal1 defines model for .
-type DataPageMyCharacterSchemaTotal1 = interface{}
-
-// DataPageMyCharacterSchema_Total defines model for DataPageMyCharacterSchema.Total.
-type DataPageMyCharacterSchema_Total struct {
 	union json.RawMessage
 }
 
@@ -1351,6 +1261,21 @@ type DestinationSchema struct {
 	Y int `json:"y"`
 }
 
+// DropRateSchema defines model for DropRateSchema.
+type DropRateSchema struct {
+	// Code Item code.
+	Code string `json:"code"`
+
+	// MaxQuantity Maximum quantity.
+	MaxQuantity int `json:"max_quantity"`
+
+	// MinQuantity Minimum quantity.
+	MinQuantity int `json:"min_quantity"`
+
+	// Rate Chance rate.
+	Rate int `json:"rate"`
+}
+
 // DropSchema defines model for DropSchema.
 type DropSchema struct {
 	// Code The code of the item.
@@ -1453,11 +1378,14 @@ type GEItemResponseSchema struct {
 
 // GEItemSchema defines model for GEItemSchema.
 type GEItemSchema struct {
-	// Item Item code.
-	Item string `json:"item"`
+	// BuyPrice The item's buying price.
+	BuyPrice *int `json:"buy_price,omitempty"`
 
-	// Price Item value.
-	Price int `json:"price"`
+	// Code Item code.
+	Code string `json:"code"`
+
+	// SellPrice The item's selling price.
+	SellPrice *int `json:"sell_price,omitempty"`
 
 	// Stock Item stock.
 	Stock int `json:"stock"`
@@ -1494,8 +1422,8 @@ type GETransactionResponseSchema struct {
 
 // GETransactionSchema defines model for GETransactionSchema.
 type GETransactionSchema struct {
-	// Item Item code.
-	Item string `json:"item"`
+	// Code Item code.
+	Code string `json:"code"`
 
 	// Price Item price.
 	Price int `json:"price"`
@@ -1535,6 +1463,27 @@ type GoldTransactionSchema struct {
 	Cooldown CooldownSchema `json:"cooldown"`
 }
 
+// InventorySlot defines model for InventorySlot.
+type InventorySlot struct {
+	// Code Item code.
+	Code string `json:"code"`
+
+	// Quantity Quantity in the slot.
+	Quantity int `json:"quantity"`
+
+	// Slot Inventory slot identifier.
+	Slot int `json:"slot"`
+}
+
+// ItemEffectSchema defines model for ItemEffectSchema.
+type ItemEffectSchema struct {
+	// Name Effect name.
+	Name string `json:"name"`
+
+	// Value Effect value.
+	Value int `json:"value"`
+}
+
 // ItemResponseSchema defines model for ItemResponseSchema.
 type ItemResponseSchema struct {
 	Data SingleItemSchema `json:"data"`
@@ -1546,13 +1495,13 @@ type ItemSchema struct {
 	Code string `json:"code"`
 
 	// Craft Craft information. If applicable.
-	Craft *CraftSchema `json:"craft,omitempty"`
+	Craft *ItemSchema_Craft `json:"craft,omitempty"`
 
 	// Description Item description.
 	Description string `json:"description"`
 
 	// Effects List of object effects. For equipment, it will include item stats.
-	Effects *[]interface{} `json:"effects,omitempty"`
+	Effects *[]ItemEffectSchema `json:"effects,omitempty"`
 
 	// Level Item level.
 	Level int `json:"level"`
@@ -1567,6 +1516,50 @@ type ItemSchema struct {
 	Type string `json:"type"`
 }
 
+// ItemSchemaCraft1 defines model for .
+type ItemSchemaCraft1 = interface{}
+
+// ItemSchema_Craft Craft information. If applicable.
+type ItemSchema_Craft struct {
+	union json.RawMessage
+}
+
+// LogSchema defines model for LogSchema.
+type LogSchema struct {
+	// Account Account character.
+	Account string `json:"account"`
+
+	// Character Character name.
+	Character string `json:"character"`
+
+	// Content Content of action.
+	Content interface{} `json:"content"`
+
+	// Cooldown Cooldown in seconds.
+	Cooldown int `json:"cooldown"`
+
+	// CooldownExpiration Datetime of cooldown expiration.
+	CooldownExpiration time.Time `json:"cooldown_expiration"`
+
+	// CreatedAt Datetime of creation.
+	CreatedAt time.Time `json:"created_at"`
+
+	// Description Description of action.
+	Description string `json:"description"`
+
+	// Type Type of action.
+	Type string `json:"type"`
+}
+
+// MapContentSchema defines model for MapContentSchema.
+type MapContentSchema struct {
+	// Code Code of the content.
+	Code string `json:"code"`
+
+	// Type Type of the content.
+	Type string `json:"type"`
+}
+
 // MapResponseSchema defines model for MapResponseSchema.
 type MapResponseSchema struct {
 	Data MapSchema `json:"data"`
@@ -1575,7 +1568,7 @@ type MapResponseSchema struct {
 // MapSchema defines model for MapSchema.
 type MapSchema struct {
 	// Content Content of the map.
-	Content interface{} `json:"content"`
+	Content MapSchema_Content `json:"content"`
 
 	// Name Name of the map.
 	Name string `json:"name"`
@@ -1588,6 +1581,14 @@ type MapSchema struct {
 
 	// Y Position Y of the map.
 	Y int `json:"y"`
+}
+
+// MapSchemaContent1 defines model for .
+type MapSchemaContent1 = interface{}
+
+// MapSchema_Content Content of the map.
+type MapSchema_Content struct {
+	union json.RawMessage
 }
 
 // MonsterResponseSchema defines model for MonsterResponseSchema.
@@ -1613,16 +1614,19 @@ type MonsterSchema struct {
 	Code string `json:"code"`
 
 	// Drops Monster drops. This is a list of items that the monster drops after killing the monster.
-	Drops []interface{} `json:"drops"`
-
-	// Golds Monster golds drop. This is a minimum-maximum range (example: 0-5, the player drops between 0 and 5 golds after killing the monster.).
-	Golds string `json:"golds"`
+	Drops []DropRateSchema `json:"drops"`
 
 	// Hp Monster hit points.
 	Hp int `json:"hp"`
 
 	// Level Monster level.
 	Level int `json:"level"`
+
+	// MaxGold Monster maximum gold drop.
+	MaxGold int `json:"max_gold"`
+
+	// MinGold Monster minimum gold drop.
+	MinGold int `json:"min_gold"`
 
 	// Name Name of the monster.
 	Name string `json:"name"`
@@ -1640,355 +1644,11 @@ type MonsterSchema struct {
 	ResWater int `json:"res_water"`
 }
 
-// MyCharacterSchema defines model for MyCharacterSchema.
-type MyCharacterSchema struct {
-	// Account Account name. Only included on your own characters.
-	Account string `json:"account"`
-
-	// AmuletSlot Amulet slot.
-	AmuletSlot string `json:"amulet_slot"`
-
-	// Artifact1Slot Artifact 1 slot.
-	Artifact1Slot string `json:"artifact1_slot"`
-
-	// Artifact2Slot Artifact 2 slot.
-	Artifact2Slot string `json:"artifact2_slot"`
-
-	// Artifact3Slot Artifact 3 slot.
-	Artifact3Slot string `json:"artifact3_slot"`
-
-	// AttackAir Air attack.
-	AttackAir int `json:"attack_air"`
-
-	// AttackEarth Earth attack.
-	AttackEarth int `json:"attack_earth"`
-
-	// AttackFire Fire attack.
-	AttackFire int `json:"attack_fire"`
-
-	// AttackWater Water attack.
-	AttackWater int `json:"attack_water"`
-
-	// BodyArmorSlot Body armor slot.
-	BodyArmorSlot string `json:"body_armor_slot"`
-
-	// BootsSlot Boots slot.
-	BootsSlot string `json:"boots_slot"`
-
-	// Consumable1Slot Consumable 1 slot.
-	Consumable1Slot string `json:"consumable1_slot"`
-
-	// Consumable1SlotQuantity Consumable 1 quantity.
-	Consumable1SlotQuantity int `json:"consumable1_slot_quantity"`
-
-	// Consumable2Slot Consumable 2 slot.
-	Consumable2Slot string `json:"consumable2_slot"`
-
-	// Consumable2SlotQuantity Consumable 2 quantity.
-	Consumable2SlotQuantity int `json:"consumable2_slot_quantity"`
-
-	// CookingLevel The current xp level of the Cooking skill.
-	CookingLevel int `json:"cooking_level"`
-
-	// CookingMaxXp Cooking XP required to level up the skill.
-	CookingMaxXp int `json:"cooking_max_xp"`
-
-	// CookingXp Cooking XP.
-	CookingXp int `json:"cooking_xp"`
-
-	// Cooldown Cooldown in seconds.
-	Cooldown int `json:"cooldown"`
-
-	// CooldownExpiration Datetime Cooldown expiration.
-	CooldownExpiration *MyCharacterSchema_CooldownExpiration `json:"cooldown_expiration,omitempty"`
-
-	// CriticalStrike *Not available, on the roadmap. Character Cricial Strike. Critical strikes increase the attack's damage.
-	CriticalStrike int `json:"critical_strike"`
-
-	// DmgAir % Air damage.
-	DmgAir int `json:"dmg_air"`
-
-	// DmgEarth % Earth damage.
-	DmgEarth int `json:"dmg_earth"`
-
-	// DmgFire % Fire damage.
-	DmgFire int `json:"dmg_fire"`
-
-	// DmgWater % Water damage.
-	DmgWater int `json:"dmg_water"`
-
-	// FishingLevel Fishing level.
-	FishingLevel int `json:"fishing_level"`
-
-	// FishingMaxXp Fishing XP required to level up the skill.
-	FishingMaxXp int `json:"fishing_max_xp"`
-
-	// FishingXp The current xp level of the Fishing skill.
-	FishingXp int `json:"fishing_xp"`
-
-	// GearcraftingLevel Gearcrafting level.
-	GearcraftingLevel int `json:"gearcrafting_level"`
-
-	// GearcraftingMaxXp Gearcrafting XP required to level up the skill.
-	GearcraftingMaxXp int `json:"gearcrafting_max_xp"`
-
-	// GearcraftingXp The current xp level of the Gearcrafting skill.
-	GearcraftingXp int `json:"gearcrafting_xp"`
-
-	// Gold The numbers of golds on this character.
-	Gold int `json:"gold"`
-
-	// Haste *Character Haste. Increase speed attack (reduce fight cooldown)
-	Haste int `json:"haste"`
-
-	// HelmetSlot Helmet slot.
-	HelmetSlot string `json:"helmet_slot"`
-
-	// Hp Character HP.
-	Hp int `json:"hp"`
-
-	// InventoryMaxItems Inventory max items.
-	InventoryMaxItems int `json:"inventory_max_items"`
-
-	// InventorySlot1 Inventory slot 1.
-	InventorySlot1 string `json:"inventory_slot1"`
-
-	// InventorySlot10 Inventory slot 10.
-	InventorySlot10 string `json:"inventory_slot10"`
-
-	// InventorySlot10Quantity Inventory 10 quantity.
-	InventorySlot10Quantity int `json:"inventory_slot10_quantity"`
-
-	// InventorySlot11 Inventory slot 11.
-	InventorySlot11 string `json:"inventory_slot11"`
-
-	// InventorySlot11Quantity Inventory 11 quantity.
-	InventorySlot11Quantity int `json:"inventory_slot11_quantity"`
-
-	// InventorySlot12 Inventory slot 12.
-	InventorySlot12 string `json:"inventory_slot12"`
-
-	// InventorySlot12Quantity Inventory 12 quantity.
-	InventorySlot12Quantity int `json:"inventory_slot12_quantity"`
-
-	// InventorySlot13 Inventory slot 13.
-	InventorySlot13 string `json:"inventory_slot13"`
-
-	// InventorySlot13Quantity Inventory 13 quantity.
-	InventorySlot13Quantity int `json:"inventory_slot13_quantity"`
-
-	// InventorySlot14 Inventory slot 14.
-	InventorySlot14 string `json:"inventory_slot14"`
-
-	// InventorySlot14Quantity Inventory 14 quantity.
-	InventorySlot14Quantity int `json:"inventory_slot14_quantity"`
-
-	// InventorySlot15 Inventory slot 15.
-	InventorySlot15 string `json:"inventory_slot15"`
-
-	// InventorySlot15Quantity Inventory 15 quantity.
-	InventorySlot15Quantity int `json:"inventory_slot15_quantity"`
-
-	// InventorySlot16 Inventory slot 16.
-	InventorySlot16 string `json:"inventory_slot16"`
-
-	// InventorySlot16Quantity Inventory 16 quantity.
-	InventorySlot16Quantity int `json:"inventory_slot16_quantity"`
-
-	// InventorySlot17 Inventory slot 17.
-	InventorySlot17 string `json:"inventory_slot17"`
-
-	// InventorySlot17Quantity Inventory 17 quantity.
-	InventorySlot17Quantity int `json:"inventory_slot17_quantity"`
-
-	// InventorySlot18 Inventory slot 18.
-	InventorySlot18 string `json:"inventory_slot18"`
-
-	// InventorySlot18Quantity Inventory 18 quantity.
-	InventorySlot18Quantity int `json:"inventory_slot18_quantity"`
-
-	// InventorySlot19 Inventory slot 19.
-	InventorySlot19 string `json:"inventory_slot19"`
-
-	// InventorySlot19Quantity Inventory 19 quantity.
-	InventorySlot19Quantity int `json:"inventory_slot19_quantity"`
-
-	// InventorySlot1Quantity Inventory 1 quantity.
-	InventorySlot1Quantity int `json:"inventory_slot1_quantity"`
-
-	// InventorySlot2 Inventory slot 2.
-	InventorySlot2 string `json:"inventory_slot2"`
-
-	// InventorySlot20 Inventory slot 20.
-	InventorySlot20 string `json:"inventory_slot20"`
-
-	// InventorySlot20Quantity Inventory 20 quantity.
-	InventorySlot20Quantity int `json:"inventory_slot20_quantity"`
-
-	// InventorySlot2Quantity Inventory 2 quantity.
-	InventorySlot2Quantity int `json:"inventory_slot2_quantity"`
-
-	// InventorySlot3 Inventory slot 3.
-	InventorySlot3 string `json:"inventory_slot3"`
-
-	// InventorySlot3Quantity Inventory 3 quantity.
-	InventorySlot3Quantity int `json:"inventory_slot3_quantity"`
-
-	// InventorySlot4 Inventory slot 4.
-	InventorySlot4 string `json:"inventory_slot4"`
-
-	// InventorySlot4Quantity Inventory 4 quantity.
-	InventorySlot4Quantity int `json:"inventory_slot4_quantity"`
-
-	// InventorySlot5 Inventory slot 5.
-	InventorySlot5 string `json:"inventory_slot5"`
-
-	// InventorySlot5Quantity Inventory 5 quantity.
-	InventorySlot5Quantity int `json:"inventory_slot5_quantity"`
-
-	// InventorySlot6 Inventory slot 6.
-	InventorySlot6 string `json:"inventory_slot6"`
-
-	// InventorySlot6Quantity Inventory 6 quantity.
-	InventorySlot6Quantity int `json:"inventory_slot6_quantity"`
-
-	// InventorySlot7 Inventory slot 7.
-	InventorySlot7 string `json:"inventory_slot7"`
-
-	// InventorySlot7Quantity Inventory 7 quantity.
-	InventorySlot7Quantity int `json:"inventory_slot7_quantity"`
-
-	// InventorySlot8 Inventory slot 8.
-	InventorySlot8 string `json:"inventory_slot8"`
-
-	// InventorySlot8Quantity Inventory 8 quantity.
-	InventorySlot8Quantity int `json:"inventory_slot8_quantity"`
-
-	// InventorySlot9 Inventory slot 9.
-	InventorySlot9 string `json:"inventory_slot9"`
-
-	// InventorySlot9Quantity Inventory 9 quantity.
-	InventorySlot9Quantity int `json:"inventory_slot9_quantity"`
-
-	// JewelrycraftingLevel Jewelrycrafting level.
-	JewelrycraftingLevel int `json:"jewelrycrafting_level"`
-
-	// JewelrycraftingMaxXp Jewelrycrafting XP required to level up the skill.
-	JewelrycraftingMaxXp int `json:"jewelrycrafting_max_xp"`
-
-	// JewelrycraftingXp The current xp level of the Jewelrycrafting skill.
-	JewelrycraftingXp int `json:"jewelrycrafting_xp"`
-
-	// LegArmorSlot Leg armor slot.
-	LegArmorSlot string `json:"leg_armor_slot"`
-
-	// Level Combat level.
-	Level int `json:"level"`
-
-	// MaxXp XP required to level up the character.
-	MaxXp int `json:"max_xp"`
-
-	// MiningLevel Mining level.
-	MiningLevel int `json:"mining_level"`
-
-	// MiningMaxXp Mining XP required to level up the skill.
-	MiningMaxXp int `json:"mining_max_xp"`
-
-	// MiningXp The current xp level of the Mining skill.
-	MiningXp int `json:"mining_xp"`
-
-	// Name Name of the character.
-	Name string `json:"name"`
-
-	// ResAir % Air resistance.
-	ResAir int `json:"res_air"`
-
-	// ResEarth % Earth resistance.
-	ResEarth int `json:"res_earth"`
-
-	// ResFire % Fire resistance.
-	ResFire int `json:"res_fire"`
-
-	// ResWater % Water resistance.
-	ResWater int `json:"res_water"`
-
-	// Ring1Slot Ring 1 slot.
-	Ring1Slot string `json:"ring1_slot"`
-
-	// Ring2Slot Ring 2 slot.
-	Ring2Slot string `json:"ring2_slot"`
-
-	// ShieldSlot Shield slot.
-	ShieldSlot string `json:"shield_slot"`
-
-	// Skin Character skin code.
-	Skin MyCharacterSchemaSkin `json:"skin"`
-
-	// Speed *Not available, on the roadmap. Character movement speed.
-	Speed int `json:"speed"`
-
-	// Stamina *Not available, on the roadmap. Regenerates life at the start of each turn.
-	Stamina int `json:"stamina"`
-
-	// Task Task in proggress.
-	Task string `json:"task"`
-
-	// TaskProgress Task progression.
-	TaskProgress int `json:"task_progress"`
-
-	// TaskTotal Task total objective.
-	TaskTotal int `json:"task_total"`
-
-	// TaskType Task type.
-	TaskType string `json:"task_type"`
-
-	// TotalXp Total XP of your character.
-	TotalXp int `json:"total_xp"`
-
-	// WeaponSlot Weapon slot.
-	WeaponSlot string `json:"weapon_slot"`
-
-	// WeaponcraftingLevel Weaponcrafting level.
-	WeaponcraftingLevel int `json:"weaponcrafting_level"`
-
-	// WeaponcraftingMaxXp Weaponcrafting XP required to level up the skill.
-	WeaponcraftingMaxXp int `json:"weaponcrafting_max_xp"`
-
-	// WeaponcraftingXp The current xp level of the Weaponcrafting skill.
-	WeaponcraftingXp int `json:"weaponcrafting_xp"`
-
-	// WoodcuttingLevel Woodcutting level.
-	WoodcuttingLevel int `json:"woodcutting_level"`
-
-	// WoodcuttingMaxXp Woodcutting XP required to level up the skill.
-	WoodcuttingMaxXp int `json:"woodcutting_max_xp"`
-
-	// WoodcuttingXp The current xp level of the Woodcutting skill.
-	WoodcuttingXp int `json:"woodcutting_xp"`
-
-	// X Character x coordinate.
-	X int `json:"x"`
-
-	// Xp The current xp level of the combat level.
-	Xp int `json:"xp"`
-
-	// Y Character y coordinate.
-	Y int `json:"y"`
+// MyCharactersListSchema defines model for MyCharactersListSchema.
+type MyCharactersListSchema struct {
+	// Data List of your characters.
+	Data []CharacterSchema `json:"data"`
 }
-
-// MyCharacterSchemaCooldownExpiration0 defines model for .
-type MyCharacterSchemaCooldownExpiration0 = time.Time
-
-// MyCharacterSchemaCooldownExpiration1 defines model for .
-type MyCharacterSchemaCooldownExpiration1 = interface{}
-
-// MyCharacterSchema_CooldownExpiration Datetime Cooldown expiration.
-type MyCharacterSchema_CooldownExpiration struct {
-	union json.RawMessage
-}
-
-// MyCharacterSchemaSkin Character skin code.
-type MyCharacterSchemaSkin string
 
 // RecyclingDataSchema defines model for RecyclingDataSchema.
 type RecyclingDataSchema struct {
@@ -2008,6 +1668,11 @@ type RecyclingItemsSchema struct {
 	Items []DropSchema `json:"items"`
 }
 
+// RecyclingResponseSchema defines model for RecyclingResponseSchema.
+type RecyclingResponseSchema struct {
+	Data RecyclingDataSchema `json:"data"`
+}
+
 // RecyclingSchema defines model for RecyclingSchema.
 type RecyclingSchema struct {
 	// Code Item code.
@@ -2017,11 +1682,6 @@ type RecyclingSchema struct {
 	Quantity *int `json:"quantity,omitempty"`
 }
 
-// RecylingResponseSchema defines model for RecylingResponseSchema.
-type RecylingResponseSchema struct {
-	Data RecyclingDataSchema `json:"data"`
-}
-
 // ResourceResponseSchema defines model for ResourceResponseSchema.
 type ResourceResponseSchema struct {
 	Data ResourceSchema `json:"data"`
@@ -2029,11 +1689,11 @@ type ResourceResponseSchema struct {
 
 // ResourceSchema defines model for ResourceSchema.
 type ResourceSchema struct {
-	// Code The code of the resource. This is the monster's unique identifier (ID).
+	// Code The code of the resource. This is the resource's unique identifier (ID).
 	Code string `json:"code"`
 
 	// Drops The drops of this resource.
-	Drops []interface{} `json:"drops"`
+	Drops []DropRateSchema `json:"drops"`
 
 	// Level The skill level required to gather this resource.
 	Level int `json:"level"`
@@ -2112,8 +1772,8 @@ type StatusResponseSchema struct {
 
 // StatusSchema defines model for StatusSchema.
 type StatusSchema struct {
-	Announcements    *[]AnnoncementSchema `json:"announcements,omitempty"`
-	CharactersOnline *int                 `json:"characters_online,omitempty"`
+	Announcements    *[]AnnouncementSchema `json:"announcements,omitempty"`
+	CharactersOnline *int                  `json:"characters_online,omitempty"`
 
 	// LastWipe Last server wipe.
 	LastWipe string `json:"last_wipe"`
@@ -2180,8 +1840,11 @@ type TaskSchema struct {
 	Total int `json:"total"`
 
 	// Type The type of task.
-	Type interface{} `json:"type"`
+	Type TaskSchemaType `json:"type"`
 }
+
+// TaskSchemaType The type of task.
+type TaskSchemaType string
 
 // TokenResponseSchema defines model for TokenResponseSchema.
 type TokenResponseSchema struct {
@@ -2301,15 +1964,9 @@ type GetAllMonstersMonstersGetParams struct {
 
 // GetBankItemsMyBankItemsGetParams defines parameters for GetBankItemsMyBankItemsGet.
 type GetBankItemsMyBankItemsGetParams struct {
-	// Page Page number
-	Page *int `form:"page,omitempty" json:"page,omitempty"`
+	// ItemCode Item to search in your bank.
+	ItemCode *string `form:"item_code,omitempty" json:"item_code,omitempty"`
 
-	// Size Page size
-	Size *int `form:"size,omitempty" json:"size,omitempty"`
-}
-
-// GetMyCharactersMyCharactersGetParams defines parameters for GetMyCharactersMyCharactersGet.
-type GetMyCharactersMyCharactersGetParams struct {
 	// Page Page number
 	Page *int `form:"page,omitempty" json:"page,omitempty"`
 
@@ -2403,68 +2060,6 @@ type ActionRecyclingMyNameActionRecyclingPostJSONRequestBody = RecyclingSchema
 
 // ActionUnequipItemMyNameActionUnequipPostJSONRequestBody defines body for ActionUnequipItemMyNameActionUnequipPost for application/json ContentType.
 type ActionUnequipItemMyNameActionUnequipPostJSONRequestBody = UnequipSchema
-
-// AsAnnoncementSchemaCreatedAt0 returns the union data inside the AnnoncementSchema_CreatedAt as a AnnoncementSchemaCreatedAt0
-func (t AnnoncementSchema_CreatedAt) AsAnnoncementSchemaCreatedAt0() (AnnoncementSchemaCreatedAt0, error) {
-	var body AnnoncementSchemaCreatedAt0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromAnnoncementSchemaCreatedAt0 overwrites any union data inside the AnnoncementSchema_CreatedAt as the provided AnnoncementSchemaCreatedAt0
-func (t *AnnoncementSchema_CreatedAt) FromAnnoncementSchemaCreatedAt0(v AnnoncementSchemaCreatedAt0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeAnnoncementSchemaCreatedAt0 performs a merge with any union data inside the AnnoncementSchema_CreatedAt, using the provided AnnoncementSchemaCreatedAt0
-func (t *AnnoncementSchema_CreatedAt) MergeAnnoncementSchemaCreatedAt0(v AnnoncementSchemaCreatedAt0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsAnnoncementSchemaCreatedAt1 returns the union data inside the AnnoncementSchema_CreatedAt as a AnnoncementSchemaCreatedAt1
-func (t AnnoncementSchema_CreatedAt) AsAnnoncementSchemaCreatedAt1() (AnnoncementSchemaCreatedAt1, error) {
-	var body AnnoncementSchemaCreatedAt1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromAnnoncementSchemaCreatedAt1 overwrites any union data inside the AnnoncementSchema_CreatedAt as the provided AnnoncementSchemaCreatedAt1
-func (t *AnnoncementSchema_CreatedAt) FromAnnoncementSchemaCreatedAt1(v AnnoncementSchemaCreatedAt1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeAnnoncementSchemaCreatedAt1 performs a merge with any union data inside the AnnoncementSchema_CreatedAt, using the provided AnnoncementSchemaCreatedAt1
-func (t *AnnoncementSchema_CreatedAt) MergeAnnoncementSchemaCreatedAt1(v AnnoncementSchemaCreatedAt1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t AnnoncementSchema_CreatedAt) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *AnnoncementSchema_CreatedAt) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
 
 // AsCharacterSchemaCooldownExpiration0 returns the union data inside the CharacterSchema_CooldownExpiration as a CharacterSchemaCooldownExpiration0
 func (t CharacterSchema_CooldownExpiration) AsCharacterSchemaCooldownExpiration0() (CharacterSchemaCooldownExpiration0, error) {
@@ -2710,254 +2305,6 @@ func (t CraftSchema_Skill) MarshalJSON() ([]byte, error) {
 }
 
 func (t *CraftSchema_Skill) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsDataPageActionSchemaPage0 returns the union data inside the DataPageActionSchema_Page as a DataPageActionSchemaPage0
-func (t DataPageActionSchema_Page) AsDataPageActionSchemaPage0() (DataPageActionSchemaPage0, error) {
-	var body DataPageActionSchemaPage0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageActionSchemaPage0 overwrites any union data inside the DataPageActionSchema_Page as the provided DataPageActionSchemaPage0
-func (t *DataPageActionSchema_Page) FromDataPageActionSchemaPage0(v DataPageActionSchemaPage0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageActionSchemaPage0 performs a merge with any union data inside the DataPageActionSchema_Page, using the provided DataPageActionSchemaPage0
-func (t *DataPageActionSchema_Page) MergeDataPageActionSchemaPage0(v DataPageActionSchemaPage0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsDataPageActionSchemaPage1 returns the union data inside the DataPageActionSchema_Page as a DataPageActionSchemaPage1
-func (t DataPageActionSchema_Page) AsDataPageActionSchemaPage1() (DataPageActionSchemaPage1, error) {
-	var body DataPageActionSchemaPage1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageActionSchemaPage1 overwrites any union data inside the DataPageActionSchema_Page as the provided DataPageActionSchemaPage1
-func (t *DataPageActionSchema_Page) FromDataPageActionSchemaPage1(v DataPageActionSchemaPage1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageActionSchemaPage1 performs a merge with any union data inside the DataPageActionSchema_Page, using the provided DataPageActionSchemaPage1
-func (t *DataPageActionSchema_Page) MergeDataPageActionSchemaPage1(v DataPageActionSchemaPage1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t DataPageActionSchema_Page) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *DataPageActionSchema_Page) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsDataPageActionSchemaPages0 returns the union data inside the DataPageActionSchema_Pages as a DataPageActionSchemaPages0
-func (t DataPageActionSchema_Pages) AsDataPageActionSchemaPages0() (DataPageActionSchemaPages0, error) {
-	var body DataPageActionSchemaPages0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageActionSchemaPages0 overwrites any union data inside the DataPageActionSchema_Pages as the provided DataPageActionSchemaPages0
-func (t *DataPageActionSchema_Pages) FromDataPageActionSchemaPages0(v DataPageActionSchemaPages0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageActionSchemaPages0 performs a merge with any union data inside the DataPageActionSchema_Pages, using the provided DataPageActionSchemaPages0
-func (t *DataPageActionSchema_Pages) MergeDataPageActionSchemaPages0(v DataPageActionSchemaPages0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsDataPageActionSchemaPages1 returns the union data inside the DataPageActionSchema_Pages as a DataPageActionSchemaPages1
-func (t DataPageActionSchema_Pages) AsDataPageActionSchemaPages1() (DataPageActionSchemaPages1, error) {
-	var body DataPageActionSchemaPages1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageActionSchemaPages1 overwrites any union data inside the DataPageActionSchema_Pages as the provided DataPageActionSchemaPages1
-func (t *DataPageActionSchema_Pages) FromDataPageActionSchemaPages1(v DataPageActionSchemaPages1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageActionSchemaPages1 performs a merge with any union data inside the DataPageActionSchema_Pages, using the provided DataPageActionSchemaPages1
-func (t *DataPageActionSchema_Pages) MergeDataPageActionSchemaPages1(v DataPageActionSchemaPages1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t DataPageActionSchema_Pages) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *DataPageActionSchema_Pages) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsDataPageActionSchemaSize0 returns the union data inside the DataPageActionSchema_Size as a DataPageActionSchemaSize0
-func (t DataPageActionSchema_Size) AsDataPageActionSchemaSize0() (DataPageActionSchemaSize0, error) {
-	var body DataPageActionSchemaSize0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageActionSchemaSize0 overwrites any union data inside the DataPageActionSchema_Size as the provided DataPageActionSchemaSize0
-func (t *DataPageActionSchema_Size) FromDataPageActionSchemaSize0(v DataPageActionSchemaSize0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageActionSchemaSize0 performs a merge with any union data inside the DataPageActionSchema_Size, using the provided DataPageActionSchemaSize0
-func (t *DataPageActionSchema_Size) MergeDataPageActionSchemaSize0(v DataPageActionSchemaSize0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsDataPageActionSchemaSize1 returns the union data inside the DataPageActionSchema_Size as a DataPageActionSchemaSize1
-func (t DataPageActionSchema_Size) AsDataPageActionSchemaSize1() (DataPageActionSchemaSize1, error) {
-	var body DataPageActionSchemaSize1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageActionSchemaSize1 overwrites any union data inside the DataPageActionSchema_Size as the provided DataPageActionSchemaSize1
-func (t *DataPageActionSchema_Size) FromDataPageActionSchemaSize1(v DataPageActionSchemaSize1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageActionSchemaSize1 performs a merge with any union data inside the DataPageActionSchema_Size, using the provided DataPageActionSchemaSize1
-func (t *DataPageActionSchema_Size) MergeDataPageActionSchemaSize1(v DataPageActionSchemaSize1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t DataPageActionSchema_Size) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *DataPageActionSchema_Size) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsDataPageActionSchemaTotal0 returns the union data inside the DataPageActionSchema_Total as a DataPageActionSchemaTotal0
-func (t DataPageActionSchema_Total) AsDataPageActionSchemaTotal0() (DataPageActionSchemaTotal0, error) {
-	var body DataPageActionSchemaTotal0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageActionSchemaTotal0 overwrites any union data inside the DataPageActionSchema_Total as the provided DataPageActionSchemaTotal0
-func (t *DataPageActionSchema_Total) FromDataPageActionSchemaTotal0(v DataPageActionSchemaTotal0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageActionSchemaTotal0 performs a merge with any union data inside the DataPageActionSchema_Total, using the provided DataPageActionSchemaTotal0
-func (t *DataPageActionSchema_Total) MergeDataPageActionSchemaTotal0(v DataPageActionSchemaTotal0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsDataPageActionSchemaTotal1 returns the union data inside the DataPageActionSchema_Total as a DataPageActionSchemaTotal1
-func (t DataPageActionSchema_Total) AsDataPageActionSchemaTotal1() (DataPageActionSchemaTotal1, error) {
-	var body DataPageActionSchemaTotal1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageActionSchemaTotal1 overwrites any union data inside the DataPageActionSchema_Total as the provided DataPageActionSchemaTotal1
-func (t *DataPageActionSchema_Total) FromDataPageActionSchemaTotal1(v DataPageActionSchemaTotal1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageActionSchemaTotal1 performs a merge with any union data inside the DataPageActionSchema_Total, using the provided DataPageActionSchemaTotal1
-func (t *DataPageActionSchema_Total) MergeDataPageActionSchemaTotal1(v DataPageActionSchemaTotal1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t DataPageActionSchema_Total) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *DataPageActionSchema_Total) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -3954,6 +3301,254 @@ func (t *DataPageItemSchema_Total) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsDataPageLogSchemaPage0 returns the union data inside the DataPageLogSchema_Page as a DataPageLogSchemaPage0
+func (t DataPageLogSchema_Page) AsDataPageLogSchemaPage0() (DataPageLogSchemaPage0, error) {
+	var body DataPageLogSchemaPage0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageLogSchemaPage0 overwrites any union data inside the DataPageLogSchema_Page as the provided DataPageLogSchemaPage0
+func (t *DataPageLogSchema_Page) FromDataPageLogSchemaPage0(v DataPageLogSchemaPage0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageLogSchemaPage0 performs a merge with any union data inside the DataPageLogSchema_Page, using the provided DataPageLogSchemaPage0
+func (t *DataPageLogSchema_Page) MergeDataPageLogSchemaPage0(v DataPageLogSchemaPage0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageLogSchemaPage1 returns the union data inside the DataPageLogSchema_Page as a DataPageLogSchemaPage1
+func (t DataPageLogSchema_Page) AsDataPageLogSchemaPage1() (DataPageLogSchemaPage1, error) {
+	var body DataPageLogSchemaPage1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageLogSchemaPage1 overwrites any union data inside the DataPageLogSchema_Page as the provided DataPageLogSchemaPage1
+func (t *DataPageLogSchema_Page) FromDataPageLogSchemaPage1(v DataPageLogSchemaPage1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageLogSchemaPage1 performs a merge with any union data inside the DataPageLogSchema_Page, using the provided DataPageLogSchemaPage1
+func (t *DataPageLogSchema_Page) MergeDataPageLogSchemaPage1(v DataPageLogSchemaPage1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageLogSchema_Page) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageLogSchema_Page) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageLogSchemaPages0 returns the union data inside the DataPageLogSchema_Pages as a DataPageLogSchemaPages0
+func (t DataPageLogSchema_Pages) AsDataPageLogSchemaPages0() (DataPageLogSchemaPages0, error) {
+	var body DataPageLogSchemaPages0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageLogSchemaPages0 overwrites any union data inside the DataPageLogSchema_Pages as the provided DataPageLogSchemaPages0
+func (t *DataPageLogSchema_Pages) FromDataPageLogSchemaPages0(v DataPageLogSchemaPages0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageLogSchemaPages0 performs a merge with any union data inside the DataPageLogSchema_Pages, using the provided DataPageLogSchemaPages0
+func (t *DataPageLogSchema_Pages) MergeDataPageLogSchemaPages0(v DataPageLogSchemaPages0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageLogSchemaPages1 returns the union data inside the DataPageLogSchema_Pages as a DataPageLogSchemaPages1
+func (t DataPageLogSchema_Pages) AsDataPageLogSchemaPages1() (DataPageLogSchemaPages1, error) {
+	var body DataPageLogSchemaPages1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageLogSchemaPages1 overwrites any union data inside the DataPageLogSchema_Pages as the provided DataPageLogSchemaPages1
+func (t *DataPageLogSchema_Pages) FromDataPageLogSchemaPages1(v DataPageLogSchemaPages1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageLogSchemaPages1 performs a merge with any union data inside the DataPageLogSchema_Pages, using the provided DataPageLogSchemaPages1
+func (t *DataPageLogSchema_Pages) MergeDataPageLogSchemaPages1(v DataPageLogSchemaPages1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageLogSchema_Pages) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageLogSchema_Pages) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageLogSchemaSize0 returns the union data inside the DataPageLogSchema_Size as a DataPageLogSchemaSize0
+func (t DataPageLogSchema_Size) AsDataPageLogSchemaSize0() (DataPageLogSchemaSize0, error) {
+	var body DataPageLogSchemaSize0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageLogSchemaSize0 overwrites any union data inside the DataPageLogSchema_Size as the provided DataPageLogSchemaSize0
+func (t *DataPageLogSchema_Size) FromDataPageLogSchemaSize0(v DataPageLogSchemaSize0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageLogSchemaSize0 performs a merge with any union data inside the DataPageLogSchema_Size, using the provided DataPageLogSchemaSize0
+func (t *DataPageLogSchema_Size) MergeDataPageLogSchemaSize0(v DataPageLogSchemaSize0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageLogSchemaSize1 returns the union data inside the DataPageLogSchema_Size as a DataPageLogSchemaSize1
+func (t DataPageLogSchema_Size) AsDataPageLogSchemaSize1() (DataPageLogSchemaSize1, error) {
+	var body DataPageLogSchemaSize1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageLogSchemaSize1 overwrites any union data inside the DataPageLogSchema_Size as the provided DataPageLogSchemaSize1
+func (t *DataPageLogSchema_Size) FromDataPageLogSchemaSize1(v DataPageLogSchemaSize1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageLogSchemaSize1 performs a merge with any union data inside the DataPageLogSchema_Size, using the provided DataPageLogSchemaSize1
+func (t *DataPageLogSchema_Size) MergeDataPageLogSchemaSize1(v DataPageLogSchemaSize1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageLogSchema_Size) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageLogSchema_Size) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageLogSchemaTotal0 returns the union data inside the DataPageLogSchema_Total as a DataPageLogSchemaTotal0
+func (t DataPageLogSchema_Total) AsDataPageLogSchemaTotal0() (DataPageLogSchemaTotal0, error) {
+	var body DataPageLogSchemaTotal0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageLogSchemaTotal0 overwrites any union data inside the DataPageLogSchema_Total as the provided DataPageLogSchemaTotal0
+func (t *DataPageLogSchema_Total) FromDataPageLogSchemaTotal0(v DataPageLogSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageLogSchemaTotal0 performs a merge with any union data inside the DataPageLogSchema_Total, using the provided DataPageLogSchemaTotal0
+func (t *DataPageLogSchema_Total) MergeDataPageLogSchemaTotal0(v DataPageLogSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageLogSchemaTotal1 returns the union data inside the DataPageLogSchema_Total as a DataPageLogSchemaTotal1
+func (t DataPageLogSchema_Total) AsDataPageLogSchemaTotal1() (DataPageLogSchemaTotal1, error) {
+	var body DataPageLogSchemaTotal1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageLogSchemaTotal1 overwrites any union data inside the DataPageLogSchema_Total as the provided DataPageLogSchemaTotal1
+func (t *DataPageLogSchema_Total) FromDataPageLogSchemaTotal1(v DataPageLogSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageLogSchemaTotal1 performs a merge with any union data inside the DataPageLogSchema_Total, using the provided DataPageLogSchemaTotal1
+func (t *DataPageLogSchema_Total) MergeDataPageLogSchemaTotal1(v DataPageLogSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageLogSchema_Total) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageLogSchema_Total) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsDataPageMapSchemaPage0 returns the union data inside the DataPageMapSchema_Page as a DataPageMapSchemaPage0
 func (t DataPageMapSchema_Page) AsDataPageMapSchemaPage0() (DataPageMapSchemaPage0, error) {
 	var body DataPageMapSchemaPage0
@@ -4446,254 +4041,6 @@ func (t DataPageMonsterSchema_Total) MarshalJSON() ([]byte, error) {
 }
 
 func (t *DataPageMonsterSchema_Total) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsDataPageMyCharacterSchemaPage0 returns the union data inside the DataPageMyCharacterSchema_Page as a DataPageMyCharacterSchemaPage0
-func (t DataPageMyCharacterSchema_Page) AsDataPageMyCharacterSchemaPage0() (DataPageMyCharacterSchemaPage0, error) {
-	var body DataPageMyCharacterSchemaPage0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageMyCharacterSchemaPage0 overwrites any union data inside the DataPageMyCharacterSchema_Page as the provided DataPageMyCharacterSchemaPage0
-func (t *DataPageMyCharacterSchema_Page) FromDataPageMyCharacterSchemaPage0(v DataPageMyCharacterSchemaPage0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageMyCharacterSchemaPage0 performs a merge with any union data inside the DataPageMyCharacterSchema_Page, using the provided DataPageMyCharacterSchemaPage0
-func (t *DataPageMyCharacterSchema_Page) MergeDataPageMyCharacterSchemaPage0(v DataPageMyCharacterSchemaPage0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsDataPageMyCharacterSchemaPage1 returns the union data inside the DataPageMyCharacterSchema_Page as a DataPageMyCharacterSchemaPage1
-func (t DataPageMyCharacterSchema_Page) AsDataPageMyCharacterSchemaPage1() (DataPageMyCharacterSchemaPage1, error) {
-	var body DataPageMyCharacterSchemaPage1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageMyCharacterSchemaPage1 overwrites any union data inside the DataPageMyCharacterSchema_Page as the provided DataPageMyCharacterSchemaPage1
-func (t *DataPageMyCharacterSchema_Page) FromDataPageMyCharacterSchemaPage1(v DataPageMyCharacterSchemaPage1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageMyCharacterSchemaPage1 performs a merge with any union data inside the DataPageMyCharacterSchema_Page, using the provided DataPageMyCharacterSchemaPage1
-func (t *DataPageMyCharacterSchema_Page) MergeDataPageMyCharacterSchemaPage1(v DataPageMyCharacterSchemaPage1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t DataPageMyCharacterSchema_Page) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *DataPageMyCharacterSchema_Page) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsDataPageMyCharacterSchemaPages0 returns the union data inside the DataPageMyCharacterSchema_Pages as a DataPageMyCharacterSchemaPages0
-func (t DataPageMyCharacterSchema_Pages) AsDataPageMyCharacterSchemaPages0() (DataPageMyCharacterSchemaPages0, error) {
-	var body DataPageMyCharacterSchemaPages0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageMyCharacterSchemaPages0 overwrites any union data inside the DataPageMyCharacterSchema_Pages as the provided DataPageMyCharacterSchemaPages0
-func (t *DataPageMyCharacterSchema_Pages) FromDataPageMyCharacterSchemaPages0(v DataPageMyCharacterSchemaPages0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageMyCharacterSchemaPages0 performs a merge with any union data inside the DataPageMyCharacterSchema_Pages, using the provided DataPageMyCharacterSchemaPages0
-func (t *DataPageMyCharacterSchema_Pages) MergeDataPageMyCharacterSchemaPages0(v DataPageMyCharacterSchemaPages0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsDataPageMyCharacterSchemaPages1 returns the union data inside the DataPageMyCharacterSchema_Pages as a DataPageMyCharacterSchemaPages1
-func (t DataPageMyCharacterSchema_Pages) AsDataPageMyCharacterSchemaPages1() (DataPageMyCharacterSchemaPages1, error) {
-	var body DataPageMyCharacterSchemaPages1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageMyCharacterSchemaPages1 overwrites any union data inside the DataPageMyCharacterSchema_Pages as the provided DataPageMyCharacterSchemaPages1
-func (t *DataPageMyCharacterSchema_Pages) FromDataPageMyCharacterSchemaPages1(v DataPageMyCharacterSchemaPages1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageMyCharacterSchemaPages1 performs a merge with any union data inside the DataPageMyCharacterSchema_Pages, using the provided DataPageMyCharacterSchemaPages1
-func (t *DataPageMyCharacterSchema_Pages) MergeDataPageMyCharacterSchemaPages1(v DataPageMyCharacterSchemaPages1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t DataPageMyCharacterSchema_Pages) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *DataPageMyCharacterSchema_Pages) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsDataPageMyCharacterSchemaSize0 returns the union data inside the DataPageMyCharacterSchema_Size as a DataPageMyCharacterSchemaSize0
-func (t DataPageMyCharacterSchema_Size) AsDataPageMyCharacterSchemaSize0() (DataPageMyCharacterSchemaSize0, error) {
-	var body DataPageMyCharacterSchemaSize0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageMyCharacterSchemaSize0 overwrites any union data inside the DataPageMyCharacterSchema_Size as the provided DataPageMyCharacterSchemaSize0
-func (t *DataPageMyCharacterSchema_Size) FromDataPageMyCharacterSchemaSize0(v DataPageMyCharacterSchemaSize0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageMyCharacterSchemaSize0 performs a merge with any union data inside the DataPageMyCharacterSchema_Size, using the provided DataPageMyCharacterSchemaSize0
-func (t *DataPageMyCharacterSchema_Size) MergeDataPageMyCharacterSchemaSize0(v DataPageMyCharacterSchemaSize0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsDataPageMyCharacterSchemaSize1 returns the union data inside the DataPageMyCharacterSchema_Size as a DataPageMyCharacterSchemaSize1
-func (t DataPageMyCharacterSchema_Size) AsDataPageMyCharacterSchemaSize1() (DataPageMyCharacterSchemaSize1, error) {
-	var body DataPageMyCharacterSchemaSize1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageMyCharacterSchemaSize1 overwrites any union data inside the DataPageMyCharacterSchema_Size as the provided DataPageMyCharacterSchemaSize1
-func (t *DataPageMyCharacterSchema_Size) FromDataPageMyCharacterSchemaSize1(v DataPageMyCharacterSchemaSize1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageMyCharacterSchemaSize1 performs a merge with any union data inside the DataPageMyCharacterSchema_Size, using the provided DataPageMyCharacterSchemaSize1
-func (t *DataPageMyCharacterSchema_Size) MergeDataPageMyCharacterSchemaSize1(v DataPageMyCharacterSchemaSize1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t DataPageMyCharacterSchema_Size) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *DataPageMyCharacterSchema_Size) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsDataPageMyCharacterSchemaTotal0 returns the union data inside the DataPageMyCharacterSchema_Total as a DataPageMyCharacterSchemaTotal0
-func (t DataPageMyCharacterSchema_Total) AsDataPageMyCharacterSchemaTotal0() (DataPageMyCharacterSchemaTotal0, error) {
-	var body DataPageMyCharacterSchemaTotal0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageMyCharacterSchemaTotal0 overwrites any union data inside the DataPageMyCharacterSchema_Total as the provided DataPageMyCharacterSchemaTotal0
-func (t *DataPageMyCharacterSchema_Total) FromDataPageMyCharacterSchemaTotal0(v DataPageMyCharacterSchemaTotal0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageMyCharacterSchemaTotal0 performs a merge with any union data inside the DataPageMyCharacterSchema_Total, using the provided DataPageMyCharacterSchemaTotal0
-func (t *DataPageMyCharacterSchema_Total) MergeDataPageMyCharacterSchemaTotal0(v DataPageMyCharacterSchemaTotal0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsDataPageMyCharacterSchemaTotal1 returns the union data inside the DataPageMyCharacterSchema_Total as a DataPageMyCharacterSchemaTotal1
-func (t DataPageMyCharacterSchema_Total) AsDataPageMyCharacterSchemaTotal1() (DataPageMyCharacterSchemaTotal1, error) {
-	var body DataPageMyCharacterSchemaTotal1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageMyCharacterSchemaTotal1 overwrites any union data inside the DataPageMyCharacterSchema_Total as the provided DataPageMyCharacterSchemaTotal1
-func (t *DataPageMyCharacterSchema_Total) FromDataPageMyCharacterSchemaTotal1(v DataPageMyCharacterSchemaTotal1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageMyCharacterSchemaTotal1 performs a merge with any union data inside the DataPageMyCharacterSchema_Total, using the provided DataPageMyCharacterSchemaTotal1
-func (t *DataPageMyCharacterSchema_Total) MergeDataPageMyCharacterSchemaTotal1(v DataPageMyCharacterSchemaTotal1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t DataPageMyCharacterSchema_Total) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *DataPageMyCharacterSchema_Total) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -5194,22 +4541,22 @@ func (t *DataPageSimpleItemSchema_Total) UnmarshalJSON(b []byte) error {
 	return err
 }
 
-// AsMyCharacterSchemaCooldownExpiration0 returns the union data inside the MyCharacterSchema_CooldownExpiration as a MyCharacterSchemaCooldownExpiration0
-func (t MyCharacterSchema_CooldownExpiration) AsMyCharacterSchemaCooldownExpiration0() (MyCharacterSchemaCooldownExpiration0, error) {
-	var body MyCharacterSchemaCooldownExpiration0
+// AsCraftSchema returns the union data inside the ItemSchema_Craft as a CraftSchema
+func (t ItemSchema_Craft) AsCraftSchema() (CraftSchema, error) {
+	var body CraftSchema
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromMyCharacterSchemaCooldownExpiration0 overwrites any union data inside the MyCharacterSchema_CooldownExpiration as the provided MyCharacterSchemaCooldownExpiration0
-func (t *MyCharacterSchema_CooldownExpiration) FromMyCharacterSchemaCooldownExpiration0(v MyCharacterSchemaCooldownExpiration0) error {
+// FromCraftSchema overwrites any union data inside the ItemSchema_Craft as the provided CraftSchema
+func (t *ItemSchema_Craft) FromCraftSchema(v CraftSchema) error {
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergeMyCharacterSchemaCooldownExpiration0 performs a merge with any union data inside the MyCharacterSchema_CooldownExpiration, using the provided MyCharacterSchemaCooldownExpiration0
-func (t *MyCharacterSchema_CooldownExpiration) MergeMyCharacterSchemaCooldownExpiration0(v MyCharacterSchemaCooldownExpiration0) error {
+// MergeCraftSchema performs a merge with any union data inside the ItemSchema_Craft, using the provided CraftSchema
+func (t *ItemSchema_Craft) MergeCraftSchema(v CraftSchema) error {
 	b, err := json.Marshal(v)
 	if err != nil {
 		return err
@@ -5220,22 +4567,22 @@ func (t *MyCharacterSchema_CooldownExpiration) MergeMyCharacterSchemaCooldownExp
 	return err
 }
 
-// AsMyCharacterSchemaCooldownExpiration1 returns the union data inside the MyCharacterSchema_CooldownExpiration as a MyCharacterSchemaCooldownExpiration1
-func (t MyCharacterSchema_CooldownExpiration) AsMyCharacterSchemaCooldownExpiration1() (MyCharacterSchemaCooldownExpiration1, error) {
-	var body MyCharacterSchemaCooldownExpiration1
+// AsItemSchemaCraft1 returns the union data inside the ItemSchema_Craft as a ItemSchemaCraft1
+func (t ItemSchema_Craft) AsItemSchemaCraft1() (ItemSchemaCraft1, error) {
+	var body ItemSchemaCraft1
 	err := json.Unmarshal(t.union, &body)
 	return body, err
 }
 
-// FromMyCharacterSchemaCooldownExpiration1 overwrites any union data inside the MyCharacterSchema_CooldownExpiration as the provided MyCharacterSchemaCooldownExpiration1
-func (t *MyCharacterSchema_CooldownExpiration) FromMyCharacterSchemaCooldownExpiration1(v MyCharacterSchemaCooldownExpiration1) error {
+// FromItemSchemaCraft1 overwrites any union data inside the ItemSchema_Craft as the provided ItemSchemaCraft1
+func (t *ItemSchema_Craft) FromItemSchemaCraft1(v ItemSchemaCraft1) error {
 	b, err := json.Marshal(v)
 	t.union = b
 	return err
 }
 
-// MergeMyCharacterSchemaCooldownExpiration1 performs a merge with any union data inside the MyCharacterSchema_CooldownExpiration, using the provided MyCharacterSchemaCooldownExpiration1
-func (t *MyCharacterSchema_CooldownExpiration) MergeMyCharacterSchemaCooldownExpiration1(v MyCharacterSchemaCooldownExpiration1) error {
+// MergeItemSchemaCraft1 performs a merge with any union data inside the ItemSchema_Craft, using the provided ItemSchemaCraft1
+func (t *ItemSchema_Craft) MergeItemSchemaCraft1(v ItemSchemaCraft1) error {
 	b, err := json.Marshal(v)
 	if err != nil {
 		return err
@@ -5246,12 +4593,74 @@ func (t *MyCharacterSchema_CooldownExpiration) MergeMyCharacterSchemaCooldownExp
 	return err
 }
 
-func (t MyCharacterSchema_CooldownExpiration) MarshalJSON() ([]byte, error) {
+func (t ItemSchema_Craft) MarshalJSON() ([]byte, error) {
 	b, err := t.union.MarshalJSON()
 	return b, err
 }
 
-func (t *MyCharacterSchema_CooldownExpiration) UnmarshalJSON(b []byte) error {
+func (t *ItemSchema_Craft) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsMapContentSchema returns the union data inside the MapSchema_Content as a MapContentSchema
+func (t MapSchema_Content) AsMapContentSchema() (MapContentSchema, error) {
+	var body MapContentSchema
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromMapContentSchema overwrites any union data inside the MapSchema_Content as the provided MapContentSchema
+func (t *MapSchema_Content) FromMapContentSchema(v MapContentSchema) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeMapContentSchema performs a merge with any union data inside the MapSchema_Content, using the provided MapContentSchema
+func (t *MapSchema_Content) MergeMapContentSchema(v MapContentSchema) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsMapSchemaContent1 returns the union data inside the MapSchema_Content as a MapSchemaContent1
+func (t MapSchema_Content) AsMapSchemaContent1() (MapSchemaContent1, error) {
+	var body MapSchemaContent1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromMapSchemaContent1 overwrites any union data inside the MapSchema_Content as the provided MapSchemaContent1
+func (t *MapSchema_Content) FromMapSchemaContent1(v MapSchemaContent1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeMapSchemaContent1 performs a merge with any union data inside the MapSchema_Content, using the provided MapSchemaContent1
+func (t *MapSchema_Content) MergeMapSchemaContent1(v MapSchemaContent1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t MapSchema_Content) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *MapSchema_Content) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -5449,7 +4858,7 @@ type ClientInterface interface {
 	ChangePasswordMyChangePasswordPost(ctx context.Context, body ChangePasswordMyChangePasswordPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetMyCharactersMyCharactersGet request
-	GetMyCharactersMyCharactersGet(ctx context.Context, params *GetMyCharactersMyCharactersGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	GetMyCharactersMyCharactersGet(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetAllCharactersLogsMyLogsGet request
 	GetAllCharactersLogsMyLogsGet(ctx context.Context, params *GetAllCharactersLogsMyLogsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -5782,8 +5191,8 @@ func (c *Client) ChangePasswordMyChangePasswordPost(ctx context.Context, body Ch
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetMyCharactersMyCharactersGet(ctx context.Context, params *GetMyCharactersMyCharactersGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetMyCharactersMyCharactersGetRequest(c.Server, params)
+func (c *Client) GetMyCharactersMyCharactersGet(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetMyCharactersMyCharactersGetRequest(c.Server)
 	if err != nil {
 		return nil, err
 	}
@@ -7117,6 +6526,22 @@ func NewGetBankItemsMyBankItemsGetRequest(server string, params *GetBankItemsMyB
 	if params != nil {
 		queryValues := queryURL.Query()
 
+		if params.ItemCode != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "item_code", runtime.ParamLocationQuery, *params.ItemCode); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
 		if params.Page != nil {
 
 			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "page", runtime.ParamLocationQuery, *params.Page); err != nil {
@@ -7201,7 +6626,7 @@ func NewChangePasswordMyChangePasswordPostRequestWithBody(server string, content
 }
 
 // NewGetMyCharactersMyCharactersGetRequest generates requests for GetMyCharactersMyCharactersGet
-func NewGetMyCharactersMyCharactersGetRequest(server string, params *GetMyCharactersMyCharactersGetParams) (*http.Request, error) {
+func NewGetMyCharactersMyCharactersGetRequest(server string) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -7217,44 +6642,6 @@ func NewGetMyCharactersMyCharactersGetRequest(server string, params *GetMyCharac
 	queryURL, err := serverURL.Parse(operationPath)
 	if err != nil {
 		return nil, err
-	}
-
-	if params != nil {
-		queryValues := queryURL.Query()
-
-		if params.Page != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "page", runtime.ParamLocationQuery, *params.Page); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Size != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "size", runtime.ParamLocationQuery, *params.Size); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		queryURL.RawQuery = queryValues.Encode()
 	}
 
 	req, err := http.NewRequest("GET", queryURL.String(), nil)
@@ -7639,7 +7026,7 @@ func NewActionEquipItemMyNameActionEquipPostRequestWithBody(server string, name 
 		return nil, err
 	}
 
-	operationPath := fmt.Sprintf("/my/%s/action/equip/", pathParam0)
+	operationPath := fmt.Sprintf("/my/%s/action/equip", pathParam0)
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -8044,7 +7431,7 @@ func NewActionUnequipItemMyNameActionUnequipPostRequestWithBody(server string, n
 		return nil, err
 	}
 
-	operationPath := fmt.Sprintf("/my/%s/action/unequip/", pathParam0)
+	operationPath := fmt.Sprintf("/my/%s/action/unequip", pathParam0)
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -8427,7 +7814,7 @@ type ClientWithResponsesInterface interface {
 	ChangePasswordMyChangePasswordPostWithResponse(ctx context.Context, body ChangePasswordMyChangePasswordPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ChangePasswordMyChangePasswordPostResponse, error)
 
 	// GetMyCharactersMyCharactersGetWithResponse request
-	GetMyCharactersMyCharactersGetWithResponse(ctx context.Context, params *GetMyCharactersMyCharactersGetParams, reqEditors ...RequestEditorFn) (*GetMyCharactersMyCharactersGetResponse, error)
+	GetMyCharactersMyCharactersGetWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetMyCharactersMyCharactersGetResponse, error)
 
 	// GetAllCharactersLogsMyLogsGetWithResponse request
 	GetAllCharactersLogsMyLogsGetWithResponse(ctx context.Context, params *GetAllCharactersLogsMyLogsGetParams, reqEditors ...RequestEditorFn) (*GetAllCharactersLogsMyLogsGetResponse, error)
@@ -8897,7 +8284,7 @@ func (r ChangePasswordMyChangePasswordPostResponse) StatusCode() int {
 type GetMyCharactersMyCharactersGetResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *DataPageMyCharacterSchema
+	JSON200      *MyCharactersListSchema
 }
 
 // Status returns HTTPResponse.Status
@@ -8919,7 +8306,7 @@ func (r GetMyCharactersMyCharactersGetResponse) StatusCode() int {
 type GetAllCharactersLogsMyLogsGetResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *DataPageActionSchema
+	JSON200      *DataPageLogSchema
 }
 
 // Status returns HTTPResponse.Status
@@ -8941,7 +8328,7 @@ func (r GetAllCharactersLogsMyLogsGetResponse) StatusCode() int {
 type ActionDepositBankMyNameActionBankDepositPostResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *ActionItemBankReponseSchema
+	JSON200      *ActionItemBankResponseSchema
 }
 
 // Status returns HTTPResponse.Status
@@ -8985,7 +8372,7 @@ func (r ActionDepositBankGoldMyNameActionBankDepositGoldPostResponse) StatusCode
 type ActionWithdrawBankMyNameActionBankWithdrawPostResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *ActionItemBankReponseSchema
+	JSON200      *ActionItemBankResponseSchema
 }
 
 // Status returns HTTPResponse.Status
@@ -9205,7 +8592,7 @@ func (r ActionMoveMyNameActionMovePostResponse) StatusCode() int {
 type ActionRecyclingMyNameActionRecyclingPostResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *RecylingResponseSchema
+	JSON200      *RecyclingResponseSchema
 }
 
 // Status returns HTTPResponse.Status
@@ -9315,7 +8702,7 @@ func (r ActionUnequipItemMyNameActionUnequipPostResponse) StatusCode() int {
 type GetCharacterLogsMyNameLogsGetResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *DataPageActionSchema
+	JSON200      *DataPageLogSchema
 }
 
 // Status returns HTTPResponse.Status
@@ -9578,8 +8965,8 @@ func (c *ClientWithResponses) ChangePasswordMyChangePasswordPostWithResponse(ctx
 }
 
 // GetMyCharactersMyCharactersGetWithResponse request returning *GetMyCharactersMyCharactersGetResponse
-func (c *ClientWithResponses) GetMyCharactersMyCharactersGetWithResponse(ctx context.Context, params *GetMyCharactersMyCharactersGetParams, reqEditors ...RequestEditorFn) (*GetMyCharactersMyCharactersGetResponse, error) {
-	rsp, err := c.GetMyCharactersMyCharactersGet(ctx, params, reqEditors...)
+func (c *ClientWithResponses) GetMyCharactersMyCharactersGetWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetMyCharactersMyCharactersGetResponse, error) {
+	rsp, err := c.GetMyCharactersMyCharactersGet(ctx, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
@@ -10337,7 +9724,7 @@ func ParseGetMyCharactersMyCharactersGetResponse(rsp *http.Response) (*GetMyChar
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest DataPageMyCharacterSchema
+		var dest MyCharactersListSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -10363,7 +9750,7 @@ func ParseGetAllCharactersLogsMyLogsGetResponse(rsp *http.Response) (*GetAllChar
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest DataPageActionSchema
+		var dest DataPageLogSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -10389,7 +9776,7 @@ func ParseActionDepositBankMyNameActionBankDepositPostResponse(rsp *http.Respons
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest ActionItemBankReponseSchema
+		var dest ActionItemBankResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -10441,7 +9828,7 @@ func ParseActionWithdrawBankMyNameActionBankWithdrawPostResponse(rsp *http.Respo
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest ActionItemBankReponseSchema
+		var dest ActionItemBankResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -10701,7 +10088,7 @@ func ParseActionRecyclingMyNameActionRecyclingPostResponse(rsp *http.Response) (
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest RecylingResponseSchema
+		var dest RecyclingResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -10831,7 +10218,7 @@ func ParseGetCharacterLogsMyNameLogsGetResponse(rsp *http.Response) (*GetCharact
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest DataPageActionSchema
+		var dest DataPageLogSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
