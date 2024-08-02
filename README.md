@@ -1,8 +1,8 @@
-# artifactsmmo-client
+# artifactsmmo-go-client
 
 Generated Go Client based upon <https://docs.artifactsmmo.com/api_guide/openapi_spec>
 
-## Usage as Go Client
+## Usage
 
 You can use `/client` as a generated API Client for your own projects.
 
