@@ -21,6 +21,10 @@ var gatherCmd = &cobra.Command{
 			return fmt.Errorf("failed to get character: %w", err)
 		}
 
+		if character == "" {
+			return fmt.Errorf("you must specify a character")
+		}
+
 		r := cmd.Context().Value(runnerKey).(*actions.Runner)
 		for {
 			slog.Info("about to gather")
