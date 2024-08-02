@@ -1,12 +1,9 @@
-# artifactsmmo-cli
+# artifactsmmo-go-client
 
-Go based CLI for https://artifactsmmo.com/
+Generated Go Client based upon <https://docs.artifactsmmo.com/api_guide/openapi_spec>
 
-## Usage as CLI
+## Usage
 
-Don't use this.
+You can use `/client` as a generated API Client for your own projects.
 
-## Usage as Go Client
-
-You can use `/client` as a generated API Client for your own projects. I downgraded the OpenAPI spec to 3.0 in order to 
-use https://github.com/oapi-codegen/oapi-codegen/v2 for a cleaner client.
+I downgraded the OpenAPI spec to 3.0 in order to use <https://github.com/oapi-codegen/oapi-codegen/v2> for a cleaner client.
