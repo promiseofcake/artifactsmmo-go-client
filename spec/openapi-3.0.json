@@ -54,20 +54,20 @@
               }
             }
           },
-          "498": {
-            "description": "Character not found."
-          },
-          "499": {
-            "description": "Character in cooldown."
-          },
-          "490": {
-            "description": "Character already at destination."
-          },
           "404": {
             "description": "Map not found."
           },
           "486": {
             "description": "Character is locked. Action is already in progress."
+          },
+          "490": {
+            "description": "Character already at destination."
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "499": {
+            "description": "Character in cooldown."
           }
         }
       }
@@ -123,26 +123,26 @@
           "404": {
             "description": "Item not found."
           },
+          "478": {
+            "description": "Missing item or insufficient quantity in your inventory."
+          },
+          "485": {
+            "description": "This item is already equipped."
+          },
+          "486": {
+            "description": "Character is locked. Action is already in progress."
+          },
+          "491": {
+            "description": "Slot is not empty."
+          },
+          "496": {
+            "description": "Character level is insufficient."
+          },
           "498": {
             "description": "Character not found."
           },
           "499": {
             "description": "Character in cooldown."
-          },
-          "486": {
-            "description": "Character is locked. Action is already in progress."
-          },
-          "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
-          },
-          "496": {
-            "description": "Character level is insufficient."
-          },
-          "491": {
-            "description": "Slot is not empty."
-          },
-          "485": {
-            "description": "This item is already equipped."
           }
         }
       }
@@ -198,12 +198,6 @@
           "404": {
             "description": "Item not found."
           },
-          "498": {
-            "description": "Character not found."
-          },
-          "499": {
-            "description": "Character in cooldown."
-          },
           "486": {
             "description": "Character is locked. Action is already in progress."
           },
@@ -212,6 +206,12 @@
           },
           "497": {
             "description": "Character inventory is full."
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "499": {
+            "description": "Character in cooldown."
           }
         }
       }
@@ -254,6 +254,12 @@
               }
             }
           },
+          "486": {
+            "description": "Character is locked. Action is already in progress."
+          },
+          "497": {
+            "description": "Character inventory is full."
+          },
           "498": {
             "description": "Character not found."
           },
@@ -262,12 +268,6 @@
           },
           "598": {
             "description": "Monster not found on this map."
-          },
-          "486": {
-            "description": "Character is locked. Action is already in progress."
-          },
-          "497": {
-            "description": "Character inventory is full."
           }
         }
       }
@@ -310,15 +310,6 @@
               }
             }
           },
-          "498": {
-            "description": "Character not found."
-          },
-          "499": {
-            "description": "Character in cooldown."
-          },
-          "598": {
-            "description": "Resource not found on this map."
-          },
           "486": {
             "description": "Character is locked. Action is already in progress."
           },
@@ -327,6 +318,15 @@
           },
           "497": {
             "description": "Character inventory is full."
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          },
+          "598": {
+            "description": "Resource not found on this map."
           }
         }
       }
@@ -382,17 +382,8 @@
           "404": {
             "description": "Craft not found."
           },
-          "598": {
-            "description": "Workshop not found on this map."
-          },
-          "498": {
-            "description": "Character not found."
-          },
-          "497": {
-            "description": "Character inventory is full."
-          },
-          "499": {
-            "description": "Character in cooldown."
+          "478": {
+            "description": "Missing item or insufficient quantity in your inventory."
           },
           "486": {
             "description": "Character is locked. Action is already in progress."
@@ -400,8 +391,17 @@
           "493": {
             "description": "Not skill level required."
           },
-          "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
+          "497": {
+            "description": "Character inventory is full."
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          },
+          "598": {
+            "description": "Workshop not found on this map."
           }
         }
       }
@@ -454,11 +454,14 @@
               }
             }
           },
-          "598": {
-            "description": "Bank not found on this map."
-          },
           "404": {
             "description": "Item not found."
+          },
+          "478": {
+            "description": "Missing item or insufficient quantity in your inventory."
+          },
+          "486": {
+            "description": "Character is locked. Action is already in progress."
           },
           "498": {
             "description": "Character not found."
@@ -466,11 +469,8 @@
           "499": {
             "description": "Character in cooldown."
           },
-          "486": {
-            "description": "Character is locked. Action is already in progress."
-          },
-          "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
+          "598": {
+            "description": "Bank not found on this map."
           }
         }
       }
@@ -523,8 +523,11 @@
               }
             }
           },
-          "598": {
-            "description": "Bank not found on this map."
+          "478": {
+            "description": "Missing item or insufficient quantity in your inventory."
+          },
+          "486": {
+            "description": "Character is locked. Action is already in progress."
           },
           "492": {
             "description": "Insufficient golds on your character."
@@ -535,11 +538,8 @@
           "499": {
             "description": "Character in cooldown."
           },
-          "486": {
-            "description": "Character is locked. Action is already in progress."
-          },
-          "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
+          "598": {
+            "description": "Bank not found on this map."
           }
         }
       }
@@ -595,17 +595,11 @@
           "404": {
             "description": "Item not found."
           },
-          "598": {
-            "description": "Workshop not found on this map."
+          "473": {
+            "description": "This item cannot be recycled."
           },
-          "498": {
-            "description": "Character not found."
-          },
-          "497": {
-            "description": "Character inventory is full."
-          },
-          "499": {
-            "description": "Character in cooldown."
+          "478": {
+            "description": "Missing item or insufficient quantity in your inventory."
           },
           "486": {
             "description": "Character is locked. Action is already in progress."
@@ -613,11 +607,17 @@
           "493": {
             "description": "Not skill level required."
           },
-          "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
+          "497": {
+            "description": "Character inventory is full."
           },
-          "473": {
-            "description": "This item cannot be recycled."
+          "498": {
+            "description": "Character not found."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          },
+          "598": {
+            "description": "Workshop not found on this map."
           }
         }
       }
@@ -673,11 +673,8 @@
           "404": {
             "description": "Item not found."
           },
-          "498": {
-            "description": "Character not found."
-          },
-          "499": {
-            "description": "Character in cooldown."
+          "478": {
+            "description": "Missing item or insufficient quantity in your inventory."
           },
           "486": {
             "description": "Character is locked. Action is already in progress."
@@ -685,11 +682,14 @@
           "497": {
             "description": "Character inventory is full."
           },
+          "498": {
+            "description": "Character not found."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          },
           "598": {
             "description": "Bank not found on this map."
-          },
-          "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
           }
         }
       }
@@ -742,20 +742,20 @@
               }
             }
           },
+          "460": {
+            "description": "Insufficient golds in your bank."
+          },
+          "486": {
+            "description": "Character is locked. Action is already in progress."
+          },
           "498": {
             "description": "Character not found."
           },
           "499": {
             "description": "Character in cooldown."
           },
-          "486": {
-            "description": "Character is locked. Action is already in progress."
-          },
           "598": {
             "description": "Bank not found on this map."
-          },
-          "460": {
-            "description": "Insufficient golds in your bank."
           }
         }
       }
@@ -808,17 +808,11 @@
               }
             }
           },
-          "598": {
-            "description": "Grand Exchange not found on this map."
+          "480": {
+            "description": "No stock for this item."
           },
-          "498": {
-            "description": "Character not found."
-          },
-          "497": {
-            "description": "Character inventory is full."
-          },
-          "499": {
-            "description": "Character in cooldown."
+          "482": {
+            "description": "No item at this price."
           },
           "486": {
             "description": "Character is locked. Action is already in progress."
@@ -826,11 +820,17 @@
           "492": {
             "description": "Insufficient golds on your character."
           },
-          "480": {
-            "description": "No stock for this item."
+          "497": {
+            "description": "Character inventory is full."
           },
-          "482": {
-            "description": "No item at this price."
+          "498": {
+            "description": "Character not found."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          },
+          "598": {
+            "description": "Grand Exchange not found on this map."
           }
         }
       }
@@ -883,23 +883,23 @@
               }
             }
           },
-          "498": {
-            "description": "Character not found."
-          },
-          "499": {
-            "description": "Character in cooldown."
-          },
           "404": {
             "description": "Item not found."
-          },
-          "486": {
-            "description": "Character is locked. Action is already in progress."
           },
           "478": {
             "description": "Missing item or insufficient quantity in your inventory."
           },
           "482": {
             "description": "No item at this price."
+          },
+          "486": {
+            "description": "Character is locked. Action is already in progress."
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "499": {
+            "description": "Character in cooldown."
           },
           "598": {
             "description": "Grand Exchange not found on this map."
@@ -945,20 +945,20 @@
               }
             }
           },
+          "486": {
+            "description": "Character is locked. Action is already in progress."
+          },
+          "489": {
+            "description": "Character already has a task."
+          },
           "498": {
             "description": "Character not found."
           },
           "499": {
             "description": "Character in cooldown."
           },
-          "486": {
-            "description": "Character is locked. Action is already in progress."
-          },
           "598": {
             "description": "Tasks Master not found on this map."
-          },
-          "489": {
-            "description": "Character already has a task."
           }
         }
       }
@@ -1001,26 +1001,26 @@
               }
             }
           },
+          "486": {
+            "description": "Character is locked. Action is already in progress."
+          },
+          "487": {
+            "description": "Character has no task."
+          },
+          "488": {
+            "description": "Character has not completed the task."
+          },
+          "497": {
+            "description": "Character inventory is full."
+          },
           "498": {
             "description": "Character not found."
           },
           "499": {
             "description": "Character in cooldown."
           },
-          "486": {
-            "description": "Character is locked. Action is already in progress."
-          },
           "598": {
             "description": "Tasks Master not found on this map."
-          },
-          "488": {
-            "description": "Character has not completed the task."
-          },
-          "487": {
-            "description": "Character has no task."
-          },
-          "497": {
-            "description": "Character inventory is full."
           }
         }
       }
@@ -1063,23 +1063,23 @@
               }
             }
           },
+          "478": {
+            "description": "Missing item or insufficient quantity in your inventory."
+          },
+          "486": {
+            "description": "Character is locked. Action is already in progress."
+          },
+          "497": {
+            "description": "Character inventory is full."
+          },
           "498": {
             "description": "Character not found."
           },
           "499": {
             "description": "Character in cooldown."
           },
-          "486": {
-            "description": "Character is locked. Action is already in progress."
-          },
           "598": {
             "description": "Tasks Master not found on this map."
-          },
-          "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
-          },
-          "497": {
-            "description": "Character inventory is full."
           }
         }
       }
@@ -1132,17 +1132,17 @@
               }
             }
           },
+          "478": {
+            "description": "Missing item or insufficient quantity in your inventory."
+          },
+          "486": {
+            "description": "Character is locked. Action is already in progress."
+          },
           "498": {
             "description": "Character not found."
           },
           "499": {
             "description": "Character in cooldown."
-          },
-          "486": {
-            "description": "Character is locked. Action is already in progress."
-          },
-          "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
           }
         }
       }
@@ -3556,7 +3556,7 @@
           },
           "quantity": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Quantity",
             "description": "Quantity of items to craft.",
             "default": 1
@@ -3581,7 +3581,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -3593,7 +3593,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -3605,7 +3605,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -3617,7 +3617,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -3648,7 +3648,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -3660,7 +3660,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -3672,7 +3672,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -3684,7 +3684,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -3715,7 +3715,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -3727,7 +3727,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -3739,7 +3739,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -3751,7 +3751,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -3782,7 +3782,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -3794,7 +3794,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -3806,7 +3806,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -3818,7 +3818,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -3849,7 +3849,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -3861,7 +3861,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -3873,7 +3873,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -3885,7 +3885,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -3916,7 +3916,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -3928,7 +3928,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -3940,7 +3940,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -3952,7 +3952,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -3983,7 +3983,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -3995,7 +3995,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -4007,7 +4007,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -4019,7 +4019,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -4050,7 +4050,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -4062,7 +4062,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -4074,7 +4074,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -4086,7 +4086,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -4117,7 +4117,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -4129,7 +4129,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -4141,7 +4141,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "nullable": true
@@ -4153,7 +4153,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "nullable": true
@@ -4222,7 +4222,7 @@
         "properties": {
           "quantity": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Quantity",
             "description": "Quantity of gold."
           }
@@ -4294,19 +4294,19 @@
           },
           "rate": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Rate",
             "description": "Chance rate."
           },
           "min_quantity": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Min Quantity",
             "description": "Minimum quantity."
           },
           "max_quantity": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Max Quantity",
             "description": "Maximum quantity."
           }
@@ -4619,14 +4619,14 @@
           },
           "quantity": {
             "type": "integer",
-            "maximum": 50.0,
-            "minimum": 1.0,
+            "maximum": 50,
+            "minimum": 1,
             "title": "Quantity",
             "description": "Item quantity."
           },
           "price": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Price",
             "description": "Item price. Item price validation protects you if the price has changed since you last checked the buy/sale price of an item."
           }
@@ -4746,7 +4746,7 @@
         "properties": {
           "quantity": {
             "type": "integer",
-            "minimum": 0.0,
+            "minimum": 0,
             "title": "Quantity",
             "description": "Quantity of gold."
           }
@@ -4877,7 +4877,7 @@
           },
           "level": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Level",
             "description": "Item level."
           },
@@ -5264,7 +5264,7 @@
           },
           "quantity": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Quantity",
             "description": "Quantity of items to recycle.",
             "default": 1
@@ -5357,7 +5357,7 @@
           },
           "quantity": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Quantity",
             "description": "Item quantity."
           }
