@@ -673,14 +673,8 @@ type CooldownSchema struct {
 	// RemainingSeconds Deprecated** The remaining seconds of the cooldown.
 	RemainingSeconds int `json:"remainingSeconds"`
 
-	// RemainingSeconds The remaining seconds of the cooldown.
-	RemainingSeconds int `json:"remaining_seconds"`
-
 	// TotalSeconds Deprecated** The total seconds of the cooldown.
 	TotalSeconds int `json:"totalSeconds"`
-
-	// TotalSeconds The total seconds of the cooldown.
-	TotalSeconds int `json:"total_seconds"`
 }
 
 // CooldownSchemaReason The reason of the cooldown.

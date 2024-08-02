@@ -6,6 +6,5 @@ install-tools:
 generate-client:
 	go generate ./...
 
-
 test:
 	go test -v ./...
