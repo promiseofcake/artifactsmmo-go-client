@@ -144,56 +144,56 @@ const (
 	UnequipSchemaSlotWeapon      UnequipSchemaSlot = "weapon"
 )
 
-// Defines values for GetAllCharactersCharactersGetParamsSort.
+// Defines values for GetAllCharactersParamsSort.
 const (
-	GetAllCharactersCharactersGetParamsSortCooking         GetAllCharactersCharactersGetParamsSort = "cooking"
-	GetAllCharactersCharactersGetParamsSortFishing         GetAllCharactersCharactersGetParamsSort = "fishing"
-	GetAllCharactersCharactersGetParamsSortGearcrafting    GetAllCharactersCharactersGetParamsSort = "gearcrafting"
-	GetAllCharactersCharactersGetParamsSortJewelrycrafting GetAllCharactersCharactersGetParamsSort = "jewelrycrafting"
-	GetAllCharactersCharactersGetParamsSortMining          GetAllCharactersCharactersGetParamsSort = "mining"
-	GetAllCharactersCharactersGetParamsSortWeaponcrafting  GetAllCharactersCharactersGetParamsSort = "weaponcrafting"
-	GetAllCharactersCharactersGetParamsSortWoodcutting     GetAllCharactersCharactersGetParamsSort = "woodcutting"
+	GetAllCharactersParamsSortCooking         GetAllCharactersParamsSort = "cooking"
+	GetAllCharactersParamsSortFishing         GetAllCharactersParamsSort = "fishing"
+	GetAllCharactersParamsSortGearcrafting    GetAllCharactersParamsSort = "gearcrafting"
+	GetAllCharactersParamsSortJewelrycrafting GetAllCharactersParamsSort = "jewelrycrafting"
+	GetAllCharactersParamsSortMining          GetAllCharactersParamsSort = "mining"
+	GetAllCharactersParamsSortWeaponcrafting  GetAllCharactersParamsSort = "weaponcrafting"
+	GetAllCharactersParamsSortWoodcutting     GetAllCharactersParamsSort = "woodcutting"
 )
 
-// Defines values for GetAllItemsItemsGetParamsType.
+// Defines values for GetAllItemsParamsType.
 const (
-	GetAllItemsItemsGetParamsTypeAmulet     GetAllItemsItemsGetParamsType = "amulet"
-	GetAllItemsItemsGetParamsTypeBodyArmor  GetAllItemsItemsGetParamsType = "body_armor"
-	GetAllItemsItemsGetParamsTypeBoots      GetAllItemsItemsGetParamsType = "boots"
-	GetAllItemsItemsGetParamsTypeConsumable GetAllItemsItemsGetParamsType = "consumable"
-	GetAllItemsItemsGetParamsTypeHelmet     GetAllItemsItemsGetParamsType = "helmet"
-	GetAllItemsItemsGetParamsTypeLegArmor   GetAllItemsItemsGetParamsType = "leg_armor"
-	GetAllItemsItemsGetParamsTypeResource   GetAllItemsItemsGetParamsType = "resource"
-	GetAllItemsItemsGetParamsTypeRing       GetAllItemsItemsGetParamsType = "ring"
-	GetAllItemsItemsGetParamsTypeShield     GetAllItemsItemsGetParamsType = "shield"
-	GetAllItemsItemsGetParamsTypeWeapon     GetAllItemsItemsGetParamsType = "weapon"
+	GetAllItemsParamsTypeAmulet     GetAllItemsParamsType = "amulet"
+	GetAllItemsParamsTypeBodyArmor  GetAllItemsParamsType = "body_armor"
+	GetAllItemsParamsTypeBoots      GetAllItemsParamsType = "boots"
+	GetAllItemsParamsTypeConsumable GetAllItemsParamsType = "consumable"
+	GetAllItemsParamsTypeHelmet     GetAllItemsParamsType = "helmet"
+	GetAllItemsParamsTypeLegArmor   GetAllItemsParamsType = "leg_armor"
+	GetAllItemsParamsTypeResource   GetAllItemsParamsType = "resource"
+	GetAllItemsParamsTypeRing       GetAllItemsParamsType = "ring"
+	GetAllItemsParamsTypeShield     GetAllItemsParamsType = "shield"
+	GetAllItemsParamsTypeWeapon     GetAllItemsParamsType = "weapon"
 )
 
-// Defines values for GetAllItemsItemsGetParamsCraftSkill.
+// Defines values for GetAllItemsParamsCraftSkill.
 const (
-	GetAllItemsItemsGetParamsCraftSkillCooking         GetAllItemsItemsGetParamsCraftSkill = "cooking"
-	GetAllItemsItemsGetParamsCraftSkillGearcrafting    GetAllItemsItemsGetParamsCraftSkill = "gearcrafting"
-	GetAllItemsItemsGetParamsCraftSkillJewelrycrafting GetAllItemsItemsGetParamsCraftSkill = "jewelrycrafting"
-	GetAllItemsItemsGetParamsCraftSkillMining          GetAllItemsItemsGetParamsCraftSkill = "mining"
-	GetAllItemsItemsGetParamsCraftSkillWeaponcrafting  GetAllItemsItemsGetParamsCraftSkill = "weaponcrafting"
-	GetAllItemsItemsGetParamsCraftSkillWoodcutting     GetAllItemsItemsGetParamsCraftSkill = "woodcutting"
+	GetAllItemsParamsCraftSkillCooking         GetAllItemsParamsCraftSkill = "cooking"
+	GetAllItemsParamsCraftSkillGearcrafting    GetAllItemsParamsCraftSkill = "gearcrafting"
+	GetAllItemsParamsCraftSkillJewelrycrafting GetAllItemsParamsCraftSkill = "jewelrycrafting"
+	GetAllItemsParamsCraftSkillMining          GetAllItemsParamsCraftSkill = "mining"
+	GetAllItemsParamsCraftSkillWeaponcrafting  GetAllItemsParamsCraftSkill = "weaponcrafting"
+	GetAllItemsParamsCraftSkillWoodcutting     GetAllItemsParamsCraftSkill = "woodcutting"
 )
 
-// Defines values for GetAllMapsMapsGetParamsContentType.
+// Defines values for GetAllMapsParamsContentType.
 const (
-	Bank          GetAllMapsMapsGetParamsContentType = "bank"
-	GrandExchange GetAllMapsMapsGetParamsContentType = "grand_exchange"
-	Monster       GetAllMapsMapsGetParamsContentType = "monster"
-	Resource      GetAllMapsMapsGetParamsContentType = "resource"
-	TasksMaster   GetAllMapsMapsGetParamsContentType = "tasks_master"
-	Workshop      GetAllMapsMapsGetParamsContentType = "workshop"
+	Bank          GetAllMapsParamsContentType = "bank"
+	GrandExchange GetAllMapsParamsContentType = "grand_exchange"
+	Monster       GetAllMapsParamsContentType = "monster"
+	Resource      GetAllMapsParamsContentType = "resource"
+	TasksMaster   GetAllMapsParamsContentType = "tasks_master"
+	Workshop      GetAllMapsParamsContentType = "workshop"
 )
 
-// Defines values for GetAllResourcesResourcesGetParamsSkill.
+// Defines values for GetAllResourcesParamsSkill.
 const (
-	Fishing     GetAllResourcesResourcesGetParamsSkill = "fishing"
-	Mining      GetAllResourcesResourcesGetParamsSkill = "mining"
-	Woodcutting GetAllResourcesResourcesGetParamsSkill = "woodcutting"
+	Fishing     GetAllResourcesParamsSkill = "fishing"
+	Mining      GetAllResourcesParamsSkill = "mining"
+	Woodcutting GetAllResourcesParamsSkill = "woodcutting"
 )
 
 // ActionItemBankResponseSchema defines model for ActionItemBankResponseSchema.
@@ -1860,10 +1860,10 @@ type UnequipSchema struct {
 // UnequipSchemaSlot Item slot.
 type UnequipSchemaSlot string
 
-// GetAllCharactersCharactersGetParams defines parameters for GetAllCharactersCharactersGet.
-type GetAllCharactersCharactersGetParams struct {
+// GetAllCharactersParams defines parameters for GetAllCharacters.
+type GetAllCharactersParams struct {
 	// Sort Default sort by total XP.
-	Sort *GetAllCharactersCharactersGetParamsSort `form:"sort,omitempty" json:"sort,omitempty"`
+	Sort *GetAllCharactersParamsSort `form:"sort,omitempty" json:"sort,omitempty"`
 
 	// Page Page number
 	Page *int `form:"page,omitempty" json:"page,omitempty"`
@@ -1872,11 +1872,11 @@ type GetAllCharactersCharactersGetParams struct {
 	Size *int `form:"size,omitempty" json:"size,omitempty"`
 }
 
-// GetAllCharactersCharactersGetParamsSort defines parameters for GetAllCharactersCharactersGet.
-type GetAllCharactersCharactersGetParamsSort string
+// GetAllCharactersParamsSort defines parameters for GetAllCharacters.
+type GetAllCharactersParamsSort string
 
-// GetAllEventsEventsGetParams defines parameters for GetAllEventsEventsGet.
-type GetAllEventsEventsGetParams struct {
+// GetAllEventsParams defines parameters for GetAllEvents.
+type GetAllEventsParams struct {
 	// Page Page number
 	Page *int `form:"page,omitempty" json:"page,omitempty"`
 
@@ -1884,8 +1884,8 @@ type GetAllEventsEventsGetParams struct {
 	Size *int `form:"size,omitempty" json:"size,omitempty"`
 }
 
-// GetAllGeItemsGeGetParams defines parameters for GetAllGeItemsGeGet.
-type GetAllGeItemsGeGetParams struct {
+// GetAllGrandExchangeItemsParams defines parameters for GetAllGrandExchangeItems.
+type GetAllGrandExchangeItemsParams struct {
 	// Page Page number
 	Page *int `form:"page,omitempty" json:"page,omitempty"`
 
@@ -1893,8 +1893,8 @@ type GetAllGeItemsGeGetParams struct {
 	Size *int `form:"size,omitempty" json:"size,omitempty"`
 }
 
-// GetAllItemsItemsGetParams defines parameters for GetAllItemsItemsGet.
-type GetAllItemsItemsGetParams struct {
+// GetAllItemsParams defines parameters for GetAllItems.
+type GetAllItemsParams struct {
 	// MinLevel Minimum level items.
 	MinLevel *int `form:"min_level,omitempty" json:"min_level,omitempty"`
 
@@ -1905,10 +1905,10 @@ type GetAllItemsItemsGetParams struct {
 	Name *string `form:"name,omitempty" json:"name,omitempty"`
 
 	// Type Type of items.
-	Type *GetAllItemsItemsGetParamsType `form:"type,omitempty" json:"type,omitempty"`
+	Type *GetAllItemsParamsType `form:"type,omitempty" json:"type,omitempty"`
 
 	// CraftSkill Skill to craft items.
-	CraftSkill *GetAllItemsItemsGetParamsCraftSkill `form:"craft_skill,omitempty" json:"craft_skill,omitempty"`
+	CraftSkill *GetAllItemsParamsCraftSkill `form:"craft_skill,omitempty" json:"craft_skill,omitempty"`
 
 	// CraftMaterial Item code of items used as material for crafting.
 	CraftMaterial *string `form:"craft_material,omitempty" json:"craft_material,omitempty"`
@@ -1920,16 +1920,16 @@ type GetAllItemsItemsGetParams struct {
 	Size *int `form:"size,omitempty" json:"size,omitempty"`
 }
 
-// GetAllItemsItemsGetParamsType defines parameters for GetAllItemsItemsGet.
-type GetAllItemsItemsGetParamsType string
+// GetAllItemsParamsType defines parameters for GetAllItems.
+type GetAllItemsParamsType string
 
-// GetAllItemsItemsGetParamsCraftSkill defines parameters for GetAllItemsItemsGet.
-type GetAllItemsItemsGetParamsCraftSkill string
+// GetAllItemsParamsCraftSkill defines parameters for GetAllItems.
+type GetAllItemsParamsCraftSkill string
 
-// GetAllMapsMapsGetParams defines parameters for GetAllMapsMapsGet.
-type GetAllMapsMapsGetParams struct {
+// GetAllMapsParams defines parameters for GetAllMaps.
+type GetAllMapsParams struct {
 	// ContentType Type of content on the map.
-	ContentType *GetAllMapsMapsGetParamsContentType `form:"content_type,omitempty" json:"content_type,omitempty"`
+	ContentType *GetAllMapsParamsContentType `form:"content_type,omitempty" json:"content_type,omitempty"`
 
 	// ContentCode Content code on the map.
 	ContentCode *string `form:"content_code,omitempty" json:"content_code,omitempty"`
@@ -1941,11 +1941,11 @@ type GetAllMapsMapsGetParams struct {
 	Size *int `form:"size,omitempty" json:"size,omitempty"`
 }
 
-// GetAllMapsMapsGetParamsContentType defines parameters for GetAllMapsMapsGet.
-type GetAllMapsMapsGetParamsContentType string
+// GetAllMapsParamsContentType defines parameters for GetAllMaps.
+type GetAllMapsParamsContentType string
 
-// GetAllMonstersMonstersGetParams defines parameters for GetAllMonstersMonstersGet.
-type GetAllMonstersMonstersGetParams struct {
+// GetAllMonstersParams defines parameters for GetAllMonsters.
+type GetAllMonstersParams struct {
 	// MinLevel Monster minimum level.
 	MinLevel *int `form:"min_level,omitempty" json:"min_level,omitempty"`
 
@@ -1962,8 +1962,8 @@ type GetAllMonstersMonstersGetParams struct {
 	Size *int `form:"size,omitempty" json:"size,omitempty"`
 }
 
-// GetBankItemsMyBankItemsGetParams defines parameters for GetBankItemsMyBankItemsGet.
-type GetBankItemsMyBankItemsGetParams struct {
+// GetAccountBankItemsParams defines parameters for GetAccountBankItems.
+type GetAccountBankItemsParams struct {
 	// ItemCode Item to search in your bank.
 	ItemCode *string `form:"item_code,omitempty" json:"item_code,omitempty"`
 
@@ -1974,8 +1974,8 @@ type GetBankItemsMyBankItemsGetParams struct {
 	Size *int `form:"size,omitempty" json:"size,omitempty"`
 }
 
-// GetAllCharactersLogsMyLogsGetParams defines parameters for GetAllCharactersLogsMyLogsGet.
-type GetAllCharactersLogsMyLogsGetParams struct {
+// GetAccountCharactersLogsParams defines parameters for GetAccountCharactersLogs.
+type GetAccountCharactersLogsParams struct {
 	// Page Page number
 	Page *int `form:"page,omitempty" json:"page,omitempty"`
 
@@ -1983,8 +1983,8 @@ type GetAllCharactersLogsMyLogsGetParams struct {
 	Size *int `form:"size,omitempty" json:"size,omitempty"`
 }
 
-// GetCharacterLogsMyNameLogsGetParams defines parameters for GetCharacterLogsMyNameLogsGet.
-type GetCharacterLogsMyNameLogsGetParams struct {
+// GetCharacterLogsParams defines parameters for GetCharacterLogs.
+type GetCharacterLogsParams struct {
 	// Page Page number
 	Page *int `form:"page,omitempty" json:"page,omitempty"`
 
@@ -1992,8 +1992,8 @@ type GetCharacterLogsMyNameLogsGetParams struct {
 	Size *int `form:"size,omitempty" json:"size,omitempty"`
 }
 
-// GetAllResourcesResourcesGetParams defines parameters for GetAllResourcesResourcesGet.
-type GetAllResourcesResourcesGetParams struct {
+// GetAllResourcesParams defines parameters for GetAllResources.
+type GetAllResourcesParams struct {
 	// MinLevel Skill minimum level.
 	MinLevel *int `form:"min_level,omitempty" json:"min_level,omitempty"`
 
@@ -2001,7 +2001,7 @@ type GetAllResourcesResourcesGetParams struct {
 	MaxLevel *int `form:"max_level,omitempty" json:"max_level,omitempty"`
 
 	// Skill The code of the skill.
-	Skill *GetAllResourcesResourcesGetParamsSkill `form:"skill,omitempty" json:"skill,omitempty"`
+	Skill *GetAllResourcesParamsSkill `form:"skill,omitempty" json:"skill,omitempty"`
 
 	// Drop Item code of the drop.
 	Drop *string `form:"drop,omitempty" json:"drop,omitempty"`
@@ -2013,53 +2013,53 @@ type GetAllResourcesResourcesGetParams struct {
 	Size *int `form:"size,omitempty" json:"size,omitempty"`
 }
 
-// GetAllResourcesResourcesGetParamsSkill defines parameters for GetAllResourcesResourcesGet.
-type GetAllResourcesResourcesGetParamsSkill string
+// GetAllResourcesParamsSkill defines parameters for GetAllResources.
+type GetAllResourcesParamsSkill string
 
-// CreateAccountAccountsCreatePostJSONRequestBody defines body for CreateAccountAccountsCreatePost for application/json ContentType.
-type CreateAccountAccountsCreatePostJSONRequestBody = AddAccountSchema
+// CreateAccountJSONRequestBody defines body for CreateAccount for application/json ContentType.
+type CreateAccountJSONRequestBody = AddAccountSchema
 
-// CreateCharacterCharactersCreatePostJSONRequestBody defines body for CreateCharacterCharactersCreatePost for application/json ContentType.
-type CreateCharacterCharactersCreatePostJSONRequestBody = AddCharacterSchema
+// AccountCreateCharacterJSONRequestBody defines body for AccountCreateCharacter for application/json ContentType.
+type AccountCreateCharacterJSONRequestBody = AddCharacterSchema
 
-// ChangePasswordMyChangePasswordPostJSONRequestBody defines body for ChangePasswordMyChangePasswordPost for application/json ContentType.
-type ChangePasswordMyChangePasswordPostJSONRequestBody = ChangePassword
+// AccountChangePasswordJSONRequestBody defines body for AccountChangePassword for application/json ContentType.
+type AccountChangePasswordJSONRequestBody = ChangePassword
 
-// ActionDepositBankMyNameActionBankDepositPostJSONRequestBody defines body for ActionDepositBankMyNameActionBankDepositPost for application/json ContentType.
-type ActionDepositBankMyNameActionBankDepositPostJSONRequestBody = SimpleItemSchema
+// CharacterBankDepositItemActionJSONRequestBody defines body for CharacterBankDepositItemAction for application/json ContentType.
+type CharacterBankDepositItemActionJSONRequestBody = SimpleItemSchema
 
-// ActionDepositBankGoldMyNameActionBankDepositGoldPostJSONRequestBody defines body for ActionDepositBankGoldMyNameActionBankDepositGoldPost for application/json ContentType.
-type ActionDepositBankGoldMyNameActionBankDepositGoldPostJSONRequestBody = DepositWithdrawGoldSchema
+// CharacterBankDepositGoldActionJSONRequestBody defines body for CharacterBankDepositGoldAction for application/json ContentType.
+type CharacterBankDepositGoldActionJSONRequestBody = DepositWithdrawGoldSchema
 
-// ActionWithdrawBankMyNameActionBankWithdrawPostJSONRequestBody defines body for ActionWithdrawBankMyNameActionBankWithdrawPost for application/json ContentType.
-type ActionWithdrawBankMyNameActionBankWithdrawPostJSONRequestBody = SimpleItemSchema
+// CharacterBankWithdrawItemActionJSONRequestBody defines body for CharacterBankWithdrawItemAction for application/json ContentType.
+type CharacterBankWithdrawItemActionJSONRequestBody = SimpleItemSchema
 
-// ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostJSONRequestBody defines body for ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPost for application/json ContentType.
-type ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostJSONRequestBody = DepositWithdrawGoldSchema
+// CharacterBankWithdrawGoldActionJSONRequestBody defines body for CharacterBankWithdrawGoldAction for application/json ContentType.
+type CharacterBankWithdrawGoldActionJSONRequestBody = DepositWithdrawGoldSchema
 
-// ActionCraftingMyNameActionCraftingPostJSONRequestBody defines body for ActionCraftingMyNameActionCraftingPost for application/json ContentType.
-type ActionCraftingMyNameActionCraftingPostJSONRequestBody = CraftingSchema
+// CharacterCraftingActionJSONRequestBody defines body for CharacterCraftingAction for application/json ContentType.
+type CharacterCraftingActionJSONRequestBody = CraftingSchema
 
-// ActionDeleteItemMyNameActionDeletePostJSONRequestBody defines body for ActionDeleteItemMyNameActionDeletePost for application/json ContentType.
-type ActionDeleteItemMyNameActionDeletePostJSONRequestBody = SimpleItemSchema
+// CharacterDeleteItemActionJSONRequestBody defines body for CharacterDeleteItemAction for application/json ContentType.
+type CharacterDeleteItemActionJSONRequestBody = SimpleItemSchema
 
-// ActionEquipItemMyNameActionEquipPostJSONRequestBody defines body for ActionEquipItemMyNameActionEquipPost for application/json ContentType.
-type ActionEquipItemMyNameActionEquipPostJSONRequestBody = EquipSchema
+// CharacterEquipActionJSONRequestBody defines body for CharacterEquipAction for application/json ContentType.
+type CharacterEquipActionJSONRequestBody = EquipSchema
 
-// ActionGeBuyItemMyNameActionGeBuyPostJSONRequestBody defines body for ActionGeBuyItemMyNameActionGeBuyPost for application/json ContentType.
-type ActionGeBuyItemMyNameActionGeBuyPostJSONRequestBody = GETransactionItemSchema
+// CharacterGlobalExchangeBuyActionJSONRequestBody defines body for CharacterGlobalExchangeBuyAction for application/json ContentType.
+type CharacterGlobalExchangeBuyActionJSONRequestBody = GETransactionItemSchema
 
-// ActionGeSellItemMyNameActionGeSellPostJSONRequestBody defines body for ActionGeSellItemMyNameActionGeSellPost for application/json ContentType.
-type ActionGeSellItemMyNameActionGeSellPostJSONRequestBody = GETransactionItemSchema
+// CharacterGlobalExchangeSellActionJSONRequestBody defines body for CharacterGlobalExchangeSellAction for application/json ContentType.
+type CharacterGlobalExchangeSellActionJSONRequestBody = GETransactionItemSchema
 
-// ActionMoveMyNameActionMovePostJSONRequestBody defines body for ActionMoveMyNameActionMovePost for application/json ContentType.
-type ActionMoveMyNameActionMovePostJSONRequestBody = DestinationSchema
+// CharacterMoveActionJSONRequestBody defines body for CharacterMoveAction for application/json ContentType.
+type CharacterMoveActionJSONRequestBody = DestinationSchema
 
-// ActionRecyclingMyNameActionRecyclingPostJSONRequestBody defines body for ActionRecyclingMyNameActionRecyclingPost for application/json ContentType.
-type ActionRecyclingMyNameActionRecyclingPostJSONRequestBody = RecyclingSchema
+// CharacterRecyclingActionJSONRequestBody defines body for CharacterRecyclingAction for application/json ContentType.
+type CharacterRecyclingActionJSONRequestBody = RecyclingSchema
 
-// ActionUnequipItemMyNameActionUnequipPostJSONRequestBody defines body for ActionUnequipItemMyNameActionUnequipPost for application/json ContentType.
-type ActionUnequipItemMyNameActionUnequipPostJSONRequestBody = UnequipSchema
+// CharacterUnequipActionJSONRequestBody defines body for CharacterUnequipAction for application/json ContentType.
+type CharacterUnequipActionJSONRequestBody = UnequipSchema
 
 // AsCharacterSchemaCooldownExpiration0 returns the union data inside the CharacterSchema_CooldownExpiration as a CharacterSchemaCooldownExpiration0
 func (t CharacterSchema_CooldownExpiration) AsCharacterSchemaCooldownExpiration0() (CharacterSchemaCooldownExpiration0, error) {
@@ -4800,159 +4800,159 @@ func WithRequestEditorFn(fn RequestEditorFn) ClientOption {
 
 // The interface specification for the client above.
 type ClientInterface interface {
-	// GetStatusGet request
-	GetStatusGet(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetStatus request
+	GetStatus(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// CreateAccountAccountsCreatePostWithBody request with any body
-	CreateAccountAccountsCreatePostWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CreateAccountWithBody request with any body
+	CreateAccountWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	CreateAccountAccountsCreatePost(ctx context.Context, body CreateAccountAccountsCreatePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	CreateAccount(ctx context.Context, body CreateAccountJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetAllCharactersCharactersGet request
-	GetAllCharactersCharactersGet(ctx context.Context, params *GetAllCharactersCharactersGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetAllCharacters request
+	GetAllCharacters(ctx context.Context, params *GetAllCharactersParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// CreateCharacterCharactersCreatePostWithBody request with any body
-	CreateCharacterCharactersCreatePostWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// AccountCreateCharacterWithBody request with any body
+	AccountCreateCharacterWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	CreateCharacterCharactersCreatePost(ctx context.Context, body CreateCharacterCharactersCreatePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	AccountCreateCharacter(ctx context.Context, body AccountCreateCharacterJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetCharacterCharactersNameGet request
-	GetCharacterCharactersNameGet(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetCharacterByName request
+	GetCharacterByName(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetAllEventsEventsGet request
-	GetAllEventsEventsGet(ctx context.Context, params *GetAllEventsEventsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetAllEvents request
+	GetAllEvents(ctx context.Context, params *GetAllEventsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetAllGeItemsGeGet request
-	GetAllGeItemsGeGet(ctx context.Context, params *GetAllGeItemsGeGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetAllGrandExchangeItems request
+	GetAllGrandExchangeItems(ctx context.Context, params *GetAllGrandExchangeItemsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetGeItemGeCodeGet request
-	GetGeItemGeCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetGrandExchangeItemByCode request
+	GetGrandExchangeItemByCode(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetAllItemsItemsGet request
-	GetAllItemsItemsGet(ctx context.Context, params *GetAllItemsItemsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetAllItems request
+	GetAllItems(ctx context.Context, params *GetAllItemsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetItemItemsCodeGet request
-	GetItemItemsCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetItemByCode request
+	GetItemByCode(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetAllMapsMapsGet request
-	GetAllMapsMapsGet(ctx context.Context, params *GetAllMapsMapsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetAllMaps request
+	GetAllMaps(ctx context.Context, params *GetAllMapsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetMapMapsXYGet request
-	GetMapMapsXYGet(ctx context.Context, x int, y int, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetMapDetail request
+	GetMapDetail(ctx context.Context, x int, y int, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetAllMonstersMonstersGet request
-	GetAllMonstersMonstersGet(ctx context.Context, params *GetAllMonstersMonstersGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetAllMonsters request
+	GetAllMonsters(ctx context.Context, params *GetAllMonstersParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetMonsterMonstersCodeGet request
-	GetMonsterMonstersCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetMonsterByCode request
+	GetMonsterByCode(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetBankGoldsMyBankGoldGet request
-	GetBankGoldsMyBankGoldGet(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetAccountBankGold request
+	GetAccountBankGold(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetBankItemsMyBankItemsGet request
-	GetBankItemsMyBankItemsGet(ctx context.Context, params *GetBankItemsMyBankItemsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetAccountBankItems request
+	GetAccountBankItems(ctx context.Context, params *GetAccountBankItemsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ChangePasswordMyChangePasswordPostWithBody request with any body
-	ChangePasswordMyChangePasswordPostWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// AccountChangePasswordWithBody request with any body
+	AccountChangePasswordWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	ChangePasswordMyChangePasswordPost(ctx context.Context, body ChangePasswordMyChangePasswordPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	AccountChangePassword(ctx context.Context, body AccountChangePasswordJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetMyCharactersMyCharactersGet request
-	GetMyCharactersMyCharactersGet(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetAccountCharacterList request
+	GetAccountCharacterList(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetAllCharactersLogsMyLogsGet request
-	GetAllCharactersLogsMyLogsGet(ctx context.Context, params *GetAllCharactersLogsMyLogsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetAccountCharactersLogs request
+	GetAccountCharactersLogs(ctx context.Context, params *GetAccountCharactersLogsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionDepositBankMyNameActionBankDepositPostWithBody request with any body
-	ActionDepositBankMyNameActionBankDepositPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CharacterBankDepositItemActionWithBody request with any body
+	CharacterBankDepositItemActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	ActionDepositBankMyNameActionBankDepositPost(ctx context.Context, name string, body ActionDepositBankMyNameActionBankDepositPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	CharacterBankDepositItemAction(ctx context.Context, name string, body CharacterBankDepositItemActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionDepositBankGoldMyNameActionBankDepositGoldPostWithBody request with any body
-	ActionDepositBankGoldMyNameActionBankDepositGoldPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CharacterBankDepositGoldActionWithBody request with any body
+	CharacterBankDepositGoldActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	ActionDepositBankGoldMyNameActionBankDepositGoldPost(ctx context.Context, name string, body ActionDepositBankGoldMyNameActionBankDepositGoldPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	CharacterBankDepositGoldAction(ctx context.Context, name string, body CharacterBankDepositGoldActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionWithdrawBankMyNameActionBankWithdrawPostWithBody request with any body
-	ActionWithdrawBankMyNameActionBankWithdrawPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CharacterBankWithdrawItemActionWithBody request with any body
+	CharacterBankWithdrawItemActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	ActionWithdrawBankMyNameActionBankWithdrawPost(ctx context.Context, name string, body ActionWithdrawBankMyNameActionBankWithdrawPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	CharacterBankWithdrawItemAction(ctx context.Context, name string, body CharacterBankWithdrawItemActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithBody request with any body
-	ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CharacterBankWithdrawGoldActionWithBody request with any body
+	CharacterBankWithdrawGoldActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPost(ctx context.Context, name string, body ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	CharacterBankWithdrawGoldAction(ctx context.Context, name string, body CharacterBankWithdrawGoldActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionCraftingMyNameActionCraftingPostWithBody request with any body
-	ActionCraftingMyNameActionCraftingPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CharacterCraftingActionWithBody request with any body
+	CharacterCraftingActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	ActionCraftingMyNameActionCraftingPost(ctx context.Context, name string, body ActionCraftingMyNameActionCraftingPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	CharacterCraftingAction(ctx context.Context, name string, body CharacterCraftingActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionDeleteItemMyNameActionDeletePostWithBody request with any body
-	ActionDeleteItemMyNameActionDeletePostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CharacterDeleteItemActionWithBody request with any body
+	CharacterDeleteItemActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	ActionDeleteItemMyNameActionDeletePost(ctx context.Context, name string, body ActionDeleteItemMyNameActionDeletePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	CharacterDeleteItemAction(ctx context.Context, name string, body CharacterDeleteItemActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionEquipItemMyNameActionEquipPostWithBody request with any body
-	ActionEquipItemMyNameActionEquipPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CharacterEquipActionWithBody request with any body
+	CharacterEquipActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	ActionEquipItemMyNameActionEquipPost(ctx context.Context, name string, body ActionEquipItemMyNameActionEquipPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	CharacterEquipAction(ctx context.Context, name string, body CharacterEquipActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionFightMyNameActionFightPost request
-	ActionFightMyNameActionFightPost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CharacterFightAction request
+	CharacterFightAction(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionGatheringMyNameActionGatheringPost request
-	ActionGatheringMyNameActionGatheringPost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CharacterGatheringAction request
+	CharacterGatheringAction(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionGeBuyItemMyNameActionGeBuyPostWithBody request with any body
-	ActionGeBuyItemMyNameActionGeBuyPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CharacterGlobalExchangeBuyActionWithBody request with any body
+	CharacterGlobalExchangeBuyActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	ActionGeBuyItemMyNameActionGeBuyPost(ctx context.Context, name string, body ActionGeBuyItemMyNameActionGeBuyPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	CharacterGlobalExchangeBuyAction(ctx context.Context, name string, body CharacterGlobalExchangeBuyActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionGeSellItemMyNameActionGeSellPostWithBody request with any body
-	ActionGeSellItemMyNameActionGeSellPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CharacterGlobalExchangeSellActionWithBody request with any body
+	CharacterGlobalExchangeSellActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	ActionGeSellItemMyNameActionGeSellPost(ctx context.Context, name string, body ActionGeSellItemMyNameActionGeSellPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	CharacterGlobalExchangeSellAction(ctx context.Context, name string, body CharacterGlobalExchangeSellActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionMoveMyNameActionMovePostWithBody request with any body
-	ActionMoveMyNameActionMovePostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CharacterMoveActionWithBody request with any body
+	CharacterMoveActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	ActionMoveMyNameActionMovePost(ctx context.Context, name string, body ActionMoveMyNameActionMovePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	CharacterMoveAction(ctx context.Context, name string, body CharacterMoveActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionRecyclingMyNameActionRecyclingPostWithBody request with any body
-	ActionRecyclingMyNameActionRecyclingPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CharacterRecyclingActionWithBody request with any body
+	CharacterRecyclingActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	ActionRecyclingMyNameActionRecyclingPost(ctx context.Context, name string, body ActionRecyclingMyNameActionRecyclingPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	CharacterRecyclingAction(ctx context.Context, name string, body CharacterRecyclingActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionCompleteTaskMyNameActionTaskCompletePost request
-	ActionCompleteTaskMyNameActionTaskCompletePost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CharacterCompleteTaskAction request
+	CharacterCompleteTaskAction(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionTaskExchangeMyNameActionTaskExchangePost request
-	ActionTaskExchangeMyNameActionTaskExchangePost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CharacterExchangeTaskAction request
+	CharacterExchangeTaskAction(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionAcceptNewTaskMyNameActionTaskNewPost request
-	ActionAcceptNewTaskMyNameActionTaskNewPost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CharacterAcceptNewTaskAction request
+	CharacterAcceptNewTaskAction(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionUnequipItemMyNameActionUnequipPostWithBody request with any body
-	ActionUnequipItemMyNameActionUnequipPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// CharacterUnequipActionWithBody request with any body
+	CharacterUnequipActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	ActionUnequipItemMyNameActionUnequipPost(ctx context.Context, name string, body ActionUnequipItemMyNameActionUnequipPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+	CharacterUnequipAction(ctx context.Context, name string, body CharacterUnequipActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetCharacterLogsMyNameLogsGet request
-	GetCharacterLogsMyNameLogsGet(ctx context.Context, name string, params *GetCharacterLogsMyNameLogsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetCharacterLogs request
+	GetCharacterLogs(ctx context.Context, name string, params *GetCharacterLogsParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetAllResourcesResourcesGet request
-	GetAllResourcesResourcesGet(ctx context.Context, params *GetAllResourcesResourcesGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetAllResources request
+	GetAllResources(ctx context.Context, params *GetAllResourcesParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetResourcesResourcesCodeGet request
-	GetResourcesResourcesCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetResourceByCode request
+	GetResourceByCode(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GenerateTokenTokenPost request
-	GenerateTokenTokenPost(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GenerateToken request
+	GenerateToken(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
 }
 
-func (c *Client) GetStatusGet(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetStatusGetRequest(c.Server)
+func (c *Client) GetStatus(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetStatusRequest(c.Server)
 	if err != nil {
 		return nil, err
 	}
@@ -4963,8 +4963,8 @@ func (c *Client) GetStatusGet(ctx context.Context, reqEditors ...RequestEditorFn
 	return c.Client.Do(req)
 }
 
-func (c *Client) CreateAccountAccountsCreatePostWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewCreateAccountAccountsCreatePostRequestWithBody(c.Server, contentType, body)
+func (c *Client) CreateAccountWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateAccountRequestWithBody(c.Server, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -4975,8 +4975,8 @@ func (c *Client) CreateAccountAccountsCreatePostWithBody(ctx context.Context, co
 	return c.Client.Do(req)
 }
 
-func (c *Client) CreateAccountAccountsCreatePost(ctx context.Context, body CreateAccountAccountsCreatePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewCreateAccountAccountsCreatePostRequest(c.Server, body)
+func (c *Client) CreateAccount(ctx context.Context, body CreateAccountJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCreateAccountRequest(c.Server, body)
 	if err != nil {
 		return nil, err
 	}
@@ -4987,8 +4987,8 @@ func (c *Client) CreateAccountAccountsCreatePost(ctx context.Context, body Creat
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetAllCharactersCharactersGet(ctx context.Context, params *GetAllCharactersCharactersGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetAllCharactersCharactersGetRequest(c.Server, params)
+func (c *Client) GetAllCharacters(ctx context.Context, params *GetAllCharactersParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAllCharactersRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -4999,8 +4999,8 @@ func (c *Client) GetAllCharactersCharactersGet(ctx context.Context, params *GetA
 	return c.Client.Do(req)
 }
 
-func (c *Client) CreateCharacterCharactersCreatePostWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewCreateCharacterCharactersCreatePostRequestWithBody(c.Server, contentType, body)
+func (c *Client) AccountCreateCharacterWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewAccountCreateCharacterRequestWithBody(c.Server, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5011,8 +5011,8 @@ func (c *Client) CreateCharacterCharactersCreatePostWithBody(ctx context.Context
 	return c.Client.Do(req)
 }
 
-func (c *Client) CreateCharacterCharactersCreatePost(ctx context.Context, body CreateCharacterCharactersCreatePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewCreateCharacterCharactersCreatePostRequest(c.Server, body)
+func (c *Client) AccountCreateCharacter(ctx context.Context, body AccountCreateCharacterJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewAccountCreateCharacterRequest(c.Server, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5023,8 +5023,8 @@ func (c *Client) CreateCharacterCharactersCreatePost(ctx context.Context, body C
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetCharacterCharactersNameGet(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetCharacterCharactersNameGetRequest(c.Server, name)
+func (c *Client) GetCharacterByName(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetCharacterByNameRequest(c.Server, name)
 	if err != nil {
 		return nil, err
 	}
@@ -5035,8 +5035,8 @@ func (c *Client) GetCharacterCharactersNameGet(ctx context.Context, name string,
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetAllEventsEventsGet(ctx context.Context, params *GetAllEventsEventsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetAllEventsEventsGetRequest(c.Server, params)
+func (c *Client) GetAllEvents(ctx context.Context, params *GetAllEventsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAllEventsRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -5047,8 +5047,8 @@ func (c *Client) GetAllEventsEventsGet(ctx context.Context, params *GetAllEvents
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetAllGeItemsGeGet(ctx context.Context, params *GetAllGeItemsGeGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetAllGeItemsGeGetRequest(c.Server, params)
+func (c *Client) GetAllGrandExchangeItems(ctx context.Context, params *GetAllGrandExchangeItemsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAllGrandExchangeItemsRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -5059,8 +5059,8 @@ func (c *Client) GetAllGeItemsGeGet(ctx context.Context, params *GetAllGeItemsGe
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetGeItemGeCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetGeItemGeCodeGetRequest(c.Server, code)
+func (c *Client) GetGrandExchangeItemByCode(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetGrandExchangeItemByCodeRequest(c.Server, code)
 	if err != nil {
 		return nil, err
 	}
@@ -5071,8 +5071,8 @@ func (c *Client) GetGeItemGeCodeGet(ctx context.Context, code string, reqEditors
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetAllItemsItemsGet(ctx context.Context, params *GetAllItemsItemsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetAllItemsItemsGetRequest(c.Server, params)
+func (c *Client) GetAllItems(ctx context.Context, params *GetAllItemsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAllItemsRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -5083,8 +5083,8 @@ func (c *Client) GetAllItemsItemsGet(ctx context.Context, params *GetAllItemsIte
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetItemItemsCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetItemItemsCodeGetRequest(c.Server, code)
+func (c *Client) GetItemByCode(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetItemByCodeRequest(c.Server, code)
 	if err != nil {
 		return nil, err
 	}
@@ -5095,8 +5095,8 @@ func (c *Client) GetItemItemsCodeGet(ctx context.Context, code string, reqEditor
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetAllMapsMapsGet(ctx context.Context, params *GetAllMapsMapsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetAllMapsMapsGetRequest(c.Server, params)
+func (c *Client) GetAllMaps(ctx context.Context, params *GetAllMapsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAllMapsRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -5107,8 +5107,8 @@ func (c *Client) GetAllMapsMapsGet(ctx context.Context, params *GetAllMapsMapsGe
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetMapMapsXYGet(ctx context.Context, x int, y int, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetMapMapsXYGetRequest(c.Server, x, y)
+func (c *Client) GetMapDetail(ctx context.Context, x int, y int, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetMapDetailRequest(c.Server, x, y)
 	if err != nil {
 		return nil, err
 	}
@@ -5119,8 +5119,8 @@ func (c *Client) GetMapMapsXYGet(ctx context.Context, x int, y int, reqEditors .
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetAllMonstersMonstersGet(ctx context.Context, params *GetAllMonstersMonstersGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetAllMonstersMonstersGetRequest(c.Server, params)
+func (c *Client) GetAllMonsters(ctx context.Context, params *GetAllMonstersParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAllMonstersRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -5131,8 +5131,8 @@ func (c *Client) GetAllMonstersMonstersGet(ctx context.Context, params *GetAllMo
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetMonsterMonstersCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetMonsterMonstersCodeGetRequest(c.Server, code)
+func (c *Client) GetMonsterByCode(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetMonsterByCodeRequest(c.Server, code)
 	if err != nil {
 		return nil, err
 	}
@@ -5143,8 +5143,8 @@ func (c *Client) GetMonsterMonstersCodeGet(ctx context.Context, code string, req
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetBankGoldsMyBankGoldGet(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetBankGoldsMyBankGoldGetRequest(c.Server)
+func (c *Client) GetAccountBankGold(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAccountBankGoldRequest(c.Server)
 	if err != nil {
 		return nil, err
 	}
@@ -5155,8 +5155,8 @@ func (c *Client) GetBankGoldsMyBankGoldGet(ctx context.Context, reqEditors ...Re
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetBankItemsMyBankItemsGet(ctx context.Context, params *GetBankItemsMyBankItemsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetBankItemsMyBankItemsGetRequest(c.Server, params)
+func (c *Client) GetAccountBankItems(ctx context.Context, params *GetAccountBankItemsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAccountBankItemsRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -5167,8 +5167,8 @@ func (c *Client) GetBankItemsMyBankItemsGet(ctx context.Context, params *GetBank
 	return c.Client.Do(req)
 }
 
-func (c *Client) ChangePasswordMyChangePasswordPostWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewChangePasswordMyChangePasswordPostRequestWithBody(c.Server, contentType, body)
+func (c *Client) AccountChangePasswordWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewAccountChangePasswordRequestWithBody(c.Server, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5179,8 +5179,8 @@ func (c *Client) ChangePasswordMyChangePasswordPostWithBody(ctx context.Context,
 	return c.Client.Do(req)
 }
 
-func (c *Client) ChangePasswordMyChangePasswordPost(ctx context.Context, body ChangePasswordMyChangePasswordPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewChangePasswordMyChangePasswordPostRequest(c.Server, body)
+func (c *Client) AccountChangePassword(ctx context.Context, body AccountChangePasswordJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewAccountChangePasswordRequest(c.Server, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5191,8 +5191,8 @@ func (c *Client) ChangePasswordMyChangePasswordPost(ctx context.Context, body Ch
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetMyCharactersMyCharactersGet(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetMyCharactersMyCharactersGetRequest(c.Server)
+func (c *Client) GetAccountCharacterList(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAccountCharacterListRequest(c.Server)
 	if err != nil {
 		return nil, err
 	}
@@ -5203,8 +5203,8 @@ func (c *Client) GetMyCharactersMyCharactersGet(ctx context.Context, reqEditors 
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetAllCharactersLogsMyLogsGet(ctx context.Context, params *GetAllCharactersLogsMyLogsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetAllCharactersLogsMyLogsGetRequest(c.Server, params)
+func (c *Client) GetAccountCharactersLogs(ctx context.Context, params *GetAccountCharactersLogsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAccountCharactersLogsRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -5215,8 +5215,8 @@ func (c *Client) GetAllCharactersLogsMyLogsGet(ctx context.Context, params *GetA
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionDepositBankMyNameActionBankDepositPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionDepositBankMyNameActionBankDepositPostRequestWithBody(c.Server, name, contentType, body)
+func (c *Client) CharacterBankDepositItemActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterBankDepositItemActionRequestWithBody(c.Server, name, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5227,8 +5227,8 @@ func (c *Client) ActionDepositBankMyNameActionBankDepositPostWithBody(ctx contex
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionDepositBankMyNameActionBankDepositPost(ctx context.Context, name string, body ActionDepositBankMyNameActionBankDepositPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionDepositBankMyNameActionBankDepositPostRequest(c.Server, name, body)
+func (c *Client) CharacterBankDepositItemAction(ctx context.Context, name string, body CharacterBankDepositItemActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterBankDepositItemActionRequest(c.Server, name, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5239,8 +5239,8 @@ func (c *Client) ActionDepositBankMyNameActionBankDepositPost(ctx context.Contex
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionDepositBankGoldMyNameActionBankDepositGoldPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionDepositBankGoldMyNameActionBankDepositGoldPostRequestWithBody(c.Server, name, contentType, body)
+func (c *Client) CharacterBankDepositGoldActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterBankDepositGoldActionRequestWithBody(c.Server, name, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5251,8 +5251,8 @@ func (c *Client) ActionDepositBankGoldMyNameActionBankDepositGoldPostWithBody(ct
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionDepositBankGoldMyNameActionBankDepositGoldPost(ctx context.Context, name string, body ActionDepositBankGoldMyNameActionBankDepositGoldPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionDepositBankGoldMyNameActionBankDepositGoldPostRequest(c.Server, name, body)
+func (c *Client) CharacterBankDepositGoldAction(ctx context.Context, name string, body CharacterBankDepositGoldActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterBankDepositGoldActionRequest(c.Server, name, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5263,8 +5263,8 @@ func (c *Client) ActionDepositBankGoldMyNameActionBankDepositGoldPost(ctx contex
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionWithdrawBankMyNameActionBankWithdrawPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionWithdrawBankMyNameActionBankWithdrawPostRequestWithBody(c.Server, name, contentType, body)
+func (c *Client) CharacterBankWithdrawItemActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterBankWithdrawItemActionRequestWithBody(c.Server, name, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5275,8 +5275,8 @@ func (c *Client) ActionWithdrawBankMyNameActionBankWithdrawPostWithBody(ctx cont
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionWithdrawBankMyNameActionBankWithdrawPost(ctx context.Context, name string, body ActionWithdrawBankMyNameActionBankWithdrawPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionWithdrawBankMyNameActionBankWithdrawPostRequest(c.Server, name, body)
+func (c *Client) CharacterBankWithdrawItemAction(ctx context.Context, name string, body CharacterBankWithdrawItemActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterBankWithdrawItemActionRequest(c.Server, name, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5287,8 +5287,8 @@ func (c *Client) ActionWithdrawBankMyNameActionBankWithdrawPost(ctx context.Cont
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostRequestWithBody(c.Server, name, contentType, body)
+func (c *Client) CharacterBankWithdrawGoldActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterBankWithdrawGoldActionRequestWithBody(c.Server, name, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5299,8 +5299,8 @@ func (c *Client) ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithBody(
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPost(ctx context.Context, name string, body ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostRequest(c.Server, name, body)
+func (c *Client) CharacterBankWithdrawGoldAction(ctx context.Context, name string, body CharacterBankWithdrawGoldActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterBankWithdrawGoldActionRequest(c.Server, name, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5311,8 +5311,8 @@ func (c *Client) ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPost(ctx cont
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionCraftingMyNameActionCraftingPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionCraftingMyNameActionCraftingPostRequestWithBody(c.Server, name, contentType, body)
+func (c *Client) CharacterCraftingActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterCraftingActionRequestWithBody(c.Server, name, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5323,8 +5323,8 @@ func (c *Client) ActionCraftingMyNameActionCraftingPostWithBody(ctx context.Cont
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionCraftingMyNameActionCraftingPost(ctx context.Context, name string, body ActionCraftingMyNameActionCraftingPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionCraftingMyNameActionCraftingPostRequest(c.Server, name, body)
+func (c *Client) CharacterCraftingAction(ctx context.Context, name string, body CharacterCraftingActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterCraftingActionRequest(c.Server, name, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5335,8 +5335,8 @@ func (c *Client) ActionCraftingMyNameActionCraftingPost(ctx context.Context, nam
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionDeleteItemMyNameActionDeletePostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionDeleteItemMyNameActionDeletePostRequestWithBody(c.Server, name, contentType, body)
+func (c *Client) CharacterDeleteItemActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterDeleteItemActionRequestWithBody(c.Server, name, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5347,8 +5347,8 @@ func (c *Client) ActionDeleteItemMyNameActionDeletePostWithBody(ctx context.Cont
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionDeleteItemMyNameActionDeletePost(ctx context.Context, name string, body ActionDeleteItemMyNameActionDeletePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionDeleteItemMyNameActionDeletePostRequest(c.Server, name, body)
+func (c *Client) CharacterDeleteItemAction(ctx context.Context, name string, body CharacterDeleteItemActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterDeleteItemActionRequest(c.Server, name, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5359,8 +5359,8 @@ func (c *Client) ActionDeleteItemMyNameActionDeletePost(ctx context.Context, nam
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionEquipItemMyNameActionEquipPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionEquipItemMyNameActionEquipPostRequestWithBody(c.Server, name, contentType, body)
+func (c *Client) CharacterEquipActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterEquipActionRequestWithBody(c.Server, name, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5371,8 +5371,8 @@ func (c *Client) ActionEquipItemMyNameActionEquipPostWithBody(ctx context.Contex
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionEquipItemMyNameActionEquipPost(ctx context.Context, name string, body ActionEquipItemMyNameActionEquipPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionEquipItemMyNameActionEquipPostRequest(c.Server, name, body)
+func (c *Client) CharacterEquipAction(ctx context.Context, name string, body CharacterEquipActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterEquipActionRequest(c.Server, name, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5383,8 +5383,8 @@ func (c *Client) ActionEquipItemMyNameActionEquipPost(ctx context.Context, name 
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionFightMyNameActionFightPost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionFightMyNameActionFightPostRequest(c.Server, name)
+func (c *Client) CharacterFightAction(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterFightActionRequest(c.Server, name)
 	if err != nil {
 		return nil, err
 	}
@@ -5395,8 +5395,8 @@ func (c *Client) ActionFightMyNameActionFightPost(ctx context.Context, name stri
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionGatheringMyNameActionGatheringPost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionGatheringMyNameActionGatheringPostRequest(c.Server, name)
+func (c *Client) CharacterGatheringAction(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterGatheringActionRequest(c.Server, name)
 	if err != nil {
 		return nil, err
 	}
@@ -5407,8 +5407,8 @@ func (c *Client) ActionGatheringMyNameActionGatheringPost(ctx context.Context, n
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionGeBuyItemMyNameActionGeBuyPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionGeBuyItemMyNameActionGeBuyPostRequestWithBody(c.Server, name, contentType, body)
+func (c *Client) CharacterGlobalExchangeBuyActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterGlobalExchangeBuyActionRequestWithBody(c.Server, name, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5419,8 +5419,8 @@ func (c *Client) ActionGeBuyItemMyNameActionGeBuyPostWithBody(ctx context.Contex
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionGeBuyItemMyNameActionGeBuyPost(ctx context.Context, name string, body ActionGeBuyItemMyNameActionGeBuyPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionGeBuyItemMyNameActionGeBuyPostRequest(c.Server, name, body)
+func (c *Client) CharacterGlobalExchangeBuyAction(ctx context.Context, name string, body CharacterGlobalExchangeBuyActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterGlobalExchangeBuyActionRequest(c.Server, name, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5431,8 +5431,8 @@ func (c *Client) ActionGeBuyItemMyNameActionGeBuyPost(ctx context.Context, name 
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionGeSellItemMyNameActionGeSellPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionGeSellItemMyNameActionGeSellPostRequestWithBody(c.Server, name, contentType, body)
+func (c *Client) CharacterGlobalExchangeSellActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterGlobalExchangeSellActionRequestWithBody(c.Server, name, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5443,8 +5443,8 @@ func (c *Client) ActionGeSellItemMyNameActionGeSellPostWithBody(ctx context.Cont
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionGeSellItemMyNameActionGeSellPost(ctx context.Context, name string, body ActionGeSellItemMyNameActionGeSellPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionGeSellItemMyNameActionGeSellPostRequest(c.Server, name, body)
+func (c *Client) CharacterGlobalExchangeSellAction(ctx context.Context, name string, body CharacterGlobalExchangeSellActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterGlobalExchangeSellActionRequest(c.Server, name, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5455,8 +5455,8 @@ func (c *Client) ActionGeSellItemMyNameActionGeSellPost(ctx context.Context, nam
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionMoveMyNameActionMovePostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionMoveMyNameActionMovePostRequestWithBody(c.Server, name, contentType, body)
+func (c *Client) CharacterMoveActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterMoveActionRequestWithBody(c.Server, name, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5467,8 +5467,8 @@ func (c *Client) ActionMoveMyNameActionMovePostWithBody(ctx context.Context, nam
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionMoveMyNameActionMovePost(ctx context.Context, name string, body ActionMoveMyNameActionMovePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionMoveMyNameActionMovePostRequest(c.Server, name, body)
+func (c *Client) CharacterMoveAction(ctx context.Context, name string, body CharacterMoveActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterMoveActionRequest(c.Server, name, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5479,8 +5479,8 @@ func (c *Client) ActionMoveMyNameActionMovePost(ctx context.Context, name string
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionRecyclingMyNameActionRecyclingPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionRecyclingMyNameActionRecyclingPostRequestWithBody(c.Server, name, contentType, body)
+func (c *Client) CharacterRecyclingActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterRecyclingActionRequestWithBody(c.Server, name, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5491,8 +5491,8 @@ func (c *Client) ActionRecyclingMyNameActionRecyclingPostWithBody(ctx context.Co
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionRecyclingMyNameActionRecyclingPost(ctx context.Context, name string, body ActionRecyclingMyNameActionRecyclingPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionRecyclingMyNameActionRecyclingPostRequest(c.Server, name, body)
+func (c *Client) CharacterRecyclingAction(ctx context.Context, name string, body CharacterRecyclingActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterRecyclingActionRequest(c.Server, name, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5503,8 +5503,8 @@ func (c *Client) ActionRecyclingMyNameActionRecyclingPost(ctx context.Context, n
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionCompleteTaskMyNameActionTaskCompletePost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionCompleteTaskMyNameActionTaskCompletePostRequest(c.Server, name)
+func (c *Client) CharacterCompleteTaskAction(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterCompleteTaskActionRequest(c.Server, name)
 	if err != nil {
 		return nil, err
 	}
@@ -5515,8 +5515,8 @@ func (c *Client) ActionCompleteTaskMyNameActionTaskCompletePost(ctx context.Cont
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionTaskExchangeMyNameActionTaskExchangePost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionTaskExchangeMyNameActionTaskExchangePostRequest(c.Server, name)
+func (c *Client) CharacterExchangeTaskAction(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterExchangeTaskActionRequest(c.Server, name)
 	if err != nil {
 		return nil, err
 	}
@@ -5527,8 +5527,8 @@ func (c *Client) ActionTaskExchangeMyNameActionTaskExchangePost(ctx context.Cont
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionAcceptNewTaskMyNameActionTaskNewPost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionAcceptNewTaskMyNameActionTaskNewPostRequest(c.Server, name)
+func (c *Client) CharacterAcceptNewTaskAction(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterAcceptNewTaskActionRequest(c.Server, name)
 	if err != nil {
 		return nil, err
 	}
@@ -5539,8 +5539,8 @@ func (c *Client) ActionAcceptNewTaskMyNameActionTaskNewPost(ctx context.Context,
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionUnequipItemMyNameActionUnequipPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionUnequipItemMyNameActionUnequipPostRequestWithBody(c.Server, name, contentType, body)
+func (c *Client) CharacterUnequipActionWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterUnequipActionRequestWithBody(c.Server, name, contentType, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5551,8 +5551,8 @@ func (c *Client) ActionUnequipItemMyNameActionUnequipPostWithBody(ctx context.Co
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionUnequipItemMyNameActionUnequipPost(ctx context.Context, name string, body ActionUnequipItemMyNameActionUnequipPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionUnequipItemMyNameActionUnequipPostRequest(c.Server, name, body)
+func (c *Client) CharacterUnequipAction(ctx context.Context, name string, body CharacterUnequipActionJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewCharacterUnequipActionRequest(c.Server, name, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5563,8 +5563,8 @@ func (c *Client) ActionUnequipItemMyNameActionUnequipPost(ctx context.Context, n
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetCharacterLogsMyNameLogsGet(ctx context.Context, name string, params *GetCharacterLogsMyNameLogsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetCharacterLogsMyNameLogsGetRequest(c.Server, name, params)
+func (c *Client) GetCharacterLogs(ctx context.Context, name string, params *GetCharacterLogsParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetCharacterLogsRequest(c.Server, name, params)
 	if err != nil {
 		return nil, err
 	}
@@ -5575,8 +5575,8 @@ func (c *Client) GetCharacterLogsMyNameLogsGet(ctx context.Context, name string,
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetAllResourcesResourcesGet(ctx context.Context, params *GetAllResourcesResourcesGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetAllResourcesResourcesGetRequest(c.Server, params)
+func (c *Client) GetAllResources(ctx context.Context, params *GetAllResourcesParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAllResourcesRequest(c.Server, params)
 	if err != nil {
 		return nil, err
 	}
@@ -5587,8 +5587,8 @@ func (c *Client) GetAllResourcesResourcesGet(ctx context.Context, params *GetAll
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetResourcesResourcesCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetResourcesResourcesCodeGetRequest(c.Server, code)
+func (c *Client) GetResourceByCode(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetResourceByCodeRequest(c.Server, code)
 	if err != nil {
 		return nil, err
 	}
@@ -5599,8 +5599,8 @@ func (c *Client) GetResourcesResourcesCodeGet(ctx context.Context, code string, 
 	return c.Client.Do(req)
 }
 
-func (c *Client) GenerateTokenTokenPost(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGenerateTokenTokenPostRequest(c.Server)
+func (c *Client) GenerateToken(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGenerateTokenRequest(c.Server)
 	if err != nil {
 		return nil, err
 	}
@@ -5611,8 +5611,8 @@ func (c *Client) GenerateTokenTokenPost(ctx context.Context, reqEditors ...Reque
 	return c.Client.Do(req)
 }
 
-// NewGetStatusGetRequest generates requests for GetStatusGet
-func NewGetStatusGetRequest(server string) (*http.Request, error) {
+// NewGetStatusRequest generates requests for GetStatus
+func NewGetStatusRequest(server string) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -5638,19 +5638,19 @@ func NewGetStatusGetRequest(server string) (*http.Request, error) {
 	return req, nil
 }
 
-// NewCreateAccountAccountsCreatePostRequest calls the generic CreateAccountAccountsCreatePost builder with application/json body
-func NewCreateAccountAccountsCreatePostRequest(server string, body CreateAccountAccountsCreatePostJSONRequestBody) (*http.Request, error) {
+// NewCreateAccountRequest calls the generic CreateAccount builder with application/json body
+func NewCreateAccountRequest(server string, body CreateAccountJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewCreateAccountAccountsCreatePostRequestWithBody(server, "application/json", bodyReader)
+	return NewCreateAccountRequestWithBody(server, "application/json", bodyReader)
 }
 
-// NewCreateAccountAccountsCreatePostRequestWithBody generates requests for CreateAccountAccountsCreatePost with any type of body
-func NewCreateAccountAccountsCreatePostRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+// NewCreateAccountRequestWithBody generates requests for CreateAccount with any type of body
+func NewCreateAccountRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -5678,8 +5678,8 @@ func NewCreateAccountAccountsCreatePostRequestWithBody(server string, contentTyp
 	return req, nil
 }
 
-// NewGetAllCharactersCharactersGetRequest generates requests for GetAllCharactersCharactersGet
-func NewGetAllCharactersCharactersGetRequest(server string, params *GetAllCharactersCharactersGetParams) (*http.Request, error) {
+// NewGetAllCharactersRequest generates requests for GetAllCharacters
+func NewGetAllCharactersRequest(server string, params *GetAllCharactersParams) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -5759,19 +5759,19 @@ func NewGetAllCharactersCharactersGetRequest(server string, params *GetAllCharac
 	return req, nil
 }
 
-// NewCreateCharacterCharactersCreatePostRequest calls the generic CreateCharacterCharactersCreatePost builder with application/json body
-func NewCreateCharacterCharactersCreatePostRequest(server string, body CreateCharacterCharactersCreatePostJSONRequestBody) (*http.Request, error) {
+// NewAccountCreateCharacterRequest calls the generic AccountCreateCharacter builder with application/json body
+func NewAccountCreateCharacterRequest(server string, body AccountCreateCharacterJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewCreateCharacterCharactersCreatePostRequestWithBody(server, "application/json", bodyReader)
+	return NewAccountCreateCharacterRequestWithBody(server, "application/json", bodyReader)
 }
 
-// NewCreateCharacterCharactersCreatePostRequestWithBody generates requests for CreateCharacterCharactersCreatePost with any type of body
-func NewCreateCharacterCharactersCreatePostRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+// NewAccountCreateCharacterRequestWithBody generates requests for AccountCreateCharacter with any type of body
+func NewAccountCreateCharacterRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -5799,8 +5799,8 @@ func NewCreateCharacterCharactersCreatePostRequestWithBody(server string, conten
 	return req, nil
 }
 
-// NewGetCharacterCharactersNameGetRequest generates requests for GetCharacterCharactersNameGet
-func NewGetCharacterCharactersNameGetRequest(server string, name string) (*http.Request, error) {
+// NewGetCharacterByNameRequest generates requests for GetCharacterByName
+func NewGetCharacterByNameRequest(server string, name string) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -5833,8 +5833,8 @@ func NewGetCharacterCharactersNameGetRequest(server string, name string) (*http.
 	return req, nil
 }
 
-// NewGetAllEventsEventsGetRequest generates requests for GetAllEventsEventsGet
-func NewGetAllEventsEventsGetRequest(server string, params *GetAllEventsEventsGetParams) (*http.Request, error) {
+// NewGetAllEventsRequest generates requests for GetAllEvents
+func NewGetAllEventsRequest(server string, params *GetAllEventsParams) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -5898,8 +5898,8 @@ func NewGetAllEventsEventsGetRequest(server string, params *GetAllEventsEventsGe
 	return req, nil
 }
 
-// NewGetAllGeItemsGeGetRequest generates requests for GetAllGeItemsGeGet
-func NewGetAllGeItemsGeGetRequest(server string, params *GetAllGeItemsGeGetParams) (*http.Request, error) {
+// NewGetAllGrandExchangeItemsRequest generates requests for GetAllGrandExchangeItems
+func NewGetAllGrandExchangeItemsRequest(server string, params *GetAllGrandExchangeItemsParams) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -5963,8 +5963,8 @@ func NewGetAllGeItemsGeGetRequest(server string, params *GetAllGeItemsGeGetParam
 	return req, nil
 }
 
-// NewGetGeItemGeCodeGetRequest generates requests for GetGeItemGeCodeGet
-func NewGetGeItemGeCodeGetRequest(server string, code string) (*http.Request, error) {
+// NewGetGrandExchangeItemByCodeRequest generates requests for GetGrandExchangeItemByCode
+func NewGetGrandExchangeItemByCodeRequest(server string, code string) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -5997,8 +5997,8 @@ func NewGetGeItemGeCodeGetRequest(server string, code string) (*http.Request, er
 	return req, nil
 }
 
-// NewGetAllItemsItemsGetRequest generates requests for GetAllItemsItemsGet
-func NewGetAllItemsItemsGetRequest(server string, params *GetAllItemsItemsGetParams) (*http.Request, error) {
+// NewGetAllItemsRequest generates requests for GetAllItems
+func NewGetAllItemsRequest(server string, params *GetAllItemsParams) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -6158,8 +6158,8 @@ func NewGetAllItemsItemsGetRequest(server string, params *GetAllItemsItemsGetPar
 	return req, nil
 }
 
-// NewGetItemItemsCodeGetRequest generates requests for GetItemItemsCodeGet
-func NewGetItemItemsCodeGetRequest(server string, code string) (*http.Request, error) {
+// NewGetItemByCodeRequest generates requests for GetItemByCode
+func NewGetItemByCodeRequest(server string, code string) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -6192,8 +6192,8 @@ func NewGetItemItemsCodeGetRequest(server string, code string) (*http.Request, e
 	return req, nil
 }
 
-// NewGetAllMapsMapsGetRequest generates requests for GetAllMapsMapsGet
-func NewGetAllMapsMapsGetRequest(server string, params *GetAllMapsMapsGetParams) (*http.Request, error) {
+// NewGetAllMapsRequest generates requests for GetAllMaps
+func NewGetAllMapsRequest(server string, params *GetAllMapsParams) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -6289,8 +6289,8 @@ func NewGetAllMapsMapsGetRequest(server string, params *GetAllMapsMapsGetParams)
 	return req, nil
 }
 
-// NewGetMapMapsXYGetRequest generates requests for GetMapMapsXYGet
-func NewGetMapMapsXYGetRequest(server string, x int, y int) (*http.Request, error) {
+// NewGetMapDetailRequest generates requests for GetMapDetail
+func NewGetMapDetailRequest(server string, x int, y int) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -6330,8 +6330,8 @@ func NewGetMapMapsXYGetRequest(server string, x int, y int) (*http.Request, erro
 	return req, nil
 }
 
-// NewGetAllMonstersMonstersGetRequest generates requests for GetAllMonstersMonstersGet
-func NewGetAllMonstersMonstersGetRequest(server string, params *GetAllMonstersMonstersGetParams) (*http.Request, error) {
+// NewGetAllMonstersRequest generates requests for GetAllMonsters
+func NewGetAllMonstersRequest(server string, params *GetAllMonstersParams) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -6443,8 +6443,8 @@ func NewGetAllMonstersMonstersGetRequest(server string, params *GetAllMonstersMo
 	return req, nil
 }
 
-// NewGetMonsterMonstersCodeGetRequest generates requests for GetMonsterMonstersCodeGet
-func NewGetMonsterMonstersCodeGetRequest(server string, code string) (*http.Request, error) {
+// NewGetMonsterByCodeRequest generates requests for GetMonsterByCode
+func NewGetMonsterByCodeRequest(server string, code string) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -6477,8 +6477,8 @@ func NewGetMonsterMonstersCodeGetRequest(server string, code string) (*http.Requ
 	return req, nil
 }
 
-// NewGetBankGoldsMyBankGoldGetRequest generates requests for GetBankGoldsMyBankGoldGet
-func NewGetBankGoldsMyBankGoldGetRequest(server string) (*http.Request, error) {
+// NewGetAccountBankGoldRequest generates requests for GetAccountBankGold
+func NewGetAccountBankGoldRequest(server string) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -6504,8 +6504,8 @@ func NewGetBankGoldsMyBankGoldGetRequest(server string) (*http.Request, error) {
 	return req, nil
 }
 
-// NewGetBankItemsMyBankItemsGetRequest generates requests for GetBankItemsMyBankItemsGet
-func NewGetBankItemsMyBankItemsGetRequest(server string, params *GetBankItemsMyBankItemsGetParams) (*http.Request, error) {
+// NewGetAccountBankItemsRequest generates requests for GetAccountBankItems
+func NewGetAccountBankItemsRequest(server string, params *GetAccountBankItemsParams) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -6585,19 +6585,19 @@ func NewGetBankItemsMyBankItemsGetRequest(server string, params *GetBankItemsMyB
 	return req, nil
 }
 
-// NewChangePasswordMyChangePasswordPostRequest calls the generic ChangePasswordMyChangePasswordPost builder with application/json body
-func NewChangePasswordMyChangePasswordPostRequest(server string, body ChangePasswordMyChangePasswordPostJSONRequestBody) (*http.Request, error) {
+// NewAccountChangePasswordRequest calls the generic AccountChangePassword builder with application/json body
+func NewAccountChangePasswordRequest(server string, body AccountChangePasswordJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewChangePasswordMyChangePasswordPostRequestWithBody(server, "application/json", bodyReader)
+	return NewAccountChangePasswordRequestWithBody(server, "application/json", bodyReader)
 }
 
-// NewChangePasswordMyChangePasswordPostRequestWithBody generates requests for ChangePasswordMyChangePasswordPost with any type of body
-func NewChangePasswordMyChangePasswordPostRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+// NewAccountChangePasswordRequestWithBody generates requests for AccountChangePassword with any type of body
+func NewAccountChangePasswordRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -6625,8 +6625,8 @@ func NewChangePasswordMyChangePasswordPostRequestWithBody(server string, content
 	return req, nil
 }
 
-// NewGetMyCharactersMyCharactersGetRequest generates requests for GetMyCharactersMyCharactersGet
-func NewGetMyCharactersMyCharactersGetRequest(server string) (*http.Request, error) {
+// NewGetAccountCharacterListRequest generates requests for GetAccountCharacterList
+func NewGetAccountCharacterListRequest(server string) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -6652,8 +6652,8 @@ func NewGetMyCharactersMyCharactersGetRequest(server string) (*http.Request, err
 	return req, nil
 }
 
-// NewGetAllCharactersLogsMyLogsGetRequest generates requests for GetAllCharactersLogsMyLogsGet
-func NewGetAllCharactersLogsMyLogsGetRequest(server string, params *GetAllCharactersLogsMyLogsGetParams) (*http.Request, error) {
+// NewGetAccountCharactersLogsRequest generates requests for GetAccountCharactersLogs
+func NewGetAccountCharactersLogsRequest(server string, params *GetAccountCharactersLogsParams) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -6717,19 +6717,19 @@ func NewGetAllCharactersLogsMyLogsGetRequest(server string, params *GetAllCharac
 	return req, nil
 }
 
-// NewActionDepositBankMyNameActionBankDepositPostRequest calls the generic ActionDepositBankMyNameActionBankDepositPost builder with application/json body
-func NewActionDepositBankMyNameActionBankDepositPostRequest(server string, name string, body ActionDepositBankMyNameActionBankDepositPostJSONRequestBody) (*http.Request, error) {
+// NewCharacterBankDepositItemActionRequest calls the generic CharacterBankDepositItemAction builder with application/json body
+func NewCharacterBankDepositItemActionRequest(server string, name string, body CharacterBankDepositItemActionJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewActionDepositBankMyNameActionBankDepositPostRequestWithBody(server, name, "application/json", bodyReader)
+	return NewCharacterBankDepositItemActionRequestWithBody(server, name, "application/json", bodyReader)
 }
 
-// NewActionDepositBankMyNameActionBankDepositPostRequestWithBody generates requests for ActionDepositBankMyNameActionBankDepositPost with any type of body
-func NewActionDepositBankMyNameActionBankDepositPostRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
+// NewCharacterBankDepositItemActionRequestWithBody generates requests for CharacterBankDepositItemAction with any type of body
+func NewCharacterBankDepositItemActionRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -6764,19 +6764,19 @@ func NewActionDepositBankMyNameActionBankDepositPostRequestWithBody(server strin
 	return req, nil
 }
 
-// NewActionDepositBankGoldMyNameActionBankDepositGoldPostRequest calls the generic ActionDepositBankGoldMyNameActionBankDepositGoldPost builder with application/json body
-func NewActionDepositBankGoldMyNameActionBankDepositGoldPostRequest(server string, name string, body ActionDepositBankGoldMyNameActionBankDepositGoldPostJSONRequestBody) (*http.Request, error) {
+// NewCharacterBankDepositGoldActionRequest calls the generic CharacterBankDepositGoldAction builder with application/json body
+func NewCharacterBankDepositGoldActionRequest(server string, name string, body CharacterBankDepositGoldActionJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewActionDepositBankGoldMyNameActionBankDepositGoldPostRequestWithBody(server, name, "application/json", bodyReader)
+	return NewCharacterBankDepositGoldActionRequestWithBody(server, name, "application/json", bodyReader)
 }
 
-// NewActionDepositBankGoldMyNameActionBankDepositGoldPostRequestWithBody generates requests for ActionDepositBankGoldMyNameActionBankDepositGoldPost with any type of body
-func NewActionDepositBankGoldMyNameActionBankDepositGoldPostRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
+// NewCharacterBankDepositGoldActionRequestWithBody generates requests for CharacterBankDepositGoldAction with any type of body
+func NewCharacterBankDepositGoldActionRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -6811,19 +6811,19 @@ func NewActionDepositBankGoldMyNameActionBankDepositGoldPostRequestWithBody(serv
 	return req, nil
 }
 
-// NewActionWithdrawBankMyNameActionBankWithdrawPostRequest calls the generic ActionWithdrawBankMyNameActionBankWithdrawPost builder with application/json body
-func NewActionWithdrawBankMyNameActionBankWithdrawPostRequest(server string, name string, body ActionWithdrawBankMyNameActionBankWithdrawPostJSONRequestBody) (*http.Request, error) {
+// NewCharacterBankWithdrawItemActionRequest calls the generic CharacterBankWithdrawItemAction builder with application/json body
+func NewCharacterBankWithdrawItemActionRequest(server string, name string, body CharacterBankWithdrawItemActionJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewActionWithdrawBankMyNameActionBankWithdrawPostRequestWithBody(server, name, "application/json", bodyReader)
+	return NewCharacterBankWithdrawItemActionRequestWithBody(server, name, "application/json", bodyReader)
 }
 
-// NewActionWithdrawBankMyNameActionBankWithdrawPostRequestWithBody generates requests for ActionWithdrawBankMyNameActionBankWithdrawPost with any type of body
-func NewActionWithdrawBankMyNameActionBankWithdrawPostRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
+// NewCharacterBankWithdrawItemActionRequestWithBody generates requests for CharacterBankWithdrawItemAction with any type of body
+func NewCharacterBankWithdrawItemActionRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -6858,19 +6858,19 @@ func NewActionWithdrawBankMyNameActionBankWithdrawPostRequestWithBody(server str
 	return req, nil
 }
 
-// NewActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostRequest calls the generic ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPost builder with application/json body
-func NewActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostRequest(server string, name string, body ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostJSONRequestBody) (*http.Request, error) {
+// NewCharacterBankWithdrawGoldActionRequest calls the generic CharacterBankWithdrawGoldAction builder with application/json body
+func NewCharacterBankWithdrawGoldActionRequest(server string, name string, body CharacterBankWithdrawGoldActionJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostRequestWithBody(server, name, "application/json", bodyReader)
+	return NewCharacterBankWithdrawGoldActionRequestWithBody(server, name, "application/json", bodyReader)
 }
 
-// NewActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostRequestWithBody generates requests for ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPost with any type of body
-func NewActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
+// NewCharacterBankWithdrawGoldActionRequestWithBody generates requests for CharacterBankWithdrawGoldAction with any type of body
+func NewCharacterBankWithdrawGoldActionRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -6905,19 +6905,19 @@ func NewActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostRequestWithBody(se
 	return req, nil
 }
 
-// NewActionCraftingMyNameActionCraftingPostRequest calls the generic ActionCraftingMyNameActionCraftingPost builder with application/json body
-func NewActionCraftingMyNameActionCraftingPostRequest(server string, name string, body ActionCraftingMyNameActionCraftingPostJSONRequestBody) (*http.Request, error) {
+// NewCharacterCraftingActionRequest calls the generic CharacterCraftingAction builder with application/json body
+func NewCharacterCraftingActionRequest(server string, name string, body CharacterCraftingActionJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewActionCraftingMyNameActionCraftingPostRequestWithBody(server, name, "application/json", bodyReader)
+	return NewCharacterCraftingActionRequestWithBody(server, name, "application/json", bodyReader)
 }
 
-// NewActionCraftingMyNameActionCraftingPostRequestWithBody generates requests for ActionCraftingMyNameActionCraftingPost with any type of body
-func NewActionCraftingMyNameActionCraftingPostRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
+// NewCharacterCraftingActionRequestWithBody generates requests for CharacterCraftingAction with any type of body
+func NewCharacterCraftingActionRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -6952,19 +6952,19 @@ func NewActionCraftingMyNameActionCraftingPostRequestWithBody(server string, nam
 	return req, nil
 }
 
-// NewActionDeleteItemMyNameActionDeletePostRequest calls the generic ActionDeleteItemMyNameActionDeletePost builder with application/json body
-func NewActionDeleteItemMyNameActionDeletePostRequest(server string, name string, body ActionDeleteItemMyNameActionDeletePostJSONRequestBody) (*http.Request, error) {
+// NewCharacterDeleteItemActionRequest calls the generic CharacterDeleteItemAction builder with application/json body
+func NewCharacterDeleteItemActionRequest(server string, name string, body CharacterDeleteItemActionJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewActionDeleteItemMyNameActionDeletePostRequestWithBody(server, name, "application/json", bodyReader)
+	return NewCharacterDeleteItemActionRequestWithBody(server, name, "application/json", bodyReader)
 }
 
-// NewActionDeleteItemMyNameActionDeletePostRequestWithBody generates requests for ActionDeleteItemMyNameActionDeletePost with any type of body
-func NewActionDeleteItemMyNameActionDeletePostRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
+// NewCharacterDeleteItemActionRequestWithBody generates requests for CharacterDeleteItemAction with any type of body
+func NewCharacterDeleteItemActionRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -6999,19 +6999,19 @@ func NewActionDeleteItemMyNameActionDeletePostRequestWithBody(server string, nam
 	return req, nil
 }
 
-// NewActionEquipItemMyNameActionEquipPostRequest calls the generic ActionEquipItemMyNameActionEquipPost builder with application/json body
-func NewActionEquipItemMyNameActionEquipPostRequest(server string, name string, body ActionEquipItemMyNameActionEquipPostJSONRequestBody) (*http.Request, error) {
+// NewCharacterEquipActionRequest calls the generic CharacterEquipAction builder with application/json body
+func NewCharacterEquipActionRequest(server string, name string, body CharacterEquipActionJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewActionEquipItemMyNameActionEquipPostRequestWithBody(server, name, "application/json", bodyReader)
+	return NewCharacterEquipActionRequestWithBody(server, name, "application/json", bodyReader)
 }
 
-// NewActionEquipItemMyNameActionEquipPostRequestWithBody generates requests for ActionEquipItemMyNameActionEquipPost with any type of body
-func NewActionEquipItemMyNameActionEquipPostRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
+// NewCharacterEquipActionRequestWithBody generates requests for CharacterEquipAction with any type of body
+func NewCharacterEquipActionRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -7046,8 +7046,8 @@ func NewActionEquipItemMyNameActionEquipPostRequestWithBody(server string, name 
 	return req, nil
 }
 
-// NewActionFightMyNameActionFightPostRequest generates requests for ActionFightMyNameActionFightPost
-func NewActionFightMyNameActionFightPostRequest(server string, name string) (*http.Request, error) {
+// NewCharacterFightActionRequest generates requests for CharacterFightAction
+func NewCharacterFightActionRequest(server string, name string) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -7080,8 +7080,8 @@ func NewActionFightMyNameActionFightPostRequest(server string, name string) (*ht
 	return req, nil
 }
 
-// NewActionGatheringMyNameActionGatheringPostRequest generates requests for ActionGatheringMyNameActionGatheringPost
-func NewActionGatheringMyNameActionGatheringPostRequest(server string, name string) (*http.Request, error) {
+// NewCharacterGatheringActionRequest generates requests for CharacterGatheringAction
+func NewCharacterGatheringActionRequest(server string, name string) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -7114,19 +7114,19 @@ func NewActionGatheringMyNameActionGatheringPostRequest(server string, name stri
 	return req, nil
 }
 
-// NewActionGeBuyItemMyNameActionGeBuyPostRequest calls the generic ActionGeBuyItemMyNameActionGeBuyPost builder with application/json body
-func NewActionGeBuyItemMyNameActionGeBuyPostRequest(server string, name string, body ActionGeBuyItemMyNameActionGeBuyPostJSONRequestBody) (*http.Request, error) {
+// NewCharacterGlobalExchangeBuyActionRequest calls the generic CharacterGlobalExchangeBuyAction builder with application/json body
+func NewCharacterGlobalExchangeBuyActionRequest(server string, name string, body CharacterGlobalExchangeBuyActionJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewActionGeBuyItemMyNameActionGeBuyPostRequestWithBody(server, name, "application/json", bodyReader)
+	return NewCharacterGlobalExchangeBuyActionRequestWithBody(server, name, "application/json", bodyReader)
 }
 
-// NewActionGeBuyItemMyNameActionGeBuyPostRequestWithBody generates requests for ActionGeBuyItemMyNameActionGeBuyPost with any type of body
-func NewActionGeBuyItemMyNameActionGeBuyPostRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
+// NewCharacterGlobalExchangeBuyActionRequestWithBody generates requests for CharacterGlobalExchangeBuyAction with any type of body
+func NewCharacterGlobalExchangeBuyActionRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -7161,19 +7161,19 @@ func NewActionGeBuyItemMyNameActionGeBuyPostRequestWithBody(server string, name 
 	return req, nil
 }
 
-// NewActionGeSellItemMyNameActionGeSellPostRequest calls the generic ActionGeSellItemMyNameActionGeSellPost builder with application/json body
-func NewActionGeSellItemMyNameActionGeSellPostRequest(server string, name string, body ActionGeSellItemMyNameActionGeSellPostJSONRequestBody) (*http.Request, error) {
+// NewCharacterGlobalExchangeSellActionRequest calls the generic CharacterGlobalExchangeSellAction builder with application/json body
+func NewCharacterGlobalExchangeSellActionRequest(server string, name string, body CharacterGlobalExchangeSellActionJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewActionGeSellItemMyNameActionGeSellPostRequestWithBody(server, name, "application/json", bodyReader)
+	return NewCharacterGlobalExchangeSellActionRequestWithBody(server, name, "application/json", bodyReader)
 }
 
-// NewActionGeSellItemMyNameActionGeSellPostRequestWithBody generates requests for ActionGeSellItemMyNameActionGeSellPost with any type of body
-func NewActionGeSellItemMyNameActionGeSellPostRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
+// NewCharacterGlobalExchangeSellActionRequestWithBody generates requests for CharacterGlobalExchangeSellAction with any type of body
+func NewCharacterGlobalExchangeSellActionRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -7208,19 +7208,19 @@ func NewActionGeSellItemMyNameActionGeSellPostRequestWithBody(server string, nam
 	return req, nil
 }
 
-// NewActionMoveMyNameActionMovePostRequest calls the generic ActionMoveMyNameActionMovePost builder with application/json body
-func NewActionMoveMyNameActionMovePostRequest(server string, name string, body ActionMoveMyNameActionMovePostJSONRequestBody) (*http.Request, error) {
+// NewCharacterMoveActionRequest calls the generic CharacterMoveAction builder with application/json body
+func NewCharacterMoveActionRequest(server string, name string, body CharacterMoveActionJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewActionMoveMyNameActionMovePostRequestWithBody(server, name, "application/json", bodyReader)
+	return NewCharacterMoveActionRequestWithBody(server, name, "application/json", bodyReader)
 }
 
-// NewActionMoveMyNameActionMovePostRequestWithBody generates requests for ActionMoveMyNameActionMovePost with any type of body
-func NewActionMoveMyNameActionMovePostRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
+// NewCharacterMoveActionRequestWithBody generates requests for CharacterMoveAction with any type of body
+func NewCharacterMoveActionRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -7255,19 +7255,19 @@ func NewActionMoveMyNameActionMovePostRequestWithBody(server string, name string
 	return req, nil
 }
 
-// NewActionRecyclingMyNameActionRecyclingPostRequest calls the generic ActionRecyclingMyNameActionRecyclingPost builder with application/json body
-func NewActionRecyclingMyNameActionRecyclingPostRequest(server string, name string, body ActionRecyclingMyNameActionRecyclingPostJSONRequestBody) (*http.Request, error) {
+// NewCharacterRecyclingActionRequest calls the generic CharacterRecyclingAction builder with application/json body
+func NewCharacterRecyclingActionRequest(server string, name string, body CharacterRecyclingActionJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewActionRecyclingMyNameActionRecyclingPostRequestWithBody(server, name, "application/json", bodyReader)
+	return NewCharacterRecyclingActionRequestWithBody(server, name, "application/json", bodyReader)
 }
 
-// NewActionRecyclingMyNameActionRecyclingPostRequestWithBody generates requests for ActionRecyclingMyNameActionRecyclingPost with any type of body
-func NewActionRecyclingMyNameActionRecyclingPostRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
+// NewCharacterRecyclingActionRequestWithBody generates requests for CharacterRecyclingAction with any type of body
+func NewCharacterRecyclingActionRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -7302,8 +7302,8 @@ func NewActionRecyclingMyNameActionRecyclingPostRequestWithBody(server string, n
 	return req, nil
 }
 
-// NewActionCompleteTaskMyNameActionTaskCompletePostRequest generates requests for ActionCompleteTaskMyNameActionTaskCompletePost
-func NewActionCompleteTaskMyNameActionTaskCompletePostRequest(server string, name string) (*http.Request, error) {
+// NewCharacterCompleteTaskActionRequest generates requests for CharacterCompleteTaskAction
+func NewCharacterCompleteTaskActionRequest(server string, name string) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -7336,8 +7336,8 @@ func NewActionCompleteTaskMyNameActionTaskCompletePostRequest(server string, nam
 	return req, nil
 }
 
-// NewActionTaskExchangeMyNameActionTaskExchangePostRequest generates requests for ActionTaskExchangeMyNameActionTaskExchangePost
-func NewActionTaskExchangeMyNameActionTaskExchangePostRequest(server string, name string) (*http.Request, error) {
+// NewCharacterExchangeTaskActionRequest generates requests for CharacterExchangeTaskAction
+func NewCharacterExchangeTaskActionRequest(server string, name string) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -7370,8 +7370,8 @@ func NewActionTaskExchangeMyNameActionTaskExchangePostRequest(server string, nam
 	return req, nil
 }
 
-// NewActionAcceptNewTaskMyNameActionTaskNewPostRequest generates requests for ActionAcceptNewTaskMyNameActionTaskNewPost
-func NewActionAcceptNewTaskMyNameActionTaskNewPostRequest(server string, name string) (*http.Request, error) {
+// NewCharacterAcceptNewTaskActionRequest generates requests for CharacterAcceptNewTaskAction
+func NewCharacterAcceptNewTaskActionRequest(server string, name string) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -7404,19 +7404,19 @@ func NewActionAcceptNewTaskMyNameActionTaskNewPostRequest(server string, name st
 	return req, nil
 }
 
-// NewActionUnequipItemMyNameActionUnequipPostRequest calls the generic ActionUnequipItemMyNameActionUnequipPost builder with application/json body
-func NewActionUnequipItemMyNameActionUnequipPostRequest(server string, name string, body ActionUnequipItemMyNameActionUnequipPostJSONRequestBody) (*http.Request, error) {
+// NewCharacterUnequipActionRequest calls the generic CharacterUnequipAction builder with application/json body
+func NewCharacterUnequipActionRequest(server string, name string, body CharacterUnequipActionJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
 	buf, err := json.Marshal(body)
 	if err != nil {
 		return nil, err
 	}
 	bodyReader = bytes.NewReader(buf)
-	return NewActionUnequipItemMyNameActionUnequipPostRequestWithBody(server, name, "application/json", bodyReader)
+	return NewCharacterUnequipActionRequestWithBody(server, name, "application/json", bodyReader)
 }
 
-// NewActionUnequipItemMyNameActionUnequipPostRequestWithBody generates requests for ActionUnequipItemMyNameActionUnequipPost with any type of body
-func NewActionUnequipItemMyNameActionUnequipPostRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
+// NewCharacterUnequipActionRequestWithBody generates requests for CharacterUnequipAction with any type of body
+func NewCharacterUnequipActionRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -7451,8 +7451,8 @@ func NewActionUnequipItemMyNameActionUnequipPostRequestWithBody(server string, n
 	return req, nil
 }
 
-// NewGetCharacterLogsMyNameLogsGetRequest generates requests for GetCharacterLogsMyNameLogsGet
-func NewGetCharacterLogsMyNameLogsGetRequest(server string, name string, params *GetCharacterLogsMyNameLogsGetParams) (*http.Request, error) {
+// NewGetCharacterLogsRequest generates requests for GetCharacterLogs
+func NewGetCharacterLogsRequest(server string, name string, params *GetCharacterLogsParams) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -7523,8 +7523,8 @@ func NewGetCharacterLogsMyNameLogsGetRequest(server string, name string, params 
 	return req, nil
 }
 
-// NewGetAllResourcesResourcesGetRequest generates requests for GetAllResourcesResourcesGet
-func NewGetAllResourcesResourcesGetRequest(server string, params *GetAllResourcesResourcesGetParams) (*http.Request, error) {
+// NewGetAllResourcesRequest generates requests for GetAllResources
+func NewGetAllResourcesRequest(server string, params *GetAllResourcesParams) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -7652,8 +7652,8 @@ func NewGetAllResourcesResourcesGetRequest(server string, params *GetAllResource
 	return req, nil
 }
 
-// NewGetResourcesResourcesCodeGetRequest generates requests for GetResourcesResourcesCodeGet
-func NewGetResourcesResourcesCodeGetRequest(server string, code string) (*http.Request, error) {
+// NewGetResourceByCodeRequest generates requests for GetResourceByCode
+func NewGetResourceByCodeRequest(server string, code string) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -7686,8 +7686,8 @@ func NewGetResourcesResourcesCodeGetRequest(server string, code string) (*http.R
 	return req, nil
 }
 
-// NewGenerateTokenTokenPostRequest generates requests for GenerateTokenTokenPost
-func NewGenerateTokenTokenPostRequest(server string) (*http.Request, error) {
+// NewGenerateTokenRequest generates requests for GenerateToken
+func NewGenerateTokenRequest(server string) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -7756,165 +7756,165 @@ func WithBaseURL(baseURL string) ClientOption {
 
 // ClientWithResponsesInterface is the interface specification for the client with responses above.
 type ClientWithResponsesInterface interface {
-	// GetStatusGetWithResponse request
-	GetStatusGetWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetStatusGetResponse, error)
+	// GetStatusWithResponse request
+	GetStatusWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetStatusResponse, error)
 
-	// CreateAccountAccountsCreatePostWithBodyWithResponse request with any body
-	CreateAccountAccountsCreatePostWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateAccountAccountsCreatePostResponse, error)
+	// CreateAccountWithBodyWithResponse request with any body
+	CreateAccountWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateAccountResponse, error)
 
-	CreateAccountAccountsCreatePostWithResponse(ctx context.Context, body CreateAccountAccountsCreatePostJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateAccountAccountsCreatePostResponse, error)
+	CreateAccountWithResponse(ctx context.Context, body CreateAccountJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateAccountResponse, error)
 
-	// GetAllCharactersCharactersGetWithResponse request
-	GetAllCharactersCharactersGetWithResponse(ctx context.Context, params *GetAllCharactersCharactersGetParams, reqEditors ...RequestEditorFn) (*GetAllCharactersCharactersGetResponse, error)
+	// GetAllCharactersWithResponse request
+	GetAllCharactersWithResponse(ctx context.Context, params *GetAllCharactersParams, reqEditors ...RequestEditorFn) (*GetAllCharactersResponse, error)
 
-	// CreateCharacterCharactersCreatePostWithBodyWithResponse request with any body
-	CreateCharacterCharactersCreatePostWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateCharacterCharactersCreatePostResponse, error)
+	// AccountCreateCharacterWithBodyWithResponse request with any body
+	AccountCreateCharacterWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AccountCreateCharacterResponse, error)
 
-	CreateCharacterCharactersCreatePostWithResponse(ctx context.Context, body CreateCharacterCharactersCreatePostJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateCharacterCharactersCreatePostResponse, error)
+	AccountCreateCharacterWithResponse(ctx context.Context, body AccountCreateCharacterJSONRequestBody, reqEditors ...RequestEditorFn) (*AccountCreateCharacterResponse, error)
 
-	// GetCharacterCharactersNameGetWithResponse request
-	GetCharacterCharactersNameGetWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*GetCharacterCharactersNameGetResponse, error)
+	// GetCharacterByNameWithResponse request
+	GetCharacterByNameWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*GetCharacterByNameResponse, error)
 
-	// GetAllEventsEventsGetWithResponse request
-	GetAllEventsEventsGetWithResponse(ctx context.Context, params *GetAllEventsEventsGetParams, reqEditors ...RequestEditorFn) (*GetAllEventsEventsGetResponse, error)
+	// GetAllEventsWithResponse request
+	GetAllEventsWithResponse(ctx context.Context, params *GetAllEventsParams, reqEditors ...RequestEditorFn) (*GetAllEventsResponse, error)
 
-	// GetAllGeItemsGeGetWithResponse request
-	GetAllGeItemsGeGetWithResponse(ctx context.Context, params *GetAllGeItemsGeGetParams, reqEditors ...RequestEditorFn) (*GetAllGeItemsGeGetResponse, error)
+	// GetAllGrandExchangeItemsWithResponse request
+	GetAllGrandExchangeItemsWithResponse(ctx context.Context, params *GetAllGrandExchangeItemsParams, reqEditors ...RequestEditorFn) (*GetAllGrandExchangeItemsResponse, error)
 
-	// GetGeItemGeCodeGetWithResponse request
-	GetGeItemGeCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetGeItemGeCodeGetResponse, error)
+	// GetGrandExchangeItemByCodeWithResponse request
+	GetGrandExchangeItemByCodeWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetGrandExchangeItemByCodeResponse, error)
 
-	// GetAllItemsItemsGetWithResponse request
-	GetAllItemsItemsGetWithResponse(ctx context.Context, params *GetAllItemsItemsGetParams, reqEditors ...RequestEditorFn) (*GetAllItemsItemsGetResponse, error)
+	// GetAllItemsWithResponse request
+	GetAllItemsWithResponse(ctx context.Context, params *GetAllItemsParams, reqEditors ...RequestEditorFn) (*GetAllItemsResponse, error)
 
-	// GetItemItemsCodeGetWithResponse request
-	GetItemItemsCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetItemItemsCodeGetResponse, error)
+	// GetItemByCodeWithResponse request
+	GetItemByCodeWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetItemByCodeResponse, error)
 
-	// GetAllMapsMapsGetWithResponse request
-	GetAllMapsMapsGetWithResponse(ctx context.Context, params *GetAllMapsMapsGetParams, reqEditors ...RequestEditorFn) (*GetAllMapsMapsGetResponse, error)
+	// GetAllMapsWithResponse request
+	GetAllMapsWithResponse(ctx context.Context, params *GetAllMapsParams, reqEditors ...RequestEditorFn) (*GetAllMapsResponse, error)
 
-	// GetMapMapsXYGetWithResponse request
-	GetMapMapsXYGetWithResponse(ctx context.Context, x int, y int, reqEditors ...RequestEditorFn) (*GetMapMapsXYGetResponse, error)
+	// GetMapDetailWithResponse request
+	GetMapDetailWithResponse(ctx context.Context, x int, y int, reqEditors ...RequestEditorFn) (*GetMapDetailResponse, error)
 
-	// GetAllMonstersMonstersGetWithResponse request
-	GetAllMonstersMonstersGetWithResponse(ctx context.Context, params *GetAllMonstersMonstersGetParams, reqEditors ...RequestEditorFn) (*GetAllMonstersMonstersGetResponse, error)
+	// GetAllMonstersWithResponse request
+	GetAllMonstersWithResponse(ctx context.Context, params *GetAllMonstersParams, reqEditors ...RequestEditorFn) (*GetAllMonstersResponse, error)
 
-	// GetMonsterMonstersCodeGetWithResponse request
-	GetMonsterMonstersCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetMonsterMonstersCodeGetResponse, error)
+	// GetMonsterByCodeWithResponse request
+	GetMonsterByCodeWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetMonsterByCodeResponse, error)
 
-	// GetBankGoldsMyBankGoldGetWithResponse request
-	GetBankGoldsMyBankGoldGetWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetBankGoldsMyBankGoldGetResponse, error)
+	// GetAccountBankGoldWithResponse request
+	GetAccountBankGoldWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetAccountBankGoldResponse, error)
 
-	// GetBankItemsMyBankItemsGetWithResponse request
-	GetBankItemsMyBankItemsGetWithResponse(ctx context.Context, params *GetBankItemsMyBankItemsGetParams, reqEditors ...RequestEditorFn) (*GetBankItemsMyBankItemsGetResponse, error)
+	// GetAccountBankItemsWithResponse request
+	GetAccountBankItemsWithResponse(ctx context.Context, params *GetAccountBankItemsParams, reqEditors ...RequestEditorFn) (*GetAccountBankItemsResponse, error)
 
-	// ChangePasswordMyChangePasswordPostWithBodyWithResponse request with any body
-	ChangePasswordMyChangePasswordPostWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ChangePasswordMyChangePasswordPostResponse, error)
+	// AccountChangePasswordWithBodyWithResponse request with any body
+	AccountChangePasswordWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AccountChangePasswordResponse, error)
 
-	ChangePasswordMyChangePasswordPostWithResponse(ctx context.Context, body ChangePasswordMyChangePasswordPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ChangePasswordMyChangePasswordPostResponse, error)
+	AccountChangePasswordWithResponse(ctx context.Context, body AccountChangePasswordJSONRequestBody, reqEditors ...RequestEditorFn) (*AccountChangePasswordResponse, error)
 
-	// GetMyCharactersMyCharactersGetWithResponse request
-	GetMyCharactersMyCharactersGetWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetMyCharactersMyCharactersGetResponse, error)
+	// GetAccountCharacterListWithResponse request
+	GetAccountCharacterListWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetAccountCharacterListResponse, error)
 
-	// GetAllCharactersLogsMyLogsGetWithResponse request
-	GetAllCharactersLogsMyLogsGetWithResponse(ctx context.Context, params *GetAllCharactersLogsMyLogsGetParams, reqEditors ...RequestEditorFn) (*GetAllCharactersLogsMyLogsGetResponse, error)
+	// GetAccountCharactersLogsWithResponse request
+	GetAccountCharactersLogsWithResponse(ctx context.Context, params *GetAccountCharactersLogsParams, reqEditors ...RequestEditorFn) (*GetAccountCharactersLogsResponse, error)
 
-	// ActionDepositBankMyNameActionBankDepositPostWithBodyWithResponse request with any body
-	ActionDepositBankMyNameActionBankDepositPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionDepositBankMyNameActionBankDepositPostResponse, error)
+	// CharacterBankDepositItemActionWithBodyWithResponse request with any body
+	CharacterBankDepositItemActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterBankDepositItemActionResponse, error)
 
-	ActionDepositBankMyNameActionBankDepositPostWithResponse(ctx context.Context, name string, body ActionDepositBankMyNameActionBankDepositPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionDepositBankMyNameActionBankDepositPostResponse, error)
+	CharacterBankDepositItemActionWithResponse(ctx context.Context, name string, body CharacterBankDepositItemActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterBankDepositItemActionResponse, error)
 
-	// ActionDepositBankGoldMyNameActionBankDepositGoldPostWithBodyWithResponse request with any body
-	ActionDepositBankGoldMyNameActionBankDepositGoldPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionDepositBankGoldMyNameActionBankDepositGoldPostResponse, error)
+	// CharacterBankDepositGoldActionWithBodyWithResponse request with any body
+	CharacterBankDepositGoldActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterBankDepositGoldActionResponse, error)
 
-	ActionDepositBankGoldMyNameActionBankDepositGoldPostWithResponse(ctx context.Context, name string, body ActionDepositBankGoldMyNameActionBankDepositGoldPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionDepositBankGoldMyNameActionBankDepositGoldPostResponse, error)
+	CharacterBankDepositGoldActionWithResponse(ctx context.Context, name string, body CharacterBankDepositGoldActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterBankDepositGoldActionResponse, error)
 
-	// ActionWithdrawBankMyNameActionBankWithdrawPostWithBodyWithResponse request with any body
-	ActionWithdrawBankMyNameActionBankWithdrawPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionWithdrawBankMyNameActionBankWithdrawPostResponse, error)
+	// CharacterBankWithdrawItemActionWithBodyWithResponse request with any body
+	CharacterBankWithdrawItemActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterBankWithdrawItemActionResponse, error)
 
-	ActionWithdrawBankMyNameActionBankWithdrawPostWithResponse(ctx context.Context, name string, body ActionWithdrawBankMyNameActionBankWithdrawPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionWithdrawBankMyNameActionBankWithdrawPostResponse, error)
+	CharacterBankWithdrawItemActionWithResponse(ctx context.Context, name string, body CharacterBankWithdrawItemActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterBankWithdrawItemActionResponse, error)
 
-	// ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithBodyWithResponse request with any body
-	ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse, error)
+	// CharacterBankWithdrawGoldActionWithBodyWithResponse request with any body
+	CharacterBankWithdrawGoldActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterBankWithdrawGoldActionResponse, error)
 
-	ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithResponse(ctx context.Context, name string, body ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse, error)
+	CharacterBankWithdrawGoldActionWithResponse(ctx context.Context, name string, body CharacterBankWithdrawGoldActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterBankWithdrawGoldActionResponse, error)
 
-	// ActionCraftingMyNameActionCraftingPostWithBodyWithResponse request with any body
-	ActionCraftingMyNameActionCraftingPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionCraftingMyNameActionCraftingPostResponse, error)
+	// CharacterCraftingActionWithBodyWithResponse request with any body
+	CharacterCraftingActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterCraftingActionResponse, error)
 
-	ActionCraftingMyNameActionCraftingPostWithResponse(ctx context.Context, name string, body ActionCraftingMyNameActionCraftingPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionCraftingMyNameActionCraftingPostResponse, error)
+	CharacterCraftingActionWithResponse(ctx context.Context, name string, body CharacterCraftingActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterCraftingActionResponse, error)
 
-	// ActionDeleteItemMyNameActionDeletePostWithBodyWithResponse request with any body
-	ActionDeleteItemMyNameActionDeletePostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionDeleteItemMyNameActionDeletePostResponse, error)
+	// CharacterDeleteItemActionWithBodyWithResponse request with any body
+	CharacterDeleteItemActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterDeleteItemActionResponse, error)
 
-	ActionDeleteItemMyNameActionDeletePostWithResponse(ctx context.Context, name string, body ActionDeleteItemMyNameActionDeletePostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionDeleteItemMyNameActionDeletePostResponse, error)
+	CharacterDeleteItemActionWithResponse(ctx context.Context, name string, body CharacterDeleteItemActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterDeleteItemActionResponse, error)
 
-	// ActionEquipItemMyNameActionEquipPostWithBodyWithResponse request with any body
-	ActionEquipItemMyNameActionEquipPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionEquipItemMyNameActionEquipPostResponse, error)
+	// CharacterEquipActionWithBodyWithResponse request with any body
+	CharacterEquipActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterEquipActionResponse, error)
 
-	ActionEquipItemMyNameActionEquipPostWithResponse(ctx context.Context, name string, body ActionEquipItemMyNameActionEquipPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionEquipItemMyNameActionEquipPostResponse, error)
+	CharacterEquipActionWithResponse(ctx context.Context, name string, body CharacterEquipActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterEquipActionResponse, error)
 
-	// ActionFightMyNameActionFightPostWithResponse request
-	ActionFightMyNameActionFightPostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionFightMyNameActionFightPostResponse, error)
+	// CharacterFightActionWithResponse request
+	CharacterFightActionWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*CharacterFightActionResponse, error)
 
-	// ActionGatheringMyNameActionGatheringPostWithResponse request
-	ActionGatheringMyNameActionGatheringPostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionGatheringMyNameActionGatheringPostResponse, error)
+	// CharacterGatheringActionWithResponse request
+	CharacterGatheringActionWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*CharacterGatheringActionResponse, error)
 
-	// ActionGeBuyItemMyNameActionGeBuyPostWithBodyWithResponse request with any body
-	ActionGeBuyItemMyNameActionGeBuyPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionGeBuyItemMyNameActionGeBuyPostResponse, error)
+	// CharacterGlobalExchangeBuyActionWithBodyWithResponse request with any body
+	CharacterGlobalExchangeBuyActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterGlobalExchangeBuyActionResponse, error)
 
-	ActionGeBuyItemMyNameActionGeBuyPostWithResponse(ctx context.Context, name string, body ActionGeBuyItemMyNameActionGeBuyPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionGeBuyItemMyNameActionGeBuyPostResponse, error)
+	CharacterGlobalExchangeBuyActionWithResponse(ctx context.Context, name string, body CharacterGlobalExchangeBuyActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterGlobalExchangeBuyActionResponse, error)
 
-	// ActionGeSellItemMyNameActionGeSellPostWithBodyWithResponse request with any body
-	ActionGeSellItemMyNameActionGeSellPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionGeSellItemMyNameActionGeSellPostResponse, error)
+	// CharacterGlobalExchangeSellActionWithBodyWithResponse request with any body
+	CharacterGlobalExchangeSellActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterGlobalExchangeSellActionResponse, error)
 
-	ActionGeSellItemMyNameActionGeSellPostWithResponse(ctx context.Context, name string, body ActionGeSellItemMyNameActionGeSellPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionGeSellItemMyNameActionGeSellPostResponse, error)
+	CharacterGlobalExchangeSellActionWithResponse(ctx context.Context, name string, body CharacterGlobalExchangeSellActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterGlobalExchangeSellActionResponse, error)
 
-	// ActionMoveMyNameActionMovePostWithBodyWithResponse request with any body
-	ActionMoveMyNameActionMovePostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionMoveMyNameActionMovePostResponse, error)
+	// CharacterMoveActionWithBodyWithResponse request with any body
+	CharacterMoveActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterMoveActionResponse, error)
 
-	ActionMoveMyNameActionMovePostWithResponse(ctx context.Context, name string, body ActionMoveMyNameActionMovePostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionMoveMyNameActionMovePostResponse, error)
+	CharacterMoveActionWithResponse(ctx context.Context, name string, body CharacterMoveActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterMoveActionResponse, error)
 
-	// ActionRecyclingMyNameActionRecyclingPostWithBodyWithResponse request with any body
-	ActionRecyclingMyNameActionRecyclingPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionRecyclingMyNameActionRecyclingPostResponse, error)
+	// CharacterRecyclingActionWithBodyWithResponse request with any body
+	CharacterRecyclingActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterRecyclingActionResponse, error)
 
-	ActionRecyclingMyNameActionRecyclingPostWithResponse(ctx context.Context, name string, body ActionRecyclingMyNameActionRecyclingPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionRecyclingMyNameActionRecyclingPostResponse, error)
+	CharacterRecyclingActionWithResponse(ctx context.Context, name string, body CharacterRecyclingActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterRecyclingActionResponse, error)
 
-	// ActionCompleteTaskMyNameActionTaskCompletePostWithResponse request
-	ActionCompleteTaskMyNameActionTaskCompletePostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionCompleteTaskMyNameActionTaskCompletePostResponse, error)
+	// CharacterCompleteTaskActionWithResponse request
+	CharacterCompleteTaskActionWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*CharacterCompleteTaskActionResponse, error)
 
-	// ActionTaskExchangeMyNameActionTaskExchangePostWithResponse request
-	ActionTaskExchangeMyNameActionTaskExchangePostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionTaskExchangeMyNameActionTaskExchangePostResponse, error)
+	// CharacterExchangeTaskActionWithResponse request
+	CharacterExchangeTaskActionWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*CharacterExchangeTaskActionResponse, error)
 
-	// ActionAcceptNewTaskMyNameActionTaskNewPostWithResponse request
-	ActionAcceptNewTaskMyNameActionTaskNewPostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionAcceptNewTaskMyNameActionTaskNewPostResponse, error)
+	// CharacterAcceptNewTaskActionWithResponse request
+	CharacterAcceptNewTaskActionWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*CharacterAcceptNewTaskActionResponse, error)
 
-	// ActionUnequipItemMyNameActionUnequipPostWithBodyWithResponse request with any body
-	ActionUnequipItemMyNameActionUnequipPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionUnequipItemMyNameActionUnequipPostResponse, error)
+	// CharacterUnequipActionWithBodyWithResponse request with any body
+	CharacterUnequipActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterUnequipActionResponse, error)
 
-	ActionUnequipItemMyNameActionUnequipPostWithResponse(ctx context.Context, name string, body ActionUnequipItemMyNameActionUnequipPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionUnequipItemMyNameActionUnequipPostResponse, error)
+	CharacterUnequipActionWithResponse(ctx context.Context, name string, body CharacterUnequipActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterUnequipActionResponse, error)
 
-	// GetCharacterLogsMyNameLogsGetWithResponse request
-	GetCharacterLogsMyNameLogsGetWithResponse(ctx context.Context, name string, params *GetCharacterLogsMyNameLogsGetParams, reqEditors ...RequestEditorFn) (*GetCharacterLogsMyNameLogsGetResponse, error)
+	// GetCharacterLogsWithResponse request
+	GetCharacterLogsWithResponse(ctx context.Context, name string, params *GetCharacterLogsParams, reqEditors ...RequestEditorFn) (*GetCharacterLogsResponse, error)
 
-	// GetAllResourcesResourcesGetWithResponse request
-	GetAllResourcesResourcesGetWithResponse(ctx context.Context, params *GetAllResourcesResourcesGetParams, reqEditors ...RequestEditorFn) (*GetAllResourcesResourcesGetResponse, error)
+	// GetAllResourcesWithResponse request
+	GetAllResourcesWithResponse(ctx context.Context, params *GetAllResourcesParams, reqEditors ...RequestEditorFn) (*GetAllResourcesResponse, error)
 
-	// GetResourcesResourcesCodeGetWithResponse request
-	GetResourcesResourcesCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetResourcesResourcesCodeGetResponse, error)
+	// GetResourceByCodeWithResponse request
+	GetResourceByCodeWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetResourceByCodeResponse, error)
 
-	// GenerateTokenTokenPostWithResponse request
-	GenerateTokenTokenPostWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GenerateTokenTokenPostResponse, error)
+	// GenerateTokenWithResponse request
+	GenerateTokenWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GenerateTokenResponse, error)
 }
 
-type GetStatusGetResponse struct {
+type GetStatusResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *StatusResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetStatusGetResponse) Status() string {
+func (r GetStatusResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -7922,21 +7922,21 @@ func (r GetStatusGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetStatusGetResponse) StatusCode() int {
+func (r GetStatusResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type CreateAccountAccountsCreatePostResponse struct {
+type CreateAccountResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *ResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r CreateAccountAccountsCreatePostResponse) Status() string {
+func (r CreateAccountResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -7944,21 +7944,21 @@ func (r CreateAccountAccountsCreatePostResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r CreateAccountAccountsCreatePostResponse) StatusCode() int {
+func (r CreateAccountResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetAllCharactersCharactersGetResponse struct {
+type GetAllCharactersResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *DataPageCharacterSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetAllCharactersCharactersGetResponse) Status() string {
+func (r GetAllCharactersResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -7966,21 +7966,21 @@ func (r GetAllCharactersCharactersGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetAllCharactersCharactersGetResponse) StatusCode() int {
+func (r GetAllCharactersResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type CreateCharacterCharactersCreatePostResponse struct {
+type AccountCreateCharacterResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *CharacterResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r CreateCharacterCharactersCreatePostResponse) Status() string {
+func (r AccountCreateCharacterResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -7988,21 +7988,21 @@ func (r CreateCharacterCharactersCreatePostResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r CreateCharacterCharactersCreatePostResponse) StatusCode() int {
+func (r AccountCreateCharacterResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetCharacterCharactersNameGetResponse struct {
+type GetCharacterByNameResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *CharacterResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetCharacterCharactersNameGetResponse) Status() string {
+func (r GetCharacterByNameResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8010,21 +8010,21 @@ func (r GetCharacterCharactersNameGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetCharacterCharactersNameGetResponse) StatusCode() int {
+func (r GetCharacterByNameResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetAllEventsEventsGetResponse struct {
+type GetAllEventsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *DataPageEventSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetAllEventsEventsGetResponse) Status() string {
+func (r GetAllEventsResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8032,21 +8032,21 @@ func (r GetAllEventsEventsGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetAllEventsEventsGetResponse) StatusCode() int {
+func (r GetAllEventsResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetAllGeItemsGeGetResponse struct {
+type GetAllGrandExchangeItemsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *DataPageGEItemSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetAllGeItemsGeGetResponse) Status() string {
+func (r GetAllGrandExchangeItemsResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8054,21 +8054,21 @@ func (r GetAllGeItemsGeGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetAllGeItemsGeGetResponse) StatusCode() int {
+func (r GetAllGrandExchangeItemsResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetGeItemGeCodeGetResponse struct {
+type GetGrandExchangeItemByCodeResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *GEItemResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetGeItemGeCodeGetResponse) Status() string {
+func (r GetGrandExchangeItemByCodeResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8076,21 +8076,21 @@ func (r GetGeItemGeCodeGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetGeItemGeCodeGetResponse) StatusCode() int {
+func (r GetGrandExchangeItemByCodeResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetAllItemsItemsGetResponse struct {
+type GetAllItemsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *DataPageItemSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetAllItemsItemsGetResponse) Status() string {
+func (r GetAllItemsResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8098,21 +8098,21 @@ func (r GetAllItemsItemsGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetAllItemsItemsGetResponse) StatusCode() int {
+func (r GetAllItemsResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetItemItemsCodeGetResponse struct {
+type GetItemByCodeResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *ItemResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetItemItemsCodeGetResponse) Status() string {
+func (r GetItemByCodeResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8120,21 +8120,21 @@ func (r GetItemItemsCodeGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetItemItemsCodeGetResponse) StatusCode() int {
+func (r GetItemByCodeResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetAllMapsMapsGetResponse struct {
+type GetAllMapsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *DataPageMapSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetAllMapsMapsGetResponse) Status() string {
+func (r GetAllMapsResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8142,21 +8142,21 @@ func (r GetAllMapsMapsGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetAllMapsMapsGetResponse) StatusCode() int {
+func (r GetAllMapsResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetMapMapsXYGetResponse struct {
+type GetMapDetailResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *MapResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetMapMapsXYGetResponse) Status() string {
+func (r GetMapDetailResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8164,21 +8164,21 @@ func (r GetMapMapsXYGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetMapMapsXYGetResponse) StatusCode() int {
+func (r GetMapDetailResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetAllMonstersMonstersGetResponse struct {
+type GetAllMonstersResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *DataPageMonsterSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetAllMonstersMonstersGetResponse) Status() string {
+func (r GetAllMonstersResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8186,21 +8186,21 @@ func (r GetAllMonstersMonstersGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetAllMonstersMonstersGetResponse) StatusCode() int {
+func (r GetAllMonstersResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetMonsterMonstersCodeGetResponse struct {
+type GetMonsterByCodeResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *MonsterResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetMonsterMonstersCodeGetResponse) Status() string {
+func (r GetMonsterByCodeResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8208,21 +8208,21 @@ func (r GetMonsterMonstersCodeGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetMonsterMonstersCodeGetResponse) StatusCode() int {
+func (r GetMonsterByCodeResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetBankGoldsMyBankGoldGetResponse struct {
+type GetAccountBankGoldResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *GoldBankResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetBankGoldsMyBankGoldGetResponse) Status() string {
+func (r GetAccountBankGoldResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8230,21 +8230,21 @@ func (r GetBankGoldsMyBankGoldGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetBankGoldsMyBankGoldGetResponse) StatusCode() int {
+func (r GetAccountBankGoldResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetBankItemsMyBankItemsGetResponse struct {
+type GetAccountBankItemsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *DataPageSimpleItemSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetBankItemsMyBankItemsGetResponse) Status() string {
+func (r GetAccountBankItemsResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8252,21 +8252,21 @@ func (r GetBankItemsMyBankItemsGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetBankItemsMyBankItemsGetResponse) StatusCode() int {
+func (r GetAccountBankItemsResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ChangePasswordMyChangePasswordPostResponse struct {
+type AccountChangePasswordResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *ResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ChangePasswordMyChangePasswordPostResponse) Status() string {
+func (r AccountChangePasswordResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8274,21 +8274,21 @@ func (r ChangePasswordMyChangePasswordPostResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ChangePasswordMyChangePasswordPostResponse) StatusCode() int {
+func (r AccountChangePasswordResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetMyCharactersMyCharactersGetResponse struct {
+type GetAccountCharacterListResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *MyCharactersListSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetMyCharactersMyCharactersGetResponse) Status() string {
+func (r GetAccountCharacterListResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8296,21 +8296,21 @@ func (r GetMyCharactersMyCharactersGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetMyCharactersMyCharactersGetResponse) StatusCode() int {
+func (r GetAccountCharacterListResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetAllCharactersLogsMyLogsGetResponse struct {
+type GetAccountCharactersLogsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *DataPageLogSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetAllCharactersLogsMyLogsGetResponse) Status() string {
+func (r GetAccountCharactersLogsResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8318,21 +8318,21 @@ func (r GetAllCharactersLogsMyLogsGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetAllCharactersLogsMyLogsGetResponse) StatusCode() int {
+func (r GetAccountCharactersLogsResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ActionDepositBankMyNameActionBankDepositPostResponse struct {
+type CharacterBankDepositItemActionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *ActionItemBankResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ActionDepositBankMyNameActionBankDepositPostResponse) Status() string {
+func (r CharacterBankDepositItemActionResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8340,21 +8340,21 @@ func (r ActionDepositBankMyNameActionBankDepositPostResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ActionDepositBankMyNameActionBankDepositPostResponse) StatusCode() int {
+func (r CharacterBankDepositItemActionResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ActionDepositBankGoldMyNameActionBankDepositGoldPostResponse struct {
+type CharacterBankDepositGoldActionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *GoldResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ActionDepositBankGoldMyNameActionBankDepositGoldPostResponse) Status() string {
+func (r CharacterBankDepositGoldActionResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8362,21 +8362,21 @@ func (r ActionDepositBankGoldMyNameActionBankDepositGoldPostResponse) Status() s
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ActionDepositBankGoldMyNameActionBankDepositGoldPostResponse) StatusCode() int {
+func (r CharacterBankDepositGoldActionResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ActionWithdrawBankMyNameActionBankWithdrawPostResponse struct {
+type CharacterBankWithdrawItemActionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *ActionItemBankResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ActionWithdrawBankMyNameActionBankWithdrawPostResponse) Status() string {
+func (r CharacterBankWithdrawItemActionResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8384,21 +8384,21 @@ func (r ActionWithdrawBankMyNameActionBankWithdrawPostResponse) Status() string 
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ActionWithdrawBankMyNameActionBankWithdrawPostResponse) StatusCode() int {
+func (r CharacterBankWithdrawItemActionResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse struct {
+type CharacterBankWithdrawGoldActionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *GoldResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse) Status() string {
+func (r CharacterBankWithdrawGoldActionResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8406,21 +8406,21 @@ func (r ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse) Status()
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse) StatusCode() int {
+func (r CharacterBankWithdrawGoldActionResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ActionCraftingMyNameActionCraftingPostResponse struct {
+type CharacterCraftingActionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *SkillResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ActionCraftingMyNameActionCraftingPostResponse) Status() string {
+func (r CharacterCraftingActionResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8428,21 +8428,21 @@ func (r ActionCraftingMyNameActionCraftingPostResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ActionCraftingMyNameActionCraftingPostResponse) StatusCode() int {
+func (r CharacterCraftingActionResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ActionDeleteItemMyNameActionDeletePostResponse struct {
+type CharacterDeleteItemActionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *DeleteItemResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ActionDeleteItemMyNameActionDeletePostResponse) Status() string {
+func (r CharacterDeleteItemActionResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8450,21 +8450,21 @@ func (r ActionDeleteItemMyNameActionDeletePostResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ActionDeleteItemMyNameActionDeletePostResponse) StatusCode() int {
+func (r CharacterDeleteItemActionResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ActionEquipItemMyNameActionEquipPostResponse struct {
+type CharacterEquipActionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *EquipmentResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ActionEquipItemMyNameActionEquipPostResponse) Status() string {
+func (r CharacterEquipActionResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8472,21 +8472,21 @@ func (r ActionEquipItemMyNameActionEquipPostResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ActionEquipItemMyNameActionEquipPostResponse) StatusCode() int {
+func (r CharacterEquipActionResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ActionFightMyNameActionFightPostResponse struct {
+type CharacterFightActionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *CharacterFightResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ActionFightMyNameActionFightPostResponse) Status() string {
+func (r CharacterFightActionResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8494,21 +8494,21 @@ func (r ActionFightMyNameActionFightPostResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ActionFightMyNameActionFightPostResponse) StatusCode() int {
+func (r CharacterFightActionResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ActionGatheringMyNameActionGatheringPostResponse struct {
+type CharacterGatheringActionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *SkillResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ActionGatheringMyNameActionGatheringPostResponse) Status() string {
+func (r CharacterGatheringActionResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8516,21 +8516,21 @@ func (r ActionGatheringMyNameActionGatheringPostResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ActionGatheringMyNameActionGatheringPostResponse) StatusCode() int {
+func (r CharacterGatheringActionResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ActionGeBuyItemMyNameActionGeBuyPostResponse struct {
+type CharacterGlobalExchangeBuyActionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *GETransactionResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ActionGeBuyItemMyNameActionGeBuyPostResponse) Status() string {
+func (r CharacterGlobalExchangeBuyActionResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8538,21 +8538,21 @@ func (r ActionGeBuyItemMyNameActionGeBuyPostResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ActionGeBuyItemMyNameActionGeBuyPostResponse) StatusCode() int {
+func (r CharacterGlobalExchangeBuyActionResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ActionGeSellItemMyNameActionGeSellPostResponse struct {
+type CharacterGlobalExchangeSellActionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *GETransactionResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ActionGeSellItemMyNameActionGeSellPostResponse) Status() string {
+func (r CharacterGlobalExchangeSellActionResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8560,21 +8560,21 @@ func (r ActionGeSellItemMyNameActionGeSellPostResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ActionGeSellItemMyNameActionGeSellPostResponse) StatusCode() int {
+func (r CharacterGlobalExchangeSellActionResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ActionMoveMyNameActionMovePostResponse struct {
+type CharacterMoveActionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *CharacterMovementResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ActionMoveMyNameActionMovePostResponse) Status() string {
+func (r CharacterMoveActionResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8582,21 +8582,21 @@ func (r ActionMoveMyNameActionMovePostResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ActionMoveMyNameActionMovePostResponse) StatusCode() int {
+func (r CharacterMoveActionResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ActionRecyclingMyNameActionRecyclingPostResponse struct {
+type CharacterRecyclingActionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *RecyclingResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ActionRecyclingMyNameActionRecyclingPostResponse) Status() string {
+func (r CharacterRecyclingActionResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8604,21 +8604,21 @@ func (r ActionRecyclingMyNameActionRecyclingPostResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ActionRecyclingMyNameActionRecyclingPostResponse) StatusCode() int {
+func (r CharacterRecyclingActionResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ActionCompleteTaskMyNameActionTaskCompletePostResponse struct {
+type CharacterCompleteTaskActionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *TaskRewardResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ActionCompleteTaskMyNameActionTaskCompletePostResponse) Status() string {
+func (r CharacterCompleteTaskActionResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8626,21 +8626,21 @@ func (r ActionCompleteTaskMyNameActionTaskCompletePostResponse) Status() string 
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ActionCompleteTaskMyNameActionTaskCompletePostResponse) StatusCode() int {
+func (r CharacterCompleteTaskActionResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ActionTaskExchangeMyNameActionTaskExchangePostResponse struct {
+type CharacterExchangeTaskActionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *TaskRewardResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ActionTaskExchangeMyNameActionTaskExchangePostResponse) Status() string {
+func (r CharacterExchangeTaskActionResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8648,21 +8648,21 @@ func (r ActionTaskExchangeMyNameActionTaskExchangePostResponse) Status() string 
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ActionTaskExchangeMyNameActionTaskExchangePostResponse) StatusCode() int {
+func (r CharacterExchangeTaskActionResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ActionAcceptNewTaskMyNameActionTaskNewPostResponse struct {
+type CharacterAcceptNewTaskActionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *TaskResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ActionAcceptNewTaskMyNameActionTaskNewPostResponse) Status() string {
+func (r CharacterAcceptNewTaskActionResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8670,21 +8670,21 @@ func (r ActionAcceptNewTaskMyNameActionTaskNewPostResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ActionAcceptNewTaskMyNameActionTaskNewPostResponse) StatusCode() int {
+func (r CharacterAcceptNewTaskActionResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type ActionUnequipItemMyNameActionUnequipPostResponse struct {
+type CharacterUnequipActionResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *EquipmentResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r ActionUnequipItemMyNameActionUnequipPostResponse) Status() string {
+func (r CharacterUnequipActionResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8692,21 +8692,21 @@ func (r ActionUnequipItemMyNameActionUnequipPostResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r ActionUnequipItemMyNameActionUnequipPostResponse) StatusCode() int {
+func (r CharacterUnequipActionResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetCharacterLogsMyNameLogsGetResponse struct {
+type GetCharacterLogsResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *DataPageLogSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetCharacterLogsMyNameLogsGetResponse) Status() string {
+func (r GetCharacterLogsResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8714,21 +8714,21 @@ func (r GetCharacterLogsMyNameLogsGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetCharacterLogsMyNameLogsGetResponse) StatusCode() int {
+func (r GetCharacterLogsResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetAllResourcesResourcesGetResponse struct {
+type GetAllResourcesResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *DataPageResourceSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetAllResourcesResourcesGetResponse) Status() string {
+func (r GetAllResourcesResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8736,21 +8736,21 @@ func (r GetAllResourcesResourcesGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetAllResourcesResourcesGetResponse) StatusCode() int {
+func (r GetAllResourcesResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GetResourcesResourcesCodeGetResponse struct {
+type GetResourceByCodeResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *ResourceResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetResourcesResourcesCodeGetResponse) Status() string {
+func (r GetResourceByCodeResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8758,21 +8758,21 @@ func (r GetResourcesResourcesCodeGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetResourcesResourcesCodeGetResponse) StatusCode() int {
+func (r GetResourceByCodeResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-type GenerateTokenTokenPostResponse struct {
+type GenerateTokenResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *TokenResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GenerateTokenTokenPostResponse) Status() string {
+func (r GenerateTokenResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8780,502 +8780,502 @@ func (r GenerateTokenTokenPostResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GenerateTokenTokenPostResponse) StatusCode() int {
+func (r GenerateTokenResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
 	return 0
 }
 
-// GetStatusGetWithResponse request returning *GetStatusGetResponse
-func (c *ClientWithResponses) GetStatusGetWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetStatusGetResponse, error) {
-	rsp, err := c.GetStatusGet(ctx, reqEditors...)
+// GetStatusWithResponse request returning *GetStatusResponse
+func (c *ClientWithResponses) GetStatusWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetStatusResponse, error) {
+	rsp, err := c.GetStatus(ctx, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetStatusGetResponse(rsp)
+	return ParseGetStatusResponse(rsp)
 }
 
-// CreateAccountAccountsCreatePostWithBodyWithResponse request with arbitrary body returning *CreateAccountAccountsCreatePostResponse
-func (c *ClientWithResponses) CreateAccountAccountsCreatePostWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateAccountAccountsCreatePostResponse, error) {
-	rsp, err := c.CreateAccountAccountsCreatePostWithBody(ctx, contentType, body, reqEditors...)
+// CreateAccountWithBodyWithResponse request with arbitrary body returning *CreateAccountResponse
+func (c *ClientWithResponses) CreateAccountWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateAccountResponse, error) {
+	rsp, err := c.CreateAccountWithBody(ctx, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseCreateAccountAccountsCreatePostResponse(rsp)
+	return ParseCreateAccountResponse(rsp)
 }
 
-func (c *ClientWithResponses) CreateAccountAccountsCreatePostWithResponse(ctx context.Context, body CreateAccountAccountsCreatePostJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateAccountAccountsCreatePostResponse, error) {
-	rsp, err := c.CreateAccountAccountsCreatePost(ctx, body, reqEditors...)
+func (c *ClientWithResponses) CreateAccountWithResponse(ctx context.Context, body CreateAccountJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateAccountResponse, error) {
+	rsp, err := c.CreateAccount(ctx, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseCreateAccountAccountsCreatePostResponse(rsp)
+	return ParseCreateAccountResponse(rsp)
 }
 
-// GetAllCharactersCharactersGetWithResponse request returning *GetAllCharactersCharactersGetResponse
-func (c *ClientWithResponses) GetAllCharactersCharactersGetWithResponse(ctx context.Context, params *GetAllCharactersCharactersGetParams, reqEditors ...RequestEditorFn) (*GetAllCharactersCharactersGetResponse, error) {
-	rsp, err := c.GetAllCharactersCharactersGet(ctx, params, reqEditors...)
+// GetAllCharactersWithResponse request returning *GetAllCharactersResponse
+func (c *ClientWithResponses) GetAllCharactersWithResponse(ctx context.Context, params *GetAllCharactersParams, reqEditors ...RequestEditorFn) (*GetAllCharactersResponse, error) {
+	rsp, err := c.GetAllCharacters(ctx, params, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetAllCharactersCharactersGetResponse(rsp)
+	return ParseGetAllCharactersResponse(rsp)
 }
 
-// CreateCharacterCharactersCreatePostWithBodyWithResponse request with arbitrary body returning *CreateCharacterCharactersCreatePostResponse
-func (c *ClientWithResponses) CreateCharacterCharactersCreatePostWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateCharacterCharactersCreatePostResponse, error) {
-	rsp, err := c.CreateCharacterCharactersCreatePostWithBody(ctx, contentType, body, reqEditors...)
+// AccountCreateCharacterWithBodyWithResponse request with arbitrary body returning *AccountCreateCharacterResponse
+func (c *ClientWithResponses) AccountCreateCharacterWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AccountCreateCharacterResponse, error) {
+	rsp, err := c.AccountCreateCharacterWithBody(ctx, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseCreateCharacterCharactersCreatePostResponse(rsp)
+	return ParseAccountCreateCharacterResponse(rsp)
 }
 
-func (c *ClientWithResponses) CreateCharacterCharactersCreatePostWithResponse(ctx context.Context, body CreateCharacterCharactersCreatePostJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateCharacterCharactersCreatePostResponse, error) {
-	rsp, err := c.CreateCharacterCharactersCreatePost(ctx, body, reqEditors...)
+func (c *ClientWithResponses) AccountCreateCharacterWithResponse(ctx context.Context, body AccountCreateCharacterJSONRequestBody, reqEditors ...RequestEditorFn) (*AccountCreateCharacterResponse, error) {
+	rsp, err := c.AccountCreateCharacter(ctx, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseCreateCharacterCharactersCreatePostResponse(rsp)
+	return ParseAccountCreateCharacterResponse(rsp)
 }
 
-// GetCharacterCharactersNameGetWithResponse request returning *GetCharacterCharactersNameGetResponse
-func (c *ClientWithResponses) GetCharacterCharactersNameGetWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*GetCharacterCharactersNameGetResponse, error) {
-	rsp, err := c.GetCharacterCharactersNameGet(ctx, name, reqEditors...)
+// GetCharacterByNameWithResponse request returning *GetCharacterByNameResponse
+func (c *ClientWithResponses) GetCharacterByNameWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*GetCharacterByNameResponse, error) {
+	rsp, err := c.GetCharacterByName(ctx, name, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetCharacterCharactersNameGetResponse(rsp)
+	return ParseGetCharacterByNameResponse(rsp)
 }
 
-// GetAllEventsEventsGetWithResponse request returning *GetAllEventsEventsGetResponse
-func (c *ClientWithResponses) GetAllEventsEventsGetWithResponse(ctx context.Context, params *GetAllEventsEventsGetParams, reqEditors ...RequestEditorFn) (*GetAllEventsEventsGetResponse, error) {
-	rsp, err := c.GetAllEventsEventsGet(ctx, params, reqEditors...)
+// GetAllEventsWithResponse request returning *GetAllEventsResponse
+func (c *ClientWithResponses) GetAllEventsWithResponse(ctx context.Context, params *GetAllEventsParams, reqEditors ...RequestEditorFn) (*GetAllEventsResponse, error) {
+	rsp, err := c.GetAllEvents(ctx, params, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetAllEventsEventsGetResponse(rsp)
+	return ParseGetAllEventsResponse(rsp)
 }
 
-// GetAllGeItemsGeGetWithResponse request returning *GetAllGeItemsGeGetResponse
-func (c *ClientWithResponses) GetAllGeItemsGeGetWithResponse(ctx context.Context, params *GetAllGeItemsGeGetParams, reqEditors ...RequestEditorFn) (*GetAllGeItemsGeGetResponse, error) {
-	rsp, err := c.GetAllGeItemsGeGet(ctx, params, reqEditors...)
+// GetAllGrandExchangeItemsWithResponse request returning *GetAllGrandExchangeItemsResponse
+func (c *ClientWithResponses) GetAllGrandExchangeItemsWithResponse(ctx context.Context, params *GetAllGrandExchangeItemsParams, reqEditors ...RequestEditorFn) (*GetAllGrandExchangeItemsResponse, error) {
+	rsp, err := c.GetAllGrandExchangeItems(ctx, params, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetAllGeItemsGeGetResponse(rsp)
+	return ParseGetAllGrandExchangeItemsResponse(rsp)
 }
 
-// GetGeItemGeCodeGetWithResponse request returning *GetGeItemGeCodeGetResponse
-func (c *ClientWithResponses) GetGeItemGeCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetGeItemGeCodeGetResponse, error) {
-	rsp, err := c.GetGeItemGeCodeGet(ctx, code, reqEditors...)
+// GetGrandExchangeItemByCodeWithResponse request returning *GetGrandExchangeItemByCodeResponse
+func (c *ClientWithResponses) GetGrandExchangeItemByCodeWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetGrandExchangeItemByCodeResponse, error) {
+	rsp, err := c.GetGrandExchangeItemByCode(ctx, code, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetGeItemGeCodeGetResponse(rsp)
+	return ParseGetGrandExchangeItemByCodeResponse(rsp)
 }
 
-// GetAllItemsItemsGetWithResponse request returning *GetAllItemsItemsGetResponse
-func (c *ClientWithResponses) GetAllItemsItemsGetWithResponse(ctx context.Context, params *GetAllItemsItemsGetParams, reqEditors ...RequestEditorFn) (*GetAllItemsItemsGetResponse, error) {
-	rsp, err := c.GetAllItemsItemsGet(ctx, params, reqEditors...)
+// GetAllItemsWithResponse request returning *GetAllItemsResponse
+func (c *ClientWithResponses) GetAllItemsWithResponse(ctx context.Context, params *GetAllItemsParams, reqEditors ...RequestEditorFn) (*GetAllItemsResponse, error) {
+	rsp, err := c.GetAllItems(ctx, params, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetAllItemsItemsGetResponse(rsp)
+	return ParseGetAllItemsResponse(rsp)
 }
 
-// GetItemItemsCodeGetWithResponse request returning *GetItemItemsCodeGetResponse
-func (c *ClientWithResponses) GetItemItemsCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetItemItemsCodeGetResponse, error) {
-	rsp, err := c.GetItemItemsCodeGet(ctx, code, reqEditors...)
+// GetItemByCodeWithResponse request returning *GetItemByCodeResponse
+func (c *ClientWithResponses) GetItemByCodeWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetItemByCodeResponse, error) {
+	rsp, err := c.GetItemByCode(ctx, code, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetItemItemsCodeGetResponse(rsp)
+	return ParseGetItemByCodeResponse(rsp)
 }
 
-// GetAllMapsMapsGetWithResponse request returning *GetAllMapsMapsGetResponse
-func (c *ClientWithResponses) GetAllMapsMapsGetWithResponse(ctx context.Context, params *GetAllMapsMapsGetParams, reqEditors ...RequestEditorFn) (*GetAllMapsMapsGetResponse, error) {
-	rsp, err := c.GetAllMapsMapsGet(ctx, params, reqEditors...)
+// GetAllMapsWithResponse request returning *GetAllMapsResponse
+func (c *ClientWithResponses) GetAllMapsWithResponse(ctx context.Context, params *GetAllMapsParams, reqEditors ...RequestEditorFn) (*GetAllMapsResponse, error) {
+	rsp, err := c.GetAllMaps(ctx, params, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetAllMapsMapsGetResponse(rsp)
+	return ParseGetAllMapsResponse(rsp)
 }
 
-// GetMapMapsXYGetWithResponse request returning *GetMapMapsXYGetResponse
-func (c *ClientWithResponses) GetMapMapsXYGetWithResponse(ctx context.Context, x int, y int, reqEditors ...RequestEditorFn) (*GetMapMapsXYGetResponse, error) {
-	rsp, err := c.GetMapMapsXYGet(ctx, x, y, reqEditors...)
+// GetMapDetailWithResponse request returning *GetMapDetailResponse
+func (c *ClientWithResponses) GetMapDetailWithResponse(ctx context.Context, x int, y int, reqEditors ...RequestEditorFn) (*GetMapDetailResponse, error) {
+	rsp, err := c.GetMapDetail(ctx, x, y, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetMapMapsXYGetResponse(rsp)
+	return ParseGetMapDetailResponse(rsp)
 }
 
-// GetAllMonstersMonstersGetWithResponse request returning *GetAllMonstersMonstersGetResponse
-func (c *ClientWithResponses) GetAllMonstersMonstersGetWithResponse(ctx context.Context, params *GetAllMonstersMonstersGetParams, reqEditors ...RequestEditorFn) (*GetAllMonstersMonstersGetResponse, error) {
-	rsp, err := c.GetAllMonstersMonstersGet(ctx, params, reqEditors...)
+// GetAllMonstersWithResponse request returning *GetAllMonstersResponse
+func (c *ClientWithResponses) GetAllMonstersWithResponse(ctx context.Context, params *GetAllMonstersParams, reqEditors ...RequestEditorFn) (*GetAllMonstersResponse, error) {
+	rsp, err := c.GetAllMonsters(ctx, params, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetAllMonstersMonstersGetResponse(rsp)
+	return ParseGetAllMonstersResponse(rsp)
 }
 
-// GetMonsterMonstersCodeGetWithResponse request returning *GetMonsterMonstersCodeGetResponse
-func (c *ClientWithResponses) GetMonsterMonstersCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetMonsterMonstersCodeGetResponse, error) {
-	rsp, err := c.GetMonsterMonstersCodeGet(ctx, code, reqEditors...)
+// GetMonsterByCodeWithResponse request returning *GetMonsterByCodeResponse
+func (c *ClientWithResponses) GetMonsterByCodeWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetMonsterByCodeResponse, error) {
+	rsp, err := c.GetMonsterByCode(ctx, code, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetMonsterMonstersCodeGetResponse(rsp)
+	return ParseGetMonsterByCodeResponse(rsp)
 }
 
-// GetBankGoldsMyBankGoldGetWithResponse request returning *GetBankGoldsMyBankGoldGetResponse
-func (c *ClientWithResponses) GetBankGoldsMyBankGoldGetWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetBankGoldsMyBankGoldGetResponse, error) {
-	rsp, err := c.GetBankGoldsMyBankGoldGet(ctx, reqEditors...)
+// GetAccountBankGoldWithResponse request returning *GetAccountBankGoldResponse
+func (c *ClientWithResponses) GetAccountBankGoldWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetAccountBankGoldResponse, error) {
+	rsp, err := c.GetAccountBankGold(ctx, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetBankGoldsMyBankGoldGetResponse(rsp)
+	return ParseGetAccountBankGoldResponse(rsp)
 }
 
-// GetBankItemsMyBankItemsGetWithResponse request returning *GetBankItemsMyBankItemsGetResponse
-func (c *ClientWithResponses) GetBankItemsMyBankItemsGetWithResponse(ctx context.Context, params *GetBankItemsMyBankItemsGetParams, reqEditors ...RequestEditorFn) (*GetBankItemsMyBankItemsGetResponse, error) {
-	rsp, err := c.GetBankItemsMyBankItemsGet(ctx, params, reqEditors...)
+// GetAccountBankItemsWithResponse request returning *GetAccountBankItemsResponse
+func (c *ClientWithResponses) GetAccountBankItemsWithResponse(ctx context.Context, params *GetAccountBankItemsParams, reqEditors ...RequestEditorFn) (*GetAccountBankItemsResponse, error) {
+	rsp, err := c.GetAccountBankItems(ctx, params, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetBankItemsMyBankItemsGetResponse(rsp)
+	return ParseGetAccountBankItemsResponse(rsp)
 }
 
-// ChangePasswordMyChangePasswordPostWithBodyWithResponse request with arbitrary body returning *ChangePasswordMyChangePasswordPostResponse
-func (c *ClientWithResponses) ChangePasswordMyChangePasswordPostWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ChangePasswordMyChangePasswordPostResponse, error) {
-	rsp, err := c.ChangePasswordMyChangePasswordPostWithBody(ctx, contentType, body, reqEditors...)
+// AccountChangePasswordWithBodyWithResponse request with arbitrary body returning *AccountChangePasswordResponse
+func (c *ClientWithResponses) AccountChangePasswordWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*AccountChangePasswordResponse, error) {
+	rsp, err := c.AccountChangePasswordWithBody(ctx, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseChangePasswordMyChangePasswordPostResponse(rsp)
+	return ParseAccountChangePasswordResponse(rsp)
 }
 
-func (c *ClientWithResponses) ChangePasswordMyChangePasswordPostWithResponse(ctx context.Context, body ChangePasswordMyChangePasswordPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ChangePasswordMyChangePasswordPostResponse, error) {
-	rsp, err := c.ChangePasswordMyChangePasswordPost(ctx, body, reqEditors...)
+func (c *ClientWithResponses) AccountChangePasswordWithResponse(ctx context.Context, body AccountChangePasswordJSONRequestBody, reqEditors ...RequestEditorFn) (*AccountChangePasswordResponse, error) {
+	rsp, err := c.AccountChangePassword(ctx, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseChangePasswordMyChangePasswordPostResponse(rsp)
+	return ParseAccountChangePasswordResponse(rsp)
 }
 
-// GetMyCharactersMyCharactersGetWithResponse request returning *GetMyCharactersMyCharactersGetResponse
-func (c *ClientWithResponses) GetMyCharactersMyCharactersGetWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetMyCharactersMyCharactersGetResponse, error) {
-	rsp, err := c.GetMyCharactersMyCharactersGet(ctx, reqEditors...)
+// GetAccountCharacterListWithResponse request returning *GetAccountCharacterListResponse
+func (c *ClientWithResponses) GetAccountCharacterListWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetAccountCharacterListResponse, error) {
+	rsp, err := c.GetAccountCharacterList(ctx, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetMyCharactersMyCharactersGetResponse(rsp)
+	return ParseGetAccountCharacterListResponse(rsp)
 }
 
-// GetAllCharactersLogsMyLogsGetWithResponse request returning *GetAllCharactersLogsMyLogsGetResponse
-func (c *ClientWithResponses) GetAllCharactersLogsMyLogsGetWithResponse(ctx context.Context, params *GetAllCharactersLogsMyLogsGetParams, reqEditors ...RequestEditorFn) (*GetAllCharactersLogsMyLogsGetResponse, error) {
-	rsp, err := c.GetAllCharactersLogsMyLogsGet(ctx, params, reqEditors...)
+// GetAccountCharactersLogsWithResponse request returning *GetAccountCharactersLogsResponse
+func (c *ClientWithResponses) GetAccountCharactersLogsWithResponse(ctx context.Context, params *GetAccountCharactersLogsParams, reqEditors ...RequestEditorFn) (*GetAccountCharactersLogsResponse, error) {
+	rsp, err := c.GetAccountCharactersLogs(ctx, params, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetAllCharactersLogsMyLogsGetResponse(rsp)
+	return ParseGetAccountCharactersLogsResponse(rsp)
 }
 
-// ActionDepositBankMyNameActionBankDepositPostWithBodyWithResponse request with arbitrary body returning *ActionDepositBankMyNameActionBankDepositPostResponse
-func (c *ClientWithResponses) ActionDepositBankMyNameActionBankDepositPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionDepositBankMyNameActionBankDepositPostResponse, error) {
-	rsp, err := c.ActionDepositBankMyNameActionBankDepositPostWithBody(ctx, name, contentType, body, reqEditors...)
+// CharacterBankDepositItemActionWithBodyWithResponse request with arbitrary body returning *CharacterBankDepositItemActionResponse
+func (c *ClientWithResponses) CharacterBankDepositItemActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterBankDepositItemActionResponse, error) {
+	rsp, err := c.CharacterBankDepositItemActionWithBody(ctx, name, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionDepositBankMyNameActionBankDepositPostResponse(rsp)
+	return ParseCharacterBankDepositItemActionResponse(rsp)
 }
 
-func (c *ClientWithResponses) ActionDepositBankMyNameActionBankDepositPostWithResponse(ctx context.Context, name string, body ActionDepositBankMyNameActionBankDepositPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionDepositBankMyNameActionBankDepositPostResponse, error) {
-	rsp, err := c.ActionDepositBankMyNameActionBankDepositPost(ctx, name, body, reqEditors...)
+func (c *ClientWithResponses) CharacterBankDepositItemActionWithResponse(ctx context.Context, name string, body CharacterBankDepositItemActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterBankDepositItemActionResponse, error) {
+	rsp, err := c.CharacterBankDepositItemAction(ctx, name, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionDepositBankMyNameActionBankDepositPostResponse(rsp)
+	return ParseCharacterBankDepositItemActionResponse(rsp)
 }
 
-// ActionDepositBankGoldMyNameActionBankDepositGoldPostWithBodyWithResponse request with arbitrary body returning *ActionDepositBankGoldMyNameActionBankDepositGoldPostResponse
-func (c *ClientWithResponses) ActionDepositBankGoldMyNameActionBankDepositGoldPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionDepositBankGoldMyNameActionBankDepositGoldPostResponse, error) {
-	rsp, err := c.ActionDepositBankGoldMyNameActionBankDepositGoldPostWithBody(ctx, name, contentType, body, reqEditors...)
+// CharacterBankDepositGoldActionWithBodyWithResponse request with arbitrary body returning *CharacterBankDepositGoldActionResponse
+func (c *ClientWithResponses) CharacterBankDepositGoldActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterBankDepositGoldActionResponse, error) {
+	rsp, err := c.CharacterBankDepositGoldActionWithBody(ctx, name, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionDepositBankGoldMyNameActionBankDepositGoldPostResponse(rsp)
+	return ParseCharacterBankDepositGoldActionResponse(rsp)
 }
 
-func (c *ClientWithResponses) ActionDepositBankGoldMyNameActionBankDepositGoldPostWithResponse(ctx context.Context, name string, body ActionDepositBankGoldMyNameActionBankDepositGoldPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionDepositBankGoldMyNameActionBankDepositGoldPostResponse, error) {
-	rsp, err := c.ActionDepositBankGoldMyNameActionBankDepositGoldPost(ctx, name, body, reqEditors...)
+func (c *ClientWithResponses) CharacterBankDepositGoldActionWithResponse(ctx context.Context, name string, body CharacterBankDepositGoldActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterBankDepositGoldActionResponse, error) {
+	rsp, err := c.CharacterBankDepositGoldAction(ctx, name, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionDepositBankGoldMyNameActionBankDepositGoldPostResponse(rsp)
+	return ParseCharacterBankDepositGoldActionResponse(rsp)
 }
 
-// ActionWithdrawBankMyNameActionBankWithdrawPostWithBodyWithResponse request with arbitrary body returning *ActionWithdrawBankMyNameActionBankWithdrawPostResponse
-func (c *ClientWithResponses) ActionWithdrawBankMyNameActionBankWithdrawPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionWithdrawBankMyNameActionBankWithdrawPostResponse, error) {
-	rsp, err := c.ActionWithdrawBankMyNameActionBankWithdrawPostWithBody(ctx, name, contentType, body, reqEditors...)
+// CharacterBankWithdrawItemActionWithBodyWithResponse request with arbitrary body returning *CharacterBankWithdrawItemActionResponse
+func (c *ClientWithResponses) CharacterBankWithdrawItemActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterBankWithdrawItemActionResponse, error) {
+	rsp, err := c.CharacterBankWithdrawItemActionWithBody(ctx, name, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionWithdrawBankMyNameActionBankWithdrawPostResponse(rsp)
+	return ParseCharacterBankWithdrawItemActionResponse(rsp)
 }
 
-func (c *ClientWithResponses) ActionWithdrawBankMyNameActionBankWithdrawPostWithResponse(ctx context.Context, name string, body ActionWithdrawBankMyNameActionBankWithdrawPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionWithdrawBankMyNameActionBankWithdrawPostResponse, error) {
-	rsp, err := c.ActionWithdrawBankMyNameActionBankWithdrawPost(ctx, name, body, reqEditors...)
+func (c *ClientWithResponses) CharacterBankWithdrawItemActionWithResponse(ctx context.Context, name string, body CharacterBankWithdrawItemActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterBankWithdrawItemActionResponse, error) {
+	rsp, err := c.CharacterBankWithdrawItemAction(ctx, name, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionWithdrawBankMyNameActionBankWithdrawPostResponse(rsp)
+	return ParseCharacterBankWithdrawItemActionResponse(rsp)
 }
 
-// ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithBodyWithResponse request with arbitrary body returning *ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse
-func (c *ClientWithResponses) ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse, error) {
-	rsp, err := c.ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithBody(ctx, name, contentType, body, reqEditors...)
+// CharacterBankWithdrawGoldActionWithBodyWithResponse request with arbitrary body returning *CharacterBankWithdrawGoldActionResponse
+func (c *ClientWithResponses) CharacterBankWithdrawGoldActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterBankWithdrawGoldActionResponse, error) {
+	rsp, err := c.CharacterBankWithdrawGoldActionWithBody(ctx, name, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse(rsp)
+	return ParseCharacterBankWithdrawGoldActionResponse(rsp)
 }
 
-func (c *ClientWithResponses) ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithResponse(ctx context.Context, name string, body ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse, error) {
-	rsp, err := c.ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPost(ctx, name, body, reqEditors...)
+func (c *ClientWithResponses) CharacterBankWithdrawGoldActionWithResponse(ctx context.Context, name string, body CharacterBankWithdrawGoldActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterBankWithdrawGoldActionResponse, error) {
+	rsp, err := c.CharacterBankWithdrawGoldAction(ctx, name, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse(rsp)
+	return ParseCharacterBankWithdrawGoldActionResponse(rsp)
 }
 
-// ActionCraftingMyNameActionCraftingPostWithBodyWithResponse request with arbitrary body returning *ActionCraftingMyNameActionCraftingPostResponse
-func (c *ClientWithResponses) ActionCraftingMyNameActionCraftingPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionCraftingMyNameActionCraftingPostResponse, error) {
-	rsp, err := c.ActionCraftingMyNameActionCraftingPostWithBody(ctx, name, contentType, body, reqEditors...)
+// CharacterCraftingActionWithBodyWithResponse request with arbitrary body returning *CharacterCraftingActionResponse
+func (c *ClientWithResponses) CharacterCraftingActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterCraftingActionResponse, error) {
+	rsp, err := c.CharacterCraftingActionWithBody(ctx, name, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionCraftingMyNameActionCraftingPostResponse(rsp)
+	return ParseCharacterCraftingActionResponse(rsp)
 }
 
-func (c *ClientWithResponses) ActionCraftingMyNameActionCraftingPostWithResponse(ctx context.Context, name string, body ActionCraftingMyNameActionCraftingPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionCraftingMyNameActionCraftingPostResponse, error) {
-	rsp, err := c.ActionCraftingMyNameActionCraftingPost(ctx, name, body, reqEditors...)
+func (c *ClientWithResponses) CharacterCraftingActionWithResponse(ctx context.Context, name string, body CharacterCraftingActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterCraftingActionResponse, error) {
+	rsp, err := c.CharacterCraftingAction(ctx, name, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionCraftingMyNameActionCraftingPostResponse(rsp)
+	return ParseCharacterCraftingActionResponse(rsp)
 }
 
-// ActionDeleteItemMyNameActionDeletePostWithBodyWithResponse request with arbitrary body returning *ActionDeleteItemMyNameActionDeletePostResponse
-func (c *ClientWithResponses) ActionDeleteItemMyNameActionDeletePostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionDeleteItemMyNameActionDeletePostResponse, error) {
-	rsp, err := c.ActionDeleteItemMyNameActionDeletePostWithBody(ctx, name, contentType, body, reqEditors...)
+// CharacterDeleteItemActionWithBodyWithResponse request with arbitrary body returning *CharacterDeleteItemActionResponse
+func (c *ClientWithResponses) CharacterDeleteItemActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterDeleteItemActionResponse, error) {
+	rsp, err := c.CharacterDeleteItemActionWithBody(ctx, name, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionDeleteItemMyNameActionDeletePostResponse(rsp)
+	return ParseCharacterDeleteItemActionResponse(rsp)
 }
 
-func (c *ClientWithResponses) ActionDeleteItemMyNameActionDeletePostWithResponse(ctx context.Context, name string, body ActionDeleteItemMyNameActionDeletePostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionDeleteItemMyNameActionDeletePostResponse, error) {
-	rsp, err := c.ActionDeleteItemMyNameActionDeletePost(ctx, name, body, reqEditors...)
+func (c *ClientWithResponses) CharacterDeleteItemActionWithResponse(ctx context.Context, name string, body CharacterDeleteItemActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterDeleteItemActionResponse, error) {
+	rsp, err := c.CharacterDeleteItemAction(ctx, name, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionDeleteItemMyNameActionDeletePostResponse(rsp)
+	return ParseCharacterDeleteItemActionResponse(rsp)
 }
 
-// ActionEquipItemMyNameActionEquipPostWithBodyWithResponse request with arbitrary body returning *ActionEquipItemMyNameActionEquipPostResponse
-func (c *ClientWithResponses) ActionEquipItemMyNameActionEquipPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionEquipItemMyNameActionEquipPostResponse, error) {
-	rsp, err := c.ActionEquipItemMyNameActionEquipPostWithBody(ctx, name, contentType, body, reqEditors...)
+// CharacterEquipActionWithBodyWithResponse request with arbitrary body returning *CharacterEquipActionResponse
+func (c *ClientWithResponses) CharacterEquipActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterEquipActionResponse, error) {
+	rsp, err := c.CharacterEquipActionWithBody(ctx, name, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionEquipItemMyNameActionEquipPostResponse(rsp)
+	return ParseCharacterEquipActionResponse(rsp)
 }
 
-func (c *ClientWithResponses) ActionEquipItemMyNameActionEquipPostWithResponse(ctx context.Context, name string, body ActionEquipItemMyNameActionEquipPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionEquipItemMyNameActionEquipPostResponse, error) {
-	rsp, err := c.ActionEquipItemMyNameActionEquipPost(ctx, name, body, reqEditors...)
+func (c *ClientWithResponses) CharacterEquipActionWithResponse(ctx context.Context, name string, body CharacterEquipActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterEquipActionResponse, error) {
+	rsp, err := c.CharacterEquipAction(ctx, name, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionEquipItemMyNameActionEquipPostResponse(rsp)
+	return ParseCharacterEquipActionResponse(rsp)
 }
 
-// ActionFightMyNameActionFightPostWithResponse request returning *ActionFightMyNameActionFightPostResponse
-func (c *ClientWithResponses) ActionFightMyNameActionFightPostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionFightMyNameActionFightPostResponse, error) {
-	rsp, err := c.ActionFightMyNameActionFightPost(ctx, name, reqEditors...)
+// CharacterFightActionWithResponse request returning *CharacterFightActionResponse
+func (c *ClientWithResponses) CharacterFightActionWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*CharacterFightActionResponse, error) {
+	rsp, err := c.CharacterFightAction(ctx, name, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionFightMyNameActionFightPostResponse(rsp)
+	return ParseCharacterFightActionResponse(rsp)
 }
 
-// ActionGatheringMyNameActionGatheringPostWithResponse request returning *ActionGatheringMyNameActionGatheringPostResponse
-func (c *ClientWithResponses) ActionGatheringMyNameActionGatheringPostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionGatheringMyNameActionGatheringPostResponse, error) {
-	rsp, err := c.ActionGatheringMyNameActionGatheringPost(ctx, name, reqEditors...)
+// CharacterGatheringActionWithResponse request returning *CharacterGatheringActionResponse
+func (c *ClientWithResponses) CharacterGatheringActionWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*CharacterGatheringActionResponse, error) {
+	rsp, err := c.CharacterGatheringAction(ctx, name, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionGatheringMyNameActionGatheringPostResponse(rsp)
+	return ParseCharacterGatheringActionResponse(rsp)
 }
 
-// ActionGeBuyItemMyNameActionGeBuyPostWithBodyWithResponse request with arbitrary body returning *ActionGeBuyItemMyNameActionGeBuyPostResponse
-func (c *ClientWithResponses) ActionGeBuyItemMyNameActionGeBuyPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionGeBuyItemMyNameActionGeBuyPostResponse, error) {
-	rsp, err := c.ActionGeBuyItemMyNameActionGeBuyPostWithBody(ctx, name, contentType, body, reqEditors...)
+// CharacterGlobalExchangeBuyActionWithBodyWithResponse request with arbitrary body returning *CharacterGlobalExchangeBuyActionResponse
+func (c *ClientWithResponses) CharacterGlobalExchangeBuyActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterGlobalExchangeBuyActionResponse, error) {
+	rsp, err := c.CharacterGlobalExchangeBuyActionWithBody(ctx, name, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionGeBuyItemMyNameActionGeBuyPostResponse(rsp)
+	return ParseCharacterGlobalExchangeBuyActionResponse(rsp)
 }
 
-func (c *ClientWithResponses) ActionGeBuyItemMyNameActionGeBuyPostWithResponse(ctx context.Context, name string, body ActionGeBuyItemMyNameActionGeBuyPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionGeBuyItemMyNameActionGeBuyPostResponse, error) {
-	rsp, err := c.ActionGeBuyItemMyNameActionGeBuyPost(ctx, name, body, reqEditors...)
+func (c *ClientWithResponses) CharacterGlobalExchangeBuyActionWithResponse(ctx context.Context, name string, body CharacterGlobalExchangeBuyActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterGlobalExchangeBuyActionResponse, error) {
+	rsp, err := c.CharacterGlobalExchangeBuyAction(ctx, name, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionGeBuyItemMyNameActionGeBuyPostResponse(rsp)
+	return ParseCharacterGlobalExchangeBuyActionResponse(rsp)
 }
 
-// ActionGeSellItemMyNameActionGeSellPostWithBodyWithResponse request with arbitrary body returning *ActionGeSellItemMyNameActionGeSellPostResponse
-func (c *ClientWithResponses) ActionGeSellItemMyNameActionGeSellPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionGeSellItemMyNameActionGeSellPostResponse, error) {
-	rsp, err := c.ActionGeSellItemMyNameActionGeSellPostWithBody(ctx, name, contentType, body, reqEditors...)
+// CharacterGlobalExchangeSellActionWithBodyWithResponse request with arbitrary body returning *CharacterGlobalExchangeSellActionResponse
+func (c *ClientWithResponses) CharacterGlobalExchangeSellActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterGlobalExchangeSellActionResponse, error) {
+	rsp, err := c.CharacterGlobalExchangeSellActionWithBody(ctx, name, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionGeSellItemMyNameActionGeSellPostResponse(rsp)
+	return ParseCharacterGlobalExchangeSellActionResponse(rsp)
 }
 
-func (c *ClientWithResponses) ActionGeSellItemMyNameActionGeSellPostWithResponse(ctx context.Context, name string, body ActionGeSellItemMyNameActionGeSellPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionGeSellItemMyNameActionGeSellPostResponse, error) {
-	rsp, err := c.ActionGeSellItemMyNameActionGeSellPost(ctx, name, body, reqEditors...)
+func (c *ClientWithResponses) CharacterGlobalExchangeSellActionWithResponse(ctx context.Context, name string, body CharacterGlobalExchangeSellActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterGlobalExchangeSellActionResponse, error) {
+	rsp, err := c.CharacterGlobalExchangeSellAction(ctx, name, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionGeSellItemMyNameActionGeSellPostResponse(rsp)
+	return ParseCharacterGlobalExchangeSellActionResponse(rsp)
 }
 
-// ActionMoveMyNameActionMovePostWithBodyWithResponse request with arbitrary body returning *ActionMoveMyNameActionMovePostResponse
-func (c *ClientWithResponses) ActionMoveMyNameActionMovePostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionMoveMyNameActionMovePostResponse, error) {
-	rsp, err := c.ActionMoveMyNameActionMovePostWithBody(ctx, name, contentType, body, reqEditors...)
+// CharacterMoveActionWithBodyWithResponse request with arbitrary body returning *CharacterMoveActionResponse
+func (c *ClientWithResponses) CharacterMoveActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterMoveActionResponse, error) {
+	rsp, err := c.CharacterMoveActionWithBody(ctx, name, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionMoveMyNameActionMovePostResponse(rsp)
+	return ParseCharacterMoveActionResponse(rsp)
 }
 
-func (c *ClientWithResponses) ActionMoveMyNameActionMovePostWithResponse(ctx context.Context, name string, body ActionMoveMyNameActionMovePostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionMoveMyNameActionMovePostResponse, error) {
-	rsp, err := c.ActionMoveMyNameActionMovePost(ctx, name, body, reqEditors...)
+func (c *ClientWithResponses) CharacterMoveActionWithResponse(ctx context.Context, name string, body CharacterMoveActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterMoveActionResponse, error) {
+	rsp, err := c.CharacterMoveAction(ctx, name, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionMoveMyNameActionMovePostResponse(rsp)
+	return ParseCharacterMoveActionResponse(rsp)
 }
 
-// ActionRecyclingMyNameActionRecyclingPostWithBodyWithResponse request with arbitrary body returning *ActionRecyclingMyNameActionRecyclingPostResponse
-func (c *ClientWithResponses) ActionRecyclingMyNameActionRecyclingPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionRecyclingMyNameActionRecyclingPostResponse, error) {
-	rsp, err := c.ActionRecyclingMyNameActionRecyclingPostWithBody(ctx, name, contentType, body, reqEditors...)
+// CharacterRecyclingActionWithBodyWithResponse request with arbitrary body returning *CharacterRecyclingActionResponse
+func (c *ClientWithResponses) CharacterRecyclingActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterRecyclingActionResponse, error) {
+	rsp, err := c.CharacterRecyclingActionWithBody(ctx, name, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionRecyclingMyNameActionRecyclingPostResponse(rsp)
+	return ParseCharacterRecyclingActionResponse(rsp)
 }
 
-func (c *ClientWithResponses) ActionRecyclingMyNameActionRecyclingPostWithResponse(ctx context.Context, name string, body ActionRecyclingMyNameActionRecyclingPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionRecyclingMyNameActionRecyclingPostResponse, error) {
-	rsp, err := c.ActionRecyclingMyNameActionRecyclingPost(ctx, name, body, reqEditors...)
+func (c *ClientWithResponses) CharacterRecyclingActionWithResponse(ctx context.Context, name string, body CharacterRecyclingActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterRecyclingActionResponse, error) {
+	rsp, err := c.CharacterRecyclingAction(ctx, name, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionRecyclingMyNameActionRecyclingPostResponse(rsp)
+	return ParseCharacterRecyclingActionResponse(rsp)
 }
 
-// ActionCompleteTaskMyNameActionTaskCompletePostWithResponse request returning *ActionCompleteTaskMyNameActionTaskCompletePostResponse
-func (c *ClientWithResponses) ActionCompleteTaskMyNameActionTaskCompletePostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionCompleteTaskMyNameActionTaskCompletePostResponse, error) {
-	rsp, err := c.ActionCompleteTaskMyNameActionTaskCompletePost(ctx, name, reqEditors...)
+// CharacterCompleteTaskActionWithResponse request returning *CharacterCompleteTaskActionResponse
+func (c *ClientWithResponses) CharacterCompleteTaskActionWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*CharacterCompleteTaskActionResponse, error) {
+	rsp, err := c.CharacterCompleteTaskAction(ctx, name, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionCompleteTaskMyNameActionTaskCompletePostResponse(rsp)
+	return ParseCharacterCompleteTaskActionResponse(rsp)
 }
 
-// ActionTaskExchangeMyNameActionTaskExchangePostWithResponse request returning *ActionTaskExchangeMyNameActionTaskExchangePostResponse
-func (c *ClientWithResponses) ActionTaskExchangeMyNameActionTaskExchangePostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionTaskExchangeMyNameActionTaskExchangePostResponse, error) {
-	rsp, err := c.ActionTaskExchangeMyNameActionTaskExchangePost(ctx, name, reqEditors...)
+// CharacterExchangeTaskActionWithResponse request returning *CharacterExchangeTaskActionResponse
+func (c *ClientWithResponses) CharacterExchangeTaskActionWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*CharacterExchangeTaskActionResponse, error) {
+	rsp, err := c.CharacterExchangeTaskAction(ctx, name, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionTaskExchangeMyNameActionTaskExchangePostResponse(rsp)
+	return ParseCharacterExchangeTaskActionResponse(rsp)
 }
 
-// ActionAcceptNewTaskMyNameActionTaskNewPostWithResponse request returning *ActionAcceptNewTaskMyNameActionTaskNewPostResponse
-func (c *ClientWithResponses) ActionAcceptNewTaskMyNameActionTaskNewPostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionAcceptNewTaskMyNameActionTaskNewPostResponse, error) {
-	rsp, err := c.ActionAcceptNewTaskMyNameActionTaskNewPost(ctx, name, reqEditors...)
+// CharacterAcceptNewTaskActionWithResponse request returning *CharacterAcceptNewTaskActionResponse
+func (c *ClientWithResponses) CharacterAcceptNewTaskActionWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*CharacterAcceptNewTaskActionResponse, error) {
+	rsp, err := c.CharacterAcceptNewTaskAction(ctx, name, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionAcceptNewTaskMyNameActionTaskNewPostResponse(rsp)
+	return ParseCharacterAcceptNewTaskActionResponse(rsp)
 }
 
-// ActionUnequipItemMyNameActionUnequipPostWithBodyWithResponse request with arbitrary body returning *ActionUnequipItemMyNameActionUnequipPostResponse
-func (c *ClientWithResponses) ActionUnequipItemMyNameActionUnequipPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionUnequipItemMyNameActionUnequipPostResponse, error) {
-	rsp, err := c.ActionUnequipItemMyNameActionUnequipPostWithBody(ctx, name, contentType, body, reqEditors...)
+// CharacterUnequipActionWithBodyWithResponse request with arbitrary body returning *CharacterUnequipActionResponse
+func (c *ClientWithResponses) CharacterUnequipActionWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CharacterUnequipActionResponse, error) {
+	rsp, err := c.CharacterUnequipActionWithBody(ctx, name, contentType, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionUnequipItemMyNameActionUnequipPostResponse(rsp)
+	return ParseCharacterUnequipActionResponse(rsp)
 }
 
-func (c *ClientWithResponses) ActionUnequipItemMyNameActionUnequipPostWithResponse(ctx context.Context, name string, body ActionUnequipItemMyNameActionUnequipPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionUnequipItemMyNameActionUnequipPostResponse, error) {
-	rsp, err := c.ActionUnequipItemMyNameActionUnequipPost(ctx, name, body, reqEditors...)
+func (c *ClientWithResponses) CharacterUnequipActionWithResponse(ctx context.Context, name string, body CharacterUnequipActionJSONRequestBody, reqEditors ...RequestEditorFn) (*CharacterUnequipActionResponse, error) {
+	rsp, err := c.CharacterUnequipAction(ctx, name, body, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseActionUnequipItemMyNameActionUnequipPostResponse(rsp)
+	return ParseCharacterUnequipActionResponse(rsp)
 }
 
-// GetCharacterLogsMyNameLogsGetWithResponse request returning *GetCharacterLogsMyNameLogsGetResponse
-func (c *ClientWithResponses) GetCharacterLogsMyNameLogsGetWithResponse(ctx context.Context, name string, params *GetCharacterLogsMyNameLogsGetParams, reqEditors ...RequestEditorFn) (*GetCharacterLogsMyNameLogsGetResponse, error) {
-	rsp, err := c.GetCharacterLogsMyNameLogsGet(ctx, name, params, reqEditors...)
+// GetCharacterLogsWithResponse request returning *GetCharacterLogsResponse
+func (c *ClientWithResponses) GetCharacterLogsWithResponse(ctx context.Context, name string, params *GetCharacterLogsParams, reqEditors ...RequestEditorFn) (*GetCharacterLogsResponse, error) {
+	rsp, err := c.GetCharacterLogs(ctx, name, params, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetCharacterLogsMyNameLogsGetResponse(rsp)
+	return ParseGetCharacterLogsResponse(rsp)
 }
 
-// GetAllResourcesResourcesGetWithResponse request returning *GetAllResourcesResourcesGetResponse
-func (c *ClientWithResponses) GetAllResourcesResourcesGetWithResponse(ctx context.Context, params *GetAllResourcesResourcesGetParams, reqEditors ...RequestEditorFn) (*GetAllResourcesResourcesGetResponse, error) {
-	rsp, err := c.GetAllResourcesResourcesGet(ctx, params, reqEditors...)
+// GetAllResourcesWithResponse request returning *GetAllResourcesResponse
+func (c *ClientWithResponses) GetAllResourcesWithResponse(ctx context.Context, params *GetAllResourcesParams, reqEditors ...RequestEditorFn) (*GetAllResourcesResponse, error) {
+	rsp, err := c.GetAllResources(ctx, params, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetAllResourcesResourcesGetResponse(rsp)
+	return ParseGetAllResourcesResponse(rsp)
 }
 
-// GetResourcesResourcesCodeGetWithResponse request returning *GetResourcesResourcesCodeGetResponse
-func (c *ClientWithResponses) GetResourcesResourcesCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetResourcesResourcesCodeGetResponse, error) {
-	rsp, err := c.GetResourcesResourcesCodeGet(ctx, code, reqEditors...)
+// GetResourceByCodeWithResponse request returning *GetResourceByCodeResponse
+func (c *ClientWithResponses) GetResourceByCodeWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetResourceByCodeResponse, error) {
+	rsp, err := c.GetResourceByCode(ctx, code, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetResourcesResourcesCodeGetResponse(rsp)
+	return ParseGetResourceByCodeResponse(rsp)
 }
 
-// GenerateTokenTokenPostWithResponse request returning *GenerateTokenTokenPostResponse
-func (c *ClientWithResponses) GenerateTokenTokenPostWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GenerateTokenTokenPostResponse, error) {
-	rsp, err := c.GenerateTokenTokenPost(ctx, reqEditors...)
+// GenerateTokenWithResponse request returning *GenerateTokenResponse
+func (c *ClientWithResponses) GenerateTokenWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GenerateTokenResponse, error) {
+	rsp, err := c.GenerateToken(ctx, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGenerateTokenTokenPostResponse(rsp)
+	return ParseGenerateTokenResponse(rsp)
 }
 
-// ParseGetStatusGetResponse parses an HTTP response from a GetStatusGetWithResponse call
-func ParseGetStatusGetResponse(rsp *http.Response) (*GetStatusGetResponse, error) {
+// ParseGetStatusResponse parses an HTTP response from a GetStatusWithResponse call
+func ParseGetStatusResponse(rsp *http.Response) (*GetStatusResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetStatusGetResponse{
+	response := &GetStatusResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9293,15 +9293,15 @@ func ParseGetStatusGetResponse(rsp *http.Response) (*GetStatusGetResponse, error
 	return response, nil
 }
 
-// ParseCreateAccountAccountsCreatePostResponse parses an HTTP response from a CreateAccountAccountsCreatePostWithResponse call
-func ParseCreateAccountAccountsCreatePostResponse(rsp *http.Response) (*CreateAccountAccountsCreatePostResponse, error) {
+// ParseCreateAccountResponse parses an HTTP response from a CreateAccountWithResponse call
+func ParseCreateAccountResponse(rsp *http.Response) (*CreateAccountResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &CreateAccountAccountsCreatePostResponse{
+	response := &CreateAccountResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9319,15 +9319,15 @@ func ParseCreateAccountAccountsCreatePostResponse(rsp *http.Response) (*CreateAc
 	return response, nil
 }
 
-// ParseGetAllCharactersCharactersGetResponse parses an HTTP response from a GetAllCharactersCharactersGetWithResponse call
-func ParseGetAllCharactersCharactersGetResponse(rsp *http.Response) (*GetAllCharactersCharactersGetResponse, error) {
+// ParseGetAllCharactersResponse parses an HTTP response from a GetAllCharactersWithResponse call
+func ParseGetAllCharactersResponse(rsp *http.Response) (*GetAllCharactersResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetAllCharactersCharactersGetResponse{
+	response := &GetAllCharactersResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9345,15 +9345,15 @@ func ParseGetAllCharactersCharactersGetResponse(rsp *http.Response) (*GetAllChar
 	return response, nil
 }
 
-// ParseCreateCharacterCharactersCreatePostResponse parses an HTTP response from a CreateCharacterCharactersCreatePostWithResponse call
-func ParseCreateCharacterCharactersCreatePostResponse(rsp *http.Response) (*CreateCharacterCharactersCreatePostResponse, error) {
+// ParseAccountCreateCharacterResponse parses an HTTP response from a AccountCreateCharacterWithResponse call
+func ParseAccountCreateCharacterResponse(rsp *http.Response) (*AccountCreateCharacterResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &CreateCharacterCharactersCreatePostResponse{
+	response := &AccountCreateCharacterResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9371,15 +9371,15 @@ func ParseCreateCharacterCharactersCreatePostResponse(rsp *http.Response) (*Crea
 	return response, nil
 }
 
-// ParseGetCharacterCharactersNameGetResponse parses an HTTP response from a GetCharacterCharactersNameGetWithResponse call
-func ParseGetCharacterCharactersNameGetResponse(rsp *http.Response) (*GetCharacterCharactersNameGetResponse, error) {
+// ParseGetCharacterByNameResponse parses an HTTP response from a GetCharacterByNameWithResponse call
+func ParseGetCharacterByNameResponse(rsp *http.Response) (*GetCharacterByNameResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetCharacterCharactersNameGetResponse{
+	response := &GetCharacterByNameResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9397,15 +9397,15 @@ func ParseGetCharacterCharactersNameGetResponse(rsp *http.Response) (*GetCharact
 	return response, nil
 }
 
-// ParseGetAllEventsEventsGetResponse parses an HTTP response from a GetAllEventsEventsGetWithResponse call
-func ParseGetAllEventsEventsGetResponse(rsp *http.Response) (*GetAllEventsEventsGetResponse, error) {
+// ParseGetAllEventsResponse parses an HTTP response from a GetAllEventsWithResponse call
+func ParseGetAllEventsResponse(rsp *http.Response) (*GetAllEventsResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetAllEventsEventsGetResponse{
+	response := &GetAllEventsResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9423,15 +9423,15 @@ func ParseGetAllEventsEventsGetResponse(rsp *http.Response) (*GetAllEventsEvents
 	return response, nil
 }
 
-// ParseGetAllGeItemsGeGetResponse parses an HTTP response from a GetAllGeItemsGeGetWithResponse call
-func ParseGetAllGeItemsGeGetResponse(rsp *http.Response) (*GetAllGeItemsGeGetResponse, error) {
+// ParseGetAllGrandExchangeItemsResponse parses an HTTP response from a GetAllGrandExchangeItemsWithResponse call
+func ParseGetAllGrandExchangeItemsResponse(rsp *http.Response) (*GetAllGrandExchangeItemsResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetAllGeItemsGeGetResponse{
+	response := &GetAllGrandExchangeItemsResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9449,15 +9449,15 @@ func ParseGetAllGeItemsGeGetResponse(rsp *http.Response) (*GetAllGeItemsGeGetRes
 	return response, nil
 }
 
-// ParseGetGeItemGeCodeGetResponse parses an HTTP response from a GetGeItemGeCodeGetWithResponse call
-func ParseGetGeItemGeCodeGetResponse(rsp *http.Response) (*GetGeItemGeCodeGetResponse, error) {
+// ParseGetGrandExchangeItemByCodeResponse parses an HTTP response from a GetGrandExchangeItemByCodeWithResponse call
+func ParseGetGrandExchangeItemByCodeResponse(rsp *http.Response) (*GetGrandExchangeItemByCodeResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetGeItemGeCodeGetResponse{
+	response := &GetGrandExchangeItemByCodeResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9475,15 +9475,15 @@ func ParseGetGeItemGeCodeGetResponse(rsp *http.Response) (*GetGeItemGeCodeGetRes
 	return response, nil
 }
 
-// ParseGetAllItemsItemsGetResponse parses an HTTP response from a GetAllItemsItemsGetWithResponse call
-func ParseGetAllItemsItemsGetResponse(rsp *http.Response) (*GetAllItemsItemsGetResponse, error) {
+// ParseGetAllItemsResponse parses an HTTP response from a GetAllItemsWithResponse call
+func ParseGetAllItemsResponse(rsp *http.Response) (*GetAllItemsResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetAllItemsItemsGetResponse{
+	response := &GetAllItemsResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9501,15 +9501,15 @@ func ParseGetAllItemsItemsGetResponse(rsp *http.Response) (*GetAllItemsItemsGetR
 	return response, nil
 }
 
-// ParseGetItemItemsCodeGetResponse parses an HTTP response from a GetItemItemsCodeGetWithResponse call
-func ParseGetItemItemsCodeGetResponse(rsp *http.Response) (*GetItemItemsCodeGetResponse, error) {
+// ParseGetItemByCodeResponse parses an HTTP response from a GetItemByCodeWithResponse call
+func ParseGetItemByCodeResponse(rsp *http.Response) (*GetItemByCodeResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetItemItemsCodeGetResponse{
+	response := &GetItemByCodeResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9527,15 +9527,15 @@ func ParseGetItemItemsCodeGetResponse(rsp *http.Response) (*GetItemItemsCodeGetR
 	return response, nil
 }
 
-// ParseGetAllMapsMapsGetResponse parses an HTTP response from a GetAllMapsMapsGetWithResponse call
-func ParseGetAllMapsMapsGetResponse(rsp *http.Response) (*GetAllMapsMapsGetResponse, error) {
+// ParseGetAllMapsResponse parses an HTTP response from a GetAllMapsWithResponse call
+func ParseGetAllMapsResponse(rsp *http.Response) (*GetAllMapsResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetAllMapsMapsGetResponse{
+	response := &GetAllMapsResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9553,15 +9553,15 @@ func ParseGetAllMapsMapsGetResponse(rsp *http.Response) (*GetAllMapsMapsGetRespo
 	return response, nil
 }
 
-// ParseGetMapMapsXYGetResponse parses an HTTP response from a GetMapMapsXYGetWithResponse call
-func ParseGetMapMapsXYGetResponse(rsp *http.Response) (*GetMapMapsXYGetResponse, error) {
+// ParseGetMapDetailResponse parses an HTTP response from a GetMapDetailWithResponse call
+func ParseGetMapDetailResponse(rsp *http.Response) (*GetMapDetailResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetMapMapsXYGetResponse{
+	response := &GetMapDetailResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9579,15 +9579,15 @@ func ParseGetMapMapsXYGetResponse(rsp *http.Response) (*GetMapMapsXYGetResponse,
 	return response, nil
 }
 
-// ParseGetAllMonstersMonstersGetResponse parses an HTTP response from a GetAllMonstersMonstersGetWithResponse call
-func ParseGetAllMonstersMonstersGetResponse(rsp *http.Response) (*GetAllMonstersMonstersGetResponse, error) {
+// ParseGetAllMonstersResponse parses an HTTP response from a GetAllMonstersWithResponse call
+func ParseGetAllMonstersResponse(rsp *http.Response) (*GetAllMonstersResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetAllMonstersMonstersGetResponse{
+	response := &GetAllMonstersResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9605,15 +9605,15 @@ func ParseGetAllMonstersMonstersGetResponse(rsp *http.Response) (*GetAllMonsters
 	return response, nil
 }
 
-// ParseGetMonsterMonstersCodeGetResponse parses an HTTP response from a GetMonsterMonstersCodeGetWithResponse call
-func ParseGetMonsterMonstersCodeGetResponse(rsp *http.Response) (*GetMonsterMonstersCodeGetResponse, error) {
+// ParseGetMonsterByCodeResponse parses an HTTP response from a GetMonsterByCodeWithResponse call
+func ParseGetMonsterByCodeResponse(rsp *http.Response) (*GetMonsterByCodeResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetMonsterMonstersCodeGetResponse{
+	response := &GetMonsterByCodeResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9631,15 +9631,15 @@ func ParseGetMonsterMonstersCodeGetResponse(rsp *http.Response) (*GetMonsterMons
 	return response, nil
 }
 
-// ParseGetBankGoldsMyBankGoldGetResponse parses an HTTP response from a GetBankGoldsMyBankGoldGetWithResponse call
-func ParseGetBankGoldsMyBankGoldGetResponse(rsp *http.Response) (*GetBankGoldsMyBankGoldGetResponse, error) {
+// ParseGetAccountBankGoldResponse parses an HTTP response from a GetAccountBankGoldWithResponse call
+func ParseGetAccountBankGoldResponse(rsp *http.Response) (*GetAccountBankGoldResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetBankGoldsMyBankGoldGetResponse{
+	response := &GetAccountBankGoldResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9657,15 +9657,15 @@ func ParseGetBankGoldsMyBankGoldGetResponse(rsp *http.Response) (*GetBankGoldsMy
 	return response, nil
 }
 
-// ParseGetBankItemsMyBankItemsGetResponse parses an HTTP response from a GetBankItemsMyBankItemsGetWithResponse call
-func ParseGetBankItemsMyBankItemsGetResponse(rsp *http.Response) (*GetBankItemsMyBankItemsGetResponse, error) {
+// ParseGetAccountBankItemsResponse parses an HTTP response from a GetAccountBankItemsWithResponse call
+func ParseGetAccountBankItemsResponse(rsp *http.Response) (*GetAccountBankItemsResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetBankItemsMyBankItemsGetResponse{
+	response := &GetAccountBankItemsResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9683,15 +9683,15 @@ func ParseGetBankItemsMyBankItemsGetResponse(rsp *http.Response) (*GetBankItemsM
 	return response, nil
 }
 
-// ParseChangePasswordMyChangePasswordPostResponse parses an HTTP response from a ChangePasswordMyChangePasswordPostWithResponse call
-func ParseChangePasswordMyChangePasswordPostResponse(rsp *http.Response) (*ChangePasswordMyChangePasswordPostResponse, error) {
+// ParseAccountChangePasswordResponse parses an HTTP response from a AccountChangePasswordWithResponse call
+func ParseAccountChangePasswordResponse(rsp *http.Response) (*AccountChangePasswordResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ChangePasswordMyChangePasswordPostResponse{
+	response := &AccountChangePasswordResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9709,15 +9709,15 @@ func ParseChangePasswordMyChangePasswordPostResponse(rsp *http.Response) (*Chang
 	return response, nil
 }
 
-// ParseGetMyCharactersMyCharactersGetResponse parses an HTTP response from a GetMyCharactersMyCharactersGetWithResponse call
-func ParseGetMyCharactersMyCharactersGetResponse(rsp *http.Response) (*GetMyCharactersMyCharactersGetResponse, error) {
+// ParseGetAccountCharacterListResponse parses an HTTP response from a GetAccountCharacterListWithResponse call
+func ParseGetAccountCharacterListResponse(rsp *http.Response) (*GetAccountCharacterListResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetMyCharactersMyCharactersGetResponse{
+	response := &GetAccountCharacterListResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9735,15 +9735,15 @@ func ParseGetMyCharactersMyCharactersGetResponse(rsp *http.Response) (*GetMyChar
 	return response, nil
 }
 
-// ParseGetAllCharactersLogsMyLogsGetResponse parses an HTTP response from a GetAllCharactersLogsMyLogsGetWithResponse call
-func ParseGetAllCharactersLogsMyLogsGetResponse(rsp *http.Response) (*GetAllCharactersLogsMyLogsGetResponse, error) {
+// ParseGetAccountCharactersLogsResponse parses an HTTP response from a GetAccountCharactersLogsWithResponse call
+func ParseGetAccountCharactersLogsResponse(rsp *http.Response) (*GetAccountCharactersLogsResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetAllCharactersLogsMyLogsGetResponse{
+	response := &GetAccountCharactersLogsResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9761,15 +9761,15 @@ func ParseGetAllCharactersLogsMyLogsGetResponse(rsp *http.Response) (*GetAllChar
 	return response, nil
 }
 
-// ParseActionDepositBankMyNameActionBankDepositPostResponse parses an HTTP response from a ActionDepositBankMyNameActionBankDepositPostWithResponse call
-func ParseActionDepositBankMyNameActionBankDepositPostResponse(rsp *http.Response) (*ActionDepositBankMyNameActionBankDepositPostResponse, error) {
+// ParseCharacterBankDepositItemActionResponse parses an HTTP response from a CharacterBankDepositItemActionWithResponse call
+func ParseCharacterBankDepositItemActionResponse(rsp *http.Response) (*CharacterBankDepositItemActionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ActionDepositBankMyNameActionBankDepositPostResponse{
+	response := &CharacterBankDepositItemActionResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9787,15 +9787,15 @@ func ParseActionDepositBankMyNameActionBankDepositPostResponse(rsp *http.Respons
 	return response, nil
 }
 
-// ParseActionDepositBankGoldMyNameActionBankDepositGoldPostResponse parses an HTTP response from a ActionDepositBankGoldMyNameActionBankDepositGoldPostWithResponse call
-func ParseActionDepositBankGoldMyNameActionBankDepositGoldPostResponse(rsp *http.Response) (*ActionDepositBankGoldMyNameActionBankDepositGoldPostResponse, error) {
+// ParseCharacterBankDepositGoldActionResponse parses an HTTP response from a CharacterBankDepositGoldActionWithResponse call
+func ParseCharacterBankDepositGoldActionResponse(rsp *http.Response) (*CharacterBankDepositGoldActionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ActionDepositBankGoldMyNameActionBankDepositGoldPostResponse{
+	response := &CharacterBankDepositGoldActionResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9813,15 +9813,15 @@ func ParseActionDepositBankGoldMyNameActionBankDepositGoldPostResponse(rsp *http
 	return response, nil
 }
 
-// ParseActionWithdrawBankMyNameActionBankWithdrawPostResponse parses an HTTP response from a ActionWithdrawBankMyNameActionBankWithdrawPostWithResponse call
-func ParseActionWithdrawBankMyNameActionBankWithdrawPostResponse(rsp *http.Response) (*ActionWithdrawBankMyNameActionBankWithdrawPostResponse, error) {
+// ParseCharacterBankWithdrawItemActionResponse parses an HTTP response from a CharacterBankWithdrawItemActionWithResponse call
+func ParseCharacterBankWithdrawItemActionResponse(rsp *http.Response) (*CharacterBankWithdrawItemActionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ActionWithdrawBankMyNameActionBankWithdrawPostResponse{
+	response := &CharacterBankWithdrawItemActionResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9839,15 +9839,15 @@ func ParseActionWithdrawBankMyNameActionBankWithdrawPostResponse(rsp *http.Respo
 	return response, nil
 }
 
-// ParseActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse parses an HTTP response from a ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithResponse call
-func ParseActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse(rsp *http.Response) (*ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse, error) {
+// ParseCharacterBankWithdrawGoldActionResponse parses an HTTP response from a CharacterBankWithdrawGoldActionWithResponse call
+func ParseCharacterBankWithdrawGoldActionResponse(rsp *http.Response) (*CharacterBankWithdrawGoldActionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse{
+	response := &CharacterBankWithdrawGoldActionResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9865,15 +9865,15 @@ func ParseActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse(rsp *ht
 	return response, nil
 }
 
-// ParseActionCraftingMyNameActionCraftingPostResponse parses an HTTP response from a ActionCraftingMyNameActionCraftingPostWithResponse call
-func ParseActionCraftingMyNameActionCraftingPostResponse(rsp *http.Response) (*ActionCraftingMyNameActionCraftingPostResponse, error) {
+// ParseCharacterCraftingActionResponse parses an HTTP response from a CharacterCraftingActionWithResponse call
+func ParseCharacterCraftingActionResponse(rsp *http.Response) (*CharacterCraftingActionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ActionCraftingMyNameActionCraftingPostResponse{
+	response := &CharacterCraftingActionResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9891,15 +9891,15 @@ func ParseActionCraftingMyNameActionCraftingPostResponse(rsp *http.Response) (*A
 	return response, nil
 }
 
-// ParseActionDeleteItemMyNameActionDeletePostResponse parses an HTTP response from a ActionDeleteItemMyNameActionDeletePostWithResponse call
-func ParseActionDeleteItemMyNameActionDeletePostResponse(rsp *http.Response) (*ActionDeleteItemMyNameActionDeletePostResponse, error) {
+// ParseCharacterDeleteItemActionResponse parses an HTTP response from a CharacterDeleteItemActionWithResponse call
+func ParseCharacterDeleteItemActionResponse(rsp *http.Response) (*CharacterDeleteItemActionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ActionDeleteItemMyNameActionDeletePostResponse{
+	response := &CharacterDeleteItemActionResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9917,15 +9917,15 @@ func ParseActionDeleteItemMyNameActionDeletePostResponse(rsp *http.Response) (*A
 	return response, nil
 }
 
-// ParseActionEquipItemMyNameActionEquipPostResponse parses an HTTP response from a ActionEquipItemMyNameActionEquipPostWithResponse call
-func ParseActionEquipItemMyNameActionEquipPostResponse(rsp *http.Response) (*ActionEquipItemMyNameActionEquipPostResponse, error) {
+// ParseCharacterEquipActionResponse parses an HTTP response from a CharacterEquipActionWithResponse call
+func ParseCharacterEquipActionResponse(rsp *http.Response) (*CharacterEquipActionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ActionEquipItemMyNameActionEquipPostResponse{
+	response := &CharacterEquipActionResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9943,15 +9943,15 @@ func ParseActionEquipItemMyNameActionEquipPostResponse(rsp *http.Response) (*Act
 	return response, nil
 }
 
-// ParseActionFightMyNameActionFightPostResponse parses an HTTP response from a ActionFightMyNameActionFightPostWithResponse call
-func ParseActionFightMyNameActionFightPostResponse(rsp *http.Response) (*ActionFightMyNameActionFightPostResponse, error) {
+// ParseCharacterFightActionResponse parses an HTTP response from a CharacterFightActionWithResponse call
+func ParseCharacterFightActionResponse(rsp *http.Response) (*CharacterFightActionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ActionFightMyNameActionFightPostResponse{
+	response := &CharacterFightActionResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9969,15 +9969,15 @@ func ParseActionFightMyNameActionFightPostResponse(rsp *http.Response) (*ActionF
 	return response, nil
 }
 
-// ParseActionGatheringMyNameActionGatheringPostResponse parses an HTTP response from a ActionGatheringMyNameActionGatheringPostWithResponse call
-func ParseActionGatheringMyNameActionGatheringPostResponse(rsp *http.Response) (*ActionGatheringMyNameActionGatheringPostResponse, error) {
+// ParseCharacterGatheringActionResponse parses an HTTP response from a CharacterGatheringActionWithResponse call
+func ParseCharacterGatheringActionResponse(rsp *http.Response) (*CharacterGatheringActionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ActionGatheringMyNameActionGatheringPostResponse{
+	response := &CharacterGatheringActionResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -9995,15 +9995,15 @@ func ParseActionGatheringMyNameActionGatheringPostResponse(rsp *http.Response) (
 	return response, nil
 }
 
-// ParseActionGeBuyItemMyNameActionGeBuyPostResponse parses an HTTP response from a ActionGeBuyItemMyNameActionGeBuyPostWithResponse call
-func ParseActionGeBuyItemMyNameActionGeBuyPostResponse(rsp *http.Response) (*ActionGeBuyItemMyNameActionGeBuyPostResponse, error) {
+// ParseCharacterGlobalExchangeBuyActionResponse parses an HTTP response from a CharacterGlobalExchangeBuyActionWithResponse call
+func ParseCharacterGlobalExchangeBuyActionResponse(rsp *http.Response) (*CharacterGlobalExchangeBuyActionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ActionGeBuyItemMyNameActionGeBuyPostResponse{
+	response := &CharacterGlobalExchangeBuyActionResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -10021,15 +10021,15 @@ func ParseActionGeBuyItemMyNameActionGeBuyPostResponse(rsp *http.Response) (*Act
 	return response, nil
 }
 
-// ParseActionGeSellItemMyNameActionGeSellPostResponse parses an HTTP response from a ActionGeSellItemMyNameActionGeSellPostWithResponse call
-func ParseActionGeSellItemMyNameActionGeSellPostResponse(rsp *http.Response) (*ActionGeSellItemMyNameActionGeSellPostResponse, error) {
+// ParseCharacterGlobalExchangeSellActionResponse parses an HTTP response from a CharacterGlobalExchangeSellActionWithResponse call
+func ParseCharacterGlobalExchangeSellActionResponse(rsp *http.Response) (*CharacterGlobalExchangeSellActionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ActionGeSellItemMyNameActionGeSellPostResponse{
+	response := &CharacterGlobalExchangeSellActionResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -10047,15 +10047,15 @@ func ParseActionGeSellItemMyNameActionGeSellPostResponse(rsp *http.Response) (*A
 	return response, nil
 }
 
-// ParseActionMoveMyNameActionMovePostResponse parses an HTTP response from a ActionMoveMyNameActionMovePostWithResponse call
-func ParseActionMoveMyNameActionMovePostResponse(rsp *http.Response) (*ActionMoveMyNameActionMovePostResponse, error) {
+// ParseCharacterMoveActionResponse parses an HTTP response from a CharacterMoveActionWithResponse call
+func ParseCharacterMoveActionResponse(rsp *http.Response) (*CharacterMoveActionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ActionMoveMyNameActionMovePostResponse{
+	response := &CharacterMoveActionResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -10073,15 +10073,15 @@ func ParseActionMoveMyNameActionMovePostResponse(rsp *http.Response) (*ActionMov
 	return response, nil
 }
 
-// ParseActionRecyclingMyNameActionRecyclingPostResponse parses an HTTP response from a ActionRecyclingMyNameActionRecyclingPostWithResponse call
-func ParseActionRecyclingMyNameActionRecyclingPostResponse(rsp *http.Response) (*ActionRecyclingMyNameActionRecyclingPostResponse, error) {
+// ParseCharacterRecyclingActionResponse parses an HTTP response from a CharacterRecyclingActionWithResponse call
+func ParseCharacterRecyclingActionResponse(rsp *http.Response) (*CharacterRecyclingActionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ActionRecyclingMyNameActionRecyclingPostResponse{
+	response := &CharacterRecyclingActionResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -10099,15 +10099,15 @@ func ParseActionRecyclingMyNameActionRecyclingPostResponse(rsp *http.Response) (
 	return response, nil
 }
 
-// ParseActionCompleteTaskMyNameActionTaskCompletePostResponse parses an HTTP response from a ActionCompleteTaskMyNameActionTaskCompletePostWithResponse call
-func ParseActionCompleteTaskMyNameActionTaskCompletePostResponse(rsp *http.Response) (*ActionCompleteTaskMyNameActionTaskCompletePostResponse, error) {
+// ParseCharacterCompleteTaskActionResponse parses an HTTP response from a CharacterCompleteTaskActionWithResponse call
+func ParseCharacterCompleteTaskActionResponse(rsp *http.Response) (*CharacterCompleteTaskActionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ActionCompleteTaskMyNameActionTaskCompletePostResponse{
+	response := &CharacterCompleteTaskActionResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -10125,15 +10125,15 @@ func ParseActionCompleteTaskMyNameActionTaskCompletePostResponse(rsp *http.Respo
 	return response, nil
 }
 
-// ParseActionTaskExchangeMyNameActionTaskExchangePostResponse parses an HTTP response from a ActionTaskExchangeMyNameActionTaskExchangePostWithResponse call
-func ParseActionTaskExchangeMyNameActionTaskExchangePostResponse(rsp *http.Response) (*ActionTaskExchangeMyNameActionTaskExchangePostResponse, error) {
+// ParseCharacterExchangeTaskActionResponse parses an HTTP response from a CharacterExchangeTaskActionWithResponse call
+func ParseCharacterExchangeTaskActionResponse(rsp *http.Response) (*CharacterExchangeTaskActionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ActionTaskExchangeMyNameActionTaskExchangePostResponse{
+	response := &CharacterExchangeTaskActionResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -10151,15 +10151,15 @@ func ParseActionTaskExchangeMyNameActionTaskExchangePostResponse(rsp *http.Respo
 	return response, nil
 }
 
-// ParseActionAcceptNewTaskMyNameActionTaskNewPostResponse parses an HTTP response from a ActionAcceptNewTaskMyNameActionTaskNewPostWithResponse call
-func ParseActionAcceptNewTaskMyNameActionTaskNewPostResponse(rsp *http.Response) (*ActionAcceptNewTaskMyNameActionTaskNewPostResponse, error) {
+// ParseCharacterAcceptNewTaskActionResponse parses an HTTP response from a CharacterAcceptNewTaskActionWithResponse call
+func ParseCharacterAcceptNewTaskActionResponse(rsp *http.Response) (*CharacterAcceptNewTaskActionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ActionAcceptNewTaskMyNameActionTaskNewPostResponse{
+	response := &CharacterAcceptNewTaskActionResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -10177,15 +10177,15 @@ func ParseActionAcceptNewTaskMyNameActionTaskNewPostResponse(rsp *http.Response)
 	return response, nil
 }
 
-// ParseActionUnequipItemMyNameActionUnequipPostResponse parses an HTTP response from a ActionUnequipItemMyNameActionUnequipPostWithResponse call
-func ParseActionUnequipItemMyNameActionUnequipPostResponse(rsp *http.Response) (*ActionUnequipItemMyNameActionUnequipPostResponse, error) {
+// ParseCharacterUnequipActionResponse parses an HTTP response from a CharacterUnequipActionWithResponse call
+func ParseCharacterUnequipActionResponse(rsp *http.Response) (*CharacterUnequipActionResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &ActionUnequipItemMyNameActionUnequipPostResponse{
+	response := &CharacterUnequipActionResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -10203,15 +10203,15 @@ func ParseActionUnequipItemMyNameActionUnequipPostResponse(rsp *http.Response) (
 	return response, nil
 }
 
-// ParseGetCharacterLogsMyNameLogsGetResponse parses an HTTP response from a GetCharacterLogsMyNameLogsGetWithResponse call
-func ParseGetCharacterLogsMyNameLogsGetResponse(rsp *http.Response) (*GetCharacterLogsMyNameLogsGetResponse, error) {
+// ParseGetCharacterLogsResponse parses an HTTP response from a GetCharacterLogsWithResponse call
+func ParseGetCharacterLogsResponse(rsp *http.Response) (*GetCharacterLogsResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetCharacterLogsMyNameLogsGetResponse{
+	response := &GetCharacterLogsResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -10229,15 +10229,15 @@ func ParseGetCharacterLogsMyNameLogsGetResponse(rsp *http.Response) (*GetCharact
 	return response, nil
 }
 
-// ParseGetAllResourcesResourcesGetResponse parses an HTTP response from a GetAllResourcesResourcesGetWithResponse call
-func ParseGetAllResourcesResourcesGetResponse(rsp *http.Response) (*GetAllResourcesResourcesGetResponse, error) {
+// ParseGetAllResourcesResponse parses an HTTP response from a GetAllResourcesWithResponse call
+func ParseGetAllResourcesResponse(rsp *http.Response) (*GetAllResourcesResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetAllResourcesResourcesGetResponse{
+	response := &GetAllResourcesResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -10255,15 +10255,15 @@ func ParseGetAllResourcesResourcesGetResponse(rsp *http.Response) (*GetAllResour
 	return response, nil
 }
 
-// ParseGetResourcesResourcesCodeGetResponse parses an HTTP response from a GetResourcesResourcesCodeGetWithResponse call
-func ParseGetResourcesResourcesCodeGetResponse(rsp *http.Response) (*GetResourcesResourcesCodeGetResponse, error) {
+// ParseGetResourceByCodeResponse parses an HTTP response from a GetResourceByCodeWithResponse call
+func ParseGetResourceByCodeResponse(rsp *http.Response) (*GetResourceByCodeResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetResourcesResourcesCodeGetResponse{
+	response := &GetResourceByCodeResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
@@ -10281,15 +10281,15 @@ func ParseGetResourcesResourcesCodeGetResponse(rsp *http.Response) (*GetResource
 	return response, nil
 }
 
-// ParseGenerateTokenTokenPostResponse parses an HTTP response from a GenerateTokenTokenPostWithResponse call
-func ParseGenerateTokenTokenPostResponse(rsp *http.Response) (*GenerateTokenTokenPostResponse, error) {
+// ParseGenerateTokenResponse parses an HTTP response from a GenerateTokenWithResponse call
+func ParseGenerateTokenResponse(rsp *http.Response) (*GenerateTokenResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GenerateTokenTokenPostResponse{
+	response := &GenerateTokenResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
