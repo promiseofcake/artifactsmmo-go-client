@@ -6,6 +6,8 @@ install-tools:
 fetch-spec:
 	curl --silent "https://api.artifactsmmo.com/openapi.json" | jq . > spec/openapi.json
 
+all: install-tools fetch-spec process-spec generate-client test
+
 process-spec:
 	openapi-down-convert --input spec/openapi.json --output spec/openapi-3.0.json
 	sed -i '' 's/"type": "null"/"nullable": true/g' spec/openapi-3.0.json
