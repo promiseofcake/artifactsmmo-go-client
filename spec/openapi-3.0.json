@@ -3430,16 +3430,6 @@
       },
       "CooldownSchema": {
         "properties": {
-          "total_seconds": {
-            "type": "integer",
-            "title": "Total Seconds",
-            "description": "The total seconds of the cooldown."
-          },
-          "remaining_seconds": {
-            "type": "integer",
-            "title": "Remaining Seconds",
-            "description": "The remaining seconds of the cooldown."
-          },
           "totalSeconds": {
             "type": "integer",
             "title": "Totalseconds",
