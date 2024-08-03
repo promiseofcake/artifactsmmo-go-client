@@ -673,6 +673,9 @@ type CooldownSchema struct {
 	// RemainingSeconds Deprecated** The remaining seconds of the cooldown.
 	RemainingSeconds int `json:"remainingSeconds"`
 
+	// StartedAt The start of the cooldown.
+	StartedAt time.Time `json:"started_at"`
+
 	// TotalSeconds Deprecated** The total seconds of the cooldown.
 	TotalSeconds int `json:"totalSeconds"`
 }
@@ -1976,15 +1979,6 @@ type GetBankItemsMyBankItemsGetParams struct {
 
 // GetAllCharactersLogsMyLogsGetParams defines parameters for GetAllCharactersLogsMyLogsGet.
 type GetAllCharactersLogsMyLogsGetParams struct {
-	// Page Page number
-	Page *int `form:"page,omitempty" json:"page,omitempty"`
-
-	// Size Page size
-	Size *int `form:"size,omitempty" json:"size,omitempty"`
-}
-
-// GetCharacterLogsMyNameLogsGetParams defines parameters for GetCharacterLogsMyNameLogsGet.
-type GetCharacterLogsMyNameLogsGetParams struct {
 	// Page Page number
 	Page *int `form:"page,omitempty" json:"page,omitempty"`
 
@@ -4938,9 +4932,6 @@ type ClientInterface interface {
 
 	ActionUnequipItemMyNameActionUnequipPost(ctx context.Context, name string, body ActionUnequipItemMyNameActionUnequipPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetCharacterLogsMyNameLogsGet request
-	GetCharacterLogsMyNameLogsGet(ctx context.Context, name string, params *GetCharacterLogsMyNameLogsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
-
 	// GetAllResourcesResourcesGet request
 	GetAllResourcesResourcesGet(ctx context.Context, params *GetAllResourcesResourcesGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -5553,18 +5544,6 @@ func (c *Client) ActionUnequipItemMyNameActionUnequipPostWithBody(ctx context.Co
 
 func (c *Client) ActionUnequipItemMyNameActionUnequipPost(ctx context.Context, name string, body ActionUnequipItemMyNameActionUnequipPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewActionUnequipItemMyNameActionUnequipPostRequest(c.Server, name, body)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
-func (c *Client) GetCharacterLogsMyNameLogsGet(ctx context.Context, name string, params *GetCharacterLogsMyNameLogsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetCharacterLogsMyNameLogsGetRequest(c.Server, name, params)
 	if err != nil {
 		return nil, err
 	}
@@ -7451,78 +7430,6 @@ func NewActionUnequipItemMyNameActionUnequipPostRequestWithBody(server string, n
 	return req, nil
 }
 
-// NewGetCharacterLogsMyNameLogsGetRequest generates requests for GetCharacterLogsMyNameLogsGet
-func NewGetCharacterLogsMyNameLogsGetRequest(server string, name string, params *GetCharacterLogsMyNameLogsGetParams) (*http.Request, error) {
-	var err error
-
-	var pathParam0 string
-
-	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "name", runtime.ParamLocationPath, name)
-	if err != nil {
-		return nil, err
-	}
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/my/%s/logs", pathParam0)
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	if params != nil {
-		queryValues := queryURL.Query()
-
-		if params.Page != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "page", runtime.ParamLocationQuery, *params.Page); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		if params.Size != nil {
-
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "size", runtime.ParamLocationQuery, *params.Size); err != nil {
-				return nil, err
-			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
-				return nil, err
-			} else {
-				for k, v := range parsed {
-					for _, v2 := range v {
-						queryValues.Add(k, v2)
-					}
-				}
-			}
-
-		}
-
-		queryURL.RawQuery = queryValues.Encode()
-	}
-
-	req, err := http.NewRequest("GET", queryURL.String(), nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return req, nil
-}
-
 // NewGetAllResourcesResourcesGetRequest generates requests for GetAllResourcesResourcesGet
 func NewGetAllResourcesResourcesGetRequest(server string, params *GetAllResourcesResourcesGetParams) (*http.Request, error) {
 	var err error
@@ -7893,9 +7800,6 @@ type ClientWithResponsesInterface interface {
 	ActionUnequipItemMyNameActionUnequipPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionUnequipItemMyNameActionUnequipPostResponse, error)
 
 	ActionUnequipItemMyNameActionUnequipPostWithResponse(ctx context.Context, name string, body ActionUnequipItemMyNameActionUnequipPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionUnequipItemMyNameActionUnequipPostResponse, error)
-
-	// GetCharacterLogsMyNameLogsGetWithResponse request
-	GetCharacterLogsMyNameLogsGetWithResponse(ctx context.Context, name string, params *GetCharacterLogsMyNameLogsGetParams, reqEditors ...RequestEditorFn) (*GetCharacterLogsMyNameLogsGetResponse, error)
 
 	// GetAllResourcesResourcesGetWithResponse request
 	GetAllResourcesResourcesGetWithResponse(ctx context.Context, params *GetAllResourcesResourcesGetParams, reqEditors ...RequestEditorFn) (*GetAllResourcesResourcesGetResponse, error)
@@ -8699,28 +8603,6 @@ func (r ActionUnequipItemMyNameActionUnequipPostResponse) StatusCode() int {
 	return 0
 }
 
-type GetCharacterLogsMyNameLogsGetResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	JSON200      *DataPageLogSchema
-}
-
-// Status returns HTTPResponse.Status
-func (r GetCharacterLogsMyNameLogsGetResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r GetCharacterLogsMyNameLogsGetResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
 type GetAllResourcesResourcesGetResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -9229,15 +9111,6 @@ func (c *ClientWithResponses) ActionUnequipItemMyNameActionUnequipPostWithRespon
 		return nil, err
 	}
 	return ParseActionUnequipItemMyNameActionUnequipPostResponse(rsp)
-}
-
-// GetCharacterLogsMyNameLogsGetWithResponse request returning *GetCharacterLogsMyNameLogsGetResponse
-func (c *ClientWithResponses) GetCharacterLogsMyNameLogsGetWithResponse(ctx context.Context, name string, params *GetCharacterLogsMyNameLogsGetParams, reqEditors ...RequestEditorFn) (*GetCharacterLogsMyNameLogsGetResponse, error) {
-	rsp, err := c.GetCharacterLogsMyNameLogsGet(ctx, name, params, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseGetCharacterLogsMyNameLogsGetResponse(rsp)
 }
 
 // GetAllResourcesResourcesGetWithResponse request returning *GetAllResourcesResourcesGetResponse
@@ -10193,32 +10066,6 @@ func ParseActionUnequipItemMyNameActionUnequipPostResponse(rsp *http.Response) (
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest EquipmentResponseSchema
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON200 = &dest
-
-	}
-
-	return response, nil
-}
-
-// ParseGetCharacterLogsMyNameLogsGetResponse parses an HTTP response from a GetCharacterLogsMyNameLogsGetWithResponse call
-func ParseGetCharacterLogsMyNameLogsGetResponse(rsp *http.Response) (*GetCharacterLogsMyNameLogsGetResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &GetCharacterLogsMyNameLogsGetResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest DataPageLogSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
