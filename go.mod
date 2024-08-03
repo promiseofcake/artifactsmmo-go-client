@@ -1,4 +1,4 @@
-module github.com/promiseofcake/artifactsmmo-cli
+module github.com/promiseofcake/artifactsmmo-go-client
 
 go 1.22.5
 
