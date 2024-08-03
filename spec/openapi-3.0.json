@@ -13,7 +13,7 @@
         ],
         "summary": "Action Move",
         "description": "Moves a character on the map using the map's X and Y position.",
-        "operationId": "action_move_my__name__action_move_post",
+        "operationId": "character_move_action",
         "security": [
           {
             "JWTBearer": []
@@ -79,7 +79,7 @@
         ],
         "summary": "Action Equip Item",
         "description": "Equip an item on your character.",
-        "operationId": "action_equip_item_my__name__action_equip_post",
+        "operationId": "character_equip_action",
         "security": [
           {
             "JWTBearer": []
@@ -154,7 +154,7 @@
         ],
         "summary": "Action Unequip Item",
         "description": "Unequip an item on your character.",
-        "operationId": "action_unequip_item_my__name__action_unequip_post",
+        "operationId": "character_unequip_action",
         "security": [
           {
             "JWTBearer": []
@@ -223,7 +223,7 @@
         ],
         "summary": "Action Fight",
         "description": "Start a fight against a monster on the character's map.",
-        "operationId": "action_fight_my__name__action_fight_post",
+        "operationId": "character_fight_action",
         "security": [
           {
             "JWTBearer": []
@@ -279,7 +279,7 @@
         ],
         "summary": "Action Gathering",
         "description": "Harvest a resource on the character's map.",
-        "operationId": "action_gathering_my__name__action_gathering_post",
+        "operationId": "character_gathering_action",
         "security": [
           {
             "JWTBearer": []
@@ -338,7 +338,7 @@
         ],
         "summary": "Action Crafting",
         "description": "Crafting an item. The character must be on a map with a workshop.",
-        "operationId": "action_crafting_my__name__action_crafting_post",
+        "operationId": "character_crafting_action",
         "security": [
           {
             "JWTBearer": []
@@ -413,7 +413,7 @@
         ],
         "summary": "Action Deposit Bank",
         "description": "Deposit an item in a bank on the character's map.",
-        "operationId": "action_deposit_bank_my__name__action_bank_deposit_post",
+        "operationId": "character_bank_deposit_item_action",
         "security": [
           {
             "JWTBearer": []
@@ -482,7 +482,7 @@
         ],
         "summary": "Action Deposit Bank Gold",
         "description": "Deposit golds in a bank on the character's map.",
-        "operationId": "action_deposit_bank_gold_my__name__action_bank_deposit_gold_post",
+        "operationId": "character_bank_deposit_gold_action",
         "security": [
           {
             "JWTBearer": []
@@ -551,7 +551,7 @@
         ],
         "summary": "Action Recycling",
         "description": "Recyling an item. The character must be on a map with a workshop (only for equipments and weapons).",
-        "operationId": "action_recycling_my__name__action_recycling_post",
+        "operationId": "character_recycling_action",
         "security": [
           {
             "JWTBearer": []
@@ -629,7 +629,7 @@
         ],
         "summary": "Action Withdraw Bank",
         "description": "Take an item from your bank and put it in the character's inventory.",
-        "operationId": "action_withdraw_bank_my__name__action_bank_withdraw_post",
+        "operationId": "character_bank_withdraw_item_action",
         "security": [
           {
             "JWTBearer": []
@@ -701,7 +701,7 @@
         ],
         "summary": "Action Withdraw Bank Gold",
         "description": "Withdraw gold from your bank.",
-        "operationId": "action_withdraw_bank_gold_my__name__action_bank_withdraw_gold_post",
+        "operationId": "character_bank_withdraw_gold_action",
         "security": [
           {
             "JWTBearer": []
@@ -767,7 +767,7 @@
         ],
         "summary": "Action Ge Buy Item",
         "description": "Buy an item at the Grand Exchange on the character's map.",
-        "operationId": "action_ge_buy_item_my__name__action_ge_buy_post",
+        "operationId": "character_global_exchange_buy_action",
         "security": [
           {
             "JWTBearer": []
@@ -842,7 +842,7 @@
         ],
         "summary": "Action Ge Sell Item",
         "description": "Sell an item at the Grand Exchange on the character's map.",
-        "operationId": "action_ge_sell_item_my__name__action_ge_sell_post",
+        "operationId": "character_global_exchange_sell_action",
         "security": [
           {
             "JWTBearer": []
@@ -914,7 +914,7 @@
         ],
         "summary": "Action Accept New Task",
         "description": "Accepting a new task.",
-        "operationId": "action_accept_new_task_my__name__action_task_new_post",
+        "operationId": "character_accept_new_task_action",
         "security": [
           {
             "JWTBearer": []
@@ -970,7 +970,7 @@
         ],
         "summary": "Action Complete Task",
         "description": "Complete a task.",
-        "operationId": "action_complete_task_my__name__action_task_complete_post",
+        "operationId": "character_complete_task_action",
         "security": [
           {
             "JWTBearer": []
@@ -1032,7 +1032,7 @@
         ],
         "summary": "Action Task Exchange",
         "description": "Exchange 3 tasks coins for a random reward. Rewards are exclusive resources for crafting  items.",
-        "operationId": "action_task_exchange_my__name__action_task_exchange_post",
+        "operationId": "character_exchange_task_action",
         "security": [
           {
             "JWTBearer": []
@@ -1091,7 +1091,7 @@
         ],
         "summary": "Action Delete Item",
         "description": "Delete an item from your character's inventory.",
-        "operationId": "action_delete_item_my__name__action_delete_post",
+        "operationId": "character_delete_item_action",
         "security": [
           {
             "JWTBearer": []
@@ -1154,7 +1154,7 @@
         ],
         "summary": "Get Character Logs",
         "description": "History of your character's last 100 actions.",
-        "operationId": "get_character_logs_my__name__logs_get",
+        "operationId": "get_character_logs",
         "security": [
           {
             "JWTBearer": []
@@ -1228,7 +1228,7 @@
         ],
         "summary": "Get All Characters Logs",
         "description": "History of the last 100 actions of all your characters.",
-        "operationId": "get_all_characters_logs_my_logs_get",
+        "operationId": "get_account_characters_logs",
         "security": [
           {
             "JWTBearer": []
@@ -1287,7 +1287,7 @@
         ],
         "summary": "Get My Characters",
         "description": "List of your characters.",
-        "operationId": "get_my_characters_my_characters_get",
+        "operationId": "get_account_character_list",
         "responses": {
           "200": {
             "description": "Successfully fetched characters.",
@@ -1317,7 +1317,7 @@
         ],
         "summary": "Get Bank Items",
         "description": "Fetch all items in your bank.",
-        "operationId": "get_bank_items_my_bank_items_get",
+        "operationId": "get_account_bank_items",
         "security": [
           {
             "JWTBearer": []
@@ -1388,7 +1388,7 @@
         ],
         "summary": "Get Bank Golds",
         "description": "Fetch golds in your bank.",
-        "operationId": "get_bank_golds_my_bank_gold_get",
+        "operationId": "get_account_bank_gold",
         "responses": {
           "200": {
             "description": "Successfully fetched golds.",
@@ -1415,7 +1415,7 @@
         ],
         "summary": "Change Password",
         "description": "Change your account password. Changing the password reset the account token.",
-        "operationId": "change_password_my_change_password_post",
+        "operationId": "account_change_password",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1455,7 +1455,7 @@
         ],
         "summary": "Create Character",
         "description": "Create new character on your account. You can create up to 5 characters.",
-        "operationId": "create_character_characters_create_post",
+        "operationId": "account_create_character",
         "requestBody": {
           "content": {
             "application/json": {
@@ -1498,7 +1498,7 @@
         ],
         "summary": "Get All Characters",
         "description": "Fetch characters details.",
-        "operationId": "get_all_characters_characters__get",
+        "operationId": "get_all_characters",
         "parameters": [
           {
             "name": "sort",
@@ -1572,7 +1572,7 @@
         ],
         "summary": "Get Character",
         "description": "Retrieve the details of a character.",
-        "operationId": "get_character_characters__name__get",
+        "operationId": "get_character_by_name",
         "parameters": [
           {
             "name": "name",
@@ -1611,7 +1611,7 @@
         ],
         "summary": "Get All Maps",
         "description": "Fetch maps details.",
-        "operationId": "get_all_maps_maps__get",
+        "operationId": "get_all_maps",
         "parameters": [
           {
             "name": "content_type",
@@ -1696,7 +1696,7 @@
         ],
         "summary": "Get Map",
         "description": "Retrieve the details of a map.",
-        "operationId": "get_map_maps__x___y__get",
+        "operationId": "get_map_detail",
         "parameters": [
           {
             "name": "x",
@@ -1745,7 +1745,7 @@
         ],
         "summary": "Get All Items",
         "description": "Fetch items details.",
-        "operationId": "get_all_items_items__get",
+        "operationId": "get_all_items",
         "parameters": [
           {
             "name": "min_level",
@@ -1889,7 +1889,7 @@
         ],
         "summary": "Get Item",
         "description": "Retrieve the details of a item.",
-        "operationId": "get_item_items__code__get",
+        "operationId": "get_item_by_code",
         "parameters": [
           {
             "name": "code",
@@ -1928,7 +1928,7 @@
         ],
         "summary": "Get All Monsters",
         "description": "Fetch monsters details.",
-        "operationId": "get_all_monsters_monsters__get",
+        "operationId": "get_all_monsters",
         "parameters": [
           {
             "name": "min_level",
@@ -2019,7 +2019,7 @@
         ],
         "summary": "Get Monster",
         "description": "Retrieve the details of a monster.",
-        "operationId": "get_monster_monsters__code__get",
+        "operationId": "get_monster_by_code",
         "parameters": [
           {
             "name": "code",
@@ -2059,7 +2059,7 @@
         ],
         "summary": "Get All Resources",
         "description": "Fetch resources details.",
-        "operationId": "get_all_resources_resources__get",
+        "operationId": "get_all_resources",
         "parameters": [
           {
             "name": "min_level",
@@ -2166,7 +2166,7 @@
         ],
         "summary": "Get Resources",
         "description": "Retrieve the details of a resource.",
-        "operationId": "get_resources_resources__code__get",
+        "operationId": "get_resource_by_code",
         "parameters": [
           {
             "name": "code",
@@ -2206,7 +2206,7 @@
         ],
         "summary": "Get All Events",
         "description": "Fetch events details.",
-        "operationId": "get_all_events_events__get",
+        "operationId": "get_all_events",
         "parameters": [
           {
             "name": "page",
@@ -2260,7 +2260,7 @@
         ],
         "summary": "Get All Ge Items",
         "description": "Fetch Grand Exchange items details.",
-        "operationId": "get_all_ge_items_ge__get",
+        "operationId": "get_all_grand_exchange_items",
         "parameters": [
           {
             "name": "page",
@@ -2314,7 +2314,7 @@
         ],
         "summary": "Get Ge Item",
         "description": "Retrieve the details of a Grand Exchange item.",
-        "operationId": "get_ge_item_ge__code__get",
+        "operationId": "get_grand_exchange_item_by_code",
         "parameters": [
           {
             "name": "code",
@@ -2353,7 +2353,7 @@
         ],
         "summary": "Create Account",
         "description": "Create an account.",
-        "operationId": "create_account_accounts_create_post",
+        "operationId": "create_account",
         "requestBody": {
           "content": {
             "application/json": {
@@ -2391,7 +2391,7 @@
         ],
         "summary": "Generate Token",
         "description": "Use your account as HTTPBasic Auth to generate your token to use the API. You can also generate your token directly on the website.",
-        "operationId": "generate_token_token__post",
+        "operationId": "generate_token",
         "responses": {
           "200": {
             "description": "Token generated successfully",
@@ -2418,7 +2418,7 @@
       "get": {
         "summary": "Get Status",
         "description": "Return the status of the game server.",
-        "operationId": "get_status__get",
+        "operationId": "get_status",
         "responses": {
           "200": {
             "description": "Successful Response",
