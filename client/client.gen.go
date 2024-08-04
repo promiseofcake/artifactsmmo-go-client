@@ -670,14 +670,14 @@ type CooldownSchema struct {
 	// Reason The reason of the cooldown.
 	Reason CooldownSchemaReason `json:"reason"`
 
-	// RemainingSeconds Deprecated** The remaining seconds of the cooldown.
-	RemainingSeconds int `json:"remainingSeconds"`
+	// RemainingSeconds The remaining seconds of the cooldown.
+	RemainingSeconds int `json:"remaining_seconds"`
 
 	// StartedAt The start of the cooldown.
 	StartedAt time.Time `json:"started_at"`
 
-	// TotalSeconds Deprecated** The total seconds of the cooldown.
-	TotalSeconds int `json:"totalSeconds"`
+	// TotalSeconds The total seconds of the cooldown.
+	TotalSeconds int `json:"total_seconds"`
 }
 
 // CooldownSchemaReason The reason of the cooldown.
@@ -4935,8 +4935,8 @@ type ClientInterface interface {
 	// GetAllResourcesResourcesGet request
 	GetAllResourcesResourcesGet(ctx context.Context, params *GetAllResourcesResourcesGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetResourcesResourcesCodeGet request
-	GetResourcesResourcesCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetResourceResourcesCodeGet request
+	GetResourceResourcesCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GenerateTokenTokenPost request
 	GenerateTokenTokenPost(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -5566,8 +5566,8 @@ func (c *Client) GetAllResourcesResourcesGet(ctx context.Context, params *GetAll
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetResourcesResourcesCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetResourcesResourcesCodeGetRequest(c.Server, code)
+func (c *Client) GetResourceResourcesCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetResourceResourcesCodeGetRequest(c.Server, code)
 	if err != nil {
 		return nil, err
 	}
@@ -7559,8 +7559,8 @@ func NewGetAllResourcesResourcesGetRequest(server string, params *GetAllResource
 	return req, nil
 }
 
-// NewGetResourcesResourcesCodeGetRequest generates requests for GetResourcesResourcesCodeGet
-func NewGetResourcesResourcesCodeGetRequest(server string, code string) (*http.Request, error) {
+// NewGetResourceResourcesCodeGetRequest generates requests for GetResourceResourcesCodeGet
+func NewGetResourceResourcesCodeGetRequest(server string, code string) (*http.Request, error) {
 	var err error
 
 	var pathParam0 string
@@ -7804,8 +7804,8 @@ type ClientWithResponsesInterface interface {
 	// GetAllResourcesResourcesGetWithResponse request
 	GetAllResourcesResourcesGetWithResponse(ctx context.Context, params *GetAllResourcesResourcesGetParams, reqEditors ...RequestEditorFn) (*GetAllResourcesResourcesGetResponse, error)
 
-	// GetResourcesResourcesCodeGetWithResponse request
-	GetResourcesResourcesCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetResourcesResourcesCodeGetResponse, error)
+	// GetResourceResourcesCodeGetWithResponse request
+	GetResourceResourcesCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetResourceResourcesCodeGetResponse, error)
 
 	// GenerateTokenTokenPostWithResponse request
 	GenerateTokenTokenPostWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GenerateTokenTokenPostResponse, error)
@@ -8625,14 +8625,14 @@ func (r GetAllResourcesResourcesGetResponse) StatusCode() int {
 	return 0
 }
 
-type GetResourcesResourcesCodeGetResponse struct {
+type GetResourceResourcesCodeGetResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
 	JSON200      *ResourceResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetResourcesResourcesCodeGetResponse) Status() string {
+func (r GetResourceResourcesCodeGetResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -8640,7 +8640,7 @@ func (r GetResourcesResourcesCodeGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetResourcesResourcesCodeGetResponse) StatusCode() int {
+func (r GetResourceResourcesCodeGetResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -9122,13 +9122,13 @@ func (c *ClientWithResponses) GetAllResourcesResourcesGetWithResponse(ctx contex
 	return ParseGetAllResourcesResourcesGetResponse(rsp)
 }
 
-// GetResourcesResourcesCodeGetWithResponse request returning *GetResourcesResourcesCodeGetResponse
-func (c *ClientWithResponses) GetResourcesResourcesCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetResourcesResourcesCodeGetResponse, error) {
-	rsp, err := c.GetResourcesResourcesCodeGet(ctx, code, reqEditors...)
+// GetResourceResourcesCodeGetWithResponse request returning *GetResourceResourcesCodeGetResponse
+func (c *ClientWithResponses) GetResourceResourcesCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetResourceResourcesCodeGetResponse, error) {
+	rsp, err := c.GetResourceResourcesCodeGet(ctx, code, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetResourcesResourcesCodeGetResponse(rsp)
+	return ParseGetResourceResourcesCodeGetResponse(rsp)
 }
 
 // GenerateTokenTokenPostWithResponse request returning *GenerateTokenTokenPostResponse
@@ -10102,15 +10102,15 @@ func ParseGetAllResourcesResourcesGetResponse(rsp *http.Response) (*GetAllResour
 	return response, nil
 }
 
-// ParseGetResourcesResourcesCodeGetResponse parses an HTTP response from a GetResourcesResourcesCodeGetWithResponse call
-func ParseGetResourcesResourcesCodeGetResponse(rsp *http.Response) (*GetResourcesResourcesCodeGetResponse, error) {
+// ParseGetResourceResourcesCodeGetResponse parses an HTTP response from a GetResourceResourcesCodeGetWithResponse call
+func ParseGetResourceResourcesCodeGetResponse(rsp *http.Response) (*GetResourceResourcesCodeGetResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetResourcesResourcesCodeGetResponse{
+	response := &GetResourceResourcesCodeGetResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}

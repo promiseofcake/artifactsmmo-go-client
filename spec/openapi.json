@@ -2093,9 +2093,9 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get Resources",
+        "summary": "Get Resource",
         "description": "Retrieve the details of a resource.",
-        "operationId": "get_resources_resources__code__get",
+        "operationId": "get_resource_resources__code__get",
         "parameters": [
           {
             "name": "code",
