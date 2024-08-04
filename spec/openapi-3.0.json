@@ -2093,9 +2093,9 @@
         "tags": [
           "Resources"
         ],
-        "summary": "Get Resources",
+        "summary": "Get Resource",
         "description": "Retrieve the details of a resource.",
-        "operationId": "get_resources_resources__code__get",
+        "operationId": "get_resource_resources__code__get",
         "parameters": [
           {
             "name": "code",
@@ -3359,15 +3359,15 @@
       },
       "CooldownSchema": {
         "properties": {
-          "totalSeconds": {
+          "total_seconds": {
             "type": "integer",
-            "title": "Totalseconds",
-            "description": "Deprecated** The total seconds of the cooldown."
+            "title": "Total Seconds",
+            "description": "The total seconds of the cooldown."
           },
-          "remainingSeconds": {
+          "remaining_seconds": {
             "type": "integer",
-            "title": "Remainingseconds",
-            "description": "Deprecated** The remaining seconds of the cooldown."
+            "title": "Remaining Seconds",
+            "description": "The remaining seconds of the cooldown."
           },
           "started_at": {
             "type": "string",
