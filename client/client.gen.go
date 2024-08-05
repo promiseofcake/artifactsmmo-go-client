@@ -149,6 +149,7 @@ const (
 	GetAllCharactersCharactersGetParamsSortCooking         GetAllCharactersCharactersGetParamsSort = "cooking"
 	GetAllCharactersCharactersGetParamsSortFishing         GetAllCharactersCharactersGetParamsSort = "fishing"
 	GetAllCharactersCharactersGetParamsSortGearcrafting    GetAllCharactersCharactersGetParamsSort = "gearcrafting"
+	GetAllCharactersCharactersGetParamsSortGold            GetAllCharactersCharactersGetParamsSort = "gold"
 	GetAllCharactersCharactersGetParamsSortJewelrycrafting GetAllCharactersCharactersGetParamsSort = "jewelrycrafting"
 	GetAllCharactersCharactersGetParamsSortMining          GetAllCharactersCharactersGetParamsSort = "mining"
 	GetAllCharactersCharactersGetParamsSortWeaponcrafting  GetAllCharactersCharactersGetParamsSort = "weaponcrafting"
@@ -199,6 +200,27 @@ const (
 // ActionItemBankResponseSchema defines model for ActionItemBankResponseSchema.
 type ActionItemBankResponseSchema struct {
 	Data BankItemSchema `json:"data"`
+}
+
+// ActiveEventSchema defines model for ActiveEventSchema.
+type ActiveEventSchema struct {
+	// CreatedAt Start datetime.
+	CreatedAt time.Time `json:"created_at"`
+
+	// Duration Duration in minutes.
+	Duration int `json:"duration"`
+
+	// Expiration Expiration datetime.
+	Expiration time.Time `json:"expiration"`
+
+	// Map Map of the event.
+	Map MapSchema `json:"map"`
+
+	// Name Name of the event.
+	Name string `json:"name"`
+
+	// PreviousSkin Previous map skin.
+	PreviousSkin string `json:"previous_skin"`
 }
 
 // AddAccountSchema defines model for AddAccountSchema.
@@ -422,126 +444,6 @@ type CharacterSchema struct {
 	// InventoryMaxItems Inventory max items.
 	InventoryMaxItems int `json:"inventory_max_items"`
 
-	// InventorySlot1 Deprecated** Inventory slot 1.
-	InventorySlot1 string `json:"inventory_slot1"`
-
-	// InventorySlot10 Deprecated** Inventory slot 10.
-	InventorySlot10 string `json:"inventory_slot10"`
-
-	// InventorySlot10Quantity Deprecated** Inventory 10 quantity.
-	InventorySlot10Quantity int `json:"inventory_slot10_quantity"`
-
-	// InventorySlot11 Deprecated** Inventory slot 11.
-	InventorySlot11 string `json:"inventory_slot11"`
-
-	// InventorySlot11Quantity Deprecated** Inventory 11 quantity.
-	InventorySlot11Quantity int `json:"inventory_slot11_quantity"`
-
-	// InventorySlot12 Deprecated** nventory slot 12.
-	InventorySlot12 string `json:"inventory_slot12"`
-
-	// InventorySlot12Quantity Deprecated** Inventory 12 quantity.
-	InventorySlot12Quantity int `json:"inventory_slot12_quantity"`
-
-	// InventorySlot13 Deprecated** Inventory slot 13.
-	InventorySlot13 string `json:"inventory_slot13"`
-
-	// InventorySlot13Quantity Deprecated** Inventory 13 quantity.
-	InventorySlot13Quantity int `json:"inventory_slot13_quantity"`
-
-	// InventorySlot14 Deprecated** Inventory slot 14.
-	InventorySlot14 string `json:"inventory_slot14"`
-
-	// InventorySlot14Quantity Deprecated** Inventory 14 quantity.
-	InventorySlot14Quantity int `json:"inventory_slot14_quantity"`
-
-	// InventorySlot15 Deprecated** Inventory slot 15.
-	InventorySlot15 string `json:"inventory_slot15"`
-
-	// InventorySlot15Quantity Deprecated** Inventory 15 quantity.
-	InventorySlot15Quantity int `json:"inventory_slot15_quantity"`
-
-	// InventorySlot16 Deprecated** Inventory slot 16.
-	InventorySlot16 string `json:"inventory_slot16"`
-
-	// InventorySlot16Quantity Deprecated** Inventory 16 quantity.
-	InventorySlot16Quantity int `json:"inventory_slot16_quantity"`
-
-	// InventorySlot17 Deprecated** Inventory slot 17.
-	InventorySlot17 string `json:"inventory_slot17"`
-
-	// InventorySlot17Quantity Deprecated** Inventory 17 quantity.
-	InventorySlot17Quantity int `json:"inventory_slot17_quantity"`
-
-	// InventorySlot18 Deprecated** Inventory slot 18.
-	InventorySlot18 string `json:"inventory_slot18"`
-
-	// InventorySlot18Quantity Deprecated** Inventory 18 quantity.
-	InventorySlot18Quantity int `json:"inventory_slot18_quantity"`
-
-	// InventorySlot19 Deprecated** Inventory slot 19.
-	InventorySlot19 string `json:"inventory_slot19"`
-
-	// InventorySlot19Quantity Deprecated** Inventory 19 quantity.
-	InventorySlot19Quantity int `json:"inventory_slot19_quantity"`
-
-	// InventorySlot1Quantity Deprecated** Inventory 1 quantity.
-	InventorySlot1Quantity int `json:"inventory_slot1_quantity"`
-
-	// InventorySlot2 Deprecated** Inventory slot 2.
-	InventorySlot2 string `json:"inventory_slot2"`
-
-	// InventorySlot20 Deprecated** Inventory slot 20.
-	InventorySlot20 string `json:"inventory_slot20"`
-
-	// InventorySlot20Quantity Deprecated** Inventory 20 quantity.
-	InventorySlot20Quantity int `json:"inventory_slot20_quantity"`
-
-	// InventorySlot2Quantity Deprecated** Inventory 2 quantity.
-	InventorySlot2Quantity int `json:"inventory_slot2_quantity"`
-
-	// InventorySlot3 Deprecated** Inventory slot 3.
-	InventorySlot3 string `json:"inventory_slot3"`
-
-	// InventorySlot3Quantity Deprecated** Inventory 3 quantity.
-	InventorySlot3Quantity int `json:"inventory_slot3_quantity"`
-
-	// InventorySlot4 Deprecated** Inventory slot 4.
-	InventorySlot4 string `json:"inventory_slot4"`
-
-	// InventorySlot4Quantity Deprecated** Inventory 4 quantity.
-	InventorySlot4Quantity int `json:"inventory_slot4_quantity"`
-
-	// InventorySlot5 Deprecated** Inventory slot 5.
-	InventorySlot5 string `json:"inventory_slot5"`
-
-	// InventorySlot5Quantity Deprecated** Inventory 5 quantity.
-	InventorySlot5Quantity int `json:"inventory_slot5_quantity"`
-
-	// InventorySlot6 Deprecated** Inventory slot 6.
-	InventorySlot6 string `json:"inventory_slot6"`
-
-	// InventorySlot6Quantity Deprecated** Inventory 6 quantity.
-	InventorySlot6Quantity int `json:"inventory_slot6_quantity"`
-
-	// InventorySlot7 Deprecated** Inventory slot 7.
-	InventorySlot7 string `json:"inventory_slot7"`
-
-	// InventorySlot7Quantity Deprecated** Inventory 7 quantity.
-	InventorySlot7Quantity int `json:"inventory_slot7_quantity"`
-
-	// InventorySlot8 Deprecated** Inventory slot 8.
-	InventorySlot8 string `json:"inventory_slot8"`
-
-	// InventorySlot8Quantity Deprecated** Inventory 8 quantity.
-	InventorySlot8Quantity int `json:"inventory_slot8_quantity"`
-
-	// InventorySlot9 Deprecated** Inventory slot 9.
-	InventorySlot9 string `json:"inventory_slot9"`
-
-	// InventorySlot9Quantity Deprecated** Inventory 9 quantity.
-	InventorySlot9Quantity int `json:"inventory_slot9_quantity"`
-
 	// JewelrycraftingLevel Jewelrycrafting level.
 	JewelrycraftingLevel int `json:"jewelrycrafting_level"`
 
@@ -740,6 +642,59 @@ type CraftingSchema struct {
 	Quantity *int `json:"quantity,omitempty"`
 }
 
+// DataPageActiveEventSchema defines model for DataPage_ActiveEventSchema_.
+type DataPageActiveEventSchema struct {
+	Data  []ActiveEventSchema              `json:"data"`
+	Page  DataPageActiveEventSchema_Page   `json:"page"`
+	Pages *DataPageActiveEventSchema_Pages `json:"pages,omitempty"`
+	Size  DataPageActiveEventSchema_Size   `json:"size"`
+	Total DataPageActiveEventSchema_Total  `json:"total"`
+}
+
+// DataPageActiveEventSchemaPage0 defines model for .
+type DataPageActiveEventSchemaPage0 = int
+
+// DataPageActiveEventSchemaPage1 defines model for .
+type DataPageActiveEventSchemaPage1 = interface{}
+
+// DataPageActiveEventSchema_Page defines model for DataPageActiveEventSchema.Page.
+type DataPageActiveEventSchema_Page struct {
+	union json.RawMessage
+}
+
+// DataPageActiveEventSchemaPages0 defines model for .
+type DataPageActiveEventSchemaPages0 = int
+
+// DataPageActiveEventSchemaPages1 defines model for .
+type DataPageActiveEventSchemaPages1 = interface{}
+
+// DataPageActiveEventSchema_Pages defines model for DataPageActiveEventSchema.Pages.
+type DataPageActiveEventSchema_Pages struct {
+	union json.RawMessage
+}
+
+// DataPageActiveEventSchemaSize0 defines model for .
+type DataPageActiveEventSchemaSize0 = int
+
+// DataPageActiveEventSchemaSize1 defines model for .
+type DataPageActiveEventSchemaSize1 = interface{}
+
+// DataPageActiveEventSchema_Size defines model for DataPageActiveEventSchema.Size.
+type DataPageActiveEventSchema_Size struct {
+	union json.RawMessage
+}
+
+// DataPageActiveEventSchemaTotal0 defines model for .
+type DataPageActiveEventSchemaTotal0 = int
+
+// DataPageActiveEventSchemaTotal1 defines model for .
+type DataPageActiveEventSchemaTotal1 = interface{}
+
+// DataPageActiveEventSchema_Total defines model for DataPageActiveEventSchema.Total.
+type DataPageActiveEventSchema_Total struct {
+	union json.RawMessage
+}
+
 // DataPageCharacterSchema defines model for DataPage_CharacterSchema_.
 type DataPageCharacterSchema struct {
 	Data  []CharacterSchema              `json:"data"`
@@ -790,59 +745,6 @@ type DataPageCharacterSchemaTotal1 = interface{}
 
 // DataPageCharacterSchema_Total defines model for DataPageCharacterSchema.Total.
 type DataPageCharacterSchema_Total struct {
-	union json.RawMessage
-}
-
-// DataPageEventSchema defines model for DataPage_EventSchema_.
-type DataPageEventSchema struct {
-	Data  []EventSchema              `json:"data"`
-	Page  DataPageEventSchema_Page   `json:"page"`
-	Pages *DataPageEventSchema_Pages `json:"pages,omitempty"`
-	Size  DataPageEventSchema_Size   `json:"size"`
-	Total DataPageEventSchema_Total  `json:"total"`
-}
-
-// DataPageEventSchemaPage0 defines model for .
-type DataPageEventSchemaPage0 = int
-
-// DataPageEventSchemaPage1 defines model for .
-type DataPageEventSchemaPage1 = interface{}
-
-// DataPageEventSchema_Page defines model for DataPageEventSchema.Page.
-type DataPageEventSchema_Page struct {
-	union json.RawMessage
-}
-
-// DataPageEventSchemaPages0 defines model for .
-type DataPageEventSchemaPages0 = int
-
-// DataPageEventSchemaPages1 defines model for .
-type DataPageEventSchemaPages1 = interface{}
-
-// DataPageEventSchema_Pages defines model for DataPageEventSchema.Pages.
-type DataPageEventSchema_Pages struct {
-	union json.RawMessage
-}
-
-// DataPageEventSchemaSize0 defines model for .
-type DataPageEventSchemaSize0 = int
-
-// DataPageEventSchemaSize1 defines model for .
-type DataPageEventSchemaSize1 = interface{}
-
-// DataPageEventSchema_Size defines model for DataPageEventSchema.Size.
-type DataPageEventSchema_Size struct {
-	union json.RawMessage
-}
-
-// DataPageEventSchemaTotal0 defines model for .
-type DataPageEventSchemaTotal0 = int
-
-// DataPageEventSchemaTotal1 defines model for .
-type DataPageEventSchemaTotal1 = interface{}
-
-// DataPageEventSchema_Total defines model for DataPageEventSchema.Total.
-type DataPageEventSchema_Total struct {
 	union json.RawMessage
 }
 
@@ -1321,27 +1223,6 @@ type EquipSchemaSlot string
 // EquipmentResponseSchema defines model for EquipmentResponseSchema.
 type EquipmentResponseSchema struct {
 	Data EquipRequestSchema `json:"data"`
-}
-
-// EventSchema defines model for EventSchema.
-type EventSchema struct {
-	// CreatedAt Start datetime.
-	CreatedAt time.Time `json:"created_at"`
-
-	// Duration Duration in minutes.
-	Duration int `json:"duration"`
-
-	// Expiration Expiration datetime.
-	Expiration time.Time `json:"expiration"`
-
-	// Map Map of the event.
-	Map MapSchema `json:"map"`
-
-	// Name Name of the event.
-	Name string `json:"name"`
-
-	// PreviousSkin Previous map skin.
-	PreviousSkin string `json:"previous_skin"`
 }
 
 // FightSchema defines model for FightSchema.
@@ -2303,6 +2184,254 @@ func (t *CraftSchema_Skill) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsDataPageActiveEventSchemaPage0 returns the union data inside the DataPageActiveEventSchema_Page as a DataPageActiveEventSchemaPage0
+func (t DataPageActiveEventSchema_Page) AsDataPageActiveEventSchemaPage0() (DataPageActiveEventSchemaPage0, error) {
+	var body DataPageActiveEventSchemaPage0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageActiveEventSchemaPage0 overwrites any union data inside the DataPageActiveEventSchema_Page as the provided DataPageActiveEventSchemaPage0
+func (t *DataPageActiveEventSchema_Page) FromDataPageActiveEventSchemaPage0(v DataPageActiveEventSchemaPage0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageActiveEventSchemaPage0 performs a merge with any union data inside the DataPageActiveEventSchema_Page, using the provided DataPageActiveEventSchemaPage0
+func (t *DataPageActiveEventSchema_Page) MergeDataPageActiveEventSchemaPage0(v DataPageActiveEventSchemaPage0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageActiveEventSchemaPage1 returns the union data inside the DataPageActiveEventSchema_Page as a DataPageActiveEventSchemaPage1
+func (t DataPageActiveEventSchema_Page) AsDataPageActiveEventSchemaPage1() (DataPageActiveEventSchemaPage1, error) {
+	var body DataPageActiveEventSchemaPage1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageActiveEventSchemaPage1 overwrites any union data inside the DataPageActiveEventSchema_Page as the provided DataPageActiveEventSchemaPage1
+func (t *DataPageActiveEventSchema_Page) FromDataPageActiveEventSchemaPage1(v DataPageActiveEventSchemaPage1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageActiveEventSchemaPage1 performs a merge with any union data inside the DataPageActiveEventSchema_Page, using the provided DataPageActiveEventSchemaPage1
+func (t *DataPageActiveEventSchema_Page) MergeDataPageActiveEventSchemaPage1(v DataPageActiveEventSchemaPage1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageActiveEventSchema_Page) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageActiveEventSchema_Page) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageActiveEventSchemaPages0 returns the union data inside the DataPageActiveEventSchema_Pages as a DataPageActiveEventSchemaPages0
+func (t DataPageActiveEventSchema_Pages) AsDataPageActiveEventSchemaPages0() (DataPageActiveEventSchemaPages0, error) {
+	var body DataPageActiveEventSchemaPages0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageActiveEventSchemaPages0 overwrites any union data inside the DataPageActiveEventSchema_Pages as the provided DataPageActiveEventSchemaPages0
+func (t *DataPageActiveEventSchema_Pages) FromDataPageActiveEventSchemaPages0(v DataPageActiveEventSchemaPages0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageActiveEventSchemaPages0 performs a merge with any union data inside the DataPageActiveEventSchema_Pages, using the provided DataPageActiveEventSchemaPages0
+func (t *DataPageActiveEventSchema_Pages) MergeDataPageActiveEventSchemaPages0(v DataPageActiveEventSchemaPages0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageActiveEventSchemaPages1 returns the union data inside the DataPageActiveEventSchema_Pages as a DataPageActiveEventSchemaPages1
+func (t DataPageActiveEventSchema_Pages) AsDataPageActiveEventSchemaPages1() (DataPageActiveEventSchemaPages1, error) {
+	var body DataPageActiveEventSchemaPages1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageActiveEventSchemaPages1 overwrites any union data inside the DataPageActiveEventSchema_Pages as the provided DataPageActiveEventSchemaPages1
+func (t *DataPageActiveEventSchema_Pages) FromDataPageActiveEventSchemaPages1(v DataPageActiveEventSchemaPages1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageActiveEventSchemaPages1 performs a merge with any union data inside the DataPageActiveEventSchema_Pages, using the provided DataPageActiveEventSchemaPages1
+func (t *DataPageActiveEventSchema_Pages) MergeDataPageActiveEventSchemaPages1(v DataPageActiveEventSchemaPages1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageActiveEventSchema_Pages) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageActiveEventSchema_Pages) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageActiveEventSchemaSize0 returns the union data inside the DataPageActiveEventSchema_Size as a DataPageActiveEventSchemaSize0
+func (t DataPageActiveEventSchema_Size) AsDataPageActiveEventSchemaSize0() (DataPageActiveEventSchemaSize0, error) {
+	var body DataPageActiveEventSchemaSize0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageActiveEventSchemaSize0 overwrites any union data inside the DataPageActiveEventSchema_Size as the provided DataPageActiveEventSchemaSize0
+func (t *DataPageActiveEventSchema_Size) FromDataPageActiveEventSchemaSize0(v DataPageActiveEventSchemaSize0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageActiveEventSchemaSize0 performs a merge with any union data inside the DataPageActiveEventSchema_Size, using the provided DataPageActiveEventSchemaSize0
+func (t *DataPageActiveEventSchema_Size) MergeDataPageActiveEventSchemaSize0(v DataPageActiveEventSchemaSize0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageActiveEventSchemaSize1 returns the union data inside the DataPageActiveEventSchema_Size as a DataPageActiveEventSchemaSize1
+func (t DataPageActiveEventSchema_Size) AsDataPageActiveEventSchemaSize1() (DataPageActiveEventSchemaSize1, error) {
+	var body DataPageActiveEventSchemaSize1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageActiveEventSchemaSize1 overwrites any union data inside the DataPageActiveEventSchema_Size as the provided DataPageActiveEventSchemaSize1
+func (t *DataPageActiveEventSchema_Size) FromDataPageActiveEventSchemaSize1(v DataPageActiveEventSchemaSize1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageActiveEventSchemaSize1 performs a merge with any union data inside the DataPageActiveEventSchema_Size, using the provided DataPageActiveEventSchemaSize1
+func (t *DataPageActiveEventSchema_Size) MergeDataPageActiveEventSchemaSize1(v DataPageActiveEventSchemaSize1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageActiveEventSchema_Size) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageActiveEventSchema_Size) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageActiveEventSchemaTotal0 returns the union data inside the DataPageActiveEventSchema_Total as a DataPageActiveEventSchemaTotal0
+func (t DataPageActiveEventSchema_Total) AsDataPageActiveEventSchemaTotal0() (DataPageActiveEventSchemaTotal0, error) {
+	var body DataPageActiveEventSchemaTotal0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageActiveEventSchemaTotal0 overwrites any union data inside the DataPageActiveEventSchema_Total as the provided DataPageActiveEventSchemaTotal0
+func (t *DataPageActiveEventSchema_Total) FromDataPageActiveEventSchemaTotal0(v DataPageActiveEventSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageActiveEventSchemaTotal0 performs a merge with any union data inside the DataPageActiveEventSchema_Total, using the provided DataPageActiveEventSchemaTotal0
+func (t *DataPageActiveEventSchema_Total) MergeDataPageActiveEventSchemaTotal0(v DataPageActiveEventSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageActiveEventSchemaTotal1 returns the union data inside the DataPageActiveEventSchema_Total as a DataPageActiveEventSchemaTotal1
+func (t DataPageActiveEventSchema_Total) AsDataPageActiveEventSchemaTotal1() (DataPageActiveEventSchemaTotal1, error) {
+	var body DataPageActiveEventSchemaTotal1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageActiveEventSchemaTotal1 overwrites any union data inside the DataPageActiveEventSchema_Total as the provided DataPageActiveEventSchemaTotal1
+func (t *DataPageActiveEventSchema_Total) FromDataPageActiveEventSchemaTotal1(v DataPageActiveEventSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageActiveEventSchemaTotal1 performs a merge with any union data inside the DataPageActiveEventSchema_Total, using the provided DataPageActiveEventSchemaTotal1
+func (t *DataPageActiveEventSchema_Total) MergeDataPageActiveEventSchemaTotal1(v DataPageActiveEventSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageActiveEventSchema_Total) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageActiveEventSchema_Total) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsDataPageCharacterSchemaPage0 returns the union data inside the DataPageCharacterSchema_Page as a DataPageCharacterSchemaPage0
 func (t DataPageCharacterSchema_Page) AsDataPageCharacterSchemaPage0() (DataPageCharacterSchemaPage0, error) {
 	var body DataPageCharacterSchemaPage0
@@ -2547,254 +2676,6 @@ func (t DataPageCharacterSchema_Total) MarshalJSON() ([]byte, error) {
 }
 
 func (t *DataPageCharacterSchema_Total) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsDataPageEventSchemaPage0 returns the union data inside the DataPageEventSchema_Page as a DataPageEventSchemaPage0
-func (t DataPageEventSchema_Page) AsDataPageEventSchemaPage0() (DataPageEventSchemaPage0, error) {
-	var body DataPageEventSchemaPage0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageEventSchemaPage0 overwrites any union data inside the DataPageEventSchema_Page as the provided DataPageEventSchemaPage0
-func (t *DataPageEventSchema_Page) FromDataPageEventSchemaPage0(v DataPageEventSchemaPage0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageEventSchemaPage0 performs a merge with any union data inside the DataPageEventSchema_Page, using the provided DataPageEventSchemaPage0
-func (t *DataPageEventSchema_Page) MergeDataPageEventSchemaPage0(v DataPageEventSchemaPage0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsDataPageEventSchemaPage1 returns the union data inside the DataPageEventSchema_Page as a DataPageEventSchemaPage1
-func (t DataPageEventSchema_Page) AsDataPageEventSchemaPage1() (DataPageEventSchemaPage1, error) {
-	var body DataPageEventSchemaPage1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageEventSchemaPage1 overwrites any union data inside the DataPageEventSchema_Page as the provided DataPageEventSchemaPage1
-func (t *DataPageEventSchema_Page) FromDataPageEventSchemaPage1(v DataPageEventSchemaPage1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageEventSchemaPage1 performs a merge with any union data inside the DataPageEventSchema_Page, using the provided DataPageEventSchemaPage1
-func (t *DataPageEventSchema_Page) MergeDataPageEventSchemaPage1(v DataPageEventSchemaPage1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t DataPageEventSchema_Page) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *DataPageEventSchema_Page) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsDataPageEventSchemaPages0 returns the union data inside the DataPageEventSchema_Pages as a DataPageEventSchemaPages0
-func (t DataPageEventSchema_Pages) AsDataPageEventSchemaPages0() (DataPageEventSchemaPages0, error) {
-	var body DataPageEventSchemaPages0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageEventSchemaPages0 overwrites any union data inside the DataPageEventSchema_Pages as the provided DataPageEventSchemaPages0
-func (t *DataPageEventSchema_Pages) FromDataPageEventSchemaPages0(v DataPageEventSchemaPages0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageEventSchemaPages0 performs a merge with any union data inside the DataPageEventSchema_Pages, using the provided DataPageEventSchemaPages0
-func (t *DataPageEventSchema_Pages) MergeDataPageEventSchemaPages0(v DataPageEventSchemaPages0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsDataPageEventSchemaPages1 returns the union data inside the DataPageEventSchema_Pages as a DataPageEventSchemaPages1
-func (t DataPageEventSchema_Pages) AsDataPageEventSchemaPages1() (DataPageEventSchemaPages1, error) {
-	var body DataPageEventSchemaPages1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageEventSchemaPages1 overwrites any union data inside the DataPageEventSchema_Pages as the provided DataPageEventSchemaPages1
-func (t *DataPageEventSchema_Pages) FromDataPageEventSchemaPages1(v DataPageEventSchemaPages1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageEventSchemaPages1 performs a merge with any union data inside the DataPageEventSchema_Pages, using the provided DataPageEventSchemaPages1
-func (t *DataPageEventSchema_Pages) MergeDataPageEventSchemaPages1(v DataPageEventSchemaPages1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t DataPageEventSchema_Pages) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *DataPageEventSchema_Pages) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsDataPageEventSchemaSize0 returns the union data inside the DataPageEventSchema_Size as a DataPageEventSchemaSize0
-func (t DataPageEventSchema_Size) AsDataPageEventSchemaSize0() (DataPageEventSchemaSize0, error) {
-	var body DataPageEventSchemaSize0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageEventSchemaSize0 overwrites any union data inside the DataPageEventSchema_Size as the provided DataPageEventSchemaSize0
-func (t *DataPageEventSchema_Size) FromDataPageEventSchemaSize0(v DataPageEventSchemaSize0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageEventSchemaSize0 performs a merge with any union data inside the DataPageEventSchema_Size, using the provided DataPageEventSchemaSize0
-func (t *DataPageEventSchema_Size) MergeDataPageEventSchemaSize0(v DataPageEventSchemaSize0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsDataPageEventSchemaSize1 returns the union data inside the DataPageEventSchema_Size as a DataPageEventSchemaSize1
-func (t DataPageEventSchema_Size) AsDataPageEventSchemaSize1() (DataPageEventSchemaSize1, error) {
-	var body DataPageEventSchemaSize1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageEventSchemaSize1 overwrites any union data inside the DataPageEventSchema_Size as the provided DataPageEventSchemaSize1
-func (t *DataPageEventSchema_Size) FromDataPageEventSchemaSize1(v DataPageEventSchemaSize1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageEventSchemaSize1 performs a merge with any union data inside the DataPageEventSchema_Size, using the provided DataPageEventSchemaSize1
-func (t *DataPageEventSchema_Size) MergeDataPageEventSchemaSize1(v DataPageEventSchemaSize1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t DataPageEventSchema_Size) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *DataPageEventSchema_Size) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsDataPageEventSchemaTotal0 returns the union data inside the DataPageEventSchema_Total as a DataPageEventSchemaTotal0
-func (t DataPageEventSchema_Total) AsDataPageEventSchemaTotal0() (DataPageEventSchemaTotal0, error) {
-	var body DataPageEventSchemaTotal0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageEventSchemaTotal0 overwrites any union data inside the DataPageEventSchema_Total as the provided DataPageEventSchemaTotal0
-func (t *DataPageEventSchema_Total) FromDataPageEventSchemaTotal0(v DataPageEventSchemaTotal0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageEventSchemaTotal0 performs a merge with any union data inside the DataPageEventSchema_Total, using the provided DataPageEventSchemaTotal0
-func (t *DataPageEventSchema_Total) MergeDataPageEventSchemaTotal0(v DataPageEventSchemaTotal0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsDataPageEventSchemaTotal1 returns the union data inside the DataPageEventSchema_Total as a DataPageEventSchemaTotal1
-func (t DataPageEventSchema_Total) AsDataPageEventSchemaTotal1() (DataPageEventSchemaTotal1, error) {
-	var body DataPageEventSchemaTotal1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromDataPageEventSchemaTotal1 overwrites any union data inside the DataPageEventSchema_Total as the provided DataPageEventSchemaTotal1
-func (t *DataPageEventSchema_Total) FromDataPageEventSchemaTotal1(v DataPageEventSchemaTotal1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeDataPageEventSchemaTotal1 performs a merge with any union data inside the DataPageEventSchema_Total, using the provided DataPageEventSchemaTotal1
-func (t *DataPageEventSchema_Total) MergeDataPageEventSchemaTotal1(v DataPageEventSchemaTotal1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t DataPageEventSchema_Total) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *DataPageEventSchema_Total) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -7924,7 +7805,7 @@ func (r GetCharacterCharactersNameGetResponse) StatusCode() int {
 type GetAllEventsEventsGetResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *DataPageEventSchema
+	JSON200      *DataPageActiveEventSchema
 }
 
 // Status returns HTTPResponse.Status
@@ -9285,7 +9166,7 @@ func ParseGetAllEventsEventsGetResponse(rsp *http.Response) (*GetAllEventsEvents
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest DataPageEventSchema
+		var dest DataPageActiveEventSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
