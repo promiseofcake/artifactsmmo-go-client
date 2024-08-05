@@ -1746,7 +1746,7 @@ type UnequipSchemaSlot string
 
 // GetAllCharactersCharactersGetParams defines parameters for GetAllCharactersCharactersGet.
 type GetAllCharactersCharactersGetParams struct {
-	// Sort Default sort by total XP.
+	// Sort Default sort by combat total XP.
 	Sort *GetAllCharactersCharactersGetParamsSort `form:"sort,omitempty" json:"sort,omitempty"`
 
 	// Page Page number

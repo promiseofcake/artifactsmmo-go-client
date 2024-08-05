@@ -16,3 +16,5 @@ not automating this.
 * [openapi-down-convert](https://github.com/apiture/openapi-down-convert)
 * sed (FreeBSD)
 * jq -- cross platform
+
+Run `make all` and it will be done.

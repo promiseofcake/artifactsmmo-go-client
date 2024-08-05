@@ -1446,9 +1446,9 @@
               ],
               "type": "string",
               "title": "Sort",
-              "description": "Default sort by total XP."
+              "description": "Default sort by combat total XP."
             },
-            "description": "Default sort by total XP."
+            "description": "Default sort by combat total XP."
           },
           {
             "name": "page",
