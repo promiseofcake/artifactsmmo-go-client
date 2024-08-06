@@ -3330,7 +3330,7 @@
           },
           "quantity": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 1.0,
             "title": "Quantity",
             "description": "Quantity of items to craft.",
             "default": 1
@@ -3355,7 +3355,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3367,7 +3367,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3379,7 +3379,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3391,7 +3391,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3422,7 +3422,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3434,7 +3434,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3446,7 +3446,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3458,7 +3458,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3489,7 +3489,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3501,7 +3501,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3513,7 +3513,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3525,7 +3525,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3556,7 +3556,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3568,7 +3568,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3580,7 +3580,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3592,7 +3592,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3623,7 +3623,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3635,7 +3635,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3647,7 +3647,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3659,7 +3659,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3690,7 +3690,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3702,7 +3702,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3714,7 +3714,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3726,7 +3726,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3757,7 +3757,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3769,7 +3769,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3781,7 +3781,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3793,7 +3793,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3824,7 +3824,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3836,7 +3836,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3848,7 +3848,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3860,7 +3860,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3891,7 +3891,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -3903,7 +3903,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3915,7 +3915,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1
+                "minimum": 1.0
               },
               {
                 "type": "null"
@@ -3927,7 +3927,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0
+                "minimum": 0.0
               },
               {
                 "type": "null"
@@ -4013,7 +4013,7 @@
         "properties": {
           "quantity": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 1.0,
             "title": "Quantity",
             "description": "Quantity of gold."
           }
@@ -4054,19 +4054,19 @@
           },
           "rate": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 1.0,
             "title": "Rate",
             "description": "Chance rate."
           },
           "min_quantity": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 1.0,
             "title": "Min Quantity",
             "description": "Minimum quantity."
           },
           "max_quantity": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 1.0,
             "title": "Max Quantity",
             "description": "Maximum quantity."
           }
@@ -4330,14 +4330,14 @@
           },
           "quantity": {
             "type": "integer",
-            "maximum": 50,
-            "minimum": 1,
+            "maximum": 50.0,
+            "minimum": 1.0,
             "title": "Quantity",
             "description": "Item quantity."
           },
           "price": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 1.0,
             "title": "Price",
             "description": "Item price. Item price validation protects you if the price has changed since you last checked the buy/sale price of an item."
           }
@@ -4457,7 +4457,7 @@
         "properties": {
           "quantity": {
             "type": "integer",
-            "minimum": 0,
+            "minimum": 0.0,
             "title": "Quantity",
             "description": "Quantity of gold."
           }
@@ -4588,7 +4588,7 @@
           },
           "level": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 1.0,
             "title": "Level",
             "description": "Item level."
           },
@@ -4975,7 +4975,7 @@
           },
           "quantity": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 1.0,
             "title": "Quantity",
             "description": "Quantity of items to recycle.",
             "default": 1
@@ -5068,7 +5068,7 @@
           },
           "quantity": {
             "type": "integer",
-            "minimum": 1,
+            "minimum": 1.0,
             "title": "Quantity",
             "description": "Item quantity."
           }
