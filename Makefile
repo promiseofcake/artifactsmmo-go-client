@@ -10,7 +10,7 @@ all: install-tools fetch-spec process-spec generate-client test
 
 process-spec:
 	openapi-down-convert --input spec/openapi.json --output spec/openapi-3.0.json
-	sed -i '' 's/"type": "null"/"nullable": true/g' spec/openapi-3.0.json
+	sed -i 's/"type": "null"/"nullable": true/g' spec/openapi-3.0.json
 
 generate-client:
 	go generate ./...

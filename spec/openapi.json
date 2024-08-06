@@ -3,7 +3,7 @@
   "info": {
     "title": "Artifacts API",
     "description": "\nArtifacts is an API-based MMO game where you can manage 5 characters to explore, fight, gather resources, craft items and much more.\n\nWebsite: https://artifactsmmo.com/\n\nDocumentation: https://docs.artifactsmmo.com/\n\nOpenAPI Spec: https://api.artifactsmmo.com/openapi.json\n",
-    "version": "1.4"
+    "version": "1.5"
   },
   "paths": {
     "/my/{name}/action/move": {
@@ -1420,6 +1420,46 @@
         ]
       }
     },
+    "/characters/delete": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "summary": "Delete Character",
+        "description": "Delete character on your account.",
+        "operationId": "delete_character_characters_delete_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteCharacterSchema"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully deleted character.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CharacterResponseSchema"
+                }
+              }
+            }
+          },
+          "498": {
+            "description": "Character not found."
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
     "/characters/": {
       "get": {
         "tags": [
@@ -2670,7 +2710,7 @@
           "destination": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/DestinationResponseSchema"
+                "$ref": "#/components/schemas/MapSchema"
               }
             ],
             "description": "Destination details."
@@ -3290,7 +3330,7 @@
           },
           "quantity": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Quantity",
             "description": "Quantity of items to craft.",
             "default": 1
@@ -3315,7 +3355,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3327,7 +3367,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3339,7 +3379,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3351,7 +3391,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3382,7 +3422,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3394,7 +3434,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3406,7 +3446,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3418,7 +3458,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3449,7 +3489,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3461,7 +3501,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3473,7 +3513,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3485,7 +3525,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3516,7 +3556,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3528,7 +3568,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3540,7 +3580,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3552,7 +3592,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3583,7 +3623,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3595,7 +3635,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3607,7 +3647,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3619,7 +3659,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3650,7 +3690,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3662,7 +3702,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3674,7 +3714,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3686,7 +3726,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3717,7 +3757,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3729,7 +3769,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3741,7 +3781,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3753,7 +3793,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3784,7 +3824,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3796,7 +3836,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3808,7 +3848,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3820,7 +3860,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3851,7 +3891,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3863,7 +3903,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3875,7 +3915,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 1.0
+                "minimum": 1
               },
               {
                 "type": "null"
@@ -3887,7 +3927,7 @@
             "anyOf": [
               {
                 "type": "integer",
-                "minimum": 0.0
+                "minimum": 0
               },
               {
                 "type": "null"
@@ -3904,6 +3944,23 @@
           "size"
         ],
         "title": "DataPage[SimpleItemSchema]"
+      },
+      "DeleteCharacterSchema": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 12,
+            "minLength": 3,
+            "pattern": "^[a-zA-Z0-9_-]+$",
+            "title": "Name",
+            "description": "Character name."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "DeleteCharacterSchema"
       },
       "DeleteItemResponseSchema": {
         "properties": {
@@ -3956,7 +4013,7 @@
         "properties": {
           "quantity": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Quantity",
             "description": "Quantity of gold."
           }
@@ -3966,37 +4023,6 @@
           "quantity"
         ],
         "title": "DepositWithdrawGoldSchema"
-      },
-      "DestinationResponseSchema": {
-        "properties": {
-          "name": {
-            "type": "string",
-            "title": "Name",
-            "description": "The name of the destination."
-          },
-          "x": {
-            "type": "integer",
-            "title": "X",
-            "description": "The x coordinate of the destination."
-          },
-          "y": {
-            "type": "integer",
-            "title": "Y",
-            "description": "The y coordinate of the destination."
-          },
-          "content": {
-            "title": "Content",
-            "description": "Content of the destination."
-          }
-        },
-        "type": "object",
-        "required": [
-          "name",
-          "x",
-          "y",
-          "content"
-        ],
-        "title": "DestinationResponseSchema"
       },
       "DestinationSchema": {
         "properties": {
@@ -4028,19 +4054,19 @@
           },
           "rate": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Rate",
             "description": "Chance rate."
           },
           "min_quantity": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Min Quantity",
             "description": "Minimum quantity."
           },
           "max_quantity": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Max Quantity",
             "description": "Maximum quantity."
           }
@@ -4304,14 +4330,14 @@
           },
           "quantity": {
             "type": "integer",
-            "maximum": 50.0,
-            "minimum": 1.0,
+            "maximum": 50,
+            "minimum": 1,
             "title": "Quantity",
             "description": "Item quantity."
           },
           "price": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Price",
             "description": "Item price. Item price validation protects you if the price has changed since you last checked the buy/sale price of an item."
           }
@@ -4431,7 +4457,7 @@
         "properties": {
           "quantity": {
             "type": "integer",
-            "minimum": 0.0,
+            "minimum": 0,
             "title": "Quantity",
             "description": "Quantity of gold."
           }
@@ -4562,7 +4588,7 @@
           },
           "level": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Level",
             "description": "Item level."
           },
@@ -4949,7 +4975,7 @@
           },
           "quantity": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Quantity",
             "description": "Quantity of items to recycle.",
             "default": 1
@@ -5042,7 +5068,7 @@
           },
           "quantity": {
             "type": "integer",
-            "minimum": 1.0,
+            "minimum": 1,
             "title": "Quantity",
             "description": "Item quantity."
           }

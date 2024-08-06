@@ -321,7 +321,7 @@ type CharacterMovementDataSchema struct {
 	Cooldown CooldownSchema `json:"cooldown"`
 
 	// Destination Destination details.
-	Destination DestinationResponseSchema `json:"destination"`
+	Destination MapSchema `json:"destination"`
 }
 
 // CharacterMovementResponseSchema defines model for CharacterMovementResponseSchema.
@@ -1119,6 +1119,12 @@ type DataPageSimpleItemSchema_Total struct {
 	union json.RawMessage
 }
 
+// DeleteCharacterSchema defines model for DeleteCharacterSchema.
+type DeleteCharacterSchema struct {
+	// Name Character name.
+	Name string `json:"name"`
+}
+
 // DeleteItemResponseSchema defines model for DeleteItemResponseSchema.
 type DeleteItemResponseSchema struct {
 	Data DeleteItemSchema `json:"data"`
@@ -1140,21 +1146,6 @@ type DeleteItemSchema struct {
 type DepositWithdrawGoldSchema struct {
 	// Quantity Quantity of gold.
 	Quantity int `json:"quantity"`
-}
-
-// DestinationResponseSchema defines model for DestinationResponseSchema.
-type DestinationResponseSchema struct {
-	// Content Content of the destination.
-	Content interface{} `json:"content"`
-
-	// Name The name of the destination.
-	Name string `json:"name"`
-
-	// X The x coordinate of the destination.
-	X int `json:"x"`
-
-	// Y The y coordinate of the destination.
-	Y int `json:"y"`
 }
 
 // DestinationSchema defines model for DestinationSchema.
@@ -1896,6 +1887,9 @@ type CreateAccountAccountsCreatePostJSONRequestBody = AddAccountSchema
 
 // CreateCharacterCharactersCreatePostJSONRequestBody defines body for CreateCharacterCharactersCreatePost for application/json ContentType.
 type CreateCharacterCharactersCreatePostJSONRequestBody = AddCharacterSchema
+
+// DeleteCharacterCharactersDeletePostJSONRequestBody defines body for DeleteCharacterCharactersDeletePost for application/json ContentType.
+type DeleteCharacterCharactersDeletePostJSONRequestBody = DeleteCharacterSchema
 
 // ChangePasswordMyChangePasswordPostJSONRequestBody defines body for ChangePasswordMyChangePasswordPost for application/json ContentType.
 type ChangePasswordMyChangePasswordPostJSONRequestBody = ChangePassword
@@ -4691,6 +4685,11 @@ type ClientInterface interface {
 
 	CreateCharacterCharactersCreatePost(ctx context.Context, body CreateCharacterCharactersCreatePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// DeleteCharacterCharactersDeletePostWithBody request with any body
+	DeleteCharacterCharactersDeletePostWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	DeleteCharacterCharactersDeletePost(ctx context.Context, body DeleteCharacterCharactersDeletePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetCharacterCharactersNameGet request
 	GetCharacterCharactersNameGet(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -4885,6 +4884,30 @@ func (c *Client) CreateCharacterCharactersCreatePostWithBody(ctx context.Context
 
 func (c *Client) CreateCharacterCharactersCreatePost(ctx context.Context, body CreateCharacterCharactersCreatePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewCreateCharacterCharactersCreatePostRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) DeleteCharacterCharactersDeletePostWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewDeleteCharacterCharactersDeletePostRequestWithBody(c.Server, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) DeleteCharacterCharactersDeletePost(ctx context.Context, body DeleteCharacterCharactersDeletePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewDeleteCharacterCharactersDeletePostRequest(c.Server, body)
 	if err != nil {
 		return nil, err
 	}
@@ -5640,6 +5663,46 @@ func NewCreateCharacterCharactersCreatePostRequestWithBody(server string, conten
 	}
 
 	operationPath := fmt.Sprintf("/characters/create")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewDeleteCharacterCharactersDeletePostRequest calls the generic DeleteCharacterCharactersDeletePost builder with application/json body
+func NewDeleteCharacterCharactersDeletePostRequest(server string, body DeleteCharacterCharactersDeletePostJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewDeleteCharacterCharactersDeletePostRequestWithBody(server, "application/json", bodyReader)
+}
+
+// NewDeleteCharacterCharactersDeletePostRequestWithBody generates requests for DeleteCharacterCharactersDeletePost with any type of body
+func NewDeleteCharacterCharactersDeletePostRequestWithBody(server string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/characters/delete")
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -7560,6 +7623,11 @@ type ClientWithResponsesInterface interface {
 
 	CreateCharacterCharactersCreatePostWithResponse(ctx context.Context, body CreateCharacterCharactersCreatePostJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateCharacterCharactersCreatePostResponse, error)
 
+	// DeleteCharacterCharactersDeletePostWithBodyWithResponse request with any body
+	DeleteCharacterCharactersDeletePostWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*DeleteCharacterCharactersDeletePostResponse, error)
+
+	DeleteCharacterCharactersDeletePostWithResponse(ctx context.Context, body DeleteCharacterCharactersDeletePostJSONRequestBody, reqEditors ...RequestEditorFn) (*DeleteCharacterCharactersDeletePostResponse, error)
+
 	// GetCharacterCharactersNameGetWithResponse request
 	GetCharacterCharactersNameGetWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*GetCharacterCharactersNameGetResponse, error)
 
@@ -7774,6 +7842,28 @@ func (r CreateCharacterCharactersCreatePostResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r CreateCharacterCharactersCreatePostResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type DeleteCharacterCharactersDeletePostResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *CharacterResponseSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r DeleteCharacterCharactersDeletePostResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r DeleteCharacterCharactersDeletePostResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -8602,6 +8692,23 @@ func (c *ClientWithResponses) CreateCharacterCharactersCreatePostWithResponse(ct
 	return ParseCreateCharacterCharactersCreatePostResponse(rsp)
 }
 
+// DeleteCharacterCharactersDeletePostWithBodyWithResponse request with arbitrary body returning *DeleteCharacterCharactersDeletePostResponse
+func (c *ClientWithResponses) DeleteCharacterCharactersDeletePostWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*DeleteCharacterCharactersDeletePostResponse, error) {
+	rsp, err := c.DeleteCharacterCharactersDeletePostWithBody(ctx, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseDeleteCharacterCharactersDeletePostResponse(rsp)
+}
+
+func (c *ClientWithResponses) DeleteCharacterCharactersDeletePostWithResponse(ctx context.Context, body DeleteCharacterCharactersDeletePostJSONRequestBody, reqEditors ...RequestEditorFn) (*DeleteCharacterCharactersDeletePostResponse, error) {
+	rsp, err := c.DeleteCharacterCharactersDeletePost(ctx, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseDeleteCharacterCharactersDeletePostResponse(rsp)
+}
+
 // GetCharacterCharactersNameGetWithResponse request returning *GetCharacterCharactersNameGetResponse
 func (c *ClientWithResponses) GetCharacterCharactersNameGetWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*GetCharacterCharactersNameGetResponse, error) {
 	rsp, err := c.GetCharacterCharactersNameGet(ctx, name, reqEditors...)
@@ -9108,6 +9215,32 @@ func ParseCreateCharacterCharactersCreatePostResponse(rsp *http.Response) (*Crea
 	}
 
 	response := &CreateCharacterCharactersCreatePostResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest CharacterResponseSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseDeleteCharacterCharactersDeletePostResponse parses an HTTP response from a DeleteCharacterCharactersDeletePostWithResponse call
+func ParseDeleteCharacterCharactersDeletePostResponse(rsp *http.Response) (*DeleteCharacterCharactersDeletePostResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &DeleteCharacterCharactersDeletePostResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}

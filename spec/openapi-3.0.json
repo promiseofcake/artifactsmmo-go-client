@@ -3,7 +3,7 @@
   "info": {
     "title": "Artifacts API",
     "description": "\nArtifacts is an API-based MMO game where you can manage 5 characters to explore, fight, gather resources, craft items and much more.\n\nWebsite: https://artifactsmmo.com/\n\nDocumentation: https://docs.artifactsmmo.com/\n\nOpenAPI Spec: https://api.artifactsmmo.com/openapi.json\n",
-    "version": "1.4"
+    "version": "1.5"
   },
   "paths": {
     "/my/{name}/action/move": {
@@ -1420,6 +1420,46 @@
         ]
       }
     },
+    "/characters/delete": {
+      "post": {
+        "tags": [
+          "Characters"
+        ],
+        "summary": "Delete Character",
+        "description": "Delete character on your account.",
+        "operationId": "delete_character_characters_delete_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteCharacterSchema"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully deleted character.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CharacterResponseSchema"
+                }
+              }
+            }
+          },
+          "498": {
+            "description": "Character not found."
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
     "/characters/": {
       "get": {
         "tags": [
@@ -2670,7 +2710,7 @@
           "destination": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/DestinationResponseSchema"
+                "$ref": "#/components/schemas/MapSchema"
               }
             ],
             "description": "Destination details."
@@ -3905,6 +3945,23 @@
         ],
         "title": "DataPage[SimpleItemSchema]"
       },
+      "DeleteCharacterSchema": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 12,
+            "minLength": 3,
+            "pattern": "^[a-zA-Z0-9_-]+$",
+            "title": "Name",
+            "description": "Character name."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "DeleteCharacterSchema"
+      },
       "DeleteItemResponseSchema": {
         "properties": {
           "data": {
@@ -3966,37 +4023,6 @@
           "quantity"
         ],
         "title": "DepositWithdrawGoldSchema"
-      },
-      "DestinationResponseSchema": {
-        "properties": {
-          "name": {
-            "type": "string",
-            "title": "Name",
-            "description": "The name of the destination."
-          },
-          "x": {
-            "type": "integer",
-            "title": "X",
-            "description": "The x coordinate of the destination."
-          },
-          "y": {
-            "type": "integer",
-            "title": "Y",
-            "description": "The y coordinate of the destination."
-          },
-          "content": {
-            "title": "Content",
-            "description": "Content of the destination."
-          }
-        },
-        "type": "object",
-        "required": [
-          "name",
-          "x",
-          "y",
-          "content"
-        ],
-        "title": "DestinationResponseSchema"
       },
       "DestinationSchema": {
         "properties": {
