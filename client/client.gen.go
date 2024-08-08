@@ -60,14 +60,14 @@ const (
 	WithdrawBank CooldownSchemaReason = "withdraw_bank"
 )
 
-// Defines values for CraftSchemaSkill0.
+// Defines values for CraftSchemaSkill.
 const (
-	CraftSchemaSkill0Cooking         CraftSchemaSkill0 = "cooking"
-	CraftSchemaSkill0Gearcrafting    CraftSchemaSkill0 = "gearcrafting"
-	CraftSchemaSkill0Jewelrycrafting CraftSchemaSkill0 = "jewelrycrafting"
-	CraftSchemaSkill0Mining          CraftSchemaSkill0 = "mining"
-	CraftSchemaSkill0Weaponcrafting  CraftSchemaSkill0 = "weaponcrafting"
-	CraftSchemaSkill0Woodcutting     CraftSchemaSkill0 = "woodcutting"
+	CraftSchemaSkillCooking         CraftSchemaSkill = "cooking"
+	CraftSchemaSkillGearcrafting    CraftSchemaSkill = "gearcrafting"
+	CraftSchemaSkillJewelrycrafting CraftSchemaSkill = "jewelrycrafting"
+	CraftSchemaSkillMining          CraftSchemaSkill = "mining"
+	CraftSchemaSkillWeaponcrafting  CraftSchemaSkill = "weaponcrafting"
+	CraftSchemaSkillWoodcutting     CraftSchemaSkill = "woodcutting"
 )
 
 // Defines values for EquipRequestSchemaSlot.
@@ -391,7 +391,7 @@ type CharacterSchema struct {
 	Cooldown int `json:"cooldown"`
 
 	// CooldownExpiration Datetime Cooldown expiration.
-	CooldownExpiration *CharacterSchema_CooldownExpiration `json:"cooldown_expiration,omitempty"`
+	CooldownExpiration *time.Time `json:"cooldown_expiration,omitempty"`
 
 	// CriticalStrike *Not available, on the roadmap. Character Critical   Strike. Critical strikes increase the attack's damage.
 	CriticalStrike int `json:"critical_strike"`
@@ -550,17 +550,6 @@ type CharacterSchema struct {
 	Y int `json:"y"`
 }
 
-// CharacterSchemaCooldownExpiration0 defines model for .
-type CharacterSchemaCooldownExpiration0 = time.Time
-
-// CharacterSchemaCooldownExpiration1 defines model for .
-type CharacterSchemaCooldownExpiration1 = interface{}
-
-// CharacterSchema_CooldownExpiration Datetime Cooldown expiration.
-type CharacterSchema_CooldownExpiration struct {
-	union json.RawMessage
-}
-
 // CharacterSchemaSkin Character skin code.
 type CharacterSchemaSkin string
 
@@ -591,47 +580,17 @@ type CraftSchema struct {
 	Items *[]SimpleItemSchema `json:"items,omitempty"`
 
 	// Level The skill level required to craft the item.
-	Level *CraftSchema_Level `json:"level,omitempty"`
+	Level *int `json:"level,omitempty"`
 
 	// Quantity Quantity of items crafted.
-	Quantity *CraftSchema_Quantity `json:"quantity,omitempty"`
+	Quantity *int `json:"quantity,omitempty"`
 
 	// Skill Skill required to craft the item.
-	Skill *CraftSchema_Skill `json:"skill,omitempty"`
+	Skill *CraftSchemaSkill `json:"skill,omitempty"`
 }
 
-// CraftSchemaLevel0 defines model for .
-type CraftSchemaLevel0 = int
-
-// CraftSchemaLevel1 defines model for .
-type CraftSchemaLevel1 = interface{}
-
-// CraftSchema_Level The skill level required to craft the item.
-type CraftSchema_Level struct {
-	union json.RawMessage
-}
-
-// CraftSchemaQuantity0 defines model for .
-type CraftSchemaQuantity0 = int
-
-// CraftSchemaQuantity1 defines model for .
-type CraftSchemaQuantity1 = interface{}
-
-// CraftSchema_Quantity Quantity of items crafted.
-type CraftSchema_Quantity struct {
-	union json.RawMessage
-}
-
-// CraftSchemaSkill0 defines model for CraftSchema.Skill.0.
-type CraftSchemaSkill0 string
-
-// CraftSchemaSkill1 defines model for .
-type CraftSchemaSkill1 = interface{}
-
-// CraftSchema_Skill Skill required to craft the item.
-type CraftSchema_Skill struct {
-	union json.RawMessage
-}
+// CraftSchemaSkill Skill required to craft the item.
+type CraftSchemaSkill string
 
 // CraftingSchema defines model for CraftingSchema.
 type CraftingSchema struct {
@@ -1654,13 +1613,12 @@ type StatusSchema struct {
 	LastWipe string `json:"last_wipe"`
 
 	// NextWipe Next server wipe.
-	NextWipe string `json:"next_wipe"`
+	NextWipe   string     `json:"next_wipe"`
+	ServerTime *time.Time `json:"server_time,omitempty"`
 
 	// Status Server status
-	Status string `json:"status"`
-
-	// Version Game version.
-	Version string `json:"version"`
+	Status  string  `json:"status"`
+	Version *string `json:"version,omitempty"`
 }
 
 // TaskDataSchema defines model for TaskDataSchema.
@@ -1929,254 +1887,6 @@ type ActionRecyclingMyNameActionRecyclingPostJSONRequestBody = RecyclingSchema
 
 // ActionUnequipItemMyNameActionUnequipPostJSONRequestBody defines body for ActionUnequipItemMyNameActionUnequipPost for application/json ContentType.
 type ActionUnequipItemMyNameActionUnequipPostJSONRequestBody = UnequipSchema
-
-// AsCharacterSchemaCooldownExpiration0 returns the union data inside the CharacterSchema_CooldownExpiration as a CharacterSchemaCooldownExpiration0
-func (t CharacterSchema_CooldownExpiration) AsCharacterSchemaCooldownExpiration0() (CharacterSchemaCooldownExpiration0, error) {
-	var body CharacterSchemaCooldownExpiration0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromCharacterSchemaCooldownExpiration0 overwrites any union data inside the CharacterSchema_CooldownExpiration as the provided CharacterSchemaCooldownExpiration0
-func (t *CharacterSchema_CooldownExpiration) FromCharacterSchemaCooldownExpiration0(v CharacterSchemaCooldownExpiration0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeCharacterSchemaCooldownExpiration0 performs a merge with any union data inside the CharacterSchema_CooldownExpiration, using the provided CharacterSchemaCooldownExpiration0
-func (t *CharacterSchema_CooldownExpiration) MergeCharacterSchemaCooldownExpiration0(v CharacterSchemaCooldownExpiration0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsCharacterSchemaCooldownExpiration1 returns the union data inside the CharacterSchema_CooldownExpiration as a CharacterSchemaCooldownExpiration1
-func (t CharacterSchema_CooldownExpiration) AsCharacterSchemaCooldownExpiration1() (CharacterSchemaCooldownExpiration1, error) {
-	var body CharacterSchemaCooldownExpiration1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromCharacterSchemaCooldownExpiration1 overwrites any union data inside the CharacterSchema_CooldownExpiration as the provided CharacterSchemaCooldownExpiration1
-func (t *CharacterSchema_CooldownExpiration) FromCharacterSchemaCooldownExpiration1(v CharacterSchemaCooldownExpiration1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeCharacterSchemaCooldownExpiration1 performs a merge with any union data inside the CharacterSchema_CooldownExpiration, using the provided CharacterSchemaCooldownExpiration1
-func (t *CharacterSchema_CooldownExpiration) MergeCharacterSchemaCooldownExpiration1(v CharacterSchemaCooldownExpiration1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t CharacterSchema_CooldownExpiration) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *CharacterSchema_CooldownExpiration) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsCraftSchemaLevel0 returns the union data inside the CraftSchema_Level as a CraftSchemaLevel0
-func (t CraftSchema_Level) AsCraftSchemaLevel0() (CraftSchemaLevel0, error) {
-	var body CraftSchemaLevel0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromCraftSchemaLevel0 overwrites any union data inside the CraftSchema_Level as the provided CraftSchemaLevel0
-func (t *CraftSchema_Level) FromCraftSchemaLevel0(v CraftSchemaLevel0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeCraftSchemaLevel0 performs a merge with any union data inside the CraftSchema_Level, using the provided CraftSchemaLevel0
-func (t *CraftSchema_Level) MergeCraftSchemaLevel0(v CraftSchemaLevel0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsCraftSchemaLevel1 returns the union data inside the CraftSchema_Level as a CraftSchemaLevel1
-func (t CraftSchema_Level) AsCraftSchemaLevel1() (CraftSchemaLevel1, error) {
-	var body CraftSchemaLevel1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromCraftSchemaLevel1 overwrites any union data inside the CraftSchema_Level as the provided CraftSchemaLevel1
-func (t *CraftSchema_Level) FromCraftSchemaLevel1(v CraftSchemaLevel1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeCraftSchemaLevel1 performs a merge with any union data inside the CraftSchema_Level, using the provided CraftSchemaLevel1
-func (t *CraftSchema_Level) MergeCraftSchemaLevel1(v CraftSchemaLevel1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t CraftSchema_Level) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *CraftSchema_Level) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsCraftSchemaQuantity0 returns the union data inside the CraftSchema_Quantity as a CraftSchemaQuantity0
-func (t CraftSchema_Quantity) AsCraftSchemaQuantity0() (CraftSchemaQuantity0, error) {
-	var body CraftSchemaQuantity0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromCraftSchemaQuantity0 overwrites any union data inside the CraftSchema_Quantity as the provided CraftSchemaQuantity0
-func (t *CraftSchema_Quantity) FromCraftSchemaQuantity0(v CraftSchemaQuantity0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeCraftSchemaQuantity0 performs a merge with any union data inside the CraftSchema_Quantity, using the provided CraftSchemaQuantity0
-func (t *CraftSchema_Quantity) MergeCraftSchemaQuantity0(v CraftSchemaQuantity0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsCraftSchemaQuantity1 returns the union data inside the CraftSchema_Quantity as a CraftSchemaQuantity1
-func (t CraftSchema_Quantity) AsCraftSchemaQuantity1() (CraftSchemaQuantity1, error) {
-	var body CraftSchemaQuantity1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromCraftSchemaQuantity1 overwrites any union data inside the CraftSchema_Quantity as the provided CraftSchemaQuantity1
-func (t *CraftSchema_Quantity) FromCraftSchemaQuantity1(v CraftSchemaQuantity1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeCraftSchemaQuantity1 performs a merge with any union data inside the CraftSchema_Quantity, using the provided CraftSchemaQuantity1
-func (t *CraftSchema_Quantity) MergeCraftSchemaQuantity1(v CraftSchemaQuantity1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t CraftSchema_Quantity) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *CraftSchema_Quantity) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
-// AsCraftSchemaSkill0 returns the union data inside the CraftSchema_Skill as a CraftSchemaSkill0
-func (t CraftSchema_Skill) AsCraftSchemaSkill0() (CraftSchemaSkill0, error) {
-	var body CraftSchemaSkill0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromCraftSchemaSkill0 overwrites any union data inside the CraftSchema_Skill as the provided CraftSchemaSkill0
-func (t *CraftSchema_Skill) FromCraftSchemaSkill0(v CraftSchemaSkill0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeCraftSchemaSkill0 performs a merge with any union data inside the CraftSchema_Skill, using the provided CraftSchemaSkill0
-func (t *CraftSchema_Skill) MergeCraftSchemaSkill0(v CraftSchemaSkill0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsCraftSchemaSkill1 returns the union data inside the CraftSchema_Skill as a CraftSchemaSkill1
-func (t CraftSchema_Skill) AsCraftSchemaSkill1() (CraftSchemaSkill1, error) {
-	var body CraftSchemaSkill1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromCraftSchemaSkill1 overwrites any union data inside the CraftSchema_Skill as the provided CraftSchemaSkill1
-func (t *CraftSchema_Skill) FromCraftSchemaSkill1(v CraftSchemaSkill1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeCraftSchemaSkill1 performs a merge with any union data inside the CraftSchema_Skill, using the provided CraftSchemaSkill1
-func (t *CraftSchema_Skill) MergeCraftSchemaSkill1(v CraftSchemaSkill1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t CraftSchema_Skill) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *CraftSchema_Skill) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
 
 // AsDataPageActiveEventSchemaPage0 returns the union data inside the DataPageActiveEventSchema_Page as a DataPageActiveEventSchemaPage0
 func (t DataPageActiveEventSchema_Page) AsDataPageActiveEventSchemaPage0() (DataPageActiveEventSchemaPage0, error) {

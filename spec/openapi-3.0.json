@@ -3007,15 +3007,8 @@
             "description": "Cooldown in seconds."
           },
           "cooldown_expiration": {
-            "anyOf": [
-              {
-                "type": "string",
-                "format": "date-time"
-              },
-              {
-                "nullable": true
-              }
-            ],
+            "type": "string",
+            "format": "date-time",
             "title": "Cooldown Expiration",
             "description": "Datetime Cooldown expiration."
           },
@@ -3265,34 +3258,20 @@
       "CraftSchema": {
         "properties": {
           "skill": {
-            "anyOf": [
-              {
-                "type": "string",
-                "enum": [
-                  "weaponcrafting",
-                  "gearcrafting",
-                  "jewelrycrafting",
-                  "cooking",
-                  "woodcutting",
-                  "mining"
-                ]
-              },
-              {
-                "nullable": true
-              }
+            "type": "string",
+            "enum": [
+              "weaponcrafting",
+              "gearcrafting",
+              "jewelrycrafting",
+              "cooking",
+              "woodcutting",
+              "mining"
             ],
             "title": "Skill code",
             "description": "Skill required to craft the item."
           },
           "level": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "nullable": true
-              }
-            ],
+            "type": "integer",
             "title": "Level",
             "description": "The skill level required to craft the item."
           },
@@ -3305,14 +3284,7 @@
             "description": "List of items required to craft the item."
           },
           "quantity": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "nullable": true
-              }
-            ],
+            "type": "integer",
             "title": "Quantity",
             "description": "Quantity of items crafted."
           }
@@ -5199,12 +5171,16 @@
           },
           "version": {
             "type": "string",
-            "title": "Version",
-            "description": "Game version."
+            "title": "Version"
           },
           "characters_online": {
             "type": "integer",
             "title": "Characters Online"
+          },
+          "server_time": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Server Time"
           },
           "announcements": {
             "items": {
@@ -5227,7 +5203,6 @@
         "type": "object",
         "required": [
           "status",
-          "version",
           "last_wipe",
           "next_wipe"
         ],
