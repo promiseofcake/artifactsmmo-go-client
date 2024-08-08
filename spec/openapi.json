@@ -3,7 +3,7 @@
   "info": {
     "title": "Artifacts API",
     "description": "\nArtifacts is an API-based MMO game where you can manage 5 characters to explore, fight, gather resources, craft items and much more.\n\nWebsite: https://artifactsmmo.com/\n\nDocumentation: https://docs.artifactsmmo.com/\n\nOpenAPI Spec: https://api.artifactsmmo.com/openapi.json\n",
-    "version": "1.5"
+    "version": "1.6"
   },
   "paths": {
     "/my/{name}/action/move": {
@@ -67,7 +67,7 @@
             "description": "Map not found."
           },
           "486": {
-            "description": "Character is locked. Action is already in progress."
+            "description": "An action is already in progress by your character."
           }
         }
       }
@@ -130,7 +130,7 @@
             "description": "Character in cooldown."
           },
           "486": {
-            "description": "Character is locked. Action is already in progress."
+            "description": "An action is already in progress by your character."
           },
           "478": {
             "description": "Missing item or insufficient quantity in your inventory."
@@ -205,7 +205,7 @@
             "description": "Character in cooldown."
           },
           "486": {
-            "description": "Character is locked. Action is already in progress."
+            "description": "An action is already in progress by your character."
           },
           "491": {
             "description": "Slot is empty."
@@ -264,7 +264,7 @@
             "description": "Monster not found on this map."
           },
           "486": {
-            "description": "Character is locked. Action is already in progress."
+            "description": "An action is already in progress by your character."
           },
           "497": {
             "description": "Character inventory is full."
@@ -320,7 +320,7 @@
             "description": "Resource not found on this map."
           },
           "486": {
-            "description": "Character is locked. Action is already in progress."
+            "description": "An action is already in progress by your character."
           },
           "493": {
             "description": "Not skill level required."
@@ -395,7 +395,7 @@
             "description": "Character in cooldown."
           },
           "486": {
-            "description": "Character is locked. Action is already in progress."
+            "description": "An action is already in progress by your character."
           },
           "493": {
             "description": "Not skill level required."
@@ -460,6 +460,9 @@
           "404": {
             "description": "Item not found."
           },
+          "461": {
+            "description": "A transaction is already in progress with this item/your golds in your bank."
+          },
           "498": {
             "description": "Character not found."
           },
@@ -467,7 +470,7 @@
             "description": "Character in cooldown."
           },
           "486": {
-            "description": "Character is locked. Action is already in progress."
+            "description": "An action is already in progress by your character."
           },
           "478": {
             "description": "Missing item or insufficient quantity in your inventory."
@@ -535,8 +538,11 @@
           "499": {
             "description": "Character in cooldown."
           },
+          "461": {
+            "description": "A transaction is already in progress with this item/your golds in your bank."
+          },
           "486": {
-            "description": "Character is locked. Action is already in progress."
+            "description": "An action is already in progress by your character."
           },
           "478": {
             "description": "Missing item or insufficient quantity in your inventory."
@@ -608,7 +614,7 @@
             "description": "Character in cooldown."
           },
           "486": {
-            "description": "Character is locked. Action is already in progress."
+            "description": "An action is already in progress by your character."
           },
           "493": {
             "description": "Not skill level required."
@@ -679,8 +685,11 @@
           "499": {
             "description": "Character in cooldown."
           },
+          "461": {
+            "description": "A transaction is already in progress with this item/your golds in your bank."
+          },
           "486": {
-            "description": "Character is locked. Action is already in progress."
+            "description": "An action is already in progress by your character."
           },
           "497": {
             "description": "Character inventory is full."
@@ -748,8 +757,11 @@
           "499": {
             "description": "Character in cooldown."
           },
+          "461": {
+            "description": "A transaction is already in progress with this item/your golds in your bank."
+          },
           "486": {
-            "description": "Character is locked. Action is already in progress."
+            "description": "An action is already in progress by your character."
           },
           "598": {
             "description": "Bank not found on this map."
@@ -820,8 +832,11 @@
           "499": {
             "description": "Character in cooldown."
           },
+          "483": {
+            "description": "A transaction is already in progress on this item by a another character."
+          },
           "486": {
-            "description": "Character is locked. Action is already in progress."
+            "description": "An action is already in progress by your character."
           },
           "492": {
             "description": "Insufficient golds on your character."
@@ -892,8 +907,11 @@
           "404": {
             "description": "Item not found."
           },
+          "483": {
+            "description": "A transaction is already in progress on this item by a another character."
+          },
           "486": {
-            "description": "Character is locked. Action is already in progress."
+            "description": "An action is already in progress by your character."
           },
           "478": {
             "description": "Missing item or insufficient quantity in your inventory."
@@ -952,7 +970,7 @@
             "description": "Character in cooldown."
           },
           "486": {
-            "description": "Character is locked. Action is already in progress."
+            "description": "An action is already in progress by your character."
           },
           "598": {
             "description": "Tasks Master not found on this map."
@@ -1008,7 +1026,7 @@
             "description": "Character in cooldown."
           },
           "486": {
-            "description": "Character is locked. Action is already in progress."
+            "description": "An action is already in progress by your character."
           },
           "598": {
             "description": "Tasks Master not found on this map."
@@ -1070,7 +1088,7 @@
             "description": "Character in cooldown."
           },
           "486": {
-            "description": "Character is locked. Action is already in progress."
+            "description": "An action is already in progress by your character."
           },
           "598": {
             "description": "Tasks Master not found on this map."
@@ -1139,7 +1157,7 @@
             "description": "Character in cooldown."
           },
           "486": {
-            "description": "Character is locked. Action is already in progress."
+            "description": "An action is already in progress by your character."
           },
           "478": {
             "description": "Missing item or insufficient quantity in your inventory."
