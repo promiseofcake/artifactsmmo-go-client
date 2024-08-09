@@ -543,9 +543,6 @@
           },
           "486": {
             "description": "An action is already in progress by your character."
-          },
-          "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
           }
         }
       }

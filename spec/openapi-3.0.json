@@ -529,9 +529,6 @@
           "461": {
             "description": "A transaction is already in progress with this item/your golds in your bank."
           },
-          "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
-          },
           "486": {
             "description": "An action is already in progress by your character."
           },
