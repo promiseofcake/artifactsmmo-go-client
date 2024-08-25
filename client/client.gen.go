@@ -23,6 +23,18 @@ const (
 	JWTBearerScopes = "JWTBearer.Scopes"
 )
 
+// Defines values for AchievementSchemaType.
+const (
+	AchievementSchemaTypeCombatDrop  AchievementSchemaType = "combat_drop"
+	AchievementSchemaTypeCombatKill  AchievementSchemaType = "combat_kill"
+	AchievementSchemaTypeCombatLevel AchievementSchemaType = "combat_level"
+	AchievementSchemaTypeCrafting    AchievementSchemaType = "crafting"
+	AchievementSchemaTypeGathering   AchievementSchemaType = "gathering"
+	AchievementSchemaTypeOther       AchievementSchemaType = "other"
+	AchievementSchemaTypeRecycling   AchievementSchemaType = "recycling"
+	AchievementSchemaTypeTask        AchievementSchemaType = "task"
+)
+
 // Defines values for AddCharacterSchemaSkin.
 const (
 	AddCharacterSchemaSkinMen1   AddCharacterSchemaSkin = "men1"
@@ -31,6 +43,18 @@ const (
 	AddCharacterSchemaSkinWomen1 AddCharacterSchemaSkin = "women1"
 	AddCharacterSchemaSkinWomen2 AddCharacterSchemaSkin = "women2"
 	AddCharacterSchemaSkinWomen3 AddCharacterSchemaSkin = "women3"
+)
+
+// Defines values for BaseAchievementSchemaType.
+const (
+	BaseAchievementSchemaTypeCombatDrop  BaseAchievementSchemaType = "combat_drop"
+	BaseAchievementSchemaTypeCombatKill  BaseAchievementSchemaType = "combat_kill"
+	BaseAchievementSchemaTypeCombatLevel BaseAchievementSchemaType = "combat_level"
+	BaseAchievementSchemaTypeCrafting    BaseAchievementSchemaType = "crafting"
+	BaseAchievementSchemaTypeGathering   BaseAchievementSchemaType = "gathering"
+	BaseAchievementSchemaTypeOther       BaseAchievementSchemaType = "other"
+	BaseAchievementSchemaTypeRecycling   BaseAchievementSchemaType = "recycling"
+	BaseAchievementSchemaTypeTask        BaseAchievementSchemaType = "task"
 )
 
 // Defines values for CharacterSchemaSkin.
@@ -45,19 +69,19 @@ const (
 
 // Defines values for CooldownSchemaReason.
 const (
-	BuyGe        CooldownSchemaReason = "buy_ge"
-	Crafting     CooldownSchemaReason = "crafting"
-	DeleteItem   CooldownSchemaReason = "delete_item"
-	DepositBank  CooldownSchemaReason = "deposit_bank"
-	Equip        CooldownSchemaReason = "equip"
-	Fight        CooldownSchemaReason = "fight"
-	Gathering    CooldownSchemaReason = "gathering"
-	Movement     CooldownSchemaReason = "movement"
-	Recycling    CooldownSchemaReason = "recycling"
-	SellGe       CooldownSchemaReason = "sell_ge"
-	Task         CooldownSchemaReason = "task"
-	Unequip      CooldownSchemaReason = "unequip"
-	WithdrawBank CooldownSchemaReason = "withdraw_bank"
+	CooldownSchemaReasonBuyGe        CooldownSchemaReason = "buy_ge"
+	CooldownSchemaReasonCrafting     CooldownSchemaReason = "crafting"
+	CooldownSchemaReasonDeleteItem   CooldownSchemaReason = "delete_item"
+	CooldownSchemaReasonDepositBank  CooldownSchemaReason = "deposit_bank"
+	CooldownSchemaReasonEquip        CooldownSchemaReason = "equip"
+	CooldownSchemaReasonFight        CooldownSchemaReason = "fight"
+	CooldownSchemaReasonGathering    CooldownSchemaReason = "gathering"
+	CooldownSchemaReasonMovement     CooldownSchemaReason = "movement"
+	CooldownSchemaReasonRecycling    CooldownSchemaReason = "recycling"
+	CooldownSchemaReasonSellGe       CooldownSchemaReason = "sell_ge"
+	CooldownSchemaReasonTask         CooldownSchemaReason = "task"
+	CooldownSchemaReasonUnequip      CooldownSchemaReason = "unequip"
+	CooldownSchemaReasonWithdrawBank CooldownSchemaReason = "withdraw_bank"
 )
 
 // Defines values for CraftSchemaSkill.
@@ -144,21 +168,34 @@ const (
 	UnequipSchemaSlotWeapon      UnequipSchemaSlot = "weapon"
 )
 
-// Defines values for GetAllCharactersCharactersGetParamsSort.
+// Defines values for GetAllAchievementsAchievementsGetParamsType.
 const (
-	GetAllCharactersCharactersGetParamsSortCooking         GetAllCharactersCharactersGetParamsSort = "cooking"
-	GetAllCharactersCharactersGetParamsSortFishing         GetAllCharactersCharactersGetParamsSort = "fishing"
-	GetAllCharactersCharactersGetParamsSortGearcrafting    GetAllCharactersCharactersGetParamsSort = "gearcrafting"
-	GetAllCharactersCharactersGetParamsSortGold            GetAllCharactersCharactersGetParamsSort = "gold"
-	GetAllCharactersCharactersGetParamsSortJewelrycrafting GetAllCharactersCharactersGetParamsSort = "jewelrycrafting"
-	GetAllCharactersCharactersGetParamsSortMining          GetAllCharactersCharactersGetParamsSort = "mining"
-	GetAllCharactersCharactersGetParamsSortWeaponcrafting  GetAllCharactersCharactersGetParamsSort = "weaponcrafting"
-	GetAllCharactersCharactersGetParamsSortWoodcutting     GetAllCharactersCharactersGetParamsSort = "woodcutting"
+	GetAllAchievementsAchievementsGetParamsTypeCombatDrop  GetAllAchievementsAchievementsGetParamsType = "combat_drop"
+	GetAllAchievementsAchievementsGetParamsTypeCombatKill  GetAllAchievementsAchievementsGetParamsType = "combat_kill"
+	GetAllAchievementsAchievementsGetParamsTypeCombatLevel GetAllAchievementsAchievementsGetParamsType = "combat_level"
+	GetAllAchievementsAchievementsGetParamsTypeCrafting    GetAllAchievementsAchievementsGetParamsType = "crafting"
+	GetAllAchievementsAchievementsGetParamsTypeGathering   GetAllAchievementsAchievementsGetParamsType = "gathering"
+	GetAllAchievementsAchievementsGetParamsTypeOther       GetAllAchievementsAchievementsGetParamsType = "other"
+	GetAllAchievementsAchievementsGetParamsTypeRecycling   GetAllAchievementsAchievementsGetParamsType = "recycling"
+	GetAllAchievementsAchievementsGetParamsTypeTask        GetAllAchievementsAchievementsGetParamsType = "task"
+)
+
+// Defines values for GetCharacterAchievementsCharactersNameAchievementsGetParamsType.
+const (
+	CombatDrop  GetCharacterAchievementsCharactersNameAchievementsGetParamsType = "combat_drop"
+	CombatKill  GetCharacterAchievementsCharactersNameAchievementsGetParamsType = "combat_kill"
+	CombatLevel GetCharacterAchievementsCharactersNameAchievementsGetParamsType = "combat_level"
+	Crafting    GetCharacterAchievementsCharactersNameAchievementsGetParamsType = "crafting"
+	Gathering   GetCharacterAchievementsCharactersNameAchievementsGetParamsType = "gathering"
+	Other       GetCharacterAchievementsCharactersNameAchievementsGetParamsType = "other"
+	Recycling   GetCharacterAchievementsCharactersNameAchievementsGetParamsType = "recycling"
+	Task        GetCharacterAchievementsCharactersNameAchievementsGetParamsType = "task"
 )
 
 // Defines values for GetAllItemsItemsGetParamsType.
 const (
 	GetAllItemsItemsGetParamsTypeAmulet     GetAllItemsItemsGetParamsType = "amulet"
+	GetAllItemsItemsGetParamsTypeArtifact   GetAllItemsItemsGetParamsType = "artifact"
 	GetAllItemsItemsGetParamsTypeBodyArmor  GetAllItemsItemsGetParamsType = "body_armor"
 	GetAllItemsItemsGetParamsTypeBoots      GetAllItemsItemsGetParamsType = "boots"
 	GetAllItemsItemsGetParamsTypeConsumable GetAllItemsItemsGetParamsType = "consumable"
@@ -180,6 +217,20 @@ const (
 	GetAllItemsItemsGetParamsCraftSkillWoodcutting     GetAllItemsItemsGetParamsCraftSkill = "woodcutting"
 )
 
+// Defines values for GetLeaderboardLeaderboardGetParamsSort.
+const (
+	GetLeaderboardLeaderboardGetParamsSortAchievementsPoints GetLeaderboardLeaderboardGetParamsSort = "achievements_points"
+	GetLeaderboardLeaderboardGetParamsSortCombat             GetLeaderboardLeaderboardGetParamsSort = "combat"
+	GetLeaderboardLeaderboardGetParamsSortCooking            GetLeaderboardLeaderboardGetParamsSort = "cooking"
+	GetLeaderboardLeaderboardGetParamsSortFishing            GetLeaderboardLeaderboardGetParamsSort = "fishing"
+	GetLeaderboardLeaderboardGetParamsSortGearcrafting       GetLeaderboardLeaderboardGetParamsSort = "gearcrafting"
+	GetLeaderboardLeaderboardGetParamsSortGold               GetLeaderboardLeaderboardGetParamsSort = "gold"
+	GetLeaderboardLeaderboardGetParamsSortJewelrycrafting    GetLeaderboardLeaderboardGetParamsSort = "jewelrycrafting"
+	GetLeaderboardLeaderboardGetParamsSortMining             GetLeaderboardLeaderboardGetParamsSort = "mining"
+	GetLeaderboardLeaderboardGetParamsSortWeaponcrafting     GetLeaderboardLeaderboardGetParamsSort = "weaponcrafting"
+	GetLeaderboardLeaderboardGetParamsSortWoodcutting        GetLeaderboardLeaderboardGetParamsSort = "woodcutting"
+)
+
 // Defines values for GetAllMapsMapsGetParamsContentType.
 const (
 	Bank          GetAllMapsMapsGetParamsContentType = "bank"
@@ -197,10 +248,60 @@ const (
 	Woodcutting GetAllResourcesResourcesGetParamsSkill = "woodcutting"
 )
 
-// ActionItemBankResponseSchema defines model for ActionItemBankResponseSchema.
-type ActionItemBankResponseSchema struct {
-	Data BankItemSchema `json:"data"`
+// AchievementSchema defines model for AchievementSchema.
+type AchievementSchema struct {
+	// Code Code of the achievement.
+	Code string `json:"code"`
+
+	// CompletedAt Completed at.
+	CompletedAt AchievementSchema_CompletedAt `json:"completed_at"`
+
+	// Current Current progress.
+	Current int `json:"current"`
+
+	// Description Description of the achievement.
+	Description string `json:"description"`
+
+	// Name Name of the achievement.
+	Name string `json:"name"`
+
+	// Points Points of the achievement. Used for the leaderboard.
+	Points int `json:"points"`
+
+	// Target Target of the achievement.
+	Target AchievementSchema_Target `json:"target"`
+
+	// Total Total to do.
+	Total int `json:"total"`
+
+	// Type Type of achievement.
+	Type AchievementSchemaType `json:"type"`
 }
+
+// AchievementSchemaCompletedAt0 defines model for .
+type AchievementSchemaCompletedAt0 = time.Time
+
+// AchievementSchemaCompletedAt1 defines model for .
+type AchievementSchemaCompletedAt1 = interface{}
+
+// AchievementSchema_CompletedAt Completed at.
+type AchievementSchema_CompletedAt struct {
+	union json.RawMessage
+}
+
+// AchievementSchemaTarget0 defines model for .
+type AchievementSchemaTarget0 = string
+
+// AchievementSchemaTarget1 defines model for .
+type AchievementSchemaTarget1 = interface{}
+
+// AchievementSchema_Target Target of the achievement.
+type AchievementSchema_Target struct {
+	union json.RawMessage
+}
+
+// AchievementSchemaType Type of achievement.
+type AchievementSchemaType string
 
 // ActiveEventSchema defines model for ActiveEventSchema.
 type ActiveEventSchema struct {
@@ -256,8 +357,53 @@ type AnnouncementSchema struct {
 	Message string `json:"message"`
 }
 
-// BankItemSchema defines model for BankItemSchema.
-type BankItemSchema struct {
+// BankExtensionSchema defines model for BankExtensionSchema.
+type BankExtensionSchema struct {
+	// Price Price of the bank extension.
+	Price int `json:"price"`
+}
+
+// BankExtensionTransactionResponseSchema defines model for BankExtensionTransactionResponseSchema.
+type BankExtensionTransactionResponseSchema struct {
+	Data BankExtensionTransactionSchema `json:"data"`
+}
+
+// BankExtensionTransactionSchema defines model for BankExtensionTransactionSchema.
+type BankExtensionTransactionSchema struct {
+	// Character Player details.
+	Character CharacterSchema `json:"character"`
+
+	// Cooldown Cooldown details.
+	Cooldown CooldownSchema `json:"cooldown"`
+
+	// Transaction Transaction details.
+	Transaction BankExtensionSchema `json:"transaction"`
+}
+
+// BankGoldTransactionResponseSchema defines model for BankGoldTransactionResponseSchema.
+type BankGoldTransactionResponseSchema struct {
+	Data BankGoldTransactionSchema `json:"data"`
+}
+
+// BankGoldTransactionSchema defines model for BankGoldTransactionSchema.
+type BankGoldTransactionSchema struct {
+	// Bank Bank details.
+	Bank GoldSchema `json:"bank"`
+
+	// Character Player details.
+	Character CharacterSchema `json:"character"`
+
+	// Cooldown Cooldown details.
+	Cooldown CooldownSchema `json:"cooldown"`
+}
+
+// BankItemTransactionResponseSchema defines model for BankItemTransactionResponseSchema.
+type BankItemTransactionResponseSchema struct {
+	Data BankItemTransactionSchema `json:"data"`
+}
+
+// BankItemTransactionSchema defines model for BankItemTransactionSchema.
+type BankItemTransactionSchema struct {
 	// Bank Items in your banks.
 	Bank []SimpleItemSchema `json:"bank"`
 
@@ -269,6 +415,69 @@ type BankItemSchema struct {
 
 	// Item Item details.
 	Item ItemSchema `json:"item"`
+}
+
+// BankResponseSchema defines model for BankResponseSchema.
+type BankResponseSchema struct {
+	Data BankSchema `json:"data"`
+}
+
+// BankSchema defines model for BankSchema.
+type BankSchema struct {
+	// Expansions Bank expansions.
+	Expansions int `json:"expansions"`
+
+	// Gold Quantity of gold in your bank.
+	Gold int `json:"gold"`
+
+	// NextExpansionCost Next expansion cost.
+	NextExpansionCost int `json:"next_expansion_cost"`
+
+	// Slots Maximum slots in your bank.
+	Slots int `json:"slots"`
+}
+
+// BaseAchievementSchema defines model for BaseAchievementSchema.
+type BaseAchievementSchema struct {
+	// Code Code of the achievement.
+	Code string `json:"code"`
+
+	// Description Description of the achievement.
+	Description string `json:"description"`
+
+	// Name Name of the achievement.
+	Name string `json:"name"`
+
+	// Points Points of the achievement. Used for the leaderboard.
+	Points int `json:"points"`
+
+	// Target Target of the achievement.
+	Target BaseAchievementSchema_Target `json:"target"`
+
+	// Total Total to do.
+	Total int `json:"total"`
+
+	// Type Type of achievement.
+	Type BaseAchievementSchemaType `json:"type"`
+}
+
+// BaseAchievementSchemaTarget0 defines model for .
+type BaseAchievementSchemaTarget0 = string
+
+// BaseAchievementSchemaTarget1 defines model for .
+type BaseAchievementSchemaTarget1 = interface{}
+
+// BaseAchievementSchema_Target Target of the achievement.
+type BaseAchievementSchema_Target struct {
+	union json.RawMessage
+}
+
+// BaseAchievementSchemaType Type of achievement.
+type BaseAchievementSchemaType string
+
+// BaseachievementResponseSchema defines model for BaseachievementResponseSchema.
+type BaseachievementResponseSchema struct {
+	Data BaseAchievementSchema `json:"data"`
 }
 
 // BlockedHitsSchema defines model for BlockedHitsSchema.
@@ -312,6 +521,69 @@ type CharacterFightResponseSchema struct {
 	Data CharacterFightDataSchema `json:"data"`
 }
 
+// CharacterLeaderboardSchema defines model for CharacterLeaderboardSchema.
+type CharacterLeaderboardSchema struct {
+	// AchievementsPoints Achievements points.
+	AchievementsPoints int `json:"achievements_points"`
+
+	// CookingLevel Cooking level.
+	CookingLevel int `json:"cooking_level"`
+
+	// CookingTotalXp Cooking total xp.
+	CookingTotalXp int `json:"cooking_total_xp"`
+
+	// FishingLevel Fishing level.
+	FishingLevel int `json:"fishing_level"`
+
+	// FishingTotalXp Fishing total xp.
+	FishingTotalXp int `json:"fishing_total_xp"`
+
+	// GearcraftingLevel Gearcrafting level.
+	GearcraftingLevel int `json:"gearcrafting_level"`
+
+	// GearcraftingTotalXp Gearcrafting total xp.
+	GearcraftingTotalXp int `json:"gearcrafting_total_xp"`
+
+	// Gold The numbers of golds on this character.
+	Gold int `json:"gold"`
+
+	// JewelrycraftingLevel Jewelrycrafting level.
+	JewelrycraftingLevel int `json:"jewelrycrafting_level"`
+
+	// JewelrycraftingTotalXp Jewelrycrafting total xp.
+	JewelrycraftingTotalXp int `json:"jewelrycrafting_total_xp"`
+
+	// Level Combat level.
+	Level int `json:"level"`
+
+	// MiningLevel Mining level.
+	MiningLevel int `json:"mining_level"`
+
+	// MiningTotalXp Mining total xp.
+	MiningTotalXp int `json:"mining_total_xp"`
+
+	// Name Character name.
+	Name string `json:"name"`
+
+	// Skin Character skin code.
+	Skin string `json:"skin"`
+
+	// TotalXp Total XP of your character.
+	TotalXp int `json:"total_xp"`
+
+	// WeaponcraftingLevel Weaponcrafting level.
+	WeaponcraftingLevel int `json:"weaponcrafting_level"`
+
+	// WeaponcraftingTotalXp Weaponcrafting total xp.
+	WeaponcraftingTotalXp int `json:"weaponcrafting_total_xp"`
+
+	// WoodcuttingLevel Woodcutting level.
+	WoodcuttingLevel int `json:"woodcutting_level"`
+
+	// WoodcuttingTotalXp Woodcutting total xp.
+	WoodcuttingTotalXp int `json:"woodcutting_total_xp"`
+}
+
 // CharacterMovementDataSchema defines model for CharacterMovementDataSchema.
 type CharacterMovementDataSchema struct {
 	// Character Character details.
@@ -336,6 +608,9 @@ type CharacterResponseSchema struct {
 
 // CharacterSchema defines model for CharacterSchema.
 type CharacterSchema struct {
+	// AchievementsPoints achievements points.
+	AchievementsPoints int `json:"achievements_points"`
+
 	// AmuletSlot Amulet slot.
 	AmuletSlot string `json:"amulet_slot"`
 
@@ -516,9 +791,6 @@ type CharacterSchema struct {
 	// TaskType Task type.
 	TaskType string `json:"task_type"`
 
-	// TotalXp Total XP of your character.
-	TotalXp int `json:"total_xp"`
-
 	// WeaponSlot Weapon slot.
 	WeaponSlot string `json:"weapon_slot"`
 
@@ -601,6 +873,59 @@ type CraftingSchema struct {
 	Quantity *int `json:"quantity,omitempty"`
 }
 
+// DataPageAchievementSchema defines model for DataPage_AchievementSchema_.
+type DataPageAchievementSchema struct {
+	Data  []AchievementSchema              `json:"data"`
+	Page  DataPageAchievementSchema_Page   `json:"page"`
+	Pages *DataPageAchievementSchema_Pages `json:"pages,omitempty"`
+	Size  DataPageAchievementSchema_Size   `json:"size"`
+	Total DataPageAchievementSchema_Total  `json:"total"`
+}
+
+// DataPageAchievementSchemaPage0 defines model for .
+type DataPageAchievementSchemaPage0 = int
+
+// DataPageAchievementSchemaPage1 defines model for .
+type DataPageAchievementSchemaPage1 = interface{}
+
+// DataPageAchievementSchema_Page defines model for DataPageAchievementSchema.Page.
+type DataPageAchievementSchema_Page struct {
+	union json.RawMessage
+}
+
+// DataPageAchievementSchemaPages0 defines model for .
+type DataPageAchievementSchemaPages0 = int
+
+// DataPageAchievementSchemaPages1 defines model for .
+type DataPageAchievementSchemaPages1 = interface{}
+
+// DataPageAchievementSchema_Pages defines model for DataPageAchievementSchema.Pages.
+type DataPageAchievementSchema_Pages struct {
+	union json.RawMessage
+}
+
+// DataPageAchievementSchemaSize0 defines model for .
+type DataPageAchievementSchemaSize0 = int
+
+// DataPageAchievementSchemaSize1 defines model for .
+type DataPageAchievementSchemaSize1 = interface{}
+
+// DataPageAchievementSchema_Size defines model for DataPageAchievementSchema.Size.
+type DataPageAchievementSchema_Size struct {
+	union json.RawMessage
+}
+
+// DataPageAchievementSchemaTotal0 defines model for .
+type DataPageAchievementSchemaTotal0 = int
+
+// DataPageAchievementSchemaTotal1 defines model for .
+type DataPageAchievementSchemaTotal1 = interface{}
+
+// DataPageAchievementSchema_Total defines model for DataPageAchievementSchema.Total.
+type DataPageAchievementSchema_Total struct {
+	union json.RawMessage
+}
+
 // DataPageActiveEventSchema defines model for DataPage_ActiveEventSchema_.
 type DataPageActiveEventSchema struct {
 	Data  []ActiveEventSchema              `json:"data"`
@@ -651,6 +976,112 @@ type DataPageActiveEventSchemaTotal1 = interface{}
 
 // DataPageActiveEventSchema_Total defines model for DataPageActiveEventSchema.Total.
 type DataPageActiveEventSchema_Total struct {
+	union json.RawMessage
+}
+
+// DataPageBaseAchievementSchema defines model for DataPage_BaseAchievementSchema_.
+type DataPageBaseAchievementSchema struct {
+	Data  []BaseAchievementSchema              `json:"data"`
+	Page  DataPageBaseAchievementSchema_Page   `json:"page"`
+	Pages *DataPageBaseAchievementSchema_Pages `json:"pages,omitempty"`
+	Size  DataPageBaseAchievementSchema_Size   `json:"size"`
+	Total DataPageBaseAchievementSchema_Total  `json:"total"`
+}
+
+// DataPageBaseAchievementSchemaPage0 defines model for .
+type DataPageBaseAchievementSchemaPage0 = int
+
+// DataPageBaseAchievementSchemaPage1 defines model for .
+type DataPageBaseAchievementSchemaPage1 = interface{}
+
+// DataPageBaseAchievementSchema_Page defines model for DataPageBaseAchievementSchema.Page.
+type DataPageBaseAchievementSchema_Page struct {
+	union json.RawMessage
+}
+
+// DataPageBaseAchievementSchemaPages0 defines model for .
+type DataPageBaseAchievementSchemaPages0 = int
+
+// DataPageBaseAchievementSchemaPages1 defines model for .
+type DataPageBaseAchievementSchemaPages1 = interface{}
+
+// DataPageBaseAchievementSchema_Pages defines model for DataPageBaseAchievementSchema.Pages.
+type DataPageBaseAchievementSchema_Pages struct {
+	union json.RawMessage
+}
+
+// DataPageBaseAchievementSchemaSize0 defines model for .
+type DataPageBaseAchievementSchemaSize0 = int
+
+// DataPageBaseAchievementSchemaSize1 defines model for .
+type DataPageBaseAchievementSchemaSize1 = interface{}
+
+// DataPageBaseAchievementSchema_Size defines model for DataPageBaseAchievementSchema.Size.
+type DataPageBaseAchievementSchema_Size struct {
+	union json.RawMessage
+}
+
+// DataPageBaseAchievementSchemaTotal0 defines model for .
+type DataPageBaseAchievementSchemaTotal0 = int
+
+// DataPageBaseAchievementSchemaTotal1 defines model for .
+type DataPageBaseAchievementSchemaTotal1 = interface{}
+
+// DataPageBaseAchievementSchema_Total defines model for DataPageBaseAchievementSchema.Total.
+type DataPageBaseAchievementSchema_Total struct {
+	union json.RawMessage
+}
+
+// DataPageCharacterLeaderboardSchema defines model for DataPage_CharacterLeaderboardSchema_.
+type DataPageCharacterLeaderboardSchema struct {
+	Data  []CharacterLeaderboardSchema              `json:"data"`
+	Page  DataPageCharacterLeaderboardSchema_Page   `json:"page"`
+	Pages *DataPageCharacterLeaderboardSchema_Pages `json:"pages,omitempty"`
+	Size  DataPageCharacterLeaderboardSchema_Size   `json:"size"`
+	Total DataPageCharacterLeaderboardSchema_Total  `json:"total"`
+}
+
+// DataPageCharacterLeaderboardSchemaPage0 defines model for .
+type DataPageCharacterLeaderboardSchemaPage0 = int
+
+// DataPageCharacterLeaderboardSchemaPage1 defines model for .
+type DataPageCharacterLeaderboardSchemaPage1 = interface{}
+
+// DataPageCharacterLeaderboardSchema_Page defines model for DataPageCharacterLeaderboardSchema.Page.
+type DataPageCharacterLeaderboardSchema_Page struct {
+	union json.RawMessage
+}
+
+// DataPageCharacterLeaderboardSchemaPages0 defines model for .
+type DataPageCharacterLeaderboardSchemaPages0 = int
+
+// DataPageCharacterLeaderboardSchemaPages1 defines model for .
+type DataPageCharacterLeaderboardSchemaPages1 = interface{}
+
+// DataPageCharacterLeaderboardSchema_Pages defines model for DataPageCharacterLeaderboardSchema.Pages.
+type DataPageCharacterLeaderboardSchema_Pages struct {
+	union json.RawMessage
+}
+
+// DataPageCharacterLeaderboardSchemaSize0 defines model for .
+type DataPageCharacterLeaderboardSchemaSize0 = int
+
+// DataPageCharacterLeaderboardSchemaSize1 defines model for .
+type DataPageCharacterLeaderboardSchemaSize1 = interface{}
+
+// DataPageCharacterLeaderboardSchema_Size defines model for DataPageCharacterLeaderboardSchema.Size.
+type DataPageCharacterLeaderboardSchema_Size struct {
+	union json.RawMessage
+}
+
+// DataPageCharacterLeaderboardSchemaTotal0 defines model for .
+type DataPageCharacterLeaderboardSchemaTotal0 = int
+
+// DataPageCharacterLeaderboardSchemaTotal1 defines model for .
+type DataPageCharacterLeaderboardSchemaTotal1 = interface{}
+
+// DataPageCharacterLeaderboardSchema_Total defines model for DataPageCharacterLeaderboardSchema.Total.
+type DataPageCharacterLeaderboardSchema_Total struct {
 	union json.RawMessage
 }
 
@@ -1163,6 +1594,9 @@ type EquipSchema struct {
 	// Code Item code.
 	Code string `json:"code"`
 
+	// Quantity Item quantity. Applicable to consumables only.
+	Quantity *int `json:"quantity,omitempty"`
+
 	// Slot Item slot.
 	Slot EquipSchemaSlot `json:"slot"`
 }
@@ -1218,6 +1652,9 @@ type GEItemSchema struct {
 	// Code Item code.
 	Code string `json:"code"`
 
+	// MaxQuantity The number of items you can buy or sell at the same time.
+	MaxQuantity int `json:"max_quantity"`
+
 	// SellPrice The item's selling price.
 	SellPrice *int `json:"sell_price,omitempty"`
 
@@ -1269,32 +1706,10 @@ type GETransactionSchema struct {
 	TotalPrice int `json:"total_price"`
 }
 
-// GoldBankResponseSchema defines model for GoldBankResponseSchema.
-type GoldBankResponseSchema struct {
-	Data GoldSchema `json:"data"`
-}
-
-// GoldResponseSchema defines model for GoldResponseSchema.
-type GoldResponseSchema struct {
-	Data GoldTransactionSchema `json:"data"`
-}
-
 // GoldSchema defines model for GoldSchema.
 type GoldSchema struct {
 	// Quantity Quantity of gold.
 	Quantity int `json:"quantity"`
-}
-
-// GoldTransactionSchema defines model for GoldTransactionSchema.
-type GoldTransactionSchema struct {
-	// Bank Bank details.
-	Bank GoldSchema `json:"bank"`
-
-	// Character Player details.
-	Character CharacterSchema `json:"character"`
-
-	// Cooldown Cooldown details.
-	Cooldown CooldownSchema `json:"cooldown"`
 }
 
 // InventorySlot defines model for InventorySlot.
@@ -1373,7 +1788,7 @@ type LogSchema struct {
 	Cooldown int `json:"cooldown"`
 
 	// CooldownExpiration Datetime of cooldown expiration.
-	CooldownExpiration time.Time `json:"cooldown_expiration"`
+	CooldownExpiration LogSchema_CooldownExpiration `json:"cooldown_expiration"`
 
 	// CreatedAt Datetime of creation.
 	CreatedAt time.Time `json:"created_at"`
@@ -1383,6 +1798,17 @@ type LogSchema struct {
 
 	// Type Type of action.
 	Type string `json:"type"`
+}
+
+// LogSchemaCooldownExpiration0 defines model for .
+type LogSchemaCooldownExpiration0 = time.Time
+
+// LogSchemaCooldownExpiration1 defines model for .
+type LogSchemaCooldownExpiration1 = interface{}
+
+// LogSchema_CooldownExpiration Datetime of cooldown expiration.
+type LogSchema_CooldownExpiration struct {
+	union json.RawMessage
 }
 
 // MapContentSchema defines model for MapContentSchema.
@@ -1606,19 +2032,41 @@ type StatusResponseSchema struct {
 
 // StatusSchema defines model for StatusSchema.
 type StatusSchema struct {
-	Announcements    *[]AnnouncementSchema `json:"announcements,omitempty"`
-	CharactersOnline *int                  `json:"characters_online,omitempty"`
+	// Announcements Server announcements.
+	Announcements []AnnouncementSchema `json:"announcements"`
+
+	// CharactersOnline Characters online.
+	CharactersOnline int `json:"characters_online"`
 
 	// LastWipe Last server wipe.
 	LastWipe string `json:"last_wipe"`
 
+	// MaxLevel Maximum level.
+	MaxLevel int `json:"max_level"`
+
 	// NextWipe Next server wipe.
-	NextWipe   string     `json:"next_wipe"`
-	ServerTime *time.Time `json:"server_time,omitempty"`
+	NextWipe string `json:"next_wipe"`
+
+	// ServerTime Server time.
+	ServerTime time.Time `json:"server_time"`
 
 	// Status Server status
 	Status  string  `json:"status"`
 	Version *string `json:"version,omitempty"`
+}
+
+// TaskCancelledResponseSchema defines model for TaskCancelledResponseSchema.
+type TaskCancelledResponseSchema struct {
+	Data TaskCancelledSchema `json:"data"`
+}
+
+// TaskCancelledSchema defines model for TaskCancelledSchema.
+type TaskCancelledSchema struct {
+	// Character Player details.
+	Character CharacterSchema `json:"character"`
+
+	// Cooldown Cooldown details.
+	Cooldown CooldownSchema `json:"cooldown"`
 }
 
 // TaskDataSchema defines model for TaskDataSchema.
@@ -1686,6 +2134,9 @@ type TokenResponseSchema struct {
 
 // UnequipSchema defines model for UnequipSchema.
 type UnequipSchema struct {
+	// Quantity Item quantity. Applicable to consumables only.
+	Quantity *int `json:"quantity,omitempty"`
+
 	// Slot Item slot.
 	Slot UnequipSchemaSlot `json:"slot"`
 }
@@ -1693,10 +2144,10 @@ type UnequipSchema struct {
 // UnequipSchemaSlot Item slot.
 type UnequipSchemaSlot string
 
-// GetAllCharactersCharactersGetParams defines parameters for GetAllCharactersCharactersGet.
-type GetAllCharactersCharactersGetParams struct {
-	// Sort Default sort by combat total XP.
-	Sort *GetAllCharactersCharactersGetParamsSort `form:"sort,omitempty" json:"sort,omitempty"`
+// GetAllAchievementsAchievementsGetParams defines parameters for GetAllAchievementsAchievementsGet.
+type GetAllAchievementsAchievementsGetParams struct {
+	// Type Type of achievements.
+	Type *GetAllAchievementsAchievementsGetParamsType `form:"type,omitempty" json:"type,omitempty"`
 
 	// Page Page number
 	Page *int `form:"page,omitempty" json:"page,omitempty"`
@@ -1705,8 +2156,35 @@ type GetAllCharactersCharactersGetParams struct {
 	Size *int `form:"size,omitempty" json:"size,omitempty"`
 }
 
-// GetAllCharactersCharactersGetParamsSort defines parameters for GetAllCharactersCharactersGet.
-type GetAllCharactersCharactersGetParamsSort string
+// GetAllAchievementsAchievementsGetParamsType defines parameters for GetAllAchievementsAchievementsGet.
+type GetAllAchievementsAchievementsGetParamsType string
+
+// GetAllCharactersCharactersGetParams defines parameters for GetAllCharactersCharactersGet.
+type GetAllCharactersCharactersGetParams struct {
+	// Page Page number
+	Page *int `form:"page,omitempty" json:"page,omitempty"`
+
+	// Size Page size
+	Size *int `form:"size,omitempty" json:"size,omitempty"`
+}
+
+// GetCharacterAchievementsCharactersNameAchievementsGetParams defines parameters for GetCharacterAchievementsCharactersNameAchievementsGet.
+type GetCharacterAchievementsCharactersNameAchievementsGetParams struct {
+	// Type Type of achievements.
+	Type *GetCharacterAchievementsCharactersNameAchievementsGetParamsType `form:"type,omitempty" json:"type,omitempty"`
+
+	// Completed Filter by completed achievements.
+	Completed *bool `form:"completed,omitempty" json:"completed,omitempty"`
+
+	// Page Page number
+	Page *int `form:"page,omitempty" json:"page,omitempty"`
+
+	// Size Page size
+	Size *int `form:"size,omitempty" json:"size,omitempty"`
+}
+
+// GetCharacterAchievementsCharactersNameAchievementsGetParamsType defines parameters for GetCharacterAchievementsCharactersNameAchievementsGet.
+type GetCharacterAchievementsCharactersNameAchievementsGetParamsType string
 
 // GetAllEventsEventsGetParams defines parameters for GetAllEventsEventsGet.
 type GetAllEventsEventsGetParams struct {
@@ -1758,6 +2236,21 @@ type GetAllItemsItemsGetParamsType string
 
 // GetAllItemsItemsGetParamsCraftSkill defines parameters for GetAllItemsItemsGet.
 type GetAllItemsItemsGetParamsCraftSkill string
+
+// GetLeaderboardLeaderboardGetParams defines parameters for GetLeaderboardLeaderboardGet.
+type GetLeaderboardLeaderboardGetParams struct {
+	// Sort Default sort by combat total XP.
+	Sort *GetLeaderboardLeaderboardGetParamsSort `form:"sort,omitempty" json:"sort,omitempty"`
+
+	// Page Page number
+	Page *int `form:"page,omitempty" json:"page,omitempty"`
+
+	// Size Page size
+	Size *int `form:"size,omitempty" json:"size,omitempty"`
+}
+
+// GetLeaderboardLeaderboardGetParamsSort defines parameters for GetLeaderboardLeaderboardGet.
+type GetLeaderboardLeaderboardGetParamsSort string
 
 // GetAllMapsMapsGetParams defines parameters for GetAllMapsMapsGet.
 type GetAllMapsMapsGetParams struct {
@@ -1887,6 +2380,440 @@ type ActionRecyclingMyNameActionRecyclingPostJSONRequestBody = RecyclingSchema
 
 // ActionUnequipItemMyNameActionUnequipPostJSONRequestBody defines body for ActionUnequipItemMyNameActionUnequipPost for application/json ContentType.
 type ActionUnequipItemMyNameActionUnequipPostJSONRequestBody = UnequipSchema
+
+// AsAchievementSchemaCompletedAt0 returns the union data inside the AchievementSchema_CompletedAt as a AchievementSchemaCompletedAt0
+func (t AchievementSchema_CompletedAt) AsAchievementSchemaCompletedAt0() (AchievementSchemaCompletedAt0, error) {
+	var body AchievementSchemaCompletedAt0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAchievementSchemaCompletedAt0 overwrites any union data inside the AchievementSchema_CompletedAt as the provided AchievementSchemaCompletedAt0
+func (t *AchievementSchema_CompletedAt) FromAchievementSchemaCompletedAt0(v AchievementSchemaCompletedAt0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeAchievementSchemaCompletedAt0 performs a merge with any union data inside the AchievementSchema_CompletedAt, using the provided AchievementSchemaCompletedAt0
+func (t *AchievementSchema_CompletedAt) MergeAchievementSchemaCompletedAt0(v AchievementSchemaCompletedAt0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsAchievementSchemaCompletedAt1 returns the union data inside the AchievementSchema_CompletedAt as a AchievementSchemaCompletedAt1
+func (t AchievementSchema_CompletedAt) AsAchievementSchemaCompletedAt1() (AchievementSchemaCompletedAt1, error) {
+	var body AchievementSchemaCompletedAt1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAchievementSchemaCompletedAt1 overwrites any union data inside the AchievementSchema_CompletedAt as the provided AchievementSchemaCompletedAt1
+func (t *AchievementSchema_CompletedAt) FromAchievementSchemaCompletedAt1(v AchievementSchemaCompletedAt1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeAchievementSchemaCompletedAt1 performs a merge with any union data inside the AchievementSchema_CompletedAt, using the provided AchievementSchemaCompletedAt1
+func (t *AchievementSchema_CompletedAt) MergeAchievementSchemaCompletedAt1(v AchievementSchemaCompletedAt1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t AchievementSchema_CompletedAt) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *AchievementSchema_CompletedAt) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsAchievementSchemaTarget0 returns the union data inside the AchievementSchema_Target as a AchievementSchemaTarget0
+func (t AchievementSchema_Target) AsAchievementSchemaTarget0() (AchievementSchemaTarget0, error) {
+	var body AchievementSchemaTarget0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAchievementSchemaTarget0 overwrites any union data inside the AchievementSchema_Target as the provided AchievementSchemaTarget0
+func (t *AchievementSchema_Target) FromAchievementSchemaTarget0(v AchievementSchemaTarget0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeAchievementSchemaTarget0 performs a merge with any union data inside the AchievementSchema_Target, using the provided AchievementSchemaTarget0
+func (t *AchievementSchema_Target) MergeAchievementSchemaTarget0(v AchievementSchemaTarget0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsAchievementSchemaTarget1 returns the union data inside the AchievementSchema_Target as a AchievementSchemaTarget1
+func (t AchievementSchema_Target) AsAchievementSchemaTarget1() (AchievementSchemaTarget1, error) {
+	var body AchievementSchemaTarget1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAchievementSchemaTarget1 overwrites any union data inside the AchievementSchema_Target as the provided AchievementSchemaTarget1
+func (t *AchievementSchema_Target) FromAchievementSchemaTarget1(v AchievementSchemaTarget1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeAchievementSchemaTarget1 performs a merge with any union data inside the AchievementSchema_Target, using the provided AchievementSchemaTarget1
+func (t *AchievementSchema_Target) MergeAchievementSchemaTarget1(v AchievementSchemaTarget1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t AchievementSchema_Target) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *AchievementSchema_Target) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsBaseAchievementSchemaTarget0 returns the union data inside the BaseAchievementSchema_Target as a BaseAchievementSchemaTarget0
+func (t BaseAchievementSchema_Target) AsBaseAchievementSchemaTarget0() (BaseAchievementSchemaTarget0, error) {
+	var body BaseAchievementSchemaTarget0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromBaseAchievementSchemaTarget0 overwrites any union data inside the BaseAchievementSchema_Target as the provided BaseAchievementSchemaTarget0
+func (t *BaseAchievementSchema_Target) FromBaseAchievementSchemaTarget0(v BaseAchievementSchemaTarget0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeBaseAchievementSchemaTarget0 performs a merge with any union data inside the BaseAchievementSchema_Target, using the provided BaseAchievementSchemaTarget0
+func (t *BaseAchievementSchema_Target) MergeBaseAchievementSchemaTarget0(v BaseAchievementSchemaTarget0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsBaseAchievementSchemaTarget1 returns the union data inside the BaseAchievementSchema_Target as a BaseAchievementSchemaTarget1
+func (t BaseAchievementSchema_Target) AsBaseAchievementSchemaTarget1() (BaseAchievementSchemaTarget1, error) {
+	var body BaseAchievementSchemaTarget1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromBaseAchievementSchemaTarget1 overwrites any union data inside the BaseAchievementSchema_Target as the provided BaseAchievementSchemaTarget1
+func (t *BaseAchievementSchema_Target) FromBaseAchievementSchemaTarget1(v BaseAchievementSchemaTarget1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeBaseAchievementSchemaTarget1 performs a merge with any union data inside the BaseAchievementSchema_Target, using the provided BaseAchievementSchemaTarget1
+func (t *BaseAchievementSchema_Target) MergeBaseAchievementSchemaTarget1(v BaseAchievementSchemaTarget1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t BaseAchievementSchema_Target) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *BaseAchievementSchema_Target) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageAchievementSchemaPage0 returns the union data inside the DataPageAchievementSchema_Page as a DataPageAchievementSchemaPage0
+func (t DataPageAchievementSchema_Page) AsDataPageAchievementSchemaPage0() (DataPageAchievementSchemaPage0, error) {
+	var body DataPageAchievementSchemaPage0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageAchievementSchemaPage0 overwrites any union data inside the DataPageAchievementSchema_Page as the provided DataPageAchievementSchemaPage0
+func (t *DataPageAchievementSchema_Page) FromDataPageAchievementSchemaPage0(v DataPageAchievementSchemaPage0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageAchievementSchemaPage0 performs a merge with any union data inside the DataPageAchievementSchema_Page, using the provided DataPageAchievementSchemaPage0
+func (t *DataPageAchievementSchema_Page) MergeDataPageAchievementSchemaPage0(v DataPageAchievementSchemaPage0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageAchievementSchemaPage1 returns the union data inside the DataPageAchievementSchema_Page as a DataPageAchievementSchemaPage1
+func (t DataPageAchievementSchema_Page) AsDataPageAchievementSchemaPage1() (DataPageAchievementSchemaPage1, error) {
+	var body DataPageAchievementSchemaPage1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageAchievementSchemaPage1 overwrites any union data inside the DataPageAchievementSchema_Page as the provided DataPageAchievementSchemaPage1
+func (t *DataPageAchievementSchema_Page) FromDataPageAchievementSchemaPage1(v DataPageAchievementSchemaPage1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageAchievementSchemaPage1 performs a merge with any union data inside the DataPageAchievementSchema_Page, using the provided DataPageAchievementSchemaPage1
+func (t *DataPageAchievementSchema_Page) MergeDataPageAchievementSchemaPage1(v DataPageAchievementSchemaPage1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageAchievementSchema_Page) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageAchievementSchema_Page) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageAchievementSchemaPages0 returns the union data inside the DataPageAchievementSchema_Pages as a DataPageAchievementSchemaPages0
+func (t DataPageAchievementSchema_Pages) AsDataPageAchievementSchemaPages0() (DataPageAchievementSchemaPages0, error) {
+	var body DataPageAchievementSchemaPages0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageAchievementSchemaPages0 overwrites any union data inside the DataPageAchievementSchema_Pages as the provided DataPageAchievementSchemaPages0
+func (t *DataPageAchievementSchema_Pages) FromDataPageAchievementSchemaPages0(v DataPageAchievementSchemaPages0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageAchievementSchemaPages0 performs a merge with any union data inside the DataPageAchievementSchema_Pages, using the provided DataPageAchievementSchemaPages0
+func (t *DataPageAchievementSchema_Pages) MergeDataPageAchievementSchemaPages0(v DataPageAchievementSchemaPages0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageAchievementSchemaPages1 returns the union data inside the DataPageAchievementSchema_Pages as a DataPageAchievementSchemaPages1
+func (t DataPageAchievementSchema_Pages) AsDataPageAchievementSchemaPages1() (DataPageAchievementSchemaPages1, error) {
+	var body DataPageAchievementSchemaPages1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageAchievementSchemaPages1 overwrites any union data inside the DataPageAchievementSchema_Pages as the provided DataPageAchievementSchemaPages1
+func (t *DataPageAchievementSchema_Pages) FromDataPageAchievementSchemaPages1(v DataPageAchievementSchemaPages1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageAchievementSchemaPages1 performs a merge with any union data inside the DataPageAchievementSchema_Pages, using the provided DataPageAchievementSchemaPages1
+func (t *DataPageAchievementSchema_Pages) MergeDataPageAchievementSchemaPages1(v DataPageAchievementSchemaPages1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageAchievementSchema_Pages) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageAchievementSchema_Pages) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageAchievementSchemaSize0 returns the union data inside the DataPageAchievementSchema_Size as a DataPageAchievementSchemaSize0
+func (t DataPageAchievementSchema_Size) AsDataPageAchievementSchemaSize0() (DataPageAchievementSchemaSize0, error) {
+	var body DataPageAchievementSchemaSize0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageAchievementSchemaSize0 overwrites any union data inside the DataPageAchievementSchema_Size as the provided DataPageAchievementSchemaSize0
+func (t *DataPageAchievementSchema_Size) FromDataPageAchievementSchemaSize0(v DataPageAchievementSchemaSize0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageAchievementSchemaSize0 performs a merge with any union data inside the DataPageAchievementSchema_Size, using the provided DataPageAchievementSchemaSize0
+func (t *DataPageAchievementSchema_Size) MergeDataPageAchievementSchemaSize0(v DataPageAchievementSchemaSize0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageAchievementSchemaSize1 returns the union data inside the DataPageAchievementSchema_Size as a DataPageAchievementSchemaSize1
+func (t DataPageAchievementSchema_Size) AsDataPageAchievementSchemaSize1() (DataPageAchievementSchemaSize1, error) {
+	var body DataPageAchievementSchemaSize1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageAchievementSchemaSize1 overwrites any union data inside the DataPageAchievementSchema_Size as the provided DataPageAchievementSchemaSize1
+func (t *DataPageAchievementSchema_Size) FromDataPageAchievementSchemaSize1(v DataPageAchievementSchemaSize1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageAchievementSchemaSize1 performs a merge with any union data inside the DataPageAchievementSchema_Size, using the provided DataPageAchievementSchemaSize1
+func (t *DataPageAchievementSchema_Size) MergeDataPageAchievementSchemaSize1(v DataPageAchievementSchemaSize1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageAchievementSchema_Size) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageAchievementSchema_Size) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageAchievementSchemaTotal0 returns the union data inside the DataPageAchievementSchema_Total as a DataPageAchievementSchemaTotal0
+func (t DataPageAchievementSchema_Total) AsDataPageAchievementSchemaTotal0() (DataPageAchievementSchemaTotal0, error) {
+	var body DataPageAchievementSchemaTotal0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageAchievementSchemaTotal0 overwrites any union data inside the DataPageAchievementSchema_Total as the provided DataPageAchievementSchemaTotal0
+func (t *DataPageAchievementSchema_Total) FromDataPageAchievementSchemaTotal0(v DataPageAchievementSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageAchievementSchemaTotal0 performs a merge with any union data inside the DataPageAchievementSchema_Total, using the provided DataPageAchievementSchemaTotal0
+func (t *DataPageAchievementSchema_Total) MergeDataPageAchievementSchemaTotal0(v DataPageAchievementSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageAchievementSchemaTotal1 returns the union data inside the DataPageAchievementSchema_Total as a DataPageAchievementSchemaTotal1
+func (t DataPageAchievementSchema_Total) AsDataPageAchievementSchemaTotal1() (DataPageAchievementSchemaTotal1, error) {
+	var body DataPageAchievementSchemaTotal1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageAchievementSchemaTotal1 overwrites any union data inside the DataPageAchievementSchema_Total as the provided DataPageAchievementSchemaTotal1
+func (t *DataPageAchievementSchema_Total) FromDataPageAchievementSchemaTotal1(v DataPageAchievementSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageAchievementSchemaTotal1 performs a merge with any union data inside the DataPageAchievementSchema_Total, using the provided DataPageAchievementSchemaTotal1
+func (t *DataPageAchievementSchema_Total) MergeDataPageAchievementSchemaTotal1(v DataPageAchievementSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageAchievementSchema_Total) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageAchievementSchema_Total) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
 
 // AsDataPageActiveEventSchemaPage0 returns the union data inside the DataPageActiveEventSchema_Page as a DataPageActiveEventSchemaPage0
 func (t DataPageActiveEventSchema_Page) AsDataPageActiveEventSchemaPage0() (DataPageActiveEventSchemaPage0, error) {
@@ -2132,6 +3059,502 @@ func (t DataPageActiveEventSchema_Total) MarshalJSON() ([]byte, error) {
 }
 
 func (t *DataPageActiveEventSchema_Total) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageBaseAchievementSchemaPage0 returns the union data inside the DataPageBaseAchievementSchema_Page as a DataPageBaseAchievementSchemaPage0
+func (t DataPageBaseAchievementSchema_Page) AsDataPageBaseAchievementSchemaPage0() (DataPageBaseAchievementSchemaPage0, error) {
+	var body DataPageBaseAchievementSchemaPage0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageBaseAchievementSchemaPage0 overwrites any union data inside the DataPageBaseAchievementSchema_Page as the provided DataPageBaseAchievementSchemaPage0
+func (t *DataPageBaseAchievementSchema_Page) FromDataPageBaseAchievementSchemaPage0(v DataPageBaseAchievementSchemaPage0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageBaseAchievementSchemaPage0 performs a merge with any union data inside the DataPageBaseAchievementSchema_Page, using the provided DataPageBaseAchievementSchemaPage0
+func (t *DataPageBaseAchievementSchema_Page) MergeDataPageBaseAchievementSchemaPage0(v DataPageBaseAchievementSchemaPage0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageBaseAchievementSchemaPage1 returns the union data inside the DataPageBaseAchievementSchema_Page as a DataPageBaseAchievementSchemaPage1
+func (t DataPageBaseAchievementSchema_Page) AsDataPageBaseAchievementSchemaPage1() (DataPageBaseAchievementSchemaPage1, error) {
+	var body DataPageBaseAchievementSchemaPage1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageBaseAchievementSchemaPage1 overwrites any union data inside the DataPageBaseAchievementSchema_Page as the provided DataPageBaseAchievementSchemaPage1
+func (t *DataPageBaseAchievementSchema_Page) FromDataPageBaseAchievementSchemaPage1(v DataPageBaseAchievementSchemaPage1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageBaseAchievementSchemaPage1 performs a merge with any union data inside the DataPageBaseAchievementSchema_Page, using the provided DataPageBaseAchievementSchemaPage1
+func (t *DataPageBaseAchievementSchema_Page) MergeDataPageBaseAchievementSchemaPage1(v DataPageBaseAchievementSchemaPage1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageBaseAchievementSchema_Page) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageBaseAchievementSchema_Page) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageBaseAchievementSchemaPages0 returns the union data inside the DataPageBaseAchievementSchema_Pages as a DataPageBaseAchievementSchemaPages0
+func (t DataPageBaseAchievementSchema_Pages) AsDataPageBaseAchievementSchemaPages0() (DataPageBaseAchievementSchemaPages0, error) {
+	var body DataPageBaseAchievementSchemaPages0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageBaseAchievementSchemaPages0 overwrites any union data inside the DataPageBaseAchievementSchema_Pages as the provided DataPageBaseAchievementSchemaPages0
+func (t *DataPageBaseAchievementSchema_Pages) FromDataPageBaseAchievementSchemaPages0(v DataPageBaseAchievementSchemaPages0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageBaseAchievementSchemaPages0 performs a merge with any union data inside the DataPageBaseAchievementSchema_Pages, using the provided DataPageBaseAchievementSchemaPages0
+func (t *DataPageBaseAchievementSchema_Pages) MergeDataPageBaseAchievementSchemaPages0(v DataPageBaseAchievementSchemaPages0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageBaseAchievementSchemaPages1 returns the union data inside the DataPageBaseAchievementSchema_Pages as a DataPageBaseAchievementSchemaPages1
+func (t DataPageBaseAchievementSchema_Pages) AsDataPageBaseAchievementSchemaPages1() (DataPageBaseAchievementSchemaPages1, error) {
+	var body DataPageBaseAchievementSchemaPages1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageBaseAchievementSchemaPages1 overwrites any union data inside the DataPageBaseAchievementSchema_Pages as the provided DataPageBaseAchievementSchemaPages1
+func (t *DataPageBaseAchievementSchema_Pages) FromDataPageBaseAchievementSchemaPages1(v DataPageBaseAchievementSchemaPages1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageBaseAchievementSchemaPages1 performs a merge with any union data inside the DataPageBaseAchievementSchema_Pages, using the provided DataPageBaseAchievementSchemaPages1
+func (t *DataPageBaseAchievementSchema_Pages) MergeDataPageBaseAchievementSchemaPages1(v DataPageBaseAchievementSchemaPages1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageBaseAchievementSchema_Pages) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageBaseAchievementSchema_Pages) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageBaseAchievementSchemaSize0 returns the union data inside the DataPageBaseAchievementSchema_Size as a DataPageBaseAchievementSchemaSize0
+func (t DataPageBaseAchievementSchema_Size) AsDataPageBaseAchievementSchemaSize0() (DataPageBaseAchievementSchemaSize0, error) {
+	var body DataPageBaseAchievementSchemaSize0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageBaseAchievementSchemaSize0 overwrites any union data inside the DataPageBaseAchievementSchema_Size as the provided DataPageBaseAchievementSchemaSize0
+func (t *DataPageBaseAchievementSchema_Size) FromDataPageBaseAchievementSchemaSize0(v DataPageBaseAchievementSchemaSize0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageBaseAchievementSchemaSize0 performs a merge with any union data inside the DataPageBaseAchievementSchema_Size, using the provided DataPageBaseAchievementSchemaSize0
+func (t *DataPageBaseAchievementSchema_Size) MergeDataPageBaseAchievementSchemaSize0(v DataPageBaseAchievementSchemaSize0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageBaseAchievementSchemaSize1 returns the union data inside the DataPageBaseAchievementSchema_Size as a DataPageBaseAchievementSchemaSize1
+func (t DataPageBaseAchievementSchema_Size) AsDataPageBaseAchievementSchemaSize1() (DataPageBaseAchievementSchemaSize1, error) {
+	var body DataPageBaseAchievementSchemaSize1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageBaseAchievementSchemaSize1 overwrites any union data inside the DataPageBaseAchievementSchema_Size as the provided DataPageBaseAchievementSchemaSize1
+func (t *DataPageBaseAchievementSchema_Size) FromDataPageBaseAchievementSchemaSize1(v DataPageBaseAchievementSchemaSize1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageBaseAchievementSchemaSize1 performs a merge with any union data inside the DataPageBaseAchievementSchema_Size, using the provided DataPageBaseAchievementSchemaSize1
+func (t *DataPageBaseAchievementSchema_Size) MergeDataPageBaseAchievementSchemaSize1(v DataPageBaseAchievementSchemaSize1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageBaseAchievementSchema_Size) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageBaseAchievementSchema_Size) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageBaseAchievementSchemaTotal0 returns the union data inside the DataPageBaseAchievementSchema_Total as a DataPageBaseAchievementSchemaTotal0
+func (t DataPageBaseAchievementSchema_Total) AsDataPageBaseAchievementSchemaTotal0() (DataPageBaseAchievementSchemaTotal0, error) {
+	var body DataPageBaseAchievementSchemaTotal0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageBaseAchievementSchemaTotal0 overwrites any union data inside the DataPageBaseAchievementSchema_Total as the provided DataPageBaseAchievementSchemaTotal0
+func (t *DataPageBaseAchievementSchema_Total) FromDataPageBaseAchievementSchemaTotal0(v DataPageBaseAchievementSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageBaseAchievementSchemaTotal0 performs a merge with any union data inside the DataPageBaseAchievementSchema_Total, using the provided DataPageBaseAchievementSchemaTotal0
+func (t *DataPageBaseAchievementSchema_Total) MergeDataPageBaseAchievementSchemaTotal0(v DataPageBaseAchievementSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageBaseAchievementSchemaTotal1 returns the union data inside the DataPageBaseAchievementSchema_Total as a DataPageBaseAchievementSchemaTotal1
+func (t DataPageBaseAchievementSchema_Total) AsDataPageBaseAchievementSchemaTotal1() (DataPageBaseAchievementSchemaTotal1, error) {
+	var body DataPageBaseAchievementSchemaTotal1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageBaseAchievementSchemaTotal1 overwrites any union data inside the DataPageBaseAchievementSchema_Total as the provided DataPageBaseAchievementSchemaTotal1
+func (t *DataPageBaseAchievementSchema_Total) FromDataPageBaseAchievementSchemaTotal1(v DataPageBaseAchievementSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageBaseAchievementSchemaTotal1 performs a merge with any union data inside the DataPageBaseAchievementSchema_Total, using the provided DataPageBaseAchievementSchemaTotal1
+func (t *DataPageBaseAchievementSchema_Total) MergeDataPageBaseAchievementSchemaTotal1(v DataPageBaseAchievementSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageBaseAchievementSchema_Total) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageBaseAchievementSchema_Total) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageCharacterLeaderboardSchemaPage0 returns the union data inside the DataPageCharacterLeaderboardSchema_Page as a DataPageCharacterLeaderboardSchemaPage0
+func (t DataPageCharacterLeaderboardSchema_Page) AsDataPageCharacterLeaderboardSchemaPage0() (DataPageCharacterLeaderboardSchemaPage0, error) {
+	var body DataPageCharacterLeaderboardSchemaPage0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageCharacterLeaderboardSchemaPage0 overwrites any union data inside the DataPageCharacterLeaderboardSchema_Page as the provided DataPageCharacterLeaderboardSchemaPage0
+func (t *DataPageCharacterLeaderboardSchema_Page) FromDataPageCharacterLeaderboardSchemaPage0(v DataPageCharacterLeaderboardSchemaPage0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageCharacterLeaderboardSchemaPage0 performs a merge with any union data inside the DataPageCharacterLeaderboardSchema_Page, using the provided DataPageCharacterLeaderboardSchemaPage0
+func (t *DataPageCharacterLeaderboardSchema_Page) MergeDataPageCharacterLeaderboardSchemaPage0(v DataPageCharacterLeaderboardSchemaPage0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageCharacterLeaderboardSchemaPage1 returns the union data inside the DataPageCharacterLeaderboardSchema_Page as a DataPageCharacterLeaderboardSchemaPage1
+func (t DataPageCharacterLeaderboardSchema_Page) AsDataPageCharacterLeaderboardSchemaPage1() (DataPageCharacterLeaderboardSchemaPage1, error) {
+	var body DataPageCharacterLeaderboardSchemaPage1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageCharacterLeaderboardSchemaPage1 overwrites any union data inside the DataPageCharacterLeaderboardSchema_Page as the provided DataPageCharacterLeaderboardSchemaPage1
+func (t *DataPageCharacterLeaderboardSchema_Page) FromDataPageCharacterLeaderboardSchemaPage1(v DataPageCharacterLeaderboardSchemaPage1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageCharacterLeaderboardSchemaPage1 performs a merge with any union data inside the DataPageCharacterLeaderboardSchema_Page, using the provided DataPageCharacterLeaderboardSchemaPage1
+func (t *DataPageCharacterLeaderboardSchema_Page) MergeDataPageCharacterLeaderboardSchemaPage1(v DataPageCharacterLeaderboardSchemaPage1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageCharacterLeaderboardSchema_Page) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageCharacterLeaderboardSchema_Page) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageCharacterLeaderboardSchemaPages0 returns the union data inside the DataPageCharacterLeaderboardSchema_Pages as a DataPageCharacterLeaderboardSchemaPages0
+func (t DataPageCharacterLeaderboardSchema_Pages) AsDataPageCharacterLeaderboardSchemaPages0() (DataPageCharacterLeaderboardSchemaPages0, error) {
+	var body DataPageCharacterLeaderboardSchemaPages0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageCharacterLeaderboardSchemaPages0 overwrites any union data inside the DataPageCharacterLeaderboardSchema_Pages as the provided DataPageCharacterLeaderboardSchemaPages0
+func (t *DataPageCharacterLeaderboardSchema_Pages) FromDataPageCharacterLeaderboardSchemaPages0(v DataPageCharacterLeaderboardSchemaPages0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageCharacterLeaderboardSchemaPages0 performs a merge with any union data inside the DataPageCharacterLeaderboardSchema_Pages, using the provided DataPageCharacterLeaderboardSchemaPages0
+func (t *DataPageCharacterLeaderboardSchema_Pages) MergeDataPageCharacterLeaderboardSchemaPages0(v DataPageCharacterLeaderboardSchemaPages0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageCharacterLeaderboardSchemaPages1 returns the union data inside the DataPageCharacterLeaderboardSchema_Pages as a DataPageCharacterLeaderboardSchemaPages1
+func (t DataPageCharacterLeaderboardSchema_Pages) AsDataPageCharacterLeaderboardSchemaPages1() (DataPageCharacterLeaderboardSchemaPages1, error) {
+	var body DataPageCharacterLeaderboardSchemaPages1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageCharacterLeaderboardSchemaPages1 overwrites any union data inside the DataPageCharacterLeaderboardSchema_Pages as the provided DataPageCharacterLeaderboardSchemaPages1
+func (t *DataPageCharacterLeaderboardSchema_Pages) FromDataPageCharacterLeaderboardSchemaPages1(v DataPageCharacterLeaderboardSchemaPages1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageCharacterLeaderboardSchemaPages1 performs a merge with any union data inside the DataPageCharacterLeaderboardSchema_Pages, using the provided DataPageCharacterLeaderboardSchemaPages1
+func (t *DataPageCharacterLeaderboardSchema_Pages) MergeDataPageCharacterLeaderboardSchemaPages1(v DataPageCharacterLeaderboardSchemaPages1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageCharacterLeaderboardSchema_Pages) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageCharacterLeaderboardSchema_Pages) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageCharacterLeaderboardSchemaSize0 returns the union data inside the DataPageCharacterLeaderboardSchema_Size as a DataPageCharacterLeaderboardSchemaSize0
+func (t DataPageCharacterLeaderboardSchema_Size) AsDataPageCharacterLeaderboardSchemaSize0() (DataPageCharacterLeaderboardSchemaSize0, error) {
+	var body DataPageCharacterLeaderboardSchemaSize0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageCharacterLeaderboardSchemaSize0 overwrites any union data inside the DataPageCharacterLeaderboardSchema_Size as the provided DataPageCharacterLeaderboardSchemaSize0
+func (t *DataPageCharacterLeaderboardSchema_Size) FromDataPageCharacterLeaderboardSchemaSize0(v DataPageCharacterLeaderboardSchemaSize0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageCharacterLeaderboardSchemaSize0 performs a merge with any union data inside the DataPageCharacterLeaderboardSchema_Size, using the provided DataPageCharacterLeaderboardSchemaSize0
+func (t *DataPageCharacterLeaderboardSchema_Size) MergeDataPageCharacterLeaderboardSchemaSize0(v DataPageCharacterLeaderboardSchemaSize0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageCharacterLeaderboardSchemaSize1 returns the union data inside the DataPageCharacterLeaderboardSchema_Size as a DataPageCharacterLeaderboardSchemaSize1
+func (t DataPageCharacterLeaderboardSchema_Size) AsDataPageCharacterLeaderboardSchemaSize1() (DataPageCharacterLeaderboardSchemaSize1, error) {
+	var body DataPageCharacterLeaderboardSchemaSize1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageCharacterLeaderboardSchemaSize1 overwrites any union data inside the DataPageCharacterLeaderboardSchema_Size as the provided DataPageCharacterLeaderboardSchemaSize1
+func (t *DataPageCharacterLeaderboardSchema_Size) FromDataPageCharacterLeaderboardSchemaSize1(v DataPageCharacterLeaderboardSchemaSize1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageCharacterLeaderboardSchemaSize1 performs a merge with any union data inside the DataPageCharacterLeaderboardSchema_Size, using the provided DataPageCharacterLeaderboardSchemaSize1
+func (t *DataPageCharacterLeaderboardSchema_Size) MergeDataPageCharacterLeaderboardSchemaSize1(v DataPageCharacterLeaderboardSchemaSize1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageCharacterLeaderboardSchema_Size) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageCharacterLeaderboardSchema_Size) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageCharacterLeaderboardSchemaTotal0 returns the union data inside the DataPageCharacterLeaderboardSchema_Total as a DataPageCharacterLeaderboardSchemaTotal0
+func (t DataPageCharacterLeaderboardSchema_Total) AsDataPageCharacterLeaderboardSchemaTotal0() (DataPageCharacterLeaderboardSchemaTotal0, error) {
+	var body DataPageCharacterLeaderboardSchemaTotal0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageCharacterLeaderboardSchemaTotal0 overwrites any union data inside the DataPageCharacterLeaderboardSchema_Total as the provided DataPageCharacterLeaderboardSchemaTotal0
+func (t *DataPageCharacterLeaderboardSchema_Total) FromDataPageCharacterLeaderboardSchemaTotal0(v DataPageCharacterLeaderboardSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageCharacterLeaderboardSchemaTotal0 performs a merge with any union data inside the DataPageCharacterLeaderboardSchema_Total, using the provided DataPageCharacterLeaderboardSchemaTotal0
+func (t *DataPageCharacterLeaderboardSchema_Total) MergeDataPageCharacterLeaderboardSchemaTotal0(v DataPageCharacterLeaderboardSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageCharacterLeaderboardSchemaTotal1 returns the union data inside the DataPageCharacterLeaderboardSchema_Total as a DataPageCharacterLeaderboardSchemaTotal1
+func (t DataPageCharacterLeaderboardSchema_Total) AsDataPageCharacterLeaderboardSchemaTotal1() (DataPageCharacterLeaderboardSchemaTotal1, error) {
+	var body DataPageCharacterLeaderboardSchemaTotal1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageCharacterLeaderboardSchemaTotal1 overwrites any union data inside the DataPageCharacterLeaderboardSchema_Total as the provided DataPageCharacterLeaderboardSchemaTotal1
+func (t *DataPageCharacterLeaderboardSchema_Total) FromDataPageCharacterLeaderboardSchemaTotal1(v DataPageCharacterLeaderboardSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageCharacterLeaderboardSchemaTotal1 performs a merge with any union data inside the DataPageCharacterLeaderboardSchema_Total, using the provided DataPageCharacterLeaderboardSchemaTotal1
+func (t *DataPageCharacterLeaderboardSchema_Total) MergeDataPageCharacterLeaderboardSchemaTotal1(v DataPageCharacterLeaderboardSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageCharacterLeaderboardSchema_Total) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageCharacterLeaderboardSchema_Total) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -4182,6 +5605,68 @@ func (t *ItemSchema_Craft) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsLogSchemaCooldownExpiration0 returns the union data inside the LogSchema_CooldownExpiration as a LogSchemaCooldownExpiration0
+func (t LogSchema_CooldownExpiration) AsLogSchemaCooldownExpiration0() (LogSchemaCooldownExpiration0, error) {
+	var body LogSchemaCooldownExpiration0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromLogSchemaCooldownExpiration0 overwrites any union data inside the LogSchema_CooldownExpiration as the provided LogSchemaCooldownExpiration0
+func (t *LogSchema_CooldownExpiration) FromLogSchemaCooldownExpiration0(v LogSchemaCooldownExpiration0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeLogSchemaCooldownExpiration0 performs a merge with any union data inside the LogSchema_CooldownExpiration, using the provided LogSchemaCooldownExpiration0
+func (t *LogSchema_CooldownExpiration) MergeLogSchemaCooldownExpiration0(v LogSchemaCooldownExpiration0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsLogSchemaCooldownExpiration1 returns the union data inside the LogSchema_CooldownExpiration as a LogSchemaCooldownExpiration1
+func (t LogSchema_CooldownExpiration) AsLogSchemaCooldownExpiration1() (LogSchemaCooldownExpiration1, error) {
+	var body LogSchemaCooldownExpiration1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromLogSchemaCooldownExpiration1 overwrites any union data inside the LogSchema_CooldownExpiration as the provided LogSchemaCooldownExpiration1
+func (t *LogSchema_CooldownExpiration) FromLogSchemaCooldownExpiration1(v LogSchemaCooldownExpiration1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeLogSchemaCooldownExpiration1 performs a merge with any union data inside the LogSchema_CooldownExpiration, using the provided LogSchemaCooldownExpiration1
+func (t *LogSchema_CooldownExpiration) MergeLogSchemaCooldownExpiration1(v LogSchemaCooldownExpiration1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t LogSchema_CooldownExpiration) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *LogSchema_CooldownExpiration) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsMapContentSchema returns the union data inside the MapSchema_Content as a MapContentSchema
 func (t MapSchema_Content) AsMapContentSchema() (MapContentSchema, error) {
 	var body MapContentSchema
@@ -4387,6 +5872,12 @@ type ClientInterface interface {
 
 	CreateAccountAccountsCreatePost(ctx context.Context, body CreateAccountAccountsCreatePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetAllAchievementsAchievementsGet request
+	GetAllAchievementsAchievementsGet(ctx context.Context, params *GetAllAchievementsAchievementsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetAchievementAchievementsCodeGet request
+	GetAchievementAchievementsCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetAllCharactersCharactersGet request
 	GetAllCharactersCharactersGet(ctx context.Context, params *GetAllCharactersCharactersGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -4403,6 +5894,9 @@ type ClientInterface interface {
 	// GetCharacterCharactersNameGet request
 	GetCharacterCharactersNameGet(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetCharacterAchievementsCharactersNameAchievementsGet request
+	GetCharacterAchievementsCharactersNameAchievementsGet(ctx context.Context, name string, params *GetCharacterAchievementsCharactersNameAchievementsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetAllEventsEventsGet request
 	GetAllEventsEventsGet(ctx context.Context, params *GetAllEventsEventsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -4418,6 +5912,9 @@ type ClientInterface interface {
 	// GetItemItemsCodeGet request
 	GetItemItemsCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetLeaderboardLeaderboardGet request
+	GetLeaderboardLeaderboardGet(ctx context.Context, params *GetLeaderboardLeaderboardGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetAllMapsMapsGet request
 	GetAllMapsMapsGet(ctx context.Context, params *GetAllMapsMapsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -4430,8 +5927,8 @@ type ClientInterface interface {
 	// GetMonsterMonstersCodeGet request
 	GetMonsterMonstersCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// GetBankGoldsMyBankGoldGet request
-	GetBankGoldsMyBankGoldGet(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+	// GetBankDetailsMyBankGet request
+	GetBankDetailsMyBankGet(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetBankItemsMyBankItemsGet request
 	GetBankItemsMyBankItemsGet(ctx context.Context, params *GetBankItemsMyBankItemsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -4446,6 +5943,9 @@ type ClientInterface interface {
 
 	// GetAllCharactersLogsMyLogsGet request
 	GetAllCharactersLogsMyLogsGet(ctx context.Context, params *GetAllCharactersLogsMyLogsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ActionBuyBankExpansionMyNameActionBankBuyExpansionPost request
+	ActionBuyBankExpansionMyNameActionBankBuyExpansionPost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// ActionDepositBankMyNameActionBankDepositPostWithBody request with any body
 	ActionDepositBankMyNameActionBankDepositPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -4508,6 +6008,9 @@ type ClientInterface interface {
 
 	ActionRecyclingMyNameActionRecyclingPost(ctx context.Context, name string, body ActionRecyclingMyNameActionRecyclingPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// ActionTaskCancelMyNameActionTaskCancelPost request
+	ActionTaskCancelMyNameActionTaskCancelPost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// ActionCompleteTaskMyNameActionTaskCompletePost request
 	ActionCompleteTaskMyNameActionTaskCompletePost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -4558,6 +6061,30 @@ func (c *Client) CreateAccountAccountsCreatePostWithBody(ctx context.Context, co
 
 func (c *Client) CreateAccountAccountsCreatePost(ctx context.Context, body CreateAccountAccountsCreatePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewCreateAccountAccountsCreatePostRequest(c.Server, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetAllAchievementsAchievementsGet(ctx context.Context, params *GetAllAchievementsAchievementsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAllAchievementsAchievementsGetRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetAchievementAchievementsCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAchievementAchievementsCodeGetRequest(c.Server, code)
 	if err != nil {
 		return nil, err
 	}
@@ -4640,6 +6167,18 @@ func (c *Client) GetCharacterCharactersNameGet(ctx context.Context, name string,
 	return c.Client.Do(req)
 }
 
+func (c *Client) GetCharacterAchievementsCharactersNameAchievementsGet(ctx context.Context, name string, params *GetCharacterAchievementsCharactersNameAchievementsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetCharacterAchievementsCharactersNameAchievementsGetRequest(c.Server, name, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 func (c *Client) GetAllEventsEventsGet(ctx context.Context, params *GetAllEventsEventsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetAllEventsEventsGetRequest(c.Server, params)
 	if err != nil {
@@ -4700,6 +6239,18 @@ func (c *Client) GetItemItemsCodeGet(ctx context.Context, code string, reqEditor
 	return c.Client.Do(req)
 }
 
+func (c *Client) GetLeaderboardLeaderboardGet(ctx context.Context, params *GetLeaderboardLeaderboardGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetLeaderboardLeaderboardGetRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 func (c *Client) GetAllMapsMapsGet(ctx context.Context, params *GetAllMapsMapsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetAllMapsMapsGetRequest(c.Server, params)
 	if err != nil {
@@ -4748,8 +6299,8 @@ func (c *Client) GetMonsterMonstersCodeGet(ctx context.Context, code string, req
 	return c.Client.Do(req)
 }
 
-func (c *Client) GetBankGoldsMyBankGoldGet(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewGetBankGoldsMyBankGoldGetRequest(c.Server)
+func (c *Client) GetBankDetailsMyBankGet(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetBankDetailsMyBankGetRequest(c.Server)
 	if err != nil {
 		return nil, err
 	}
@@ -4810,6 +6361,18 @@ func (c *Client) GetMyCharactersMyCharactersGet(ctx context.Context, reqEditors 
 
 func (c *Client) GetAllCharactersLogsMyLogsGet(ctx context.Context, params *GetAllCharactersLogsMyLogsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetAllCharactersLogsMyLogsGetRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ActionBuyBankExpansionMyNameActionBankBuyExpansionPost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewActionBuyBankExpansionMyNameActionBankBuyExpansionPostRequest(c.Server, name)
 	if err != nil {
 		return nil, err
 	}
@@ -5108,6 +6671,18 @@ func (c *Client) ActionRecyclingMyNameActionRecyclingPost(ctx context.Context, n
 	return c.Client.Do(req)
 }
 
+func (c *Client) ActionTaskCancelMyNameActionTaskCancelPost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewActionTaskCancelMyNameActionTaskCancelPostRequest(c.Server, name)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 func (c *Client) ActionCompleteTaskMyNameActionTaskCompletePost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewActionCompleteTaskMyNameActionTaskCompletePostRequest(c.Server, name)
 	if err != nil {
@@ -5271,8 +6846,8 @@ func NewCreateAccountAccountsCreatePostRequestWithBody(server string, contentTyp
 	return req, nil
 }
 
-// NewGetAllCharactersCharactersGetRequest generates requests for GetAllCharactersCharactersGet
-func NewGetAllCharactersCharactersGetRequest(server string, params *GetAllCharactersCharactersGetParams) (*http.Request, error) {
+// NewGetAllAchievementsAchievementsGetRequest generates requests for GetAllAchievementsAchievementsGet
+func NewGetAllAchievementsAchievementsGetRequest(server string, params *GetAllAchievementsAchievementsGetParams) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -5280,7 +6855,7 @@ func NewGetAllCharactersCharactersGetRequest(server string, params *GetAllCharac
 		return nil, err
 	}
 
-	operationPath := fmt.Sprintf("/characters/")
+	operationPath := fmt.Sprintf("/achievements")
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -5293,9 +6868,9 @@ func NewGetAllCharactersCharactersGetRequest(server string, params *GetAllCharac
 	if params != nil {
 		queryValues := queryURL.Query()
 
-		if params.Sort != nil {
+		if params.Type != nil {
 
-			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "type", runtime.ParamLocationQuery, *params.Type); err != nil {
 				return nil, err
 			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 				return nil, err
@@ -5308,6 +6883,105 @@ func NewGetAllCharactersCharactersGetRequest(server string, params *GetAllCharac
 			}
 
 		}
+
+		if params.Page != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "page", runtime.ParamLocationQuery, *params.Page); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Size != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "size", runtime.ParamLocationQuery, *params.Size); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetAchievementAchievementsCodeGetRequest generates requests for GetAchievementAchievementsCodeGet
+func NewGetAchievementAchievementsCodeGetRequest(server string, code string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "code", runtime.ParamLocationPath, code)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/achievements/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetAllCharactersCharactersGetRequest generates requests for GetAllCharactersCharactersGet
+func NewGetAllCharactersCharactersGetRequest(server string, params *GetAllCharactersCharactersGetParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/characters")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
 
 		if params.Page != nil {
 
@@ -5466,6 +7140,110 @@ func NewGetCharacterCharactersNameGetRequest(server string, name string) (*http.
 	return req, nil
 }
 
+// NewGetCharacterAchievementsCharactersNameAchievementsGetRequest generates requests for GetCharacterAchievementsCharactersNameAchievementsGet
+func NewGetCharacterAchievementsCharactersNameAchievementsGetRequest(server string, name string, params *GetCharacterAchievementsCharactersNameAchievementsGetParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "name", runtime.ParamLocationPath, name)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/characters/%s/achievements", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Type != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "type", runtime.ParamLocationQuery, *params.Type); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Completed != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "completed", runtime.ParamLocationQuery, *params.Completed); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Page != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "page", runtime.ParamLocationQuery, *params.Page); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Size != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "size", runtime.ParamLocationQuery, *params.Size); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewGetAllEventsEventsGetRequest generates requests for GetAllEventsEventsGet
 func NewGetAllEventsEventsGetRequest(server string, params *GetAllEventsEventsGetParams) (*http.Request, error) {
 	var err error
@@ -5475,7 +7253,7 @@ func NewGetAllEventsEventsGetRequest(server string, params *GetAllEventsEventsGe
 		return nil, err
 	}
 
-	operationPath := fmt.Sprintf("/events/")
+	operationPath := fmt.Sprintf("/events")
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -5540,7 +7318,7 @@ func NewGetAllGeItemsGeGetRequest(server string, params *GetAllGeItemsGeGetParam
 		return nil, err
 	}
 
-	operationPath := fmt.Sprintf("/ge/")
+	operationPath := fmt.Sprintf("/ge")
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -5639,7 +7417,7 @@ func NewGetAllItemsItemsGetRequest(server string, params *GetAllItemsItemsGetPar
 		return nil, err
 	}
 
-	operationPath := fmt.Sprintf("/items/")
+	operationPath := fmt.Sprintf("/items")
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -5825,6 +7603,87 @@ func NewGetItemItemsCodeGetRequest(server string, code string) (*http.Request, e
 	return req, nil
 }
 
+// NewGetLeaderboardLeaderboardGetRequest generates requests for GetLeaderboardLeaderboardGet
+func NewGetLeaderboardLeaderboardGetRequest(server string, params *GetLeaderboardLeaderboardGetParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/leaderboard")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Sort != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "sort", runtime.ParamLocationQuery, *params.Sort); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Page != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "page", runtime.ParamLocationQuery, *params.Page); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Size != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "size", runtime.ParamLocationQuery, *params.Size); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewGetAllMapsMapsGetRequest generates requests for GetAllMapsMapsGet
 func NewGetAllMapsMapsGetRequest(server string, params *GetAllMapsMapsGetParams) (*http.Request, error) {
 	var err error
@@ -5834,7 +7693,7 @@ func NewGetAllMapsMapsGetRequest(server string, params *GetAllMapsMapsGetParams)
 		return nil, err
 	}
 
-	operationPath := fmt.Sprintf("/maps/")
+	operationPath := fmt.Sprintf("/maps")
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -5972,7 +7831,7 @@ func NewGetAllMonstersMonstersGetRequest(server string, params *GetAllMonstersMo
 		return nil, err
 	}
 
-	operationPath := fmt.Sprintf("/monsters/")
+	operationPath := fmt.Sprintf("/monsters")
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -6110,8 +7969,8 @@ func NewGetMonsterMonstersCodeGetRequest(server string, code string) (*http.Requ
 	return req, nil
 }
 
-// NewGetBankGoldsMyBankGoldGetRequest generates requests for GetBankGoldsMyBankGoldGet
-func NewGetBankGoldsMyBankGoldGetRequest(server string) (*http.Request, error) {
+// NewGetBankDetailsMyBankGetRequest generates requests for GetBankDetailsMyBankGet
+func NewGetBankDetailsMyBankGetRequest(server string) (*http.Request, error) {
 	var err error
 
 	serverURL, err := url.Parse(server)
@@ -6119,7 +7978,7 @@ func NewGetBankGoldsMyBankGoldGetRequest(server string) (*http.Request, error) {
 		return nil, err
 	}
 
-	operationPath := fmt.Sprintf("/my/bank/gold")
+	operationPath := fmt.Sprintf("/my/bank")
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -6343,6 +8202,40 @@ func NewGetAllCharactersLogsMyLogsGetRequest(server string, params *GetAllCharac
 	}
 
 	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewActionBuyBankExpansionMyNameActionBankBuyExpansionPostRequest generates requests for ActionBuyBankExpansionMyNameActionBankBuyExpansionPost
+func NewActionBuyBankExpansionMyNameActionBankBuyExpansionPostRequest(server string, name string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "name", runtime.ParamLocationPath, name)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/my/%s/action/bank/buy_expansion", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), nil)
 	if err != nil {
 		return nil, err
 	}
@@ -6935,6 +8828,40 @@ func NewActionRecyclingMyNameActionRecyclingPostRequestWithBody(server string, n
 	return req, nil
 }
 
+// NewActionTaskCancelMyNameActionTaskCancelPostRequest generates requests for ActionTaskCancelMyNameActionTaskCancelPost
+func NewActionTaskCancelMyNameActionTaskCancelPostRequest(server string, name string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "name", runtime.ParamLocationPath, name)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/my/%s/action/task/cancel", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewActionCompleteTaskMyNameActionTaskCompletePostRequest generates requests for ActionCompleteTaskMyNameActionTaskCompletePost
 func NewActionCompleteTaskMyNameActionTaskCompletePostRequest(server string, name string) (*http.Request, error) {
 	var err error
@@ -7093,7 +9020,7 @@ func NewGetAllResourcesResourcesGetRequest(server string, params *GetAllResource
 		return nil, err
 	}
 
-	operationPath := fmt.Sprintf("/resources/")
+	operationPath := fmt.Sprintf("/resources")
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -7256,7 +9183,7 @@ func NewGenerateTokenTokenPostRequest(server string) (*http.Request, error) {
 		return nil, err
 	}
 
-	operationPath := fmt.Sprintf("/token/")
+	operationPath := fmt.Sprintf("/token")
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -7325,6 +9252,12 @@ type ClientWithResponsesInterface interface {
 
 	CreateAccountAccountsCreatePostWithResponse(ctx context.Context, body CreateAccountAccountsCreatePostJSONRequestBody, reqEditors ...RequestEditorFn) (*CreateAccountAccountsCreatePostResponse, error)
 
+	// GetAllAchievementsAchievementsGetWithResponse request
+	GetAllAchievementsAchievementsGetWithResponse(ctx context.Context, params *GetAllAchievementsAchievementsGetParams, reqEditors ...RequestEditorFn) (*GetAllAchievementsAchievementsGetResponse, error)
+
+	// GetAchievementAchievementsCodeGetWithResponse request
+	GetAchievementAchievementsCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetAchievementAchievementsCodeGetResponse, error)
+
 	// GetAllCharactersCharactersGetWithResponse request
 	GetAllCharactersCharactersGetWithResponse(ctx context.Context, params *GetAllCharactersCharactersGetParams, reqEditors ...RequestEditorFn) (*GetAllCharactersCharactersGetResponse, error)
 
@@ -7341,6 +9274,9 @@ type ClientWithResponsesInterface interface {
 	// GetCharacterCharactersNameGetWithResponse request
 	GetCharacterCharactersNameGetWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*GetCharacterCharactersNameGetResponse, error)
 
+	// GetCharacterAchievementsCharactersNameAchievementsGetWithResponse request
+	GetCharacterAchievementsCharactersNameAchievementsGetWithResponse(ctx context.Context, name string, params *GetCharacterAchievementsCharactersNameAchievementsGetParams, reqEditors ...RequestEditorFn) (*GetCharacterAchievementsCharactersNameAchievementsGetResponse, error)
+
 	// GetAllEventsEventsGetWithResponse request
 	GetAllEventsEventsGetWithResponse(ctx context.Context, params *GetAllEventsEventsGetParams, reqEditors ...RequestEditorFn) (*GetAllEventsEventsGetResponse, error)
 
@@ -7356,6 +9292,9 @@ type ClientWithResponsesInterface interface {
 	// GetItemItemsCodeGetWithResponse request
 	GetItemItemsCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetItemItemsCodeGetResponse, error)
 
+	// GetLeaderboardLeaderboardGetWithResponse request
+	GetLeaderboardLeaderboardGetWithResponse(ctx context.Context, params *GetLeaderboardLeaderboardGetParams, reqEditors ...RequestEditorFn) (*GetLeaderboardLeaderboardGetResponse, error)
+
 	// GetAllMapsMapsGetWithResponse request
 	GetAllMapsMapsGetWithResponse(ctx context.Context, params *GetAllMapsMapsGetParams, reqEditors ...RequestEditorFn) (*GetAllMapsMapsGetResponse, error)
 
@@ -7368,8 +9307,8 @@ type ClientWithResponsesInterface interface {
 	// GetMonsterMonstersCodeGetWithResponse request
 	GetMonsterMonstersCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetMonsterMonstersCodeGetResponse, error)
 
-	// GetBankGoldsMyBankGoldGetWithResponse request
-	GetBankGoldsMyBankGoldGetWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetBankGoldsMyBankGoldGetResponse, error)
+	// GetBankDetailsMyBankGetWithResponse request
+	GetBankDetailsMyBankGetWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetBankDetailsMyBankGetResponse, error)
 
 	// GetBankItemsMyBankItemsGetWithResponse request
 	GetBankItemsMyBankItemsGetWithResponse(ctx context.Context, params *GetBankItemsMyBankItemsGetParams, reqEditors ...RequestEditorFn) (*GetBankItemsMyBankItemsGetResponse, error)
@@ -7384,6 +9323,9 @@ type ClientWithResponsesInterface interface {
 
 	// GetAllCharactersLogsMyLogsGetWithResponse request
 	GetAllCharactersLogsMyLogsGetWithResponse(ctx context.Context, params *GetAllCharactersLogsMyLogsGetParams, reqEditors ...RequestEditorFn) (*GetAllCharactersLogsMyLogsGetResponse, error)
+
+	// ActionBuyBankExpansionMyNameActionBankBuyExpansionPostWithResponse request
+	ActionBuyBankExpansionMyNameActionBankBuyExpansionPostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionBuyBankExpansionMyNameActionBankBuyExpansionPostResponse, error)
 
 	// ActionDepositBankMyNameActionBankDepositPostWithBodyWithResponse request with any body
 	ActionDepositBankMyNameActionBankDepositPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionDepositBankMyNameActionBankDepositPostResponse, error)
@@ -7445,6 +9387,9 @@ type ClientWithResponsesInterface interface {
 	ActionRecyclingMyNameActionRecyclingPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionRecyclingMyNameActionRecyclingPostResponse, error)
 
 	ActionRecyclingMyNameActionRecyclingPostWithResponse(ctx context.Context, name string, body ActionRecyclingMyNameActionRecyclingPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionRecyclingMyNameActionRecyclingPostResponse, error)
+
+	// ActionTaskCancelMyNameActionTaskCancelPostWithResponse request
+	ActionTaskCancelMyNameActionTaskCancelPostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionTaskCancelMyNameActionTaskCancelPostResponse, error)
 
 	// ActionCompleteTaskMyNameActionTaskCompletePostWithResponse request
 	ActionCompleteTaskMyNameActionTaskCompletePostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionCompleteTaskMyNameActionTaskCompletePostResponse, error)
@@ -7508,6 +9453,50 @@ func (r CreateAccountAccountsCreatePostResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r CreateAccountAccountsCreatePostResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetAllAchievementsAchievementsGetResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *DataPageBaseAchievementSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r GetAllAchievementsAchievementsGetResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetAllAchievementsAchievementsGetResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetAchievementAchievementsCodeGetResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *BaseachievementResponseSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r GetAchievementAchievementsCodeGetResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetAchievementAchievementsCodeGetResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -7596,6 +9585,28 @@ func (r GetCharacterCharactersNameGetResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r GetCharacterCharactersNameGetResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetCharacterAchievementsCharactersNameAchievementsGetResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *DataPageAchievementSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r GetCharacterAchievementsCharactersNameAchievementsGetResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetCharacterAchievementsCharactersNameAchievementsGetResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -7712,6 +9723,28 @@ func (r GetItemItemsCodeGetResponse) StatusCode() int {
 	return 0
 }
 
+type GetLeaderboardLeaderboardGetResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *DataPageCharacterLeaderboardSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r GetLeaderboardLeaderboardGetResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetLeaderboardLeaderboardGetResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type GetAllMapsMapsGetResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -7800,14 +9833,14 @@ func (r GetMonsterMonstersCodeGetResponse) StatusCode() int {
 	return 0
 }
 
-type GetBankGoldsMyBankGoldGetResponse struct {
+type GetBankDetailsMyBankGetResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *GoldBankResponseSchema
+	JSON200      *BankResponseSchema
 }
 
 // Status returns HTTPResponse.Status
-func (r GetBankGoldsMyBankGoldGetResponse) Status() string {
+func (r GetBankDetailsMyBankGetResponse) Status() string {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.Status
 	}
@@ -7815,7 +9848,7 @@ func (r GetBankGoldsMyBankGoldGetResponse) Status() string {
 }
 
 // StatusCode returns HTTPResponse.StatusCode
-func (r GetBankGoldsMyBankGoldGetResponse) StatusCode() int {
+func (r GetBankDetailsMyBankGetResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -7910,10 +9943,32 @@ func (r GetAllCharactersLogsMyLogsGetResponse) StatusCode() int {
 	return 0
 }
 
+type ActionBuyBankExpansionMyNameActionBankBuyExpansionPostResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *BankExtensionTransactionResponseSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r ActionBuyBankExpansionMyNameActionBankBuyExpansionPostResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ActionBuyBankExpansionMyNameActionBankBuyExpansionPostResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type ActionDepositBankMyNameActionBankDepositPostResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *ActionItemBankResponseSchema
+	JSON200      *BankItemTransactionResponseSchema
 }
 
 // Status returns HTTPResponse.Status
@@ -7935,7 +9990,7 @@ func (r ActionDepositBankMyNameActionBankDepositPostResponse) StatusCode() int {
 type ActionDepositBankGoldMyNameActionBankDepositGoldPostResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *GoldResponseSchema
+	JSON200      *BankGoldTransactionResponseSchema
 }
 
 // Status returns HTTPResponse.Status
@@ -7957,7 +10012,7 @@ func (r ActionDepositBankGoldMyNameActionBankDepositGoldPostResponse) StatusCode
 type ActionWithdrawBankMyNameActionBankWithdrawPostResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *ActionItemBankResponseSchema
+	JSON200      *BankItemTransactionResponseSchema
 }
 
 // Status returns HTTPResponse.Status
@@ -7979,7 +10034,7 @@ func (r ActionWithdrawBankMyNameActionBankWithdrawPostResponse) StatusCode() int
 type ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *GoldResponseSchema
+	JSON200      *BankGoldTransactionResponseSchema
 }
 
 // Status returns HTTPResponse.Status
@@ -8196,6 +10251,28 @@ func (r ActionRecyclingMyNameActionRecyclingPostResponse) StatusCode() int {
 	return 0
 }
 
+type ActionTaskCancelMyNameActionTaskCancelPostResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *TaskCancelledResponseSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r ActionTaskCancelMyNameActionTaskCancelPostResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ActionTaskCancelMyNameActionTaskCancelPostResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type ActionCompleteTaskMyNameActionTaskCompletePostResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -8376,6 +10453,24 @@ func (c *ClientWithResponses) CreateAccountAccountsCreatePostWithResponse(ctx co
 	return ParseCreateAccountAccountsCreatePostResponse(rsp)
 }
 
+// GetAllAchievementsAchievementsGetWithResponse request returning *GetAllAchievementsAchievementsGetResponse
+func (c *ClientWithResponses) GetAllAchievementsAchievementsGetWithResponse(ctx context.Context, params *GetAllAchievementsAchievementsGetParams, reqEditors ...RequestEditorFn) (*GetAllAchievementsAchievementsGetResponse, error) {
+	rsp, err := c.GetAllAchievementsAchievementsGet(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetAllAchievementsAchievementsGetResponse(rsp)
+}
+
+// GetAchievementAchievementsCodeGetWithResponse request returning *GetAchievementAchievementsCodeGetResponse
+func (c *ClientWithResponses) GetAchievementAchievementsCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetAchievementAchievementsCodeGetResponse, error) {
+	rsp, err := c.GetAchievementAchievementsCodeGet(ctx, code, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetAchievementAchievementsCodeGetResponse(rsp)
+}
+
 // GetAllCharactersCharactersGetWithResponse request returning *GetAllCharactersCharactersGetResponse
 func (c *ClientWithResponses) GetAllCharactersCharactersGetWithResponse(ctx context.Context, params *GetAllCharactersCharactersGetParams, reqEditors ...RequestEditorFn) (*GetAllCharactersCharactersGetResponse, error) {
 	rsp, err := c.GetAllCharactersCharactersGet(ctx, params, reqEditors...)
@@ -8428,6 +10523,15 @@ func (c *ClientWithResponses) GetCharacterCharactersNameGetWithResponse(ctx cont
 	return ParseGetCharacterCharactersNameGetResponse(rsp)
 }
 
+// GetCharacterAchievementsCharactersNameAchievementsGetWithResponse request returning *GetCharacterAchievementsCharactersNameAchievementsGetResponse
+func (c *ClientWithResponses) GetCharacterAchievementsCharactersNameAchievementsGetWithResponse(ctx context.Context, name string, params *GetCharacterAchievementsCharactersNameAchievementsGetParams, reqEditors ...RequestEditorFn) (*GetCharacterAchievementsCharactersNameAchievementsGetResponse, error) {
+	rsp, err := c.GetCharacterAchievementsCharactersNameAchievementsGet(ctx, name, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetCharacterAchievementsCharactersNameAchievementsGetResponse(rsp)
+}
+
 // GetAllEventsEventsGetWithResponse request returning *GetAllEventsEventsGetResponse
 func (c *ClientWithResponses) GetAllEventsEventsGetWithResponse(ctx context.Context, params *GetAllEventsEventsGetParams, reqEditors ...RequestEditorFn) (*GetAllEventsEventsGetResponse, error) {
 	rsp, err := c.GetAllEventsEventsGet(ctx, params, reqEditors...)
@@ -8473,6 +10577,15 @@ func (c *ClientWithResponses) GetItemItemsCodeGetWithResponse(ctx context.Contex
 	return ParseGetItemItemsCodeGetResponse(rsp)
 }
 
+// GetLeaderboardLeaderboardGetWithResponse request returning *GetLeaderboardLeaderboardGetResponse
+func (c *ClientWithResponses) GetLeaderboardLeaderboardGetWithResponse(ctx context.Context, params *GetLeaderboardLeaderboardGetParams, reqEditors ...RequestEditorFn) (*GetLeaderboardLeaderboardGetResponse, error) {
+	rsp, err := c.GetLeaderboardLeaderboardGet(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetLeaderboardLeaderboardGetResponse(rsp)
+}
+
 // GetAllMapsMapsGetWithResponse request returning *GetAllMapsMapsGetResponse
 func (c *ClientWithResponses) GetAllMapsMapsGetWithResponse(ctx context.Context, params *GetAllMapsMapsGetParams, reqEditors ...RequestEditorFn) (*GetAllMapsMapsGetResponse, error) {
 	rsp, err := c.GetAllMapsMapsGet(ctx, params, reqEditors...)
@@ -8509,13 +10622,13 @@ func (c *ClientWithResponses) GetMonsterMonstersCodeGetWithResponse(ctx context.
 	return ParseGetMonsterMonstersCodeGetResponse(rsp)
 }
 
-// GetBankGoldsMyBankGoldGetWithResponse request returning *GetBankGoldsMyBankGoldGetResponse
-func (c *ClientWithResponses) GetBankGoldsMyBankGoldGetWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetBankGoldsMyBankGoldGetResponse, error) {
-	rsp, err := c.GetBankGoldsMyBankGoldGet(ctx, reqEditors...)
+// GetBankDetailsMyBankGetWithResponse request returning *GetBankDetailsMyBankGetResponse
+func (c *ClientWithResponses) GetBankDetailsMyBankGetWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetBankDetailsMyBankGetResponse, error) {
+	rsp, err := c.GetBankDetailsMyBankGet(ctx, reqEditors...)
 	if err != nil {
 		return nil, err
 	}
-	return ParseGetBankGoldsMyBankGoldGetResponse(rsp)
+	return ParseGetBankDetailsMyBankGetResponse(rsp)
 }
 
 // GetBankItemsMyBankItemsGetWithResponse request returning *GetBankItemsMyBankItemsGetResponse
@@ -8560,6 +10673,15 @@ func (c *ClientWithResponses) GetAllCharactersLogsMyLogsGetWithResponse(ctx cont
 		return nil, err
 	}
 	return ParseGetAllCharactersLogsMyLogsGetResponse(rsp)
+}
+
+// ActionBuyBankExpansionMyNameActionBankBuyExpansionPostWithResponse request returning *ActionBuyBankExpansionMyNameActionBankBuyExpansionPostResponse
+func (c *ClientWithResponses) ActionBuyBankExpansionMyNameActionBankBuyExpansionPostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionBuyBankExpansionMyNameActionBankBuyExpansionPostResponse, error) {
+	rsp, err := c.ActionBuyBankExpansionMyNameActionBankBuyExpansionPost(ctx, name, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseActionBuyBankExpansionMyNameActionBankBuyExpansionPostResponse(rsp)
 }
 
 // ActionDepositBankMyNameActionBankDepositPostWithBodyWithResponse request with arbitrary body returning *ActionDepositBankMyNameActionBankDepositPostResponse
@@ -8767,6 +10889,15 @@ func (c *ClientWithResponses) ActionRecyclingMyNameActionRecyclingPostWithRespon
 	return ParseActionRecyclingMyNameActionRecyclingPostResponse(rsp)
 }
 
+// ActionTaskCancelMyNameActionTaskCancelPostWithResponse request returning *ActionTaskCancelMyNameActionTaskCancelPostResponse
+func (c *ClientWithResponses) ActionTaskCancelMyNameActionTaskCancelPostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionTaskCancelMyNameActionTaskCancelPostResponse, error) {
+	rsp, err := c.ActionTaskCancelMyNameActionTaskCancelPost(ctx, name, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseActionTaskCancelMyNameActionTaskCancelPostResponse(rsp)
+}
+
 // ActionCompleteTaskMyNameActionTaskCompletePostWithResponse request returning *ActionCompleteTaskMyNameActionTaskCompletePostResponse
 func (c *ClientWithResponses) ActionCompleteTaskMyNameActionTaskCompletePostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionCompleteTaskMyNameActionTaskCompletePostResponse, error) {
 	rsp, err := c.ActionCompleteTaskMyNameActionTaskCompletePost(ctx, name, reqEditors...)
@@ -8890,6 +11021,58 @@ func ParseCreateAccountAccountsCreatePostResponse(rsp *http.Response) (*CreateAc
 	return response, nil
 }
 
+// ParseGetAllAchievementsAchievementsGetResponse parses an HTTP response from a GetAllAchievementsAchievementsGetWithResponse call
+func ParseGetAllAchievementsAchievementsGetResponse(rsp *http.Response) (*GetAllAchievementsAchievementsGetResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetAllAchievementsAchievementsGetResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest DataPageBaseAchievementSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetAchievementAchievementsCodeGetResponse parses an HTTP response from a GetAchievementAchievementsCodeGetWithResponse call
+func ParseGetAchievementAchievementsCodeGetResponse(rsp *http.Response) (*GetAchievementAchievementsCodeGetResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetAchievementAchievementsCodeGetResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest BaseachievementResponseSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseGetAllCharactersCharactersGetResponse parses an HTTP response from a GetAllCharactersCharactersGetWithResponse call
 func ParseGetAllCharactersCharactersGetResponse(rsp *http.Response) (*GetAllCharactersCharactersGetResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -8984,6 +11167,32 @@ func ParseGetCharacterCharactersNameGetResponse(rsp *http.Response) (*GetCharact
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest CharacterResponseSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetCharacterAchievementsCharactersNameAchievementsGetResponse parses an HTTP response from a GetCharacterAchievementsCharactersNameAchievementsGetWithResponse call
+func ParseGetCharacterAchievementsCharactersNameAchievementsGetResponse(rsp *http.Response) (*GetCharacterAchievementsCharactersNameAchievementsGetResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetCharacterAchievementsCharactersNameAchievementsGetResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest DataPageAchievementSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -9124,6 +11333,32 @@ func ParseGetItemItemsCodeGetResponse(rsp *http.Response) (*GetItemItemsCodeGetR
 	return response, nil
 }
 
+// ParseGetLeaderboardLeaderboardGetResponse parses an HTTP response from a GetLeaderboardLeaderboardGetWithResponse call
+func ParseGetLeaderboardLeaderboardGetResponse(rsp *http.Response) (*GetLeaderboardLeaderboardGetResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetLeaderboardLeaderboardGetResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest DataPageCharacterLeaderboardSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseGetAllMapsMapsGetResponse parses an HTTP response from a GetAllMapsMapsGetWithResponse call
 func ParseGetAllMapsMapsGetResponse(rsp *http.Response) (*GetAllMapsMapsGetResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -9228,22 +11463,22 @@ func ParseGetMonsterMonstersCodeGetResponse(rsp *http.Response) (*GetMonsterMons
 	return response, nil
 }
 
-// ParseGetBankGoldsMyBankGoldGetResponse parses an HTTP response from a GetBankGoldsMyBankGoldGetWithResponse call
-func ParseGetBankGoldsMyBankGoldGetResponse(rsp *http.Response) (*GetBankGoldsMyBankGoldGetResponse, error) {
+// ParseGetBankDetailsMyBankGetResponse parses an HTTP response from a GetBankDetailsMyBankGetWithResponse call
+func ParseGetBankDetailsMyBankGetResponse(rsp *http.Response) (*GetBankDetailsMyBankGetResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
 	defer func() { _ = rsp.Body.Close() }()
 	if err != nil {
 		return nil, err
 	}
 
-	response := &GetBankGoldsMyBankGoldGetResponse{
+	response := &GetBankDetailsMyBankGetResponse{
 		Body:         bodyBytes,
 		HTTPResponse: rsp,
 	}
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest GoldBankResponseSchema
+		var dest BankResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -9358,6 +11593,32 @@ func ParseGetAllCharactersLogsMyLogsGetResponse(rsp *http.Response) (*GetAllChar
 	return response, nil
 }
 
+// ParseActionBuyBankExpansionMyNameActionBankBuyExpansionPostResponse parses an HTTP response from a ActionBuyBankExpansionMyNameActionBankBuyExpansionPostWithResponse call
+func ParseActionBuyBankExpansionMyNameActionBankBuyExpansionPostResponse(rsp *http.Response) (*ActionBuyBankExpansionMyNameActionBankBuyExpansionPostResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ActionBuyBankExpansionMyNameActionBankBuyExpansionPostResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest BankExtensionTransactionResponseSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseActionDepositBankMyNameActionBankDepositPostResponse parses an HTTP response from a ActionDepositBankMyNameActionBankDepositPostWithResponse call
 func ParseActionDepositBankMyNameActionBankDepositPostResponse(rsp *http.Response) (*ActionDepositBankMyNameActionBankDepositPostResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -9373,7 +11634,7 @@ func ParseActionDepositBankMyNameActionBankDepositPostResponse(rsp *http.Respons
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest ActionItemBankResponseSchema
+		var dest BankItemTransactionResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -9399,7 +11660,7 @@ func ParseActionDepositBankGoldMyNameActionBankDepositGoldPostResponse(rsp *http
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest GoldResponseSchema
+		var dest BankGoldTransactionResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -9425,7 +11686,7 @@ func ParseActionWithdrawBankMyNameActionBankWithdrawPostResponse(rsp *http.Respo
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest ActionItemBankResponseSchema
+		var dest BankItemTransactionResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -9451,7 +11712,7 @@ func ParseActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse(rsp *ht
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest GoldResponseSchema
+		var dest BankGoldTransactionResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -9686,6 +11947,32 @@ func ParseActionRecyclingMyNameActionRecyclingPostResponse(rsp *http.Response) (
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest RecyclingResponseSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseActionTaskCancelMyNameActionTaskCancelPostResponse parses an HTTP response from a ActionTaskCancelMyNameActionTaskCancelPostWithResponse call
+func ParseActionTaskCancelMyNameActionTaskCancelPostResponse(rsp *http.Response) (*ActionTaskCancelMyNameActionTaskCancelPostResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ActionTaskCancelMyNameActionTaskCancelPostResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest TaskCancelledResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
