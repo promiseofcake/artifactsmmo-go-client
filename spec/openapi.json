@@ -3,7 +3,7 @@
   "info": {
     "title": "Artifacts API",
     "description": "\nArtifacts is an API-based MMO game where you can manage 5 characters to explore, fight, gather resources, craft items and much more.\n\nWebsite: https://artifactsmmo.com/\n\nDocumentation: https://docs.artifactsmmo.com/\n\nOpenAPI Spec: https://api.artifactsmmo.com/openapi.json\n",
-    "version": "1.6"
+    "version": "2"
   },
   "paths": {
     "/my/{name}/action/move": {
@@ -133,7 +133,7 @@
             "description": "An action is already in progress by your character."
           },
           "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
+            "description": "Missing item or insufficient quantity."
           },
           "496": {
             "description": "Character level is insufficient."
@@ -143,6 +143,9 @@
           },
           "485": {
             "description": "This item is already equipped."
+          },
+          "484": {
+            "description": "Character can't equip more than 100 consumables in the same slot."
           }
         }
       }
@@ -212,6 +215,9 @@
           },
           "497": {
             "description": "Character inventory is full."
+          },
+          "478": {
+            "description": "Missing item or insufficient quantity."
           }
         }
       }
@@ -401,7 +407,7 @@
             "description": "Not skill level required."
           },
           "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
+            "description": "Missing item or insufficient quantity."
           }
         }
       }
@@ -449,7 +455,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionItemBankResponseSchema"
+                  "$ref": "#/components/schemas/BankItemTransactionResponseSchema"
                 }
               }
             }
@@ -473,7 +479,10 @@
             "description": "An action is already in progress by your character."
           },
           "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
+            "description": "Missing item or insufficient quantity."
+          },
+          "462": {
+            "description": "Your bank is full."
           }
         }
       }
@@ -521,7 +530,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GoldResponseSchema"
+                  "$ref": "#/components/schemas/BankGoldTransactionResponseSchema"
                 }
               }
             }
@@ -617,7 +626,7 @@
             "description": "Not skill level required."
           },
           "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
+            "description": "Missing item or insufficient quantity."
           },
           "473": {
             "description": "This item cannot be recycled."
@@ -668,7 +677,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ActionItemBankResponseSchema"
+                  "$ref": "#/components/schemas/BankItemTransactionResponseSchema"
                 }
               }
             }
@@ -695,7 +704,7 @@
             "description": "Bank not found on this map."
           },
           "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
+            "description": "Missing item or insufficient quantity."
           }
         }
       }
@@ -743,7 +752,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GoldResponseSchema"
+                  "$ref": "#/components/schemas/BankGoldTransactionResponseSchema"
                 }
               }
             }
@@ -841,6 +850,9 @@
           "480": {
             "description": "No stock for this item."
           },
+          "479": {
+            "description": "You can't buy or sell that many items at the same time."
+          },
           "482": {
             "description": "No item at this price."
           }
@@ -911,13 +923,72 @@
             "description": "An action is already in progress by your character."
           },
           "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
+            "description": "Missing item or insufficient quantity."
+          },
+          "479": {
+            "description": "You can't buy or sell that many items at the same time."
           },
           "482": {
             "description": "No item at this price."
           },
           "598": {
             "description": "Grand Exchange not found on this map."
+          }
+        }
+      }
+    },
+    "/my/{name}/action/bank/buy_expansion": {
+      "post": {
+        "tags": [
+          "My characters"
+        ],
+        "summary": "Action Buy Bank Expansion",
+        "description": "Buy a 20 slots bank expansion.",
+        "operationId": "action_buy_bank_expansion_my__name__action_bank_buy_expansion_post",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Character name",
+              "description": "Name of your character."
+            },
+            "description": "Name of your character."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bank expansion successfully bought.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BankExtensionTransactionResponseSchema"
+                }
+              }
+            }
+          },
+          "598": {
+            "description": "Bank not found on this map."
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          },
+          "486": {
+            "description": "An action is already in progress by your character."
+          },
+          "492": {
+            "description": "Insufficient golds on your character."
           }
         }
       }
@@ -1091,10 +1162,66 @@
             "description": "Tasks Master not found on this map."
           },
           "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
+            "description": "Missing item or insufficient quantity."
           },
           "497": {
             "description": "Character inventory is full."
+          }
+        }
+      }
+    },
+    "/my/{name}/action/task/cancel": {
+      "post": {
+        "tags": [
+          "My characters"
+        ],
+        "summary": "Action Task Cancel",
+        "description": "Cancel a task for 1 tasks coin.",
+        "operationId": "action_task_cancel_my__name__action_task_cancel_post",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Character name",
+              "description": "Name of your character."
+            },
+            "description": "Name of your character."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The task has been successfully cancelled.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskCancelledResponseSchema"
+                }
+              }
+            }
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          },
+          "486": {
+            "description": "An action is already in progress by your character."
+          },
+          "598": {
+            "description": "Tasks Master not found on this map."
+          },
+          "478": {
+            "description": "Missing item or insufficient quantity."
           }
         }
       }
@@ -1157,7 +1284,7 @@
             "description": "An action is already in progress by your character."
           },
           "478": {
-            "description": "Missing item or insufficient quantity in your inventory."
+            "description": "Missing item or insufficient quantity."
           }
         }
       }
@@ -1242,9 +1369,33 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "Characters not found."
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/my/bank": {
+      "get": {
+        "tags": [
+          "My account"
+        ],
+        "summary": "Get Bank Details",
+        "description": "Fetch bank details.",
+        "operationId": "get_bank_details_my_bank_get",
+        "responses": {
+          "200": {
+            "description": "Successfully fetched bank details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BankResponseSchema"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -1318,38 +1469,8 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "Items not found."
           }
         }
-      }
-    },
-    "/my/bank/gold": {
-      "get": {
-        "tags": [
-          "My account"
-        ],
-        "summary": "Get Bank Golds",
-        "description": "Fetch golds in your bank.",
-        "operationId": "get_bank_golds_my_bank_gold_get",
-        "responses": {
-          "200": {
-            "description": "Successfully fetched golds.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GoldBankResponseSchema"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "JWTBearer": []
-          }
-        ]
       }
     },
     "/my/change_password": {
@@ -1475,36 +1596,15 @@
         ]
       }
     },
-    "/characters/": {
+    "/characters": {
       "get": {
         "tags": [
           "Characters"
         ],
         "summary": "Get All Characters",
         "description": "Fetch characters details.",
-        "operationId": "get_all_characters_characters__get",
+        "operationId": "get_all_characters_characters_get",
         "parameters": [
-          {
-            "name": "sort",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "enum": [
-                "woodcutting",
-                "mining",
-                "fishing",
-                "weaponcrafting",
-                "gearcrafting",
-                "jewelrycrafting",
-                "cooking",
-                "gold"
-              ],
-              "type": "string",
-              "title": "Sort",
-              "description": "Default sort by combat total XP."
-            },
-            "description": "Default sort by combat total XP."
-          },
           {
             "name": "page",
             "in": "query",
@@ -1543,9 +1643,6 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "Characters not found."
           }
         }
       }
@@ -1589,14 +1686,112 @@
         }
       }
     },
-    "/maps/": {
+    "/characters/{name}/achievements": {
+      "get": {
+        "tags": [
+          "Characters"
+        ],
+        "summary": "Get Character Achievements",
+        "description": "Retrieve the details of a character.",
+        "operationId": "get_character_achievements_characters__name__achievements_get",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Character name",
+              "description": "The character name."
+            },
+            "description": "The character name."
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "combat_kill",
+                "combat_drop",
+                "combat_level",
+                "gathering",
+                "crafting",
+                "recycling",
+                "task",
+                "other"
+              ],
+              "type": "string",
+              "title": "Type",
+              "description": "Type of achievements."
+            },
+            "description": "Type of achievements."
+          },
+          {
+            "name": "completed",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "title": "Completed",
+              "description": "Filter by completed achievements."
+            },
+            "description": "Filter by completed achievements."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched character.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_AchievementSchema_"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Character not found."
+          }
+        }
+      }
+    },
+    "/maps": {
       "get": {
         "tags": [
           "Maps"
         ],
         "summary": "Get All Maps",
         "description": "Fetch maps details.",
-        "operationId": "get_all_maps_maps__get",
+        "operationId": "get_all_maps_maps_get",
         "parameters": [
           {
             "name": "content_type",
@@ -1667,9 +1862,6 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "Maps not found."
           }
         }
       }
@@ -1723,14 +1915,14 @@
         }
       }
     },
-    "/items/": {
+    "/items": {
       "get": {
         "tags": [
           "Items"
         ],
         "summary": "Get All Items",
         "description": "Fetch items details.",
-        "operationId": "get_all_items_items__get",
+        "operationId": "get_all_items_items_get",
         "parameters": [
           {
             "name": "min_level",
@@ -1783,7 +1975,8 @@
                 "boots",
                 "shield",
                 "amulet",
-                "ring"
+                "ring",
+                "artifact"
               ],
               "type": "string",
               "title": "Type",
@@ -1860,9 +2053,6 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "Items not found."
           }
         }
       }
@@ -1906,14 +2096,14 @@
         }
       }
     },
-    "/monsters/": {
+    "/monsters": {
       "get": {
         "tags": [
           "Monsters"
         ],
         "summary": "Get All Monsters",
         "description": "Fetch monsters details.",
-        "operationId": "get_all_monsters_monsters__get",
+        "operationId": "get_all_monsters_monsters_get",
         "parameters": [
           {
             "name": "min_level",
@@ -1990,9 +2180,6 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "Monsters not found."
           }
         }
       }
@@ -2016,8 +2203,7 @@
               "title": "Monster code",
               "description": "The code of the monster."
             },
-            "description": "The code of the monster.",
-            "example": "red_slime"
+            "description": "The code of the monster."
           }
         ],
         "responses": {
@@ -2037,14 +2223,14 @@
         }
       }
     },
-    "/resources/": {
+    "/resources": {
       "get": {
         "tags": [
           "Resources"
         ],
         "summary": "Get All Resources",
         "description": "Fetch resources details.",
-        "operationId": "get_all_resources_resources__get",
+        "operationId": "get_all_resources_resources_get",
         "parameters": [
           {
             "name": "min_level",
@@ -2137,9 +2323,6 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "Resources not found."
           }
         }
       }
@@ -2179,19 +2362,19 @@
             }
           },
           "404": {
-            "description": "Ressource not found."
+            "description": "Resource not found."
           }
         }
       }
     },
-    "/events/": {
+    "/events": {
       "get": {
         "tags": [
           "Events"
         ],
         "summary": "Get All Events",
         "description": "Fetch events details.",
-        "operationId": "get_all_events_events__get",
+        "operationId": "get_all_events_events_get",
         "parameters": [
           {
             "name": "page",
@@ -2231,21 +2414,18 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "Events not found."
           }
         }
       }
     },
-    "/ge/": {
+    "/ge": {
       "get": {
         "tags": [
           "Grand Exchange"
         ],
         "summary": "Get All Ge Items",
         "description": "Fetch Grand Exchange items details.",
-        "operationId": "get_all_ge_items_ge__get",
+        "operationId": "get_all_ge_items_ge_get",
         "parameters": [
           {
             "name": "page",
@@ -2285,9 +2465,6 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "Item not found."
           }
         }
       }
@@ -2331,6 +2508,191 @@
         }
       }
     },
+    "/achievements": {
+      "get": {
+        "tags": [
+          "Achievements"
+        ],
+        "summary": "Get All Achievements",
+        "description": "List of all achievements.",
+        "operationId": "get_all_achievements_achievements_get",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "combat_kill",
+                "combat_drop",
+                "combat_level",
+                "gathering",
+                "crafting",
+                "recycling",
+                "task",
+                "other"
+              ],
+              "type": "string",
+              "title": "Type",
+              "description": "Type of achievements."
+            },
+            "description": "Type of achievements."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched achievements.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_BaseAchievementSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/achievements/{code}": {
+      "get": {
+        "tags": [
+          "Achievements"
+        ],
+        "summary": "Get Achievement",
+        "description": "Retrieve the details of a achievement.",
+        "operationId": "get_achievement_achievements__code__get",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "achievement code",
+              "description": "The code of the achievement."
+            },
+            "description": "The code of the achievement."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched achievement.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseachievementResponseSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "achievement not found."
+          }
+        }
+      }
+    },
+    "/leaderboard": {
+      "get": {
+        "tags": [
+          "Leaderboard"
+        ],
+        "summary": "Get Leaderboard",
+        "description": "Fetch leaderboard details.",
+        "operationId": "get_leaderboard_leaderboard_get",
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "combat",
+                "woodcutting",
+                "mining",
+                "fishing",
+                "weaponcrafting",
+                "gearcrafting",
+                "jewelrycrafting",
+                "cooking",
+                "achievements_points",
+                "gold"
+              ],
+              "type": "string",
+              "title": "Sort",
+              "description": "Default sort by combat total XP."
+            },
+            "description": "Default sort by combat total XP."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched leaderboard.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_CharacterLeaderboardSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/accounts/create": {
       "post": {
         "tags": [
@@ -2369,14 +2731,14 @@
         }
       }
     },
-    "/token/": {
+    "/token": {
       "post": {
         "tags": [
           "Token"
         ],
         "summary": "Generate Token",
         "description": "Use your account as HTTPBasic Auth to generate your token to use the API. You can also generate your token directly on the website.",
-        "operationId": "generate_token_token__post",
+        "operationId": "generate_token_token_post",
         "responses": {
           "200": {
             "description": "Token generated successfully",
@@ -2421,17 +2783,92 @@
   },
   "components": {
     "schemas": {
-      "ActionItemBankResponseSchema": {
+      "AchievementSchema": {
         "properties": {
-          "data": {
-            "$ref": "#/components/schemas/BankItemSchema"
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Name of the achievement."
+          },
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Code of the achievement. "
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "description": "Description of the achievement."
+          },
+          "points": {
+            "type": "integer",
+            "title": "Points",
+            "description": "Points of the achievement. Used for the leaderboard."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "combat_kill",
+              "combat_drop",
+              "combat_level",
+              "gathering",
+              "crafting",
+              "recycling",
+              "task",
+              "other"
+            ],
+            "title": "Type",
+            "description": "Type of achievement."
+          },
+          "target": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target",
+            "description": "Target of the achievement."
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total",
+            "description": "Total to do."
+          },
+          "current": {
+            "type": "integer",
+            "title": "Current",
+            "description": "Current progress."
+          },
+          "completed_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Completed At",
+            "description": "Completed at."
           }
         },
         "type": "object",
         "required": [
-          "data"
+          "name",
+          "code",
+          "description",
+          "points",
+          "type",
+          "target",
+          "total",
+          "current",
+          "completed_at"
         ],
-        "title": "ActionItemBankResponseSchema"
+        "title": "AchievementSchema"
       },
       "ActiveEventSchema": {
         "properties": {
@@ -2566,7 +3003,128 @@
         ],
         "title": "AnnouncementSchema"
       },
-      "BankItemSchema": {
+      "BankExtensionSchema": {
+        "properties": {
+          "price": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Price",
+            "description": "Price of the bank extension."
+          }
+        },
+        "type": "object",
+        "required": [
+          "price"
+        ],
+        "title": "BankExtensionSchema"
+      },
+      "BankExtensionTransactionResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BankExtensionTransactionSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "BankExtensionTransactionResponseSchema"
+      },
+      "BankExtensionTransactionSchema": {
+        "properties": {
+          "cooldown": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CooldownSchema"
+              }
+            ],
+            "description": "Cooldown details."
+          },
+          "transaction": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BankExtensionSchema"
+              }
+            ],
+            "description": "Transaction details."
+          },
+          "character": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CharacterSchema"
+              }
+            ],
+            "description": "Player details."
+          }
+        },
+        "type": "object",
+        "required": [
+          "cooldown",
+          "transaction",
+          "character"
+        ],
+        "title": "BankExtensionTransactionSchema"
+      },
+      "BankGoldTransactionResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BankGoldTransactionSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "BankGoldTransactionResponseSchema"
+      },
+      "BankGoldTransactionSchema": {
+        "properties": {
+          "cooldown": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CooldownSchema"
+              }
+            ],
+            "description": "Cooldown details."
+          },
+          "bank": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GoldSchema"
+              }
+            ],
+            "description": "Bank details."
+          },
+          "character": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CharacterSchema"
+              }
+            ],
+            "description": "Player details."
+          }
+        },
+        "type": "object",
+        "required": [
+          "cooldown",
+          "bank",
+          "character"
+        ],
+        "title": "BankGoldTransactionSchema"
+      },
+      "BankItemTransactionResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BankItemTransactionSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "BankItemTransactionResponseSchema"
+      },
+      "BankItemTransactionSchema": {
         "properties": {
           "cooldown": {
             "allOf": [
@@ -2608,7 +3166,134 @@
           "bank",
           "character"
         ],
-        "title": "BankItemSchema"
+        "title": "BankItemTransactionSchema"
+      },
+      "BankResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BankSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "BankResponseSchema"
+      },
+      "BankSchema": {
+        "properties": {
+          "slots": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Slots",
+            "description": "Maximum slots in your bank."
+          },
+          "expansions": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Expansions",
+            "description": "Bank expansions."
+          },
+          "next_expansion_cost": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Next Expansion Cost",
+            "description": "Next expansion cost."
+          },
+          "gold": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Gold",
+            "description": "Quantity of gold in your bank."
+          }
+        },
+        "type": "object",
+        "required": [
+          "slots",
+          "expansions",
+          "next_expansion_cost",
+          "gold"
+        ],
+        "title": "BankSchema"
+      },
+      "BaseAchievementSchema": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Name of the achievement."
+          },
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Code of the achievement. "
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "description": "Description of the achievement."
+          },
+          "points": {
+            "type": "integer",
+            "title": "Points",
+            "description": "Points of the achievement. Used for the leaderboard."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "combat_kill",
+              "combat_drop",
+              "combat_level",
+              "gathering",
+              "crafting",
+              "recycling",
+              "task",
+              "other"
+            ],
+            "title": "Type",
+            "description": "Type of achievement."
+          },
+          "target": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target",
+            "description": "Target of the achievement."
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total",
+            "description": "Total to do."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "code",
+          "description",
+          "points",
+          "type",
+          "target",
+          "total"
+        ],
+        "title": "BaseAchievementSchema"
+      },
+      "BaseachievementResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BaseAchievementSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "BaseachievementResponseSchema"
       },
       "BlockedHitsSchema": {
         "properties": {
@@ -2712,6 +3397,134 @@
         ],
         "title": "CharacterFightResponseSchema"
       },
+      "CharacterLeaderboardSchema": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Character name."
+          },
+          "skin": {
+            "type": "string",
+            "title": "Skin",
+            "description": "Character skin code."
+          },
+          "achievements_points": {
+            "type": "integer",
+            "title": "Achievements Points",
+            "description": "Achievements points."
+          },
+          "level": {
+            "type": "integer",
+            "title": "Level",
+            "description": "Combat level."
+          },
+          "total_xp": {
+            "type": "integer",
+            "title": "Total Xp",
+            "description": "Total XP of your character."
+          },
+          "mining_level": {
+            "type": "integer",
+            "title": "Mining Level",
+            "description": "Mining level."
+          },
+          "mining_total_xp": {
+            "type": "integer",
+            "title": "Mining Total Xp",
+            "description": "Mining total xp."
+          },
+          "woodcutting_level": {
+            "type": "integer",
+            "title": "Woodcutting Level",
+            "description": "Woodcutting level."
+          },
+          "woodcutting_total_xp": {
+            "type": "integer",
+            "title": "Woodcutting Total Xp",
+            "description": "Woodcutting total xp."
+          },
+          "fishing_level": {
+            "type": "integer",
+            "title": "Fishing Level",
+            "description": "Fishing level."
+          },
+          "fishing_total_xp": {
+            "type": "integer",
+            "title": "Fishing Total Xp",
+            "description": "Fishing total xp."
+          },
+          "weaponcrafting_level": {
+            "type": "integer",
+            "title": "Weaponcrafting Level",
+            "description": "Weaponcrafting level."
+          },
+          "weaponcrafting_total_xp": {
+            "type": "integer",
+            "title": "Weaponcrafting Total Xp",
+            "description": "Weaponcrafting total xp."
+          },
+          "gearcrafting_level": {
+            "type": "integer",
+            "title": "Gearcrafting Level",
+            "description": "Gearcrafting level."
+          },
+          "gearcrafting_total_xp": {
+            "type": "integer",
+            "title": "Gearcrafting Total Xp",
+            "description": "Gearcrafting total xp."
+          },
+          "jewelrycrafting_level": {
+            "type": "integer",
+            "title": "Jewelrycrafting Level",
+            "description": "Jewelrycrafting level."
+          },
+          "jewelrycrafting_total_xp": {
+            "type": "integer",
+            "title": "Jewelrycrafting Total Xp",
+            "description": "Jewelrycrafting total xp."
+          },
+          "cooking_level": {
+            "type": "integer",
+            "title": "Cooking Level",
+            "description": "Cooking level."
+          },
+          "cooking_total_xp": {
+            "type": "integer",
+            "title": "Cooking Total Xp",
+            "description": "Cooking total xp."
+          },
+          "gold": {
+            "type": "integer",
+            "title": "Gold",
+            "description": "The numbers of golds on this character."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "skin",
+          "achievements_points",
+          "level",
+          "total_xp",
+          "mining_level",
+          "mining_total_xp",
+          "woodcutting_level",
+          "woodcutting_total_xp",
+          "fishing_level",
+          "fishing_total_xp",
+          "weaponcrafting_level",
+          "weaponcrafting_total_xp",
+          "gearcrafting_level",
+          "gearcrafting_total_xp",
+          "jewelrycrafting_level",
+          "jewelrycrafting_total_xp",
+          "cooking_level",
+          "cooking_total_xp",
+          "gold"
+        ],
+        "title": "CharacterLeaderboardSchema"
+      },
       "CharacterMovementDataSchema": {
         "properties": {
           "cooldown": {
@@ -2806,10 +3619,10 @@
             "title": "Max Xp",
             "description": "XP required to level up the character."
           },
-          "total_xp": {
+          "achievements_points": {
             "type": "integer",
-            "title": "Total Xp",
-            "description": "Total XP of your character."
+            "title": "Achievements Points",
+            "description": "achievements points."
           },
           "gold": {
             "type": "integer",
@@ -3148,7 +3961,7 @@
           "level",
           "xp",
           "max_xp",
-          "total_xp",
+          "achievements_points",
           "gold",
           "speed",
           "mining_level",
@@ -3329,6 +4142,73 @@
         ],
         "title": "CraftingSchema"
       },
+      "DataPage_AchievementSchema_": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/AchievementSchema"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "total": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "size": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Size"
+          },
+          "pages": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "total",
+          "page",
+          "size"
+        ],
+        "title": "DataPage[AchievementSchema]"
+      },
       "DataPage_ActiveEventSchema_": {
         "properties": {
           "data": {
@@ -3395,6 +4275,140 @@
           "size"
         ],
         "title": "DataPage[ActiveEventSchema]"
+      },
+      "DataPage_BaseAchievementSchema_": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/BaseAchievementSchema"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "total": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "size": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Size"
+          },
+          "pages": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "total",
+          "page",
+          "size"
+        ],
+        "title": "DataPage[BaseAchievementSchema]"
+      },
+      "DataPage_CharacterLeaderboardSchema_": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/CharacterLeaderboardSchema"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "total": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "size": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Size"
+          },
+          "pages": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "total",
+          "page",
+          "size"
+        ],
+        "title": "DataPage[CharacterLeaderboardSchema]"
       },
       "DataPage_CharacterSchema_": {
         "properties": {
@@ -4172,6 +5186,13 @@
             ],
             "title": "Slot",
             "description": "Item slot."
+          },
+          "quantity": {
+            "type": "integer",
+            "maximum": 100.0,
+            "title": "Quantity",
+            "description": "Item quantity. Applicable to consumables only.",
+            "default": 1
           }
         },
         "type": "object",
@@ -4298,12 +5319,18 @@
             "type": "integer",
             "title": "Buy Price",
             "description": "The item's buying price."
+          },
+          "max_quantity": {
+            "type": "integer",
+            "title": "Max Quantity",
+            "description": "The number of items you can buy or sell at the same time."
           }
         },
         "type": "object",
         "required": [
           "code",
-          "stock"
+          "stock",
+          "max_quantity"
         ],
         "title": "GEItemSchema"
       },
@@ -4317,7 +5344,7 @@
           },
           "quantity": {
             "type": "integer",
-            "maximum": 50.0,
+            "maximum": 100.0,
             "minimum": 1.0,
             "title": "Quantity",
             "description": "Item quantity."
@@ -4416,30 +5443,6 @@
         ],
         "title": "GETransactionSchema"
       },
-      "GoldBankResponseSchema": {
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/GoldSchema"
-          }
-        },
-        "type": "object",
-        "required": [
-          "data"
-        ],
-        "title": "GoldBankResponseSchema"
-      },
-      "GoldResponseSchema": {
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/GoldTransactionSchema"
-          }
-        },
-        "type": "object",
-        "required": [
-          "data"
-        ],
-        "title": "GoldResponseSchema"
-      },
       "GoldSchema": {
         "properties": {
           "quantity": {
@@ -4454,41 +5457,6 @@
           "quantity"
         ],
         "title": "GoldSchema"
-      },
-      "GoldTransactionSchema": {
-        "properties": {
-          "cooldown": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/CooldownSchema"
-              }
-            ],
-            "description": "Cooldown details."
-          },
-          "bank": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/GoldSchema"
-              }
-            ],
-            "description": "Bank details."
-          },
-          "character": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/CharacterSchema"
-              }
-            ],
-            "description": "Player details."
-          }
-        },
-        "type": "object",
-        "required": [
-          "cooldown",
-          "bank",
-          "character"
-        ],
-        "title": "GoldTransactionSchema"
       },
       "HTTPValidationError": {
         "properties": {
@@ -4657,8 +5625,15 @@
             "description": "Cooldown in seconds."
           },
           "cooldown_expiration": {
-            "type": "string",
-            "format": "date-time",
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Cooldown Expiration",
             "description": "Datetime of cooldown expiration."
           },
@@ -5188,21 +6163,29 @@
             "type": "string",
             "title": "Version"
           },
+          "max_level": {
+            "type": "integer",
+            "title": "Max Level",
+            "description": "Maximum level."
+          },
           "characters_online": {
             "type": "integer",
-            "title": "Characters Online"
+            "title": "Characters Online",
+            "description": "Characters online."
           },
           "server_time": {
             "type": "string",
             "format": "date-time",
-            "title": "Server Time"
+            "title": "Server Time",
+            "description": "Server time."
           },
           "announcements": {
             "items": {
               "$ref": "#/components/schemas/AnnouncementSchema"
             },
             "type": "array",
-            "title": "Announcements"
+            "title": "Announcements",
+            "description": "Server announcements."
           },
           "last_wipe": {
             "type": "string",
@@ -5218,10 +6201,52 @@
         "type": "object",
         "required": [
           "status",
+          "max_level",
+          "characters_online",
+          "server_time",
+          "announcements",
           "last_wipe",
           "next_wipe"
         ],
         "title": "StatusSchema"
+      },
+      "TaskCancelledResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/TaskCancelledSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "TaskCancelledResponseSchema"
+      },
+      "TaskCancelledSchema": {
+        "properties": {
+          "cooldown": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CooldownSchema"
+              }
+            ],
+            "description": "Cooldown details."
+          },
+          "character": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CharacterSchema"
+              }
+            ],
+            "description": "Player details."
+          }
+        },
+        "type": "object",
+        "required": [
+          "cooldown",
+          "character"
+        ],
+        "title": "TaskCancelledSchema"
       },
       "TaskDataSchema": {
         "properties": {
@@ -5403,6 +6428,13 @@
             ],
             "title": "Slot",
             "description": "Item slot."
+          },
+          "quantity": {
+            "type": "integer",
+            "maximum": 100.0,
+            "title": "Quantity",
+            "description": "Item quantity. Applicable to consumables only.",
+            "default": 1
           }
         },
         "type": "object",
