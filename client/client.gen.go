@@ -199,6 +199,7 @@ const (
 	GetAllItemsItemsGetParamsTypeBodyArmor  GetAllItemsItemsGetParamsType = "body_armor"
 	GetAllItemsItemsGetParamsTypeBoots      GetAllItemsItemsGetParamsType = "boots"
 	GetAllItemsItemsGetParamsTypeConsumable GetAllItemsItemsGetParamsType = "consumable"
+	GetAllItemsItemsGetParamsTypeCurrency   GetAllItemsItemsGetParamsType = "currency"
 	GetAllItemsItemsGetParamsTypeHelmet     GetAllItemsItemsGetParamsType = "helmet"
 	GetAllItemsItemsGetParamsTypeLegArmor   GetAllItemsItemsGetParamsType = "leg_armor"
 	GetAllItemsItemsGetParamsTypeResource   GetAllItemsItemsGetParamsType = "resource"
