@@ -3,7 +3,7 @@
   "info": {
     "title": "Artifacts API",
     "description": "\nArtifacts is an API-based MMO game where you can manage 5 characters to explore, fight, gather resources, craft items and much more.\n\nWebsite: https://artifactsmmo.com/\n\nDocumentation: https://docs.artifactsmmo.com/\n\nOpenAPI Spec: https://api.artifactsmmo.com/openapi.json\n",
-    "version": "2"
+    "version": "2.1"
   },
   "paths": {
     "/my/{name}/action/move": {
@@ -1976,7 +1976,8 @@
                 "shield",
                 "amulet",
                 "ring",
-                "artifact"
+                "artifact",
+                "currency"
               ],
               "type": "string",
               "title": "Type",
@@ -3907,6 +3908,7 @@
           },
           "consumable1_slot_quantity": {
             "type": "integer",
+            "minimum": 0.0,
             "title": "Consumable1 Slot Quantity",
             "description": "Consumable 1 quantity."
           },
@@ -3917,6 +3919,7 @@
           },
           "consumable2_slot_quantity": {
             "type": "integer",
+            "minimum": 0.0,
             "title": "Consumable2 Slot Quantity",
             "description": "Consumable 2 quantity."
           },
@@ -5190,6 +5193,7 @@
           "quantity": {
             "type": "integer",
             "maximum": 100.0,
+            "minimum": 1.0,
             "title": "Quantity",
             "description": "Item quantity. Applicable to consumables only.",
             "default": 1
@@ -6432,6 +6436,7 @@
           "quantity": {
             "type": "integer",
             "maximum": 100.0,
+            "minimum": 1.0,
             "title": "Quantity",
             "description": "Item quantity. Applicable to consumables only.",
             "default": 1
