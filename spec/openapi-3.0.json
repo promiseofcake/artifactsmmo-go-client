@@ -3,7 +3,7 @@
   "info": {
     "title": "Artifacts API",
     "description": "\nArtifacts is an API-based MMO game where you can manage 5 characters to explore, fight, gather resources, craft items and much more.\n\nWebsite: https://artifactsmmo.com/\n\nDocumentation: https://docs.artifactsmmo.com/\n\nOpenAPI Spec: https://api.artifactsmmo.com/openapi.json\n",
-    "version": "2.1"
+    "version": "2.2"
   },
   "paths": {
     "/my/{name}/action/move": {
@@ -140,6 +140,9 @@
           },
           "496": {
             "description": "Character level is insufficient."
+          },
+          "497": {
+            "description": "Character inventory is full."
           },
           "498": {
             "description": "Character not found."
@@ -1082,7 +1085,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TaskRewardResponseSchema"
+                  "$ref": "#/components/schemas/TasksRewardResponseSchema"
                 }
               }
             }
@@ -1117,7 +1120,7 @@
           "My characters"
         ],
         "summary": "Action Task Exchange",
-        "description": "Exchange 3 tasks coins for a random reward. Rewards are exclusive resources for crafting  items.",
+        "description": "Exchange 6 tasks coins for a random reward. Rewards are exclusive items or resources.",
         "operationId": "action_task_exchange_my__name__action_task_exchange_post",
         "security": [
           {
@@ -1144,7 +1147,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TaskRewardResponseSchema"
+                  "$ref": "#/components/schemas/TasksRewardResponseSchema"
                 }
               }
             }
@@ -1157,6 +1160,78 @@
           },
           "497": {
             "description": "Character inventory is full."
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          },
+          "598": {
+            "description": "Tasks Master not found on this map."
+          }
+        }
+      }
+    },
+    "/my/{name}/action/task/trade": {
+      "post": {
+        "tags": [
+          "My characters"
+        ],
+        "summary": "Action Task Trade",
+        "description": "Trading items with a Tasks Master.",
+        "operationId": "action_task_trade_my__name__action_task_trade_post",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Character name",
+              "description": "Name of your character."
+            },
+            "description": "Name of your character."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SimpleItemSchema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "You have successfully trade items to a Tasks Master.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskTradeResponseSchema"
+                }
+              }
+            }
+          },
+          "474": {
+            "description": "Character does not have this task."
+          },
+          "475": {
+            "description": "Character have already completed the task or are trying to trade too many items."
+          },
+          "478": {
+            "description": "Missing item or insufficient quantity."
+          },
+          "486": {
+            "description": "An action is already in progress by your character."
           },
           "498": {
             "description": "Character not found."
@@ -2505,6 +2580,245 @@
           },
           "404": {
             "description": "Item not found."
+          }
+        }
+      }
+    },
+    "/tasks/list": {
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "summary": "Get All Tasks",
+        "description": "Fetch the list of all tasks.",
+        "operationId": "get_all_tasks_tasks_list_get",
+        "parameters": [
+          {
+            "name": "min_level",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "title": "Minimum level",
+              "description": "Minimum level."
+            },
+            "description": "Minimum level."
+          },
+          {
+            "name": "max_level",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "title": "Maximum level",
+              "description": "Maximum level."
+            },
+            "description": "Maximum level."
+          },
+          {
+            "name": "skill",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "mining",
+                "woodcutting",
+                "fishing",
+                "gearcrafting",
+                "weaponcrafting",
+                "jewelrycrafting",
+                "cooking"
+              ],
+              "type": "string",
+              "title": "Skill code",
+              "description": "The code of the skill."
+            },
+            "description": "The code of the skill."
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "items",
+                "monsters"
+              ],
+              "type": "string",
+              "title": "Type",
+              "description": "The type of tasks."
+            },
+            "description": "The type of tasks."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched tasks details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_TaskFullSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tasks/list/{code}": {
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "summary": "Get Task",
+        "description": "Retrieve the details of a task.",
+        "operationId": "get_task_tasks_list__code__get",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Task code",
+              "description": "The code of the task."
+            },
+            "description": "The code of the task."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched task.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskFullResponseSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Task not found."
+          }
+        }
+      }
+    },
+    "/tasks/rewards": {
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "summary": "Get All Tasks Rewards",
+        "description": "Fetch the list of all tasks rewards. To obtain these rewards, you must exchange 6 task coins with a tasks master.",
+        "operationId": "get_all_tasks_rewards_tasks_rewards_get",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched tasks rewards details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_TasksRewardFullSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tasks/rewards/{code}": {
+      "get": {
+        "tags": [
+          "Tasks"
+        ],
+        "summary": "Get Tasks Reward",
+        "description": "Retrieve the details of a tasks reward.",
+        "operationId": "get_tasks_reward_tasks_rewards__code__get",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Tasks reward code",
+              "description": "The code of the tasks reward."
+            },
+            "description": "The code of the tasks reward."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched tasks reward.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TasksRewardFullResponseSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Tasks reward not found."
           }
         }
       }
@@ -4949,6 +5263,140 @@
         ],
         "title": "DataPage[SimpleItemSchema]"
       },
+      "DataPage_TaskFullSchema_": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/TaskFullSchema"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "total": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "nullable": true
+              }
+            ],
+            "title": "Total"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1
+              },
+              {
+                "nullable": true
+              }
+            ],
+            "title": "Page"
+          },
+          "size": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1
+              },
+              {
+                "nullable": true
+              }
+            ],
+            "title": "Size"
+          },
+          "pages": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "nullable": true
+              }
+            ],
+            "title": "Pages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "total",
+          "page",
+          "size"
+        ],
+        "title": "DataPage[TaskFullSchema]"
+      },
+      "DataPage_TasksRewardFullSchema_": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/TasksRewardFullSchema"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "total": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "nullable": true
+              }
+            ],
+            "title": "Total"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1
+              },
+              {
+                "nullable": true
+              }
+            ],
+            "title": "Page"
+          },
+          "size": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1
+              },
+              {
+                "nullable": true
+              }
+            ],
+            "title": "Size"
+          },
+          "pages": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0
+              },
+              {
+                "nullable": true
+              }
+            ],
+            "title": "Pages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "total",
+          "page",
+          "size"
+        ],
+        "title": "DataPage[TasksRewardFullSchema]"
+      },
       "DeleteCharacterSchema": {
         "properties": {
           "name": {
@@ -6287,6 +6735,73 @@
         ],
         "title": "TaskDataSchema"
       },
+      "TaskFullResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/TaskFullSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "TaskFullResponseSchema"
+      },
+      "TaskFullSchema": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Task objective."
+          },
+          "level": {
+            "type": "integer",
+            "title": "Level",
+            "description": "Task level."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "monsters",
+              "items"
+            ],
+            "title": "Type",
+            "description": "The type of task."
+          },
+          "min_quantity": {
+            "type": "integer",
+            "title": "Min Quantity",
+            "description": "Minimum amount of task."
+          },
+          "max_quantity": {
+            "type": "integer",
+            "title": "Max Quantity",
+            "description": "Maximum amount of task."
+          },
+          "skill": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "nullable": true
+              }
+            ],
+            "title": "Skill",
+            "description": "Skill required to complete the task."
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "level",
+          "type",
+          "min_quantity",
+          "max_quantity",
+          "skill"
+        ],
+        "title": "TaskFullSchema"
+      },
       "TaskResponseSchema": {
         "properties": {
           "data": {
@@ -6299,7 +6814,104 @@
         ],
         "title": "TaskResponseSchema"
       },
-      "TaskRewardDataSchema": {
+      "TaskSchema": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Task objective."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "monsters",
+              "items"
+            ],
+            "title": "Type",
+            "description": "The type of task."
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total",
+            "description": "The total required to complete the task."
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "type",
+          "total"
+        ],
+        "title": "TaskSchema"
+      },
+      "TaskTradeDataSchema": {
+        "properties": {
+          "cooldown": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CooldownSchema"
+              }
+            ],
+            "description": "Cooldown details."
+          },
+          "trade": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TaskTradeSchema"
+              }
+            ],
+            "description": "Reward details."
+          },
+          "character": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CharacterSchema"
+              }
+            ],
+            "description": "Player details."
+          }
+        },
+        "type": "object",
+        "required": [
+          "cooldown",
+          "trade",
+          "character"
+        ],
+        "title": "TaskTradeDataSchema"
+      },
+      "TaskTradeResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/TaskTradeDataSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "TaskTradeResponseSchema"
+      },
+      "TaskTradeSchema": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Item code."
+          },
+          "quantity": {
+            "type": "integer",
+            "title": "Quantity",
+            "description": "Item quantity."
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "quantity"
+        ],
+        "title": "TaskTradeSchema"
+      },
+      "TasksRewardDataSchema": {
         "properties": {
           "cooldown": {
             "allOf": [
@@ -6312,7 +6924,7 @@
           "reward": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/TaskRewardSchema"
+                "$ref": "#/components/schemas/TasksRewardSchema"
               }
             ],
             "description": "Reward details."
@@ -6332,21 +6944,65 @@
           "reward",
           "character"
         ],
-        "title": "TaskRewardDataSchema"
+        "title": "TasksRewardDataSchema"
       },
-      "TaskRewardResponseSchema": {
+      "TasksRewardFullResponseSchema": {
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/TaskRewardDataSchema"
+            "$ref": "#/components/schemas/TasksRewardFullSchema"
           }
         },
         "type": "object",
         "required": [
           "data"
         ],
-        "title": "TaskRewardResponseSchema"
+        "title": "TasksRewardFullResponseSchema"
       },
-      "TaskRewardSchema": {
+      "TasksRewardFullSchema": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Item code."
+          },
+          "min_quantity": {
+            "type": "integer",
+            "title": "Min Quantity",
+            "description": "Minimum quantity of item."
+          },
+          "max_quantity": {
+            "type": "integer",
+            "title": "Max Quantity",
+            "description": "Maximum quantity of item."
+          },
+          "odds": {
+            "type": "number",
+            "title": "Odds",
+            "description": "Item odds."
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "min_quantity",
+          "max_quantity",
+          "odds"
+        ],
+        "title": "TasksRewardFullSchema"
+      },
+      "TasksRewardResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/TasksRewardDataSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "TasksRewardResponseSchema"
+      },
+      "TasksRewardSchema": {
         "properties": {
           "code": {
             "type": "string",
@@ -6364,38 +7020,7 @@
           "code",
           "quantity"
         ],
-        "title": "TaskRewardSchema"
-      },
-      "TaskSchema": {
-        "properties": {
-          "code": {
-            "type": "string",
-            "title": "Code",
-            "description": "Task objective."
-          },
-          "type": {
-            "type": "string",
-            "enum": [
-              "monsters",
-              "resources",
-              "crafts"
-            ],
-            "title": "Type",
-            "description": "The type of task."
-          },
-          "total": {
-            "type": "integer",
-            "title": "Total",
-            "description": "The total required to complete the task."
-          }
-        },
-        "type": "object",
-        "required": [
-          "code",
-          "type",
-          "total"
-        ],
-        "title": "TaskSchema"
+        "title": "TasksRewardSchema"
       },
       "TokenResponseSchema": {
         "properties": {
