@@ -143,11 +143,16 @@ const (
 	ResourceSchemaSkillWoodcutting ResourceSchemaSkill = "woodcutting"
 )
 
+// Defines values for TaskFullSchemaType.
+const (
+	TaskFullSchemaTypeItems    TaskFullSchemaType = "items"
+	TaskFullSchemaTypeMonsters TaskFullSchemaType = "monsters"
+)
+
 // Defines values for TaskSchemaType.
 const (
-	Crafts    TaskSchemaType = "crafts"
-	Monsters  TaskSchemaType = "monsters"
-	Resources TaskSchemaType = "resources"
+	TaskSchemaTypeItems    TaskSchemaType = "items"
+	TaskSchemaTypeMonsters TaskSchemaType = "monsters"
 )
 
 // Defines values for UnequipSchemaSlot.
@@ -244,9 +249,26 @@ const (
 
 // Defines values for GetAllResourcesResourcesGetParamsSkill.
 const (
-	Fishing     GetAllResourcesResourcesGetParamsSkill = "fishing"
-	Mining      GetAllResourcesResourcesGetParamsSkill = "mining"
-	Woodcutting GetAllResourcesResourcesGetParamsSkill = "woodcutting"
+	GetAllResourcesResourcesGetParamsSkillFishing     GetAllResourcesResourcesGetParamsSkill = "fishing"
+	GetAllResourcesResourcesGetParamsSkillMining      GetAllResourcesResourcesGetParamsSkill = "mining"
+	GetAllResourcesResourcesGetParamsSkillWoodcutting GetAllResourcesResourcesGetParamsSkill = "woodcutting"
+)
+
+// Defines values for GetAllTasksTasksListGetParamsSkill.
+const (
+	GetAllTasksTasksListGetParamsSkillCooking         GetAllTasksTasksListGetParamsSkill = "cooking"
+	GetAllTasksTasksListGetParamsSkillFishing         GetAllTasksTasksListGetParamsSkill = "fishing"
+	GetAllTasksTasksListGetParamsSkillGearcrafting    GetAllTasksTasksListGetParamsSkill = "gearcrafting"
+	GetAllTasksTasksListGetParamsSkillJewelrycrafting GetAllTasksTasksListGetParamsSkill = "jewelrycrafting"
+	GetAllTasksTasksListGetParamsSkillMining          GetAllTasksTasksListGetParamsSkill = "mining"
+	GetAllTasksTasksListGetParamsSkillWeaponcrafting  GetAllTasksTasksListGetParamsSkill = "weaponcrafting"
+	GetAllTasksTasksListGetParamsSkillWoodcutting     GetAllTasksTasksListGetParamsSkill = "woodcutting"
+)
+
+// Defines values for GetAllTasksTasksListGetParamsType.
+const (
+	Items    GetAllTasksTasksListGetParamsType = "items"
+	Monsters GetAllTasksTasksListGetParamsType = "monsters"
 )
 
 // AchievementSchema defines model for AchievementSchema.
@@ -1510,6 +1532,112 @@ type DataPageSimpleItemSchema_Total struct {
 	union json.RawMessage
 }
 
+// DataPageTaskFullSchema defines model for DataPage_TaskFullSchema_.
+type DataPageTaskFullSchema struct {
+	Data  []TaskFullSchema              `json:"data"`
+	Page  DataPageTaskFullSchema_Page   `json:"page"`
+	Pages *DataPageTaskFullSchema_Pages `json:"pages,omitempty"`
+	Size  DataPageTaskFullSchema_Size   `json:"size"`
+	Total DataPageTaskFullSchema_Total  `json:"total"`
+}
+
+// DataPageTaskFullSchemaPage0 defines model for .
+type DataPageTaskFullSchemaPage0 = int
+
+// DataPageTaskFullSchemaPage1 defines model for .
+type DataPageTaskFullSchemaPage1 = interface{}
+
+// DataPageTaskFullSchema_Page defines model for DataPageTaskFullSchema.Page.
+type DataPageTaskFullSchema_Page struct {
+	union json.RawMessage
+}
+
+// DataPageTaskFullSchemaPages0 defines model for .
+type DataPageTaskFullSchemaPages0 = int
+
+// DataPageTaskFullSchemaPages1 defines model for .
+type DataPageTaskFullSchemaPages1 = interface{}
+
+// DataPageTaskFullSchema_Pages defines model for DataPageTaskFullSchema.Pages.
+type DataPageTaskFullSchema_Pages struct {
+	union json.RawMessage
+}
+
+// DataPageTaskFullSchemaSize0 defines model for .
+type DataPageTaskFullSchemaSize0 = int
+
+// DataPageTaskFullSchemaSize1 defines model for .
+type DataPageTaskFullSchemaSize1 = interface{}
+
+// DataPageTaskFullSchema_Size defines model for DataPageTaskFullSchema.Size.
+type DataPageTaskFullSchema_Size struct {
+	union json.RawMessage
+}
+
+// DataPageTaskFullSchemaTotal0 defines model for .
+type DataPageTaskFullSchemaTotal0 = int
+
+// DataPageTaskFullSchemaTotal1 defines model for .
+type DataPageTaskFullSchemaTotal1 = interface{}
+
+// DataPageTaskFullSchema_Total defines model for DataPageTaskFullSchema.Total.
+type DataPageTaskFullSchema_Total struct {
+	union json.RawMessage
+}
+
+// DataPageTasksRewardFullSchema defines model for DataPage_TasksRewardFullSchema_.
+type DataPageTasksRewardFullSchema struct {
+	Data  []TasksRewardFullSchema              `json:"data"`
+	Page  DataPageTasksRewardFullSchema_Page   `json:"page"`
+	Pages *DataPageTasksRewardFullSchema_Pages `json:"pages,omitempty"`
+	Size  DataPageTasksRewardFullSchema_Size   `json:"size"`
+	Total DataPageTasksRewardFullSchema_Total  `json:"total"`
+}
+
+// DataPageTasksRewardFullSchemaPage0 defines model for .
+type DataPageTasksRewardFullSchemaPage0 = int
+
+// DataPageTasksRewardFullSchemaPage1 defines model for .
+type DataPageTasksRewardFullSchemaPage1 = interface{}
+
+// DataPageTasksRewardFullSchema_Page defines model for DataPageTasksRewardFullSchema.Page.
+type DataPageTasksRewardFullSchema_Page struct {
+	union json.RawMessage
+}
+
+// DataPageTasksRewardFullSchemaPages0 defines model for .
+type DataPageTasksRewardFullSchemaPages0 = int
+
+// DataPageTasksRewardFullSchemaPages1 defines model for .
+type DataPageTasksRewardFullSchemaPages1 = interface{}
+
+// DataPageTasksRewardFullSchema_Pages defines model for DataPageTasksRewardFullSchema.Pages.
+type DataPageTasksRewardFullSchema_Pages struct {
+	union json.RawMessage
+}
+
+// DataPageTasksRewardFullSchemaSize0 defines model for .
+type DataPageTasksRewardFullSchemaSize0 = int
+
+// DataPageTasksRewardFullSchemaSize1 defines model for .
+type DataPageTasksRewardFullSchemaSize1 = interface{}
+
+// DataPageTasksRewardFullSchema_Size defines model for DataPageTasksRewardFullSchema.Size.
+type DataPageTasksRewardFullSchema_Size struct {
+	union json.RawMessage
+}
+
+// DataPageTasksRewardFullSchemaTotal0 defines model for .
+type DataPageTasksRewardFullSchemaTotal0 = int
+
+// DataPageTasksRewardFullSchemaTotal1 defines model for .
+type DataPageTasksRewardFullSchemaTotal1 = interface{}
+
+// DataPageTasksRewardFullSchema_Total defines model for DataPageTasksRewardFullSchema.Total.
+type DataPageTasksRewardFullSchema_Total struct {
+	union json.RawMessage
+}
+
 // DeleteCharacterSchema defines model for DeleteCharacterSchema.
 type DeleteCharacterSchema struct {
 	// Name Character name.
@@ -2082,35 +2210,49 @@ type TaskDataSchema struct {
 	Task TaskSchema `json:"task"`
 }
 
+// TaskFullResponseSchema defines model for TaskFullResponseSchema.
+type TaskFullResponseSchema struct {
+	Data TaskFullSchema `json:"data"`
+}
+
+// TaskFullSchema defines model for TaskFullSchema.
+type TaskFullSchema struct {
+	// Code Task objective.
+	Code string `json:"code"`
+
+	// Level Task level.
+	Level int `json:"level"`
+
+	// MaxQuantity Maximum amount of task.
+	MaxQuantity int `json:"max_quantity"`
+
+	// MinQuantity Minimum amount of task.
+	MinQuantity int `json:"min_quantity"`
+
+	// Skill Skill required to complete the task.
+	Skill TaskFullSchema_Skill `json:"skill"`
+
+	// Type The type of task.
+	Type TaskFullSchemaType `json:"type"`
+}
+
+// TaskFullSchemaSkill0 defines model for .
+type TaskFullSchemaSkill0 = string
+
+// TaskFullSchemaSkill1 defines model for .
+type TaskFullSchemaSkill1 = interface{}
+
+// TaskFullSchema_Skill Skill required to complete the task.
+type TaskFullSchema_Skill struct {
+	union json.RawMessage
+}
+
+// TaskFullSchemaType The type of task.
+type TaskFullSchemaType string
+
 // TaskResponseSchema defines model for TaskResponseSchema.
 type TaskResponseSchema struct {
 	Data TaskDataSchema `json:"data"`
-}
-
-// TaskRewardDataSchema defines model for TaskRewardDataSchema.
-type TaskRewardDataSchema struct {
-	// Character Player details.
-	Character CharacterSchema `json:"character"`
-
-	// Cooldown Cooldown details.
-	Cooldown CooldownSchema `json:"cooldown"`
-
-	// Reward Reward details.
-	Reward TaskRewardSchema `json:"reward"`
-}
-
-// TaskRewardResponseSchema defines model for TaskRewardResponseSchema.
-type TaskRewardResponseSchema struct {
-	Data TaskRewardDataSchema `json:"data"`
-}
-
-// TaskRewardSchema defines model for TaskRewardSchema.
-type TaskRewardSchema struct {
-	// Code Item code.
-	Code string `json:"code"`
-
-	// Quantity Item quantity.
-	Quantity int `json:"quantity"`
 }
 
 // TaskSchema defines model for TaskSchema.
@@ -2127,6 +2269,78 @@ type TaskSchema struct {
 
 // TaskSchemaType The type of task.
 type TaskSchemaType string
+
+// TaskTradeDataSchema defines model for TaskTradeDataSchema.
+type TaskTradeDataSchema struct {
+	// Character Player details.
+	Character CharacterSchema `json:"character"`
+
+	// Cooldown Cooldown details.
+	Cooldown CooldownSchema `json:"cooldown"`
+
+	// Trade Reward details.
+	Trade TaskTradeSchema `json:"trade"`
+}
+
+// TaskTradeResponseSchema defines model for TaskTradeResponseSchema.
+type TaskTradeResponseSchema struct {
+	Data TaskTradeDataSchema `json:"data"`
+}
+
+// TaskTradeSchema defines model for TaskTradeSchema.
+type TaskTradeSchema struct {
+	// Code Item code.
+	Code string `json:"code"`
+
+	// Quantity Item quantity.
+	Quantity int `json:"quantity"`
+}
+
+// TasksRewardDataSchema defines model for TasksRewardDataSchema.
+type TasksRewardDataSchema struct {
+	// Character Player details.
+	Character CharacterSchema `json:"character"`
+
+	// Cooldown Cooldown details.
+	Cooldown CooldownSchema `json:"cooldown"`
+
+	// Reward Reward details.
+	Reward TasksRewardSchema `json:"reward"`
+}
+
+// TasksRewardFullResponseSchema defines model for TasksRewardFullResponseSchema.
+type TasksRewardFullResponseSchema struct {
+	Data TasksRewardFullSchema `json:"data"`
+}
+
+// TasksRewardFullSchema defines model for TasksRewardFullSchema.
+type TasksRewardFullSchema struct {
+	// Code Item code.
+	Code string `json:"code"`
+
+	// MaxQuantity Maximum quantity of item.
+	MaxQuantity int `json:"max_quantity"`
+
+	// MinQuantity Minimum quantity of item.
+	MinQuantity int `json:"min_quantity"`
+
+	// Odds Item odds.
+	Odds float32 `json:"odds"`
+}
+
+// TasksRewardResponseSchema defines model for TasksRewardResponseSchema.
+type TasksRewardResponseSchema struct {
+	Data TasksRewardDataSchema `json:"data"`
+}
+
+// TasksRewardSchema defines model for TasksRewardSchema.
+type TasksRewardSchema struct {
+	// Code Item code.
+	Code string `json:"code"`
+
+	// Quantity Item quantity.
+	Quantity int `json:"quantity"`
+}
 
 // TokenResponseSchema defines model for TokenResponseSchema.
 type TokenResponseSchema struct {
@@ -2334,6 +2548,42 @@ type GetAllResourcesResourcesGetParams struct {
 // GetAllResourcesResourcesGetParamsSkill defines parameters for GetAllResourcesResourcesGet.
 type GetAllResourcesResourcesGetParamsSkill string
 
+// GetAllTasksTasksListGetParams defines parameters for GetAllTasksTasksListGet.
+type GetAllTasksTasksListGetParams struct {
+	// MinLevel Minimum level.
+	MinLevel *int `form:"min_level,omitempty" json:"min_level,omitempty"`
+
+	// MaxLevel Maximum level.
+	MaxLevel *int `form:"max_level,omitempty" json:"max_level,omitempty"`
+
+	// Skill The code of the skill.
+	Skill *GetAllTasksTasksListGetParamsSkill `form:"skill,omitempty" json:"skill,omitempty"`
+
+	// Type The type of tasks.
+	Type *GetAllTasksTasksListGetParamsType `form:"type,omitempty" json:"type,omitempty"`
+
+	// Page Page number
+	Page *int `form:"page,omitempty" json:"page,omitempty"`
+
+	// Size Page size
+	Size *int `form:"size,omitempty" json:"size,omitempty"`
+}
+
+// GetAllTasksTasksListGetParamsSkill defines parameters for GetAllTasksTasksListGet.
+type GetAllTasksTasksListGetParamsSkill string
+
+// GetAllTasksTasksListGetParamsType defines parameters for GetAllTasksTasksListGet.
+type GetAllTasksTasksListGetParamsType string
+
+// GetAllTasksRewardsTasksRewardsGetParams defines parameters for GetAllTasksRewardsTasksRewardsGet.
+type GetAllTasksRewardsTasksRewardsGetParams struct {
+	// Page Page number
+	Page *int `form:"page,omitempty" json:"page,omitempty"`
+
+	// Size Page size
+	Size *int `form:"size,omitempty" json:"size,omitempty"`
+}
+
 // CreateAccountAccountsCreatePostJSONRequestBody defines body for CreateAccountAccountsCreatePost for application/json ContentType.
 type CreateAccountAccountsCreatePostJSONRequestBody = AddAccountSchema
 
@@ -2378,6 +2628,9 @@ type ActionMoveMyNameActionMovePostJSONRequestBody = DestinationSchema
 
 // ActionRecyclingMyNameActionRecyclingPostJSONRequestBody defines body for ActionRecyclingMyNameActionRecyclingPost for application/json ContentType.
 type ActionRecyclingMyNameActionRecyclingPostJSONRequestBody = RecyclingSchema
+
+// ActionTaskTradeMyNameActionTaskTradePostJSONRequestBody defines body for ActionTaskTradeMyNameActionTaskTradePost for application/json ContentType.
+type ActionTaskTradeMyNameActionTaskTradePostJSONRequestBody = SimpleItemSchema
 
 // ActionUnequipItemMyNameActionUnequipPostJSONRequestBody defines body for ActionUnequipItemMyNameActionUnequipPost for application/json ContentType.
 type ActionUnequipItemMyNameActionUnequipPostJSONRequestBody = UnequipSchema
@@ -5544,6 +5797,502 @@ func (t *DataPageSimpleItemSchema_Total) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsDataPageTaskFullSchemaPage0 returns the union data inside the DataPageTaskFullSchema_Page as a DataPageTaskFullSchemaPage0
+func (t DataPageTaskFullSchema_Page) AsDataPageTaskFullSchemaPage0() (DataPageTaskFullSchemaPage0, error) {
+	var body DataPageTaskFullSchemaPage0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageTaskFullSchemaPage0 overwrites any union data inside the DataPageTaskFullSchema_Page as the provided DataPageTaskFullSchemaPage0
+func (t *DataPageTaskFullSchema_Page) FromDataPageTaskFullSchemaPage0(v DataPageTaskFullSchemaPage0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageTaskFullSchemaPage0 performs a merge with any union data inside the DataPageTaskFullSchema_Page, using the provided DataPageTaskFullSchemaPage0
+func (t *DataPageTaskFullSchema_Page) MergeDataPageTaskFullSchemaPage0(v DataPageTaskFullSchemaPage0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageTaskFullSchemaPage1 returns the union data inside the DataPageTaskFullSchema_Page as a DataPageTaskFullSchemaPage1
+func (t DataPageTaskFullSchema_Page) AsDataPageTaskFullSchemaPage1() (DataPageTaskFullSchemaPage1, error) {
+	var body DataPageTaskFullSchemaPage1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageTaskFullSchemaPage1 overwrites any union data inside the DataPageTaskFullSchema_Page as the provided DataPageTaskFullSchemaPage1
+func (t *DataPageTaskFullSchema_Page) FromDataPageTaskFullSchemaPage1(v DataPageTaskFullSchemaPage1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageTaskFullSchemaPage1 performs a merge with any union data inside the DataPageTaskFullSchema_Page, using the provided DataPageTaskFullSchemaPage1
+func (t *DataPageTaskFullSchema_Page) MergeDataPageTaskFullSchemaPage1(v DataPageTaskFullSchemaPage1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageTaskFullSchema_Page) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageTaskFullSchema_Page) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageTaskFullSchemaPages0 returns the union data inside the DataPageTaskFullSchema_Pages as a DataPageTaskFullSchemaPages0
+func (t DataPageTaskFullSchema_Pages) AsDataPageTaskFullSchemaPages0() (DataPageTaskFullSchemaPages0, error) {
+	var body DataPageTaskFullSchemaPages0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageTaskFullSchemaPages0 overwrites any union data inside the DataPageTaskFullSchema_Pages as the provided DataPageTaskFullSchemaPages0
+func (t *DataPageTaskFullSchema_Pages) FromDataPageTaskFullSchemaPages0(v DataPageTaskFullSchemaPages0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageTaskFullSchemaPages0 performs a merge with any union data inside the DataPageTaskFullSchema_Pages, using the provided DataPageTaskFullSchemaPages0
+func (t *DataPageTaskFullSchema_Pages) MergeDataPageTaskFullSchemaPages0(v DataPageTaskFullSchemaPages0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageTaskFullSchemaPages1 returns the union data inside the DataPageTaskFullSchema_Pages as a DataPageTaskFullSchemaPages1
+func (t DataPageTaskFullSchema_Pages) AsDataPageTaskFullSchemaPages1() (DataPageTaskFullSchemaPages1, error) {
+	var body DataPageTaskFullSchemaPages1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageTaskFullSchemaPages1 overwrites any union data inside the DataPageTaskFullSchema_Pages as the provided DataPageTaskFullSchemaPages1
+func (t *DataPageTaskFullSchema_Pages) FromDataPageTaskFullSchemaPages1(v DataPageTaskFullSchemaPages1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageTaskFullSchemaPages1 performs a merge with any union data inside the DataPageTaskFullSchema_Pages, using the provided DataPageTaskFullSchemaPages1
+func (t *DataPageTaskFullSchema_Pages) MergeDataPageTaskFullSchemaPages1(v DataPageTaskFullSchemaPages1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageTaskFullSchema_Pages) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageTaskFullSchema_Pages) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageTaskFullSchemaSize0 returns the union data inside the DataPageTaskFullSchema_Size as a DataPageTaskFullSchemaSize0
+func (t DataPageTaskFullSchema_Size) AsDataPageTaskFullSchemaSize0() (DataPageTaskFullSchemaSize0, error) {
+	var body DataPageTaskFullSchemaSize0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageTaskFullSchemaSize0 overwrites any union data inside the DataPageTaskFullSchema_Size as the provided DataPageTaskFullSchemaSize0
+func (t *DataPageTaskFullSchema_Size) FromDataPageTaskFullSchemaSize0(v DataPageTaskFullSchemaSize0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageTaskFullSchemaSize0 performs a merge with any union data inside the DataPageTaskFullSchema_Size, using the provided DataPageTaskFullSchemaSize0
+func (t *DataPageTaskFullSchema_Size) MergeDataPageTaskFullSchemaSize0(v DataPageTaskFullSchemaSize0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageTaskFullSchemaSize1 returns the union data inside the DataPageTaskFullSchema_Size as a DataPageTaskFullSchemaSize1
+func (t DataPageTaskFullSchema_Size) AsDataPageTaskFullSchemaSize1() (DataPageTaskFullSchemaSize1, error) {
+	var body DataPageTaskFullSchemaSize1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageTaskFullSchemaSize1 overwrites any union data inside the DataPageTaskFullSchema_Size as the provided DataPageTaskFullSchemaSize1
+func (t *DataPageTaskFullSchema_Size) FromDataPageTaskFullSchemaSize1(v DataPageTaskFullSchemaSize1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageTaskFullSchemaSize1 performs a merge with any union data inside the DataPageTaskFullSchema_Size, using the provided DataPageTaskFullSchemaSize1
+func (t *DataPageTaskFullSchema_Size) MergeDataPageTaskFullSchemaSize1(v DataPageTaskFullSchemaSize1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageTaskFullSchema_Size) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageTaskFullSchema_Size) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageTaskFullSchemaTotal0 returns the union data inside the DataPageTaskFullSchema_Total as a DataPageTaskFullSchemaTotal0
+func (t DataPageTaskFullSchema_Total) AsDataPageTaskFullSchemaTotal0() (DataPageTaskFullSchemaTotal0, error) {
+	var body DataPageTaskFullSchemaTotal0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageTaskFullSchemaTotal0 overwrites any union data inside the DataPageTaskFullSchema_Total as the provided DataPageTaskFullSchemaTotal0
+func (t *DataPageTaskFullSchema_Total) FromDataPageTaskFullSchemaTotal0(v DataPageTaskFullSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageTaskFullSchemaTotal0 performs a merge with any union data inside the DataPageTaskFullSchema_Total, using the provided DataPageTaskFullSchemaTotal0
+func (t *DataPageTaskFullSchema_Total) MergeDataPageTaskFullSchemaTotal0(v DataPageTaskFullSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageTaskFullSchemaTotal1 returns the union data inside the DataPageTaskFullSchema_Total as a DataPageTaskFullSchemaTotal1
+func (t DataPageTaskFullSchema_Total) AsDataPageTaskFullSchemaTotal1() (DataPageTaskFullSchemaTotal1, error) {
+	var body DataPageTaskFullSchemaTotal1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageTaskFullSchemaTotal1 overwrites any union data inside the DataPageTaskFullSchema_Total as the provided DataPageTaskFullSchemaTotal1
+func (t *DataPageTaskFullSchema_Total) FromDataPageTaskFullSchemaTotal1(v DataPageTaskFullSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageTaskFullSchemaTotal1 performs a merge with any union data inside the DataPageTaskFullSchema_Total, using the provided DataPageTaskFullSchemaTotal1
+func (t *DataPageTaskFullSchema_Total) MergeDataPageTaskFullSchemaTotal1(v DataPageTaskFullSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageTaskFullSchema_Total) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageTaskFullSchema_Total) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageTasksRewardFullSchemaPage0 returns the union data inside the DataPageTasksRewardFullSchema_Page as a DataPageTasksRewardFullSchemaPage0
+func (t DataPageTasksRewardFullSchema_Page) AsDataPageTasksRewardFullSchemaPage0() (DataPageTasksRewardFullSchemaPage0, error) {
+	var body DataPageTasksRewardFullSchemaPage0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageTasksRewardFullSchemaPage0 overwrites any union data inside the DataPageTasksRewardFullSchema_Page as the provided DataPageTasksRewardFullSchemaPage0
+func (t *DataPageTasksRewardFullSchema_Page) FromDataPageTasksRewardFullSchemaPage0(v DataPageTasksRewardFullSchemaPage0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageTasksRewardFullSchemaPage0 performs a merge with any union data inside the DataPageTasksRewardFullSchema_Page, using the provided DataPageTasksRewardFullSchemaPage0
+func (t *DataPageTasksRewardFullSchema_Page) MergeDataPageTasksRewardFullSchemaPage0(v DataPageTasksRewardFullSchemaPage0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageTasksRewardFullSchemaPage1 returns the union data inside the DataPageTasksRewardFullSchema_Page as a DataPageTasksRewardFullSchemaPage1
+func (t DataPageTasksRewardFullSchema_Page) AsDataPageTasksRewardFullSchemaPage1() (DataPageTasksRewardFullSchemaPage1, error) {
+	var body DataPageTasksRewardFullSchemaPage1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageTasksRewardFullSchemaPage1 overwrites any union data inside the DataPageTasksRewardFullSchema_Page as the provided DataPageTasksRewardFullSchemaPage1
+func (t *DataPageTasksRewardFullSchema_Page) FromDataPageTasksRewardFullSchemaPage1(v DataPageTasksRewardFullSchemaPage1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageTasksRewardFullSchemaPage1 performs a merge with any union data inside the DataPageTasksRewardFullSchema_Page, using the provided DataPageTasksRewardFullSchemaPage1
+func (t *DataPageTasksRewardFullSchema_Page) MergeDataPageTasksRewardFullSchemaPage1(v DataPageTasksRewardFullSchemaPage1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageTasksRewardFullSchema_Page) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageTasksRewardFullSchema_Page) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageTasksRewardFullSchemaPages0 returns the union data inside the DataPageTasksRewardFullSchema_Pages as a DataPageTasksRewardFullSchemaPages0
+func (t DataPageTasksRewardFullSchema_Pages) AsDataPageTasksRewardFullSchemaPages0() (DataPageTasksRewardFullSchemaPages0, error) {
+	var body DataPageTasksRewardFullSchemaPages0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageTasksRewardFullSchemaPages0 overwrites any union data inside the DataPageTasksRewardFullSchema_Pages as the provided DataPageTasksRewardFullSchemaPages0
+func (t *DataPageTasksRewardFullSchema_Pages) FromDataPageTasksRewardFullSchemaPages0(v DataPageTasksRewardFullSchemaPages0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageTasksRewardFullSchemaPages0 performs a merge with any union data inside the DataPageTasksRewardFullSchema_Pages, using the provided DataPageTasksRewardFullSchemaPages0
+func (t *DataPageTasksRewardFullSchema_Pages) MergeDataPageTasksRewardFullSchemaPages0(v DataPageTasksRewardFullSchemaPages0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageTasksRewardFullSchemaPages1 returns the union data inside the DataPageTasksRewardFullSchema_Pages as a DataPageTasksRewardFullSchemaPages1
+func (t DataPageTasksRewardFullSchema_Pages) AsDataPageTasksRewardFullSchemaPages1() (DataPageTasksRewardFullSchemaPages1, error) {
+	var body DataPageTasksRewardFullSchemaPages1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageTasksRewardFullSchemaPages1 overwrites any union data inside the DataPageTasksRewardFullSchema_Pages as the provided DataPageTasksRewardFullSchemaPages1
+func (t *DataPageTasksRewardFullSchema_Pages) FromDataPageTasksRewardFullSchemaPages1(v DataPageTasksRewardFullSchemaPages1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageTasksRewardFullSchemaPages1 performs a merge with any union data inside the DataPageTasksRewardFullSchema_Pages, using the provided DataPageTasksRewardFullSchemaPages1
+func (t *DataPageTasksRewardFullSchema_Pages) MergeDataPageTasksRewardFullSchemaPages1(v DataPageTasksRewardFullSchemaPages1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageTasksRewardFullSchema_Pages) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageTasksRewardFullSchema_Pages) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageTasksRewardFullSchemaSize0 returns the union data inside the DataPageTasksRewardFullSchema_Size as a DataPageTasksRewardFullSchemaSize0
+func (t DataPageTasksRewardFullSchema_Size) AsDataPageTasksRewardFullSchemaSize0() (DataPageTasksRewardFullSchemaSize0, error) {
+	var body DataPageTasksRewardFullSchemaSize0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageTasksRewardFullSchemaSize0 overwrites any union data inside the DataPageTasksRewardFullSchema_Size as the provided DataPageTasksRewardFullSchemaSize0
+func (t *DataPageTasksRewardFullSchema_Size) FromDataPageTasksRewardFullSchemaSize0(v DataPageTasksRewardFullSchemaSize0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageTasksRewardFullSchemaSize0 performs a merge with any union data inside the DataPageTasksRewardFullSchema_Size, using the provided DataPageTasksRewardFullSchemaSize0
+func (t *DataPageTasksRewardFullSchema_Size) MergeDataPageTasksRewardFullSchemaSize0(v DataPageTasksRewardFullSchemaSize0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageTasksRewardFullSchemaSize1 returns the union data inside the DataPageTasksRewardFullSchema_Size as a DataPageTasksRewardFullSchemaSize1
+func (t DataPageTasksRewardFullSchema_Size) AsDataPageTasksRewardFullSchemaSize1() (DataPageTasksRewardFullSchemaSize1, error) {
+	var body DataPageTasksRewardFullSchemaSize1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageTasksRewardFullSchemaSize1 overwrites any union data inside the DataPageTasksRewardFullSchema_Size as the provided DataPageTasksRewardFullSchemaSize1
+func (t *DataPageTasksRewardFullSchema_Size) FromDataPageTasksRewardFullSchemaSize1(v DataPageTasksRewardFullSchemaSize1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageTasksRewardFullSchemaSize1 performs a merge with any union data inside the DataPageTasksRewardFullSchema_Size, using the provided DataPageTasksRewardFullSchemaSize1
+func (t *DataPageTasksRewardFullSchema_Size) MergeDataPageTasksRewardFullSchemaSize1(v DataPageTasksRewardFullSchemaSize1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageTasksRewardFullSchema_Size) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageTasksRewardFullSchema_Size) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageTasksRewardFullSchemaTotal0 returns the union data inside the DataPageTasksRewardFullSchema_Total as a DataPageTasksRewardFullSchemaTotal0
+func (t DataPageTasksRewardFullSchema_Total) AsDataPageTasksRewardFullSchemaTotal0() (DataPageTasksRewardFullSchemaTotal0, error) {
+	var body DataPageTasksRewardFullSchemaTotal0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageTasksRewardFullSchemaTotal0 overwrites any union data inside the DataPageTasksRewardFullSchema_Total as the provided DataPageTasksRewardFullSchemaTotal0
+func (t *DataPageTasksRewardFullSchema_Total) FromDataPageTasksRewardFullSchemaTotal0(v DataPageTasksRewardFullSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageTasksRewardFullSchemaTotal0 performs a merge with any union data inside the DataPageTasksRewardFullSchema_Total, using the provided DataPageTasksRewardFullSchemaTotal0
+func (t *DataPageTasksRewardFullSchema_Total) MergeDataPageTasksRewardFullSchemaTotal0(v DataPageTasksRewardFullSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageTasksRewardFullSchemaTotal1 returns the union data inside the DataPageTasksRewardFullSchema_Total as a DataPageTasksRewardFullSchemaTotal1
+func (t DataPageTasksRewardFullSchema_Total) AsDataPageTasksRewardFullSchemaTotal1() (DataPageTasksRewardFullSchemaTotal1, error) {
+	var body DataPageTasksRewardFullSchemaTotal1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageTasksRewardFullSchemaTotal1 overwrites any union data inside the DataPageTasksRewardFullSchema_Total as the provided DataPageTasksRewardFullSchemaTotal1
+func (t *DataPageTasksRewardFullSchema_Total) FromDataPageTasksRewardFullSchemaTotal1(v DataPageTasksRewardFullSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageTasksRewardFullSchemaTotal1 performs a merge with any union data inside the DataPageTasksRewardFullSchema_Total, using the provided DataPageTasksRewardFullSchemaTotal1
+func (t *DataPageTasksRewardFullSchema_Total) MergeDataPageTasksRewardFullSchemaTotal1(v DataPageTasksRewardFullSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageTasksRewardFullSchema_Total) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageTasksRewardFullSchema_Total) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsCraftSchema returns the union data inside the ItemSchema_Craft as a CraftSchema
 func (t ItemSchema_Craft) AsCraftSchema() (CraftSchema, error) {
 	var body CraftSchema
@@ -5792,6 +6541,68 @@ func (t *SingleItemSchema_Ge) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsTaskFullSchemaSkill0 returns the union data inside the TaskFullSchema_Skill as a TaskFullSchemaSkill0
+func (t TaskFullSchema_Skill) AsTaskFullSchemaSkill0() (TaskFullSchemaSkill0, error) {
+	var body TaskFullSchemaSkill0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTaskFullSchemaSkill0 overwrites any union data inside the TaskFullSchema_Skill as the provided TaskFullSchemaSkill0
+func (t *TaskFullSchema_Skill) FromTaskFullSchemaSkill0(v TaskFullSchemaSkill0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeTaskFullSchemaSkill0 performs a merge with any union data inside the TaskFullSchema_Skill, using the provided TaskFullSchemaSkill0
+func (t *TaskFullSchema_Skill) MergeTaskFullSchemaSkill0(v TaskFullSchemaSkill0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsTaskFullSchemaSkill1 returns the union data inside the TaskFullSchema_Skill as a TaskFullSchemaSkill1
+func (t TaskFullSchema_Skill) AsTaskFullSchemaSkill1() (TaskFullSchemaSkill1, error) {
+	var body TaskFullSchemaSkill1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromTaskFullSchemaSkill1 overwrites any union data inside the TaskFullSchema_Skill as the provided TaskFullSchemaSkill1
+func (t *TaskFullSchema_Skill) FromTaskFullSchemaSkill1(v TaskFullSchemaSkill1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeTaskFullSchemaSkill1 performs a merge with any union data inside the TaskFullSchema_Skill, using the provided TaskFullSchemaSkill1
+func (t *TaskFullSchema_Skill) MergeTaskFullSchemaSkill1(v TaskFullSchemaSkill1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t TaskFullSchema_Skill) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *TaskFullSchema_Skill) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // RequestEditorFn  is the function signature for the RequestEditor callback function
 type RequestEditorFn func(ctx context.Context, req *http.Request) error
 
@@ -6021,6 +6832,11 @@ type ClientInterface interface {
 	// ActionAcceptNewTaskMyNameActionTaskNewPost request
 	ActionAcceptNewTaskMyNameActionTaskNewPost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// ActionTaskTradeMyNameActionTaskTradePostWithBody request with any body
+	ActionTaskTradeMyNameActionTaskTradePostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	ActionTaskTradeMyNameActionTaskTradePost(ctx context.Context, name string, body ActionTaskTradeMyNameActionTaskTradePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// ActionUnequipItemMyNameActionUnequipPostWithBody request with any body
 	ActionUnequipItemMyNameActionUnequipPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -6031,6 +6847,18 @@ type ClientInterface interface {
 
 	// GetResourceResourcesCodeGet request
 	GetResourceResourcesCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetAllTasksTasksListGet request
+	GetAllTasksTasksListGet(ctx context.Context, params *GetAllTasksTasksListGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetTaskTasksListCodeGet request
+	GetTaskTasksListCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetAllTasksRewardsTasksRewardsGet request
+	GetAllTasksRewardsTasksRewardsGet(ctx context.Context, params *GetAllTasksRewardsTasksRewardsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetTasksRewardTasksRewardsCodeGet request
+	GetTasksRewardTasksRewardsCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GenerateTokenTokenPost request
 	GenerateTokenTokenPost(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -6720,6 +7548,30 @@ func (c *Client) ActionAcceptNewTaskMyNameActionTaskNewPost(ctx context.Context,
 	return c.Client.Do(req)
 }
 
+func (c *Client) ActionTaskTradeMyNameActionTaskTradePostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewActionTaskTradeMyNameActionTaskTradePostRequestWithBody(c.Server, name, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ActionTaskTradeMyNameActionTaskTradePost(ctx context.Context, name string, body ActionTaskTradeMyNameActionTaskTradePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewActionTaskTradeMyNameActionTaskTradePostRequest(c.Server, name, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 func (c *Client) ActionUnequipItemMyNameActionUnequipPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewActionUnequipItemMyNameActionUnequipPostRequestWithBody(c.Server, name, contentType, body)
 	if err != nil {
@@ -6758,6 +7610,54 @@ func (c *Client) GetAllResourcesResourcesGet(ctx context.Context, params *GetAll
 
 func (c *Client) GetResourceResourcesCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetResourceResourcesCodeGetRequest(c.Server, code)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetAllTasksTasksListGet(ctx context.Context, params *GetAllTasksTasksListGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAllTasksTasksListGetRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetTaskTasksListCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetTaskTasksListCodeGetRequest(c.Server, code)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetAllTasksRewardsTasksRewardsGet(ctx context.Context, params *GetAllTasksRewardsTasksRewardsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAllTasksRewardsTasksRewardsGetRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetTasksRewardTasksRewardsCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetTasksRewardTasksRewardsCodeGetRequest(c.Server, code)
 	if err != nil {
 		return nil, err
 	}
@@ -8965,6 +9865,53 @@ func NewActionAcceptNewTaskMyNameActionTaskNewPostRequest(server string, name st
 	return req, nil
 }
 
+// NewActionTaskTradeMyNameActionTaskTradePostRequest calls the generic ActionTaskTradeMyNameActionTaskTradePost builder with application/json body
+func NewActionTaskTradeMyNameActionTaskTradePostRequest(server string, name string, body ActionTaskTradeMyNameActionTaskTradePostJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewActionTaskTradeMyNameActionTaskTradePostRequestWithBody(server, name, "application/json", bodyReader)
+}
+
+// NewActionTaskTradeMyNameActionTaskTradePostRequestWithBody generates requests for ActionTaskTradeMyNameActionTaskTradePost with any type of body
+func NewActionTaskTradeMyNameActionTaskTradePostRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "name", runtime.ParamLocationPath, name)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/my/%s/action/task/trade", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewActionUnequipItemMyNameActionUnequipPostRequest calls the generic ActionUnequipItemMyNameActionUnequipPost builder with application/json body
 func NewActionUnequipItemMyNameActionUnequipPostRequest(server string, name string, body ActionUnequipItemMyNameActionUnequipPostJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
@@ -9158,6 +10105,268 @@ func NewGetResourceResourcesCodeGetRequest(server string, code string) (*http.Re
 	}
 
 	operationPath := fmt.Sprintf("/resources/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetAllTasksTasksListGetRequest generates requests for GetAllTasksTasksListGet
+func NewGetAllTasksTasksListGetRequest(server string, params *GetAllTasksTasksListGetParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/tasks/list")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.MinLevel != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "min_level", runtime.ParamLocationQuery, *params.MinLevel); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.MaxLevel != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "max_level", runtime.ParamLocationQuery, *params.MaxLevel); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Skill != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "skill", runtime.ParamLocationQuery, *params.Skill); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Type != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "type", runtime.ParamLocationQuery, *params.Type); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Page != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "page", runtime.ParamLocationQuery, *params.Page); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Size != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "size", runtime.ParamLocationQuery, *params.Size); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetTaskTasksListCodeGetRequest generates requests for GetTaskTasksListCodeGet
+func NewGetTaskTasksListCodeGetRequest(server string, code string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "code", runtime.ParamLocationPath, code)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/tasks/list/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetAllTasksRewardsTasksRewardsGetRequest generates requests for GetAllTasksRewardsTasksRewardsGet
+func NewGetAllTasksRewardsTasksRewardsGetRequest(server string, params *GetAllTasksRewardsTasksRewardsGetParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/tasks/rewards")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Page != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "page", runtime.ParamLocationQuery, *params.Page); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Size != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "size", runtime.ParamLocationQuery, *params.Size); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetTasksRewardTasksRewardsCodeGetRequest generates requests for GetTasksRewardTasksRewardsCodeGet
+func NewGetTasksRewardTasksRewardsCodeGetRequest(server string, code string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "code", runtime.ParamLocationPath, code)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/tasks/rewards/%s", pathParam0)
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -9401,6 +10610,11 @@ type ClientWithResponsesInterface interface {
 	// ActionAcceptNewTaskMyNameActionTaskNewPostWithResponse request
 	ActionAcceptNewTaskMyNameActionTaskNewPostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionAcceptNewTaskMyNameActionTaskNewPostResponse, error)
 
+	// ActionTaskTradeMyNameActionTaskTradePostWithBodyWithResponse request with any body
+	ActionTaskTradeMyNameActionTaskTradePostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionTaskTradeMyNameActionTaskTradePostResponse, error)
+
+	ActionTaskTradeMyNameActionTaskTradePostWithResponse(ctx context.Context, name string, body ActionTaskTradeMyNameActionTaskTradePostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionTaskTradeMyNameActionTaskTradePostResponse, error)
+
 	// ActionUnequipItemMyNameActionUnequipPostWithBodyWithResponse request with any body
 	ActionUnequipItemMyNameActionUnequipPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionUnequipItemMyNameActionUnequipPostResponse, error)
 
@@ -9411,6 +10625,18 @@ type ClientWithResponsesInterface interface {
 
 	// GetResourceResourcesCodeGetWithResponse request
 	GetResourceResourcesCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetResourceResourcesCodeGetResponse, error)
+
+	// GetAllTasksTasksListGetWithResponse request
+	GetAllTasksTasksListGetWithResponse(ctx context.Context, params *GetAllTasksTasksListGetParams, reqEditors ...RequestEditorFn) (*GetAllTasksTasksListGetResponse, error)
+
+	// GetTaskTasksListCodeGetWithResponse request
+	GetTaskTasksListCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetTaskTasksListCodeGetResponse, error)
+
+	// GetAllTasksRewardsTasksRewardsGetWithResponse request
+	GetAllTasksRewardsTasksRewardsGetWithResponse(ctx context.Context, params *GetAllTasksRewardsTasksRewardsGetParams, reqEditors ...RequestEditorFn) (*GetAllTasksRewardsTasksRewardsGetResponse, error)
+
+	// GetTasksRewardTasksRewardsCodeGetWithResponse request
+	GetTasksRewardTasksRewardsCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetTasksRewardTasksRewardsCodeGetResponse, error)
 
 	// GenerateTokenTokenPostWithResponse request
 	GenerateTokenTokenPostWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GenerateTokenTokenPostResponse, error)
@@ -10277,7 +11503,7 @@ func (r ActionTaskCancelMyNameActionTaskCancelPostResponse) StatusCode() int {
 type ActionCompleteTaskMyNameActionTaskCompletePostResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *TaskRewardResponseSchema
+	JSON200      *TasksRewardResponseSchema
 }
 
 // Status returns HTTPResponse.Status
@@ -10299,7 +11525,7 @@ func (r ActionCompleteTaskMyNameActionTaskCompletePostResponse) StatusCode() int
 type ActionTaskExchangeMyNameActionTaskExchangePostResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *TaskRewardResponseSchema
+	JSON200      *TasksRewardResponseSchema
 }
 
 // Status returns HTTPResponse.Status
@@ -10334,6 +11560,28 @@ func (r ActionAcceptNewTaskMyNameActionTaskNewPostResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r ActionAcceptNewTaskMyNameActionTaskNewPostResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type ActionTaskTradeMyNameActionTaskTradePostResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *TaskTradeResponseSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r ActionTaskTradeMyNameActionTaskTradePostResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ActionTaskTradeMyNameActionTaskTradePostResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -10400,6 +11648,94 @@ func (r GetResourceResourcesCodeGetResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r GetResourceResourcesCodeGetResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetAllTasksTasksListGetResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *DataPageTaskFullSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r GetAllTasksTasksListGetResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetAllTasksTasksListGetResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetTaskTasksListCodeGetResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *TaskFullResponseSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r GetTaskTasksListCodeGetResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetTaskTasksListCodeGetResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetAllTasksRewardsTasksRewardsGetResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *DataPageTasksRewardFullSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r GetAllTasksRewardsTasksRewardsGetResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetAllTasksRewardsTasksRewardsGetResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetTasksRewardTasksRewardsCodeGetResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *TasksRewardFullResponseSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r GetTasksRewardTasksRewardsCodeGetResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetTasksRewardTasksRewardsCodeGetResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -10926,6 +12262,23 @@ func (c *ClientWithResponses) ActionAcceptNewTaskMyNameActionTaskNewPostWithResp
 	return ParseActionAcceptNewTaskMyNameActionTaskNewPostResponse(rsp)
 }
 
+// ActionTaskTradeMyNameActionTaskTradePostWithBodyWithResponse request with arbitrary body returning *ActionTaskTradeMyNameActionTaskTradePostResponse
+func (c *ClientWithResponses) ActionTaskTradeMyNameActionTaskTradePostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionTaskTradeMyNameActionTaskTradePostResponse, error) {
+	rsp, err := c.ActionTaskTradeMyNameActionTaskTradePostWithBody(ctx, name, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseActionTaskTradeMyNameActionTaskTradePostResponse(rsp)
+}
+
+func (c *ClientWithResponses) ActionTaskTradeMyNameActionTaskTradePostWithResponse(ctx context.Context, name string, body ActionTaskTradeMyNameActionTaskTradePostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionTaskTradeMyNameActionTaskTradePostResponse, error) {
+	rsp, err := c.ActionTaskTradeMyNameActionTaskTradePost(ctx, name, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseActionTaskTradeMyNameActionTaskTradePostResponse(rsp)
+}
+
 // ActionUnequipItemMyNameActionUnequipPostWithBodyWithResponse request with arbitrary body returning *ActionUnequipItemMyNameActionUnequipPostResponse
 func (c *ClientWithResponses) ActionUnequipItemMyNameActionUnequipPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionUnequipItemMyNameActionUnequipPostResponse, error) {
 	rsp, err := c.ActionUnequipItemMyNameActionUnequipPostWithBody(ctx, name, contentType, body, reqEditors...)
@@ -10959,6 +12312,42 @@ func (c *ClientWithResponses) GetResourceResourcesCodeGetWithResponse(ctx contex
 		return nil, err
 	}
 	return ParseGetResourceResourcesCodeGetResponse(rsp)
+}
+
+// GetAllTasksTasksListGetWithResponse request returning *GetAllTasksTasksListGetResponse
+func (c *ClientWithResponses) GetAllTasksTasksListGetWithResponse(ctx context.Context, params *GetAllTasksTasksListGetParams, reqEditors ...RequestEditorFn) (*GetAllTasksTasksListGetResponse, error) {
+	rsp, err := c.GetAllTasksTasksListGet(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetAllTasksTasksListGetResponse(rsp)
+}
+
+// GetTaskTasksListCodeGetWithResponse request returning *GetTaskTasksListCodeGetResponse
+func (c *ClientWithResponses) GetTaskTasksListCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetTaskTasksListCodeGetResponse, error) {
+	rsp, err := c.GetTaskTasksListCodeGet(ctx, code, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetTaskTasksListCodeGetResponse(rsp)
+}
+
+// GetAllTasksRewardsTasksRewardsGetWithResponse request returning *GetAllTasksRewardsTasksRewardsGetResponse
+func (c *ClientWithResponses) GetAllTasksRewardsTasksRewardsGetWithResponse(ctx context.Context, params *GetAllTasksRewardsTasksRewardsGetParams, reqEditors ...RequestEditorFn) (*GetAllTasksRewardsTasksRewardsGetResponse, error) {
+	rsp, err := c.GetAllTasksRewardsTasksRewardsGet(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetAllTasksRewardsTasksRewardsGetResponse(rsp)
+}
+
+// GetTasksRewardTasksRewardsCodeGetWithResponse request returning *GetTasksRewardTasksRewardsCodeGetResponse
+func (c *ClientWithResponses) GetTasksRewardTasksRewardsCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetTasksRewardTasksRewardsCodeGetResponse, error) {
+	rsp, err := c.GetTasksRewardTasksRewardsCodeGet(ctx, code, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetTasksRewardTasksRewardsCodeGetResponse(rsp)
 }
 
 // GenerateTokenTokenPostWithResponse request returning *GenerateTokenTokenPostResponse
@@ -11999,7 +13388,7 @@ func ParseActionCompleteTaskMyNameActionTaskCompletePostResponse(rsp *http.Respo
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest TaskRewardResponseSchema
+		var dest TasksRewardResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -12025,7 +13414,7 @@ func ParseActionTaskExchangeMyNameActionTaskExchangePostResponse(rsp *http.Respo
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest TaskRewardResponseSchema
+		var dest TasksRewardResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -12052,6 +13441,32 @@ func ParseActionAcceptNewTaskMyNameActionTaskNewPostResponse(rsp *http.Response)
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest TaskResponseSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseActionTaskTradeMyNameActionTaskTradePostResponse parses an HTTP response from a ActionTaskTradeMyNameActionTaskTradePostWithResponse call
+func ParseActionTaskTradeMyNameActionTaskTradePostResponse(rsp *http.Response) (*ActionTaskTradeMyNameActionTaskTradePostResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ActionTaskTradeMyNameActionTaskTradePostResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest TaskTradeResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -12130,6 +13545,110 @@ func ParseGetResourceResourcesCodeGetResponse(rsp *http.Response) (*GetResourceR
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest ResourceResponseSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetAllTasksTasksListGetResponse parses an HTTP response from a GetAllTasksTasksListGetWithResponse call
+func ParseGetAllTasksTasksListGetResponse(rsp *http.Response) (*GetAllTasksTasksListGetResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetAllTasksTasksListGetResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest DataPageTaskFullSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetTaskTasksListCodeGetResponse parses an HTTP response from a GetTaskTasksListCodeGetWithResponse call
+func ParseGetTaskTasksListCodeGetResponse(rsp *http.Response) (*GetTaskTasksListCodeGetResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetTaskTasksListCodeGetResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest TaskFullResponseSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetAllTasksRewardsTasksRewardsGetResponse parses an HTTP response from a GetAllTasksRewardsTasksRewardsGetWithResponse call
+func ParseGetAllTasksRewardsTasksRewardsGetResponse(rsp *http.Response) (*GetAllTasksRewardsTasksRewardsGetResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetAllTasksRewardsTasksRewardsGetResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest DataPageTasksRewardFullSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetTasksRewardTasksRewardsCodeGetResponse parses an HTTP response from a GetTasksRewardTasksRewardsCodeGetWithResponse call
+func ParseGetTasksRewardTasksRewardsCodeGetResponse(rsp *http.Response) (*GetTasksRewardTasksRewardsCodeGetResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetTasksRewardTasksRewardsCodeGetResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest TasksRewardFullResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
