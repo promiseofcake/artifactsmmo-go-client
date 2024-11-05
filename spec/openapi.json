@@ -3,7 +3,7 @@
   "info": {
     "title": "Artifacts API",
     "description": "\nArtifacts is an API-based MMO game where you can manage 5 characters to explore, fight, gather resources, craft items and much more.\n\nWebsite: https://artifactsmmo.com/\n\nDocumentation: https://docs.artifactsmmo.com/\n\nOpenAPI Spec: https://api.artifactsmmo.com/openapi.json\n",
-    "version": "2.2"
+    "version": "2.4"
   },
   "paths": {
     "/my/{name}/action/move": {
@@ -1548,6 +1548,33 @@
         }
       }
     },
+    "/my/details": {
+      "get": {
+        "tags": [
+          "My account"
+        ],
+        "summary": "Get Account Details",
+        "description": "Fetch account details.",
+        "operationId": "get_account_details_my_details_get",
+        "responses": {
+          "200": {
+            "description": "Successfully fetched account details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountDetailsSchema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
     "/my/change_password": {
       "post": {
         "tags": [
@@ -1579,6 +1606,9 @@
           },
           "458": {
             "description": "Use a different password."
+          },
+          "459": {
+            "description": "The current password is invalid."
           }
         },
         "security": [
@@ -3098,6 +3128,85 @@
   },
   "components": {
     "schemas": {
+      "AccountDetails": {
+        "properties": {
+          "username": {
+            "type": "string",
+            "title": "Username",
+            "description": "Username."
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email",
+            "description": "Email."
+          },
+          "subscribed": {
+            "type": "boolean",
+            "title": "Subscribed",
+            "description": "Subscribed for the current season."
+          },
+          "subscribed_until": {
+            "type": "integer",
+            "title": "Subscribed Until",
+            "description": "Subscribed until (in season numbers)."
+          },
+          "founder": {
+            "type": "boolean",
+            "title": "Founder",
+            "description": "Founder."
+          },
+          "badges": {
+            "anyOf": [
+              {
+                "items": {},
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Badges",
+            "description": "Account badges."
+          },
+          "gems": {
+            "type": "integer",
+            "title": "Gems",
+            "description": "Gems."
+          },
+          "banned": {
+            "type": "boolean",
+            "title": "Banned",
+            "description": "Banned."
+          },
+          "ban_reason": {
+            "type": "string",
+            "title": "Ban Reason",
+            "description": "Ban reason."
+          }
+        },
+        "type": "object",
+        "required": [
+          "username",
+          "email",
+          "subscribed",
+          "founder",
+          "banned"
+        ],
+        "title": "AccountDetails"
+      },
+      "AccountDetailsSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/AccountDetails"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "AccountDetailsSchema"
+      },
       "AchievementSchema": {
         "properties": {
           "name": {
@@ -3650,18 +3759,27 @@
       },
       "ChangePassword": {
         "properties": {
-          "password": {
+          "current_password": {
             "type": "string",
             "maxLength": 50,
             "minLength": 5,
             "pattern": "^[^\\s]+$",
-            "title": "Password",
-            "description": "Your password."
+            "title": "Current Password",
+            "description": "Current password."
+          },
+          "new_password": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 5,
+            "pattern": "^[^\\s]+$",
+            "title": "New Password",
+            "description": "New password."
           }
         },
         "type": "object",
         "required": [
-          "password"
+          "current_password",
+          "new_password"
         ],
         "title": "ChangePassword"
       },
@@ -5554,14 +5672,6 @@
       },
       "EquipRequestSchema": {
         "properties": {
-          "cooldown": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/CooldownSchema"
-              }
-            ],
-            "description": "Cooldown details."
-          },
           "slot": {
             "type": "string",
             "enum": [
@@ -5582,6 +5692,14 @@
             ],
             "title": "Slot",
             "description": "Item slot."
+          },
+          "cooldown": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CooldownSchema"
+              }
+            ],
+            "description": "Cooldown details."
           },
           "item": {
             "allOf": [
@@ -5602,8 +5720,8 @@
         },
         "type": "object",
         "required": [
-          "cooldown",
           "slot",
+          "cooldown",
           "item",
           "character"
         ],
@@ -5611,12 +5729,6 @@
       },
       "EquipSchema": {
         "properties": {
-          "code": {
-            "type": "string",
-            "pattern": "^[a-zA-Z0-9_-]+$",
-            "title": "Code",
-            "description": "Item code."
-          },
           "slot": {
             "type": "string",
             "enum": [
@@ -5638,6 +5750,12 @@
             "title": "Slot",
             "description": "Item slot."
           },
+          "code": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+$",
+            "title": "Code",
+            "description": "Item code."
+          },
           "quantity": {
             "type": "integer",
             "maximum": 100.0,
@@ -5649,8 +5767,8 @@
         },
         "type": "object",
         "required": [
-          "code",
-          "slot"
+          "slot",
+          "code"
         ],
         "title": "EquipSchema"
       },
@@ -6789,6 +6907,14 @@
             ],
             "title": "Skill",
             "description": "Skill required to complete the task."
+          },
+          "rewards": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TaskRewardsSchema"
+              }
+            ],
+            "description": "Rewards."
           }
         },
         "type": "object",
@@ -6798,7 +6924,8 @@
           "type",
           "min_quantity",
           "max_quantity",
-          "skill"
+          "skill",
+          "rewards"
         ],
         "title": "TaskFullSchema"
       },
@@ -6813,6 +6940,23 @@
           "data"
         ],
         "title": "TaskResponseSchema"
+      },
+      "TaskRewardsSchema": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/SimpleItemSchema"
+            },
+            "type": "array",
+            "title": "Items",
+            "description": "Items rewards."
+          }
+        },
+        "type": "object",
+        "required": [
+          "items"
+        ],
+        "title": "TaskRewardsSchema"
       },
       "TaskSchema": {
         "properties": {
