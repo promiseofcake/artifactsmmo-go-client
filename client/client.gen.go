@@ -271,6 +271,52 @@ const (
 	Monsters GetAllTasksTasksListGetParamsType = "monsters"
 )
 
+// AccountDetails defines model for AccountDetails.
+type AccountDetails struct {
+	// Badges Account badges.
+	Badges *AccountDetails_Badges `json:"badges,omitempty"`
+
+	// BanReason Ban reason.
+	BanReason *string `json:"ban_reason,omitempty"`
+
+	// Banned Banned.
+	Banned bool `json:"banned"`
+
+	// Email Email.
+	Email openapi_types.Email `json:"email"`
+
+	// Founder Founder.
+	Founder bool `json:"founder"`
+
+	// Gems Gems.
+	Gems *int `json:"gems,omitempty"`
+
+	// Subscribed Subscribed for the current season.
+	Subscribed bool `json:"subscribed"`
+
+	// SubscribedUntil Subscribed until (in season numbers).
+	SubscribedUntil *int `json:"subscribed_until,omitempty"`
+
+	// Username Username.
+	Username string `json:"username"`
+}
+
+// AccountDetailsBadges0 defines model for .
+type AccountDetailsBadges0 = []interface{}
+
+// AccountDetailsBadges1 defines model for .
+type AccountDetailsBadges1 = interface{}
+
+// AccountDetails_Badges Account badges.
+type AccountDetails_Badges struct {
+	union json.RawMessage
+}
+
+// AccountDetailsSchema defines model for AccountDetailsSchema.
+type AccountDetailsSchema struct {
+	Data AccountDetails `json:"data"`
+}
+
 // AchievementSchema defines model for AchievementSchema.
 type AchievementSchema struct {
 	// Code Code of the achievement.
@@ -523,8 +569,11 @@ type BlockedHitsSchema struct {
 
 // ChangePassword defines model for ChangePassword.
 type ChangePassword struct {
-	// Password Your password.
-	Password string `json:"password"`
+	// CurrentPassword Current password.
+	CurrentPassword string `json:"current_password"`
+
+	// NewPassword New password.
+	NewPassword string `json:"new_password"`
 }
 
 // CharacterFightDataSchema defines model for CharacterFightDataSchema.
@@ -2229,6 +2278,9 @@ type TaskFullSchema struct {
 	// MinQuantity Minimum amount of task.
 	MinQuantity int `json:"min_quantity"`
 
+	// Rewards Rewards.
+	Rewards TaskRewardsSchema `json:"rewards"`
+
 	// Skill Skill required to complete the task.
 	Skill TaskFullSchema_Skill `json:"skill"`
 
@@ -2253,6 +2305,12 @@ type TaskFullSchemaType string
 // TaskResponseSchema defines model for TaskResponseSchema.
 type TaskResponseSchema struct {
 	Data TaskDataSchema `json:"data"`
+}
+
+// TaskRewardsSchema defines model for TaskRewardsSchema.
+type TaskRewardsSchema struct {
+	// Items Items rewards.
+	Items []SimpleItemSchema `json:"items"`
 }
 
 // TaskSchema defines model for TaskSchema.
@@ -2634,6 +2692,68 @@ type ActionTaskTradeMyNameActionTaskTradePostJSONRequestBody = SimpleItemSchema
 
 // ActionUnequipItemMyNameActionUnequipPostJSONRequestBody defines body for ActionUnequipItemMyNameActionUnequipPost for application/json ContentType.
 type ActionUnequipItemMyNameActionUnequipPostJSONRequestBody = UnequipSchema
+
+// AsAccountDetailsBadges0 returns the union data inside the AccountDetails_Badges as a AccountDetailsBadges0
+func (t AccountDetails_Badges) AsAccountDetailsBadges0() (AccountDetailsBadges0, error) {
+	var body AccountDetailsBadges0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAccountDetailsBadges0 overwrites any union data inside the AccountDetails_Badges as the provided AccountDetailsBadges0
+func (t *AccountDetails_Badges) FromAccountDetailsBadges0(v AccountDetailsBadges0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeAccountDetailsBadges0 performs a merge with any union data inside the AccountDetails_Badges, using the provided AccountDetailsBadges0
+func (t *AccountDetails_Badges) MergeAccountDetailsBadges0(v AccountDetailsBadges0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsAccountDetailsBadges1 returns the union data inside the AccountDetails_Badges as a AccountDetailsBadges1
+func (t AccountDetails_Badges) AsAccountDetailsBadges1() (AccountDetailsBadges1, error) {
+	var body AccountDetailsBadges1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromAccountDetailsBadges1 overwrites any union data inside the AccountDetails_Badges as the provided AccountDetailsBadges1
+func (t *AccountDetails_Badges) FromAccountDetailsBadges1(v AccountDetailsBadges1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeAccountDetailsBadges1 performs a merge with any union data inside the AccountDetails_Badges, using the provided AccountDetailsBadges1
+func (t *AccountDetails_Badges) MergeAccountDetailsBadges1(v AccountDetailsBadges1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t AccountDetails_Badges) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *AccountDetails_Badges) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
 
 // AsAchievementSchemaCompletedAt0 returns the union data inside the AchievementSchema_CompletedAt as a AchievementSchemaCompletedAt0
 func (t AchievementSchema_CompletedAt) AsAchievementSchemaCompletedAt0() (AchievementSchemaCompletedAt0, error) {
@@ -6753,6 +6873,9 @@ type ClientInterface interface {
 	// GetMyCharactersMyCharactersGet request
 	GetMyCharactersMyCharactersGet(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetAccountDetailsMyDetailsGet request
+	GetAccountDetailsMyDetailsGet(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetAllCharactersLogsMyLogsGet request
 	GetAllCharactersLogsMyLogsGet(ctx context.Context, params *GetAllCharactersLogsMyLogsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -7178,6 +7301,18 @@ func (c *Client) ChangePasswordMyChangePasswordPost(ctx context.Context, body Ch
 
 func (c *Client) GetMyCharactersMyCharactersGet(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetMyCharactersMyCharactersGetRequest(c.Server)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetAccountDetailsMyDetailsGet(ctx context.Context, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAccountDetailsMyDetailsGetRequest(c.Server)
 	if err != nil {
 		return nil, err
 	}
@@ -9045,6 +9180,33 @@ func NewGetMyCharactersMyCharactersGetRequest(server string) (*http.Request, err
 	return req, nil
 }
 
+// NewGetAccountDetailsMyDetailsGetRequest generates requests for GetAccountDetailsMyDetailsGet
+func NewGetAccountDetailsMyDetailsGetRequest(server string) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/my/details")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewGetAllCharactersLogsMyLogsGetRequest generates requests for GetAllCharactersLogsMyLogsGet
 func NewGetAllCharactersLogsMyLogsGetRequest(server string, params *GetAllCharactersLogsMyLogsGetParams) (*http.Request, error) {
 	var err error
@@ -10531,6 +10693,9 @@ type ClientWithResponsesInterface interface {
 	// GetMyCharactersMyCharactersGetWithResponse request
 	GetMyCharactersMyCharactersGetWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetMyCharactersMyCharactersGetResponse, error)
 
+	// GetAccountDetailsMyDetailsGetWithResponse request
+	GetAccountDetailsMyDetailsGetWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetAccountDetailsMyDetailsGetResponse, error)
+
 	// GetAllCharactersLogsMyLogsGetWithResponse request
 	GetAllCharactersLogsMyLogsGetWithResponse(ctx context.Context, params *GetAllCharactersLogsMyLogsGetParams, reqEditors ...RequestEditorFn) (*GetAllCharactersLogsMyLogsGetResponse, error)
 
@@ -11142,6 +11307,28 @@ func (r GetMyCharactersMyCharactersGetResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r GetMyCharactersMyCharactersGetResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetAccountDetailsMyDetailsGetResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *AccountDetailsSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r GetAccountDetailsMyDetailsGetResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetAccountDetailsMyDetailsGetResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -12001,6 +12188,15 @@ func (c *ClientWithResponses) GetMyCharactersMyCharactersGetWithResponse(ctx con
 		return nil, err
 	}
 	return ParseGetMyCharactersMyCharactersGetResponse(rsp)
+}
+
+// GetAccountDetailsMyDetailsGetWithResponse request returning *GetAccountDetailsMyDetailsGetResponse
+func (c *ClientWithResponses) GetAccountDetailsMyDetailsGetWithResponse(ctx context.Context, reqEditors ...RequestEditorFn) (*GetAccountDetailsMyDetailsGetResponse, error) {
+	rsp, err := c.GetAccountDetailsMyDetailsGet(ctx, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetAccountDetailsMyDetailsGetResponse(rsp)
 }
 
 // GetAllCharactersLogsMyLogsGetWithResponse request returning *GetAllCharactersLogsMyLogsGetResponse
@@ -12947,6 +13143,32 @@ func ParseGetMyCharactersMyCharactersGetResponse(rsp *http.Response) (*GetMyChar
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest MyCharactersListSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetAccountDetailsMyDetailsGetResponse parses an HTTP response from a GetAccountDetailsMyDetailsGetWithResponse call
+func ParseGetAccountDetailsMyDetailsGetResponse(rsp *http.Response) (*GetAccountDetailsMyDetailsGetResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetAccountDetailsMyDetailsGetResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest AccountDetailsSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
