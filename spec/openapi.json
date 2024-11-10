@@ -3,7 +3,7 @@
   "info": {
     "title": "Artifacts API",
     "description": "\nArtifacts is an API-based MMO game where you can manage 5 characters to explore, fight, gather resources, craft items and much more.\n\nWebsite: https://artifactsmmo.com/\n\nDocumentation: https://docs.artifactsmmo.com/\n\nOpenAPI Spec: https://api.artifactsmmo.com/openapi.json\n",
-    "version": "2.4"
+    "version": "3.0"
   },
   "paths": {
     "/my/{name}/action/move": {
@@ -65,6 +65,56 @@
           },
           "404": {
             "description": "Map not found."
+          },
+          "486": {
+            "description": "An action is already in progress by your character."
+          }
+        }
+      }
+    },
+    "/my/{name}/action/rest": {
+      "post": {
+        "tags": [
+          "My characters"
+        ],
+        "summary": "Action Rest",
+        "description": "Recovers hit points by resting. (1 second per 5 HP, minimum 3 seconds)",
+        "operationId": "action_rest_my__name__action_rest_post",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Character name",
+              "description": "Name of your character."
+            },
+            "description": "Name of your character."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The character has rested successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CharacterRestResponseSchema"
+                }
+              }
+            }
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "499": {
+            "description": "Character in cooldown."
           },
           "486": {
             "description": "An action is already in progress by your character."
@@ -145,7 +195,7 @@
             "description": "This item is already equipped."
           },
           "484": {
-            "description": "Character can't equip more than 100 consumables in the same slot."
+            "description": "Character can't equip more than 100 utilitys in the same slot."
           },
           "497": {
             "description": "Character inventory is full."
@@ -207,9 +257,6 @@
           "498": {
             "description": "Character not found."
           },
-          "499": {
-            "description": "Character in cooldown."
-          },
           "486": {
             "description": "An action is already in progress by your character."
           },
@@ -221,6 +268,84 @@
           },
           "478": {
             "description": "Missing item or insufficient quantity."
+          },
+          "483": {
+            "description": "Character has no enough HP to unequip this item."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          }
+        }
+      }
+    },
+    "/my/{name}/action/use": {
+      "post": {
+        "tags": [
+          "My characters"
+        ],
+        "summary": "Action Use Item",
+        "description": "Use an item as a consumable.",
+        "operationId": "action_use_item_my__name__action_use_post",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Character name",
+              "description": "Name of your character."
+            },
+            "description": "Name of your character."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SimpleItemSchema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The item has been successfully used.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UseItemResponseSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Item not found."
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          },
+          "486": {
+            "description": "An action is already in progress by your character."
+          },
+          "476": {
+            "description": "This item is not a consumable."
+          },
+          "478": {
+            "description": "Missing item or insufficient quantity."
+          },
+          "496": {
+            "description": "Character level is insufficient."
           }
         }
       }
@@ -415,6 +540,75 @@
         }
       }
     },
+    "/my/{name}/action/bank/deposit/gold": {
+      "post": {
+        "tags": [
+          "My characters"
+        ],
+        "summary": "Action Deposit Bank Gold",
+        "description": "Deposit gold in a bank on the character's map.",
+        "operationId": "action_deposit_bank_gold_my__name__action_bank_deposit_gold_post",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Character name",
+              "description": "Name of your character."
+            },
+            "description": "Name of your character."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DepositWithdrawGoldSchema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Golds successfully deposited in your bank.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BankGoldTransactionResponseSchema"
+                }
+              }
+            }
+          },
+          "598": {
+            "description": "Bank not found on this map."
+          },
+          "492": {
+            "description": "Insufficient gold on your character."
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          },
+          "461": {
+            "description": "A transaction is already in progress with this item/your gold in your bank."
+          },
+          "486": {
+            "description": "An action is already in progress by your character."
+          }
+        }
+      }
+    },
     "/my/{name}/action/bank/deposit": {
       "post": {
         "tags": [
@@ -470,7 +664,7 @@
             "description": "Item not found."
           },
           "461": {
-            "description": "A transaction is already in progress with this item/your golds in your bank."
+            "description": "A transaction is already in progress with this item/your gold in your bank."
           },
           "498": {
             "description": "Character not found."
@@ -486,153 +680,6 @@
           },
           "462": {
             "description": "Your bank is full."
-          }
-        }
-      }
-    },
-    "/my/{name}/action/bank/deposit/gold": {
-      "post": {
-        "tags": [
-          "My characters"
-        ],
-        "summary": "Action Deposit Bank Gold",
-        "description": "Deposit golds in a bank on the character's map.",
-        "operationId": "action_deposit_bank_gold_my__name__action_bank_deposit_gold_post",
-        "security": [
-          {
-            "JWTBearer": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Character name",
-              "description": "Name of your character."
-            },
-            "description": "Name of your character."
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DepositWithdrawGoldSchema"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Golds successfully deposited in your bank.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BankGoldTransactionResponseSchema"
-                }
-              }
-            }
-          },
-          "598": {
-            "description": "Bank not found on this map."
-          },
-          "492": {
-            "description": "Insufficient golds on your character."
-          },
-          "498": {
-            "description": "Character not found."
-          },
-          "499": {
-            "description": "Character in cooldown."
-          },
-          "461": {
-            "description": "A transaction is already in progress with this item/your golds in your bank."
-          },
-          "486": {
-            "description": "An action is already in progress by your character."
-          }
-        }
-      }
-    },
-    "/my/{name}/action/recycling": {
-      "post": {
-        "tags": [
-          "My characters"
-        ],
-        "summary": "Action Recycling",
-        "description": "Recyling an item. The character must be on a map with a workshop (only for equipments and weapons).",
-        "operationId": "action_recycling_my__name__action_recycling_post",
-        "security": [
-          {
-            "JWTBearer": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Character name",
-              "description": "Name of your character."
-            },
-            "description": "Name of your character."
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RecyclingSchema"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The items were successfully recycled.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RecyclingResponseSchema"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Item not found."
-          },
-          "598": {
-            "description": "Workshop not found on this map."
-          },
-          "498": {
-            "description": "Character not found."
-          },
-          "497": {
-            "description": "Character inventory is full."
-          },
-          "499": {
-            "description": "Character in cooldown."
-          },
-          "486": {
-            "description": "An action is already in progress by your character."
-          },
-          "493": {
-            "description": "Not skill level required."
-          },
-          "478": {
-            "description": "Missing item or insufficient quantity."
-          },
-          "473": {
-            "description": "This item cannot be recycled."
           }
         }
       }
@@ -695,7 +742,7 @@
             "description": "Character in cooldown."
           },
           "461": {
-            "description": "A transaction is already in progress with this item/your golds in your bank."
+            "description": "A transaction is already in progress with this item/your gold in your bank."
           },
           "486": {
             "description": "An action is already in progress by your character."
@@ -767,7 +814,7 @@
             "description": "Character in cooldown."
           },
           "461": {
-            "description": "A transaction is already in progress with this item/your golds in your bank."
+            "description": "A transaction is already in progress with this item/your gold in your bank."
           },
           "486": {
             "description": "An action is already in progress by your character."
@@ -776,166 +823,7 @@
             "description": "Bank not found on this map."
           },
           "460": {
-            "description": "Insufficient golds in your bank."
-          }
-        }
-      }
-    },
-    "/my/{name}/action/ge/buy": {
-      "post": {
-        "tags": [
-          "My characters"
-        ],
-        "summary": "Action Ge Buy Item",
-        "description": "Buy an item at the Grand Exchange on the character's map.",
-        "operationId": "action_ge_buy_item_my__name__action_ge_buy_post",
-        "security": [
-          {
-            "JWTBearer": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Character name",
-              "description": "Name of your character."
-            },
-            "description": "Name of your character."
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GETransactionItemSchema"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Item successfully buy from the Grand Exchange.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GETransactionResponseSchema"
-                }
-              }
-            }
-          },
-          "598": {
-            "description": "Grand Exchange not found on this map."
-          },
-          "498": {
-            "description": "Character not found."
-          },
-          "497": {
-            "description": "Character inventory is full."
-          },
-          "499": {
-            "description": "Character in cooldown."
-          },
-          "483": {
-            "description": "A transaction is already in progress on this item by a another character."
-          },
-          "486": {
-            "description": "An action is already in progress by your character."
-          },
-          "492": {
-            "description": "Insufficient golds on your character."
-          },
-          "480": {
-            "description": "No stock for this item."
-          },
-          "479": {
-            "description": "You can't buy or sell that many items at the same time."
-          },
-          "482": {
-            "description": "No item at this price."
-          }
-        }
-      }
-    },
-    "/my/{name}/action/ge/sell": {
-      "post": {
-        "tags": [
-          "My characters"
-        ],
-        "summary": "Action Ge Sell Item",
-        "description": "Sell an item at the Grand Exchange on the character's map.",
-        "operationId": "action_ge_sell_item_my__name__action_ge_sell_post",
-        "security": [
-          {
-            "JWTBearer": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Character name",
-              "description": "Name of your character."
-            },
-            "description": "Name of your character."
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GETransactionItemSchema"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Item successfully sell at the Grand Exchange.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GETransactionResponseSchema"
-                }
-              }
-            }
-          },
-          "498": {
-            "description": "Character not found."
-          },
-          "499": {
-            "description": "Character in cooldown."
-          },
-          "404": {
-            "description": "Item not found."
-          },
-          "483": {
-            "description": "A transaction is already in progress on this item by a another character."
-          },
-          "486": {
-            "description": "An action is already in progress by your character."
-          },
-          "478": {
-            "description": "Missing item or insufficient quantity."
-          },
-          "479": {
-            "description": "You can't buy or sell that many items at the same time."
-          },
-          "482": {
-            "description": "No item at this price."
-          },
-          "598": {
-            "description": "Grand Exchange not found on this map."
+            "description": "Insufficient gold in your bank."
           }
         }
       }
@@ -991,19 +879,19 @@
             "description": "An action is already in progress by your character."
           },
           "492": {
-            "description": "Insufficient golds on your character."
+            "description": "Insufficient gold on your character."
           }
         }
       }
     },
-    "/my/{name}/action/task/new": {
+    "/my/{name}/action/recycling": {
       "post": {
         "tags": [
           "My characters"
         ],
-        "summary": "Action Accept New Task",
-        "description": "Accepting a new task.",
-        "operationId": "action_accept_new_task_my__name__action_task_new_post",
+        "summary": "Action Recycling",
+        "description": "Recycling an item. The character must be on a map with a workshop (only for equipments and weapons).",
+        "operationId": "action_recycling_my__name__action_recycling_post",
         "security": [
           {
             "JWTBearer": []
@@ -1023,13 +911,182 @@
             "description": "Name of your character."
           }
         ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecyclingSchema"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "New task successfully accepted.",
+            "description": "The items were successfully recycled.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TaskResponseSchema"
+                  "$ref": "#/components/schemas/RecyclingResponseSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Item not found."
+          },
+          "598": {
+            "description": "Workshop not found on this map."
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "497": {
+            "description": "Character inventory is full."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          },
+          "486": {
+            "description": "An action is already in progress by your character."
+          },
+          "493": {
+            "description": "Not skill level required."
+          },
+          "478": {
+            "description": "Missing item or insufficient quantity."
+          },
+          "473": {
+            "description": "This item cannot be recycled."
+          }
+        }
+      }
+    },
+    "/my/{name}/action/grandexchange/buy": {
+      "post": {
+        "tags": [
+          "My characters"
+        ],
+        "summary": "Action Ge Buy Item",
+        "description": "Buy an item at the Grand Exchange on the character's map.",
+        "operationId": "action_ge_buy_item_my__name__action_grandexchange_buy_post",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Character name",
+              "description": "Name of your character."
+            },
+            "description": "Name of your character."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GEBuyOrderSchema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Item successfully buy from the Grand Exchange.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GETransactionResponseSchema"
+                }
+              }
+            }
+          },
+          "598": {
+            "description": "Grand Exchange not found on this map."
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "497": {
+            "description": "Character inventory is full."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          },
+          "436": {
+            "description": "A transaction is already in progress on this order by a another character."
+          },
+          "486": {
+            "description": "An action is already in progress by your character."
+          },
+          "492": {
+            "description": "Insufficient gold on your character."
+          },
+          "434": {
+            "description": "This offer does not contain as many items."
+          },
+          "435": {
+            "description": "You can't buy to yourself."
+          },
+          "404": {
+            "description": "Order not found."
+          }
+        }
+      }
+    },
+    "/my/{name}/action/grandexchange/sell": {
+      "post": {
+        "tags": [
+          "My characters"
+        ],
+        "summary": "Action Ge Create Sell Order",
+        "description": "Create a sell order at the Grand Exchange on the character's map. Please note that a 5% sales tax is charged.",
+        "operationId": "action_ge_create_sell_order_my__name__action_grandexchange_sell_post",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Character name",
+              "description": "Name of your character."
+            },
+            "description": "Name of your character."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GEOrderCreationrSchema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The sell order has been successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GECreateOrderTransactionResponseSchema"
                 }
               }
             }
@@ -1043,11 +1100,98 @@
           "486": {
             "description": "An action is already in progress by your character."
           },
-          "598": {
-            "description": "Tasks Master not found on this map."
+          "404": {
+            "description": "Item not found."
           },
-          "489": {
-            "description": "Character already has a task."
+          "478": {
+            "description": "Missing item or insufficient quantity."
+          },
+          "492": {
+            "description": "Insufficient gold on your character."
+          },
+          "433": {
+            "description": "You can't create more than 100 orders at the same time."
+          },
+          "437": {
+            "description": "This item cannot be sold."
+          },
+          "598": {
+            "description": "Grand Exchange not found on this map."
+          }
+        }
+      }
+    },
+    "/my/{name}/action/grandexchange/cancel": {
+      "post": {
+        "tags": [
+          "My characters"
+        ],
+        "summary": "Action Ge Cancel Sell Order",
+        "description": "Cancel a sell order at the Grand Exchange on the character's map.",
+        "operationId": "action_ge_cancel_sell_order_my__name__action_grandexchange_cancel_post",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Character name",
+              "description": "Name of your character."
+            },
+            "description": "Name of your character."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GECancelOrderSchema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Your sell order has been successfully cancelled.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GETransactionResponseSchema"
+                }
+              }
+            }
+          },
+          "598": {
+            "description": "Grand Exchange not found on this map."
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "497": {
+            "description": "Character inventory is full."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          },
+          "436": {
+            "description": "A transaction is already in progress on this order by a another character."
+          },
+          "486": {
+            "description": "An action is already in progress by your character."
+          },
+          "438": {
+            "description": "You can't cancel an order that is not yours."
+          },
+          "404": {
+            "description": "Order not found."
           }
         }
       }
@@ -1085,7 +1229,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TasksRewardResponseSchema"
+                  "$ref": "#/components/schemas/TasksRewardDataResponseSchema"
                 }
               }
             }
@@ -1147,7 +1291,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TasksRewardResponseSchema"
+                  "$ref": "#/components/schemas/TasksRewardDataResponseSchema"
                 }
               }
             }
@@ -1169,6 +1313,62 @@
           },
           "497": {
             "description": "Character inventory is full."
+          }
+        }
+      }
+    },
+    "/my/{name}/action/task/new": {
+      "post": {
+        "tags": [
+          "My characters"
+        ],
+        "summary": "Action Accept New Task",
+        "description": "Accepting a new task.",
+        "operationId": "action_accept_new_task_my__name__action_task_new_post",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Character name",
+              "description": "Name of your character."
+            },
+            "description": "Name of your character."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "New task successfully accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TaskResponseSchema"
+                }
+              }
+            }
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          },
+          "486": {
+            "description": "An action is already in progress by your character."
+          },
+          "598": {
+            "description": "Tasks Master not found on this map."
+          },
+          "489": {
+            "description": "Character already has a task."
           }
         }
       }
@@ -1548,6 +1748,154 @@
         }
       }
     },
+    "/my/grandexchange/orders": {
+      "get": {
+        "tags": [
+          "My account"
+        ],
+        "summary": "Get Ge Sell Orders",
+        "description": "Fetch your sell orders details.",
+        "operationId": "get_ge_sell_orders_my_grandexchange_orders_get",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Item code",
+              "description": "The code of the item."
+            },
+            "description": "The code of the item."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched orders details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_GEOrderSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/my/grandexchange/history": {
+      "get": {
+        "tags": [
+          "My account"
+        ],
+        "summary": "Get Ge Sell History",
+        "description": "Fetch your sales history of the last 7 days.",
+        "operationId": "get_ge_sell_history_my_grandexchange_history_get",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Order ID",
+              "description": "Order ID to search in your history."
+            },
+            "description": "Order ID to search in your history."
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Item code",
+              "description": "Item to search in your history."
+            },
+            "description": "Item to search in your history."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched sales history.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_GeOrderHistorySchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/my/details": {
       "get": {
         "tags": [
@@ -1562,7 +1910,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AccountDetailsSchema"
+                  "$ref": "#/components/schemas/MyAccountDetailsSchema"
                 }
               }
             }
@@ -1606,9 +1954,6 @@
           },
           "458": {
             "description": "Use a different password."
-          },
-          "459": {
-            "description": "The current password is invalid."
           }
         },
         "security": [
@@ -1701,57 +2046,6 @@
         ]
       }
     },
-    "/characters": {
-      "get": {
-        "tags": [
-          "Characters"
-        ],
-        "summary": "Get All Characters",
-        "description": "Fetch characters details.",
-        "operationId": "get_all_characters_characters_get",
-        "parameters": [
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number",
-              "default": 1,
-              "title": "Page"
-            },
-            "description": "Page number"
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "minimum": 1,
-              "description": "Page size",
-              "default": 50,
-              "title": "Size"
-            },
-            "description": "Page size"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched characters details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DataPage_CharacterSchema_"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/characters/{name}": {
       "get": {
         "tags": [
@@ -1791,104 +2085,6 @@
         }
       }
     },
-    "/characters/{name}/achievements": {
-      "get": {
-        "tags": [
-          "Characters"
-        ],
-        "summary": "Get Character Achievements",
-        "description": "Retrieve the details of a character.",
-        "operationId": "get_character_achievements_characters__name__achievements_get",
-        "parameters": [
-          {
-            "name": "name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Character name",
-              "description": "The character name."
-            },
-            "description": "The character name."
-          },
-          {
-            "name": "type",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "enum": [
-                "combat_kill",
-                "combat_drop",
-                "combat_level",
-                "gathering",
-                "crafting",
-                "recycling",
-                "task",
-                "other"
-              ],
-              "type": "string",
-              "title": "Type",
-              "description": "Type of achievements."
-            },
-            "description": "Type of achievements."
-          },
-          {
-            "name": "completed",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "boolean",
-              "title": "Completed",
-              "description": "Filter by completed achievements."
-            },
-            "description": "Filter by completed achievements."
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number",
-              "default": 1,
-              "title": "Page"
-            },
-            "description": "Page number"
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "minimum": 1,
-              "description": "Page size",
-              "default": 50,
-              "title": "Size"
-            },
-            "description": "Page size"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched character.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DataPage_AchievementSchema_"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Character not found."
-          }
-        }
-      }
-    },
     "/maps": {
       "get": {
         "tags": [
@@ -1903,15 +2099,11 @@
             "in": "query",
             "required": false,
             "schema": {
-              "enum": [
-                "monster",
-                "resource",
-                "workshop",
-                "bank",
-                "grand_exchange",
-                "tasks_master"
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/MapContentType_a-zA-Z0-9_-_____"
+                }
               ],
-              "type": "string",
               "title": "Content type",
               "description": "Type of content on the map."
             },
@@ -2070,21 +2262,11 @@
             "in": "query",
             "required": false,
             "schema": {
-              "enum": [
-                "consumable",
-                "body_armor",
-                "weapon",
-                "resource",
-                "leg_armor",
-                "helmet",
-                "boots",
-                "shield",
-                "amulet",
-                "ring",
-                "artifact",
-                "currency"
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ItemType_a-zA-Z0-9_-_____"
+                }
               ],
-              "type": "string",
               "title": "Type",
               "description": "Type of items."
             },
@@ -2095,15 +2277,11 @@
             "in": "query",
             "required": false,
             "schema": {
-              "enum": [
-                "weaponcrafting",
-                "gearcrafting",
-                "jewelrycrafting",
-                "cooking",
-                "woodcutting",
-                "mining"
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/CraftSkill_a-zA-Z0-9_-_____"
+                }
               ],
-              "type": "string",
               "title": "Crafting skill",
               "description": "Skill to craft items."
             },
@@ -2245,8 +2423,7 @@
               "title": "Drop",
               "description": "Item code of the drop."
             },
-            "description": "Item code of the drop.",
-            "example": "green_slimeball"
+            "description": "Item code of the drop."
           },
           {
             "name": "page",
@@ -2367,12 +2544,11 @@
             "in": "query",
             "required": false,
             "schema": {
-              "enum": [
-                "mining",
-                "woodcutting",
-                "fishing"
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/GatheringSkill_a-zA-Z0-9_-_____"
+                }
               ],
-              "type": "string",
               "title": "Skill code",
               "description": "The code of the skill."
             },
@@ -2388,8 +2564,7 @@
               "title": "Drop",
               "description": "Item code of the drop."
             },
-            "description": "Item code of the drop.",
-            "example": "copper_ore"
+            "description": "Item code of the drop."
           },
           {
             "name": "page",
@@ -2473,14 +2648,14 @@
         }
       }
     },
-    "/events": {
+    "/events/active": {
       "get": {
         "tags": [
           "Events"
         ],
-        "summary": "Get All Events",
-        "description": "Fetch events details.",
-        "operationId": "get_all_events_events_get",
+        "summary": "Get All Active Events",
+        "description": "Fetch active events details.",
+        "operationId": "get_all_active_events_events_active_get",
         "parameters": [
           {
             "name": "page",
@@ -2524,14 +2699,14 @@
         }
       }
     },
-    "/ge": {
+    "/events": {
       "get": {
         "tags": [
-          "Grand Exchange"
+          "Events"
         ],
-        "summary": "Get All Ge Items",
-        "description": "Fetch Grand Exchange items details.",
-        "operationId": "get_all_ge_items_ge_get",
+        "summary": "Get All Events",
+        "description": "Fetch events details.",
+        "operationId": "get_all_events_events_get",
         "parameters": [
           {
             "name": "page",
@@ -2563,11 +2738,11 @@
         ],
         "responses": {
           "200": {
-            "description": "Fetch Grand Exchange items details.",
+            "description": "Successfully fetched events details.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DataPage_GEItemSchema_"
+                  "$ref": "#/components/schemas/DataPage_EventSchema_"
                 }
               }
             }
@@ -2575,14 +2750,14 @@
         }
       }
     },
-    "/ge/{code}": {
+    "/grandexchange/history/{code}": {
       "get": {
         "tags": [
           "Grand Exchange"
         ],
-        "summary": "Get Ge Item",
-        "description": "Retrieve the details of a Grand Exchange item.",
-        "operationId": "get_ge_item_ge__code__get",
+        "summary": "Get Ge Sell History",
+        "description": "Fetch the sales history of the item for the last 7 days.",
+        "operationId": "get_ge_sell_history_grandexchange_history__code__get",
         "parameters": [
           {
             "name": "code",
@@ -2595,21 +2770,186 @@
               "description": "The code of the item."
             },
             "description": "The code of the item."
+          },
+          {
+            "name": "seller",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Seller",
+              "description": "The seller (account name) of the item."
+            },
+            "description": "The seller (account name) of the item."
+          },
+          {
+            "name": "buyer",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Buyer",
+              "description": "The buyer (account name) of the item."
+            },
+            "description": "The buyer (account name) of the item."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
           }
         ],
         "responses": {
           "200": {
-            "description": "Successfully fetched Grand Exchange item.",
+            "description": "Successfully fetched orders history.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GEItemResponseSchema"
+                  "$ref": "#/components/schemas/DataPage_GeOrderHistorySchema_"
                 }
               }
             }
           },
           "404": {
             "description": "Item not found."
+          }
+        }
+      }
+    },
+    "/grandexchange/orders": {
+      "get": {
+        "tags": [
+          "Grand Exchange"
+        ],
+        "summary": "Get Ge Sell Orders",
+        "description": "Fetch all sell orders.",
+        "operationId": "get_ge_sell_orders_grandexchange_orders_get",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Item code",
+              "description": "The code of the item."
+            },
+            "description": "The code of the item."
+          },
+          {
+            "name": "seller",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Seller",
+              "description": "The seller (account name) of the item."
+            },
+            "description": "The seller (account name) of the item."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched orders details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_GEOrderSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/grandexchange/orders/{id}": {
+      "get": {
+        "tags": [
+          "Grand Exchange"
+        ],
+        "summary": "Get Ge Sell Order",
+        "description": "Retrieve the sell order of a item.",
+        "operationId": "get_ge_sell_order_grandexchange_orders__id__get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Order id",
+              "description": "The id of the order."
+            },
+            "description": "The id of the order."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched order.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GEOrderReponseSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Order not found."
           }
         }
       }
@@ -2652,16 +2992,11 @@
             "in": "query",
             "required": false,
             "schema": {
-              "enum": [
-                "mining",
-                "woodcutting",
-                "fishing",
-                "gearcrafting",
-                "weaponcrafting",
-                "jewelrycrafting",
-                "cooking"
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Skill_a-zA-Z0-9_-_____"
+                }
               ],
-              "type": "string",
               "title": "Skill code",
               "description": "The code of the skill."
             },
@@ -2672,11 +3007,11 @@
             "in": "query",
             "required": false,
             "schema": {
-              "enum": [
-                "items",
-                "monsters"
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/TaskType_a-zA-Z0-9_-_____"
+                }
               ],
-              "type": "string",
               "title": "Type",
               "description": "The type of tasks."
             },
@@ -2806,7 +3141,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DataPage_TasksRewardFullSchema_"
+                  "$ref": "#/components/schemas/DataPage_DropRateSchema_"
                 }
               }
             }
@@ -2842,7 +3177,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TasksRewardFullResponseSchema"
+                  "$ref": "#/components/schemas/TasksRewardResponseSchema"
                 }
               }
             }
@@ -2867,17 +3202,11 @@
             "in": "query",
             "required": false,
             "schema": {
-              "enum": [
-                "combat_kill",
-                "combat_drop",
-                "combat_level",
-                "gathering",
-                "crafting",
-                "recycling",
-                "task",
-                "other"
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/AchievementType_a-zA-Z0-9_-_____"
+                }
               ],
-              "type": "string",
               "title": "Type",
               "description": "Type of achievements."
             },
@@ -2917,7 +3246,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DataPage_BaseAchievementSchema_"
+                  "$ref": "#/components/schemas/DataPage_AchievementSchema_"
                 }
               }
             }
@@ -2953,7 +3282,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BaseachievementResponseSchema"
+                  "$ref": "#/components/schemas/AchievementResponseSchema"
                 }
               }
             }
@@ -2964,33 +3293,25 @@
         }
       }
     },
-    "/leaderboard": {
+    "/leaderboard/characters": {
       "get": {
         "tags": [
           "Leaderboard"
         ],
-        "summary": "Get Leaderboard",
+        "summary": "Get Characters Leaderboard",
         "description": "Fetch leaderboard details.",
-        "operationId": "get_leaderboard_leaderboard_get",
+        "operationId": "get_characters_leaderboard_leaderboard_characters_get",
         "parameters": [
           {
             "name": "sort",
             "in": "query",
             "required": false,
             "schema": {
-              "enum": [
-                "combat",
-                "woodcutting",
-                "mining",
-                "fishing",
-                "weaponcrafting",
-                "gearcrafting",
-                "jewelrycrafting",
-                "cooking",
-                "achievements_points",
-                "gold"
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/CharacterLeaderboardType_a-zA-Z0-9_-_____"
+                }
               ],
-              "type": "string",
               "title": "Sort",
               "description": "Default sort by combat total XP."
             },
@@ -3038,13 +3359,78 @@
         }
       }
     },
+    "/leaderboard/accounts": {
+      "get": {
+        "tags": [
+          "Leaderboard"
+        ],
+        "summary": "Get Accounts Leaderboard",
+        "description": "Fetch leaderboard details.",
+        "operationId": "get_accounts_leaderboard_leaderboard_accounts_get",
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/AccountLeaderboardType_a-zA-Z0-9_-_____"
+                }
+              ],
+              "title": "Sort",
+              "description": "Default sort by achievements points."
+            },
+            "description": "Default sort by achievements points."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched leaderboard.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_AccountLeaderboardSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/accounts/create": {
       "post": {
         "tags": [
           "Accounts"
         ],
         "summary": "Create Account",
-        "description": "Create an account.",
         "operationId": "create_account_accounts_create_post",
         "requestBody": {
           "content": {
@@ -3072,6 +3458,137 @@
           },
           "457": {
             "description": "Email already used."
+          }
+        }
+      }
+    },
+    "/accounts/{account}/achievements": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Get Account Achievements",
+        "description": "Retrieve the achievements of a account.",
+        "operationId": "get_account_achievements_accounts__account__achievements_get",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Account name",
+              "description": "The character name."
+            },
+            "description": "The character name."
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/AchievementType_a-zA-Z0-9_-_____"
+                }
+              ],
+              "title": "Type",
+              "description": "Type of achievements."
+            },
+            "description": "Type of achievements."
+          },
+          {
+            "name": "completed",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "title": "Completed",
+              "description": "Filter by completed achievements."
+            },
+            "description": "Filter by completed achievements."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched achievements.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_AccountAchievementSchema_"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Account not found."
+          }
+        }
+      }
+    },
+    "/accounts/{account}": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Get Account",
+        "description": "Retrieve the details of a character.",
+        "operationId": "get_account_accounts__account__get",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Account name",
+              "description": "The account name."
+            },
+            "description": "The account name."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountDetailsSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Account not found."
           }
         }
       }
@@ -3128,86 +3645,7 @@
   },
   "components": {
     "schemas": {
-      "AccountDetails": {
-        "properties": {
-          "username": {
-            "type": "string",
-            "title": "Username",
-            "description": "Username."
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "title": "Email",
-            "description": "Email."
-          },
-          "subscribed": {
-            "type": "boolean",
-            "title": "Subscribed",
-            "description": "Subscribed for the current season."
-          },
-          "subscribed_until": {
-            "type": "integer",
-            "title": "Subscribed Until",
-            "description": "Subscribed until (in season numbers)."
-          },
-          "founder": {
-            "type": "boolean",
-            "title": "Founder",
-            "description": "Founder."
-          },
-          "badges": {
-            "anyOf": [
-              {
-                "items": {},
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Badges",
-            "description": "Account badges."
-          },
-          "gems": {
-            "type": "integer",
-            "title": "Gems",
-            "description": "Gems."
-          },
-          "banned": {
-            "type": "boolean",
-            "title": "Banned",
-            "description": "Banned."
-          },
-          "ban_reason": {
-            "type": "string",
-            "title": "Ban Reason",
-            "description": "Ban reason."
-          }
-        },
-        "type": "object",
-        "required": [
-          "username",
-          "email",
-          "subscribed",
-          "founder",
-          "banned"
-        ],
-        "title": "AccountDetails"
-      },
-      "AccountDetailsSchema": {
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/AccountDetails"
-          }
-        },
-        "type": "object",
-        "required": [
-          "data"
-        ],
-        "title": "AccountDetailsSchema"
-      },
-      "AchievementSchema": {
+      "AccountAchievementSchema": {
         "properties": {
           "name": {
             "type": "string",
@@ -3230,18 +3668,11 @@
             "description": "Points of the achievement. Used for the leaderboard."
           },
           "type": {
-            "type": "string",
-            "enum": [
-              "combat_kill",
-              "combat_drop",
-              "combat_level",
-              "gathering",
-              "crafting",
-              "recycling",
-              "task",
-              "other"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AchievementType"
+              }
             ],
-            "title": "Type",
             "description": "Type of achievement."
           },
           "target": {
@@ -3260,6 +3691,14 @@
             "type": "integer",
             "title": "Total",
             "description": "Total to do."
+          },
+          "rewards": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AchievementRewardsSchema"
+              }
+            ],
+            "description": "Rewards."
           },
           "current": {
             "type": "integer",
@@ -3289,10 +3728,272 @@
           "type",
           "target",
           "total",
+          "rewards",
           "current",
           "completed_at"
         ],
+        "title": "AccountAchievementSchema"
+      },
+      "AccountDetails": {
+        "properties": {
+          "username": {
+            "type": "string",
+            "title": "Username",
+            "description": "Username."
+          },
+          "subscribed": {
+            "type": "boolean",
+            "title": "Subscribed",
+            "description": "Subscribed for the current season."
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AccountStatus"
+              }
+            ],
+            "description": "Member status."
+          },
+          "badges": {
+            "anyOf": [
+              {
+                "items": {},
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Badges",
+            "description": "Account badges."
+          },
+          "achievements_points": {
+            "type": "integer",
+            "title": "Achievements Points",
+            "description": "Achievement points."
+          },
+          "banned": {
+            "type": "boolean",
+            "title": "Banned",
+            "description": "Banned."
+          },
+          "ban_reason": {
+            "type": "string",
+            "title": "Ban Reason",
+            "description": "Ban reason."
+          }
+        },
+        "type": "object",
+        "required": [
+          "username",
+          "subscribed",
+          "status",
+          "achievements_points",
+          "banned"
+        ],
+        "title": "AccountDetails"
+      },
+      "AccountDetailsSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/AccountDetails"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "AccountDetailsSchema"
+      },
+      "AccountLeaderboardSchema": {
+        "properties": {
+          "position": {
+            "type": "integer",
+            "title": "Position",
+            "description": "Position in the leaderboard."
+          },
+          "account": {
+            "type": "string",
+            "title": "Account",
+            "description": "Account name."
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AccountStatus"
+              }
+            ],
+            "description": "Member status."
+          },
+          "achievements_points": {
+            "type": "integer",
+            "title": "Achievements Points",
+            "description": "Achievements points."
+          }
+        },
+        "type": "object",
+        "required": [
+          "position",
+          "account",
+          "status",
+          "achievements_points"
+        ],
+        "title": "AccountLeaderboardSchema"
+      },
+      "AccountLeaderboardType": {
+        "type": "string",
+        "const": "achievements_points",
+        "title": "AccountLeaderboardType"
+      },
+      "AccountLeaderboardType_a-zA-Z0-9_-_____": {
+        "$ref": "#/components/schemas/AccountLeaderboardType"
+      },
+      "AccountStatus": {
+        "type": "string",
+        "enum": [
+          "standard",
+          "founder",
+          "gold_founder",
+          "vip_founder"
+        ],
+        "title": "AccountStatus"
+      },
+      "AchievementResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/AchievementSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "AchievementResponseSchema"
+      },
+      "AchievementRewardsSchema": {
+        "properties": {
+          "gold": {
+            "type": "integer",
+            "title": "Gold",
+            "description": "Gold rewards."
+          }
+        },
+        "type": "object",
+        "required": [
+          "gold"
+        ],
+        "title": "AchievementRewardsSchema"
+      },
+      "AchievementSchema": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Name of the achievement."
+          },
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Code of the achievement. "
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "description": "Description of the achievement."
+          },
+          "points": {
+            "type": "integer",
+            "title": "Points",
+            "description": "Points of the achievement. Used for the leaderboard."
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AchievementType"
+              }
+            ],
+            "description": "Type of achievement."
+          },
+          "target": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target",
+            "description": "Target of the achievement."
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total",
+            "description": "Total to do."
+          },
+          "rewards": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AchievementRewardsSchema"
+              }
+            ],
+            "description": "Rewards."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "code",
+          "description",
+          "points",
+          "type",
+          "target",
+          "total",
+          "rewards"
+        ],
         "title": "AchievementSchema"
+      },
+      "AchievementType": {
+        "type": "string",
+        "enum": [
+          "combat_kill",
+          "combat_drop",
+          "combat_level",
+          "gathering",
+          "crafting",
+          "recycling",
+          "task",
+          "other"
+        ],
+        "title": "AchievementType"
+      },
+      "AchievementType_a-zA-Z0-9_-_____": {
+        "$ref": "#/components/schemas/AchievementType"
+      },
+      "ActionType": {
+        "type": "string",
+        "enum": [
+          "movement",
+          "fight",
+          "crafting",
+          "gathering",
+          "buy_ge",
+          "sell_ge",
+          "cancel_ge",
+          "delete_item",
+          "deposit",
+          "withdraw",
+          "deposit_gold",
+          "withdraw_gold",
+          "equip",
+          "unequip",
+          "task",
+          "recycling",
+          "rest",
+          "use",
+          "buy_bank_expansion"
+        ],
+        "title": "ActionType"
       },
       "ActiveEventSchema": {
         "properties": {
@@ -3300,6 +4001,11 @@
             "type": "string",
             "title": "Name",
             "description": "Name of the event."
+          },
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Code of the event. This is the event's unique identifier (ID)."
           },
           "map": {
             "allOf": [
@@ -3335,6 +4041,7 @@
         "type": "object",
         "required": [
           "name",
+          "code",
           "map",
           "previous_skin",
           "duration",
@@ -3387,16 +4094,11 @@
             "description": "Your desired character name. It's unique and all players can see it."
           },
           "skin": {
-            "type": "string",
-            "enum": [
-              "men1",
-              "men2",
-              "men3",
-              "women1",
-              "women2",
-              "women3"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CharacterSkin"
+              }
             ],
-            "title": "Skin",
             "description": "Your desired skin."
           }
         },
@@ -3640,85 +4342,6 @@
         ],
         "title": "BankSchema"
       },
-      "BaseAchievementSchema": {
-        "properties": {
-          "name": {
-            "type": "string",
-            "title": "Name",
-            "description": "Name of the achievement."
-          },
-          "code": {
-            "type": "string",
-            "title": "Code",
-            "description": "Code of the achievement. "
-          },
-          "description": {
-            "type": "string",
-            "title": "Description",
-            "description": "Description of the achievement."
-          },
-          "points": {
-            "type": "integer",
-            "title": "Points",
-            "description": "Points of the achievement. Used for the leaderboard."
-          },
-          "type": {
-            "type": "string",
-            "enum": [
-              "combat_kill",
-              "combat_drop",
-              "combat_level",
-              "gathering",
-              "crafting",
-              "recycling",
-              "task",
-              "other"
-            ],
-            "title": "Type",
-            "description": "Type of achievement."
-          },
-          "target": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Target",
-            "description": "Target of the achievement."
-          },
-          "total": {
-            "type": "integer",
-            "title": "Total",
-            "description": "Total to do."
-          }
-        },
-        "type": "object",
-        "required": [
-          "name",
-          "code",
-          "description",
-          "points",
-          "type",
-          "target",
-          "total"
-        ],
-        "title": "BaseAchievementSchema"
-      },
-      "BaseachievementResponseSchema": {
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/BaseAchievementSchema"
-          }
-        },
-        "type": "object",
-        "required": [
-          "data"
-        ],
-        "title": "BaseachievementResponseSchema"
-      },
       "BlockedHitsSchema": {
         "properties": {
           "fire": {
@@ -3765,7 +4388,7 @@
             "minLength": 5,
             "pattern": "^[^\\s]+$",
             "title": "Current Password",
-            "description": "Current password."
+            "description": "Your password."
           },
           "new_password": {
             "type": "string",
@@ -3832,20 +4455,25 @@
       },
       "CharacterLeaderboardSchema": {
         "properties": {
+          "position": {
+            "type": "integer",
+            "title": "Position",
+            "description": "Position in the leaderboard."
+          },
           "name": {
             "type": "string",
             "title": "Name",
             "description": "Character name."
           },
+          "account": {
+            "type": "string",
+            "title": "Account",
+            "description": "Account name."
+          },
           "skin": {
             "type": "string",
             "title": "Skin",
             "description": "Character skin code."
-          },
-          "achievements_points": {
-            "type": "integer",
-            "title": "Achievements Points",
-            "description": "Achievements points."
           },
           "level": {
             "type": "integer",
@@ -3927,17 +4555,28 @@
             "title": "Cooking Total Xp",
             "description": "Cooking total xp."
           },
+          "alchemy_level": {
+            "type": "integer",
+            "title": "Alchemy Level",
+            "description": "Alchemy level."
+          },
+          "alchemy_total_xp": {
+            "type": "integer",
+            "title": "Alchemy Total Xp",
+            "description": "Alchemy total xp."
+          },
           "gold": {
             "type": "integer",
             "title": "Gold",
-            "description": "The numbers of golds on this character."
+            "description": "The numbers of gold on this character."
           }
         },
         "type": "object",
         "required": [
+          "position",
           "name",
+          "account",
           "skin",
-          "achievements_points",
           "level",
           "total_xp",
           "mining_level",
@@ -3954,9 +4593,30 @@
           "jewelrycrafting_total_xp",
           "cooking_level",
           "cooking_total_xp",
+          "alchemy_level",
+          "alchemy_total_xp",
           "gold"
         ],
         "title": "CharacterLeaderboardSchema"
+      },
+      "CharacterLeaderboardType": {
+        "type": "string",
+        "enum": [
+          "combat",
+          "woodcutting",
+          "mining",
+          "fishing",
+          "weaponcrafting",
+          "gearcrafting",
+          "jewelrycrafting",
+          "cooking",
+          "alchemy",
+          "gold"
+        ],
+        "title": "CharacterLeaderboardType"
+      },
+      "CharacterLeaderboardType_a-zA-Z0-9_-_____": {
+        "$ref": "#/components/schemas/CharacterLeaderboardType"
       },
       "CharacterMovementDataSchema": {
         "properties": {
@@ -4017,6 +4677,50 @@
         ],
         "title": "CharacterResponseSchema"
       },
+      "CharacterRestDataSchema": {
+        "properties": {
+          "cooldown": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CooldownSchema"
+              }
+            ],
+            "description": "Cooldown details"
+          },
+          "hp_restored": {
+            "type": "integer",
+            "title": "Hp Restored",
+            "description": "The amount of HP restored."
+          },
+          "character": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CharacterSchema"
+              }
+            ],
+            "description": "Character details."
+          }
+        },
+        "type": "object",
+        "required": [
+          "cooldown",
+          "hp_restored",
+          "character"
+        ],
+        "title": "CharacterRestDataSchema"
+      },
+      "CharacterRestResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/CharacterRestDataSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "CharacterRestResponseSchema"
+      },
       "CharacterSchema": {
         "properties": {
           "name": {
@@ -4024,17 +4728,17 @@
             "title": "Name",
             "description": "Name of the character."
           },
-          "skin": {
+          "account": {
             "type": "string",
-            "enum": [
-              "men1",
-              "men2",
-              "men3",
-              "women1",
-              "women2",
-              "women3"
+            "title": "Account",
+            "description": "Account name."
+          },
+          "skin": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CharacterSkin"
+              }
             ],
-            "title": "Skin",
             "description": "Character skin code."
           },
           "level": {
@@ -4052,15 +4756,10 @@
             "title": "Max Xp",
             "description": "XP required to level up the character."
           },
-          "achievements_points": {
-            "type": "integer",
-            "title": "Achievements Points",
-            "description": "achievements points."
-          },
           "gold": {
             "type": "integer",
             "title": "Gold",
-            "description": "The numbers of golds on this character."
+            "description": "The numbers of gold on this character."
           },
           "speed": {
             "type": "integer",
@@ -4172,10 +4871,30 @@
             "title": "Cooking Max Xp",
             "description": "Cooking XP required to level up the skill."
           },
+          "alchemy_level": {
+            "type": "integer",
+            "title": "Alchemy Level",
+            "description": "Alchemy level."
+          },
+          "alchemy_xp": {
+            "type": "integer",
+            "title": "Alchemy Xp",
+            "description": "Alchemy XP."
+          },
+          "alchemy_max_xp": {
+            "type": "integer",
+            "title": "Alchemy Max Xp",
+            "description": "Alchemy XP required to level up the skill."
+          },
           "hp": {
             "type": "integer",
             "title": "Hp",
-            "description": "Character HP."
+            "description": "Character actual HP."
+          },
+          "max_hp": {
+            "type": "integer",
+            "title": "Max Hp",
+            "description": "Character max HP."
           },
           "haste": {
             "type": "integer",
@@ -4333,27 +5052,27 @@
             "title": "Artifact3 Slot",
             "description": "Artifact 3 slot."
           },
-          "consumable1_slot": {
+          "utility1_slot": {
             "type": "string",
-            "title": "Consumable1 Slot",
-            "description": "Consumable 1 slot."
+            "title": "Utility1 Slot",
+            "description": "Utility 1 slot."
           },
-          "consumable1_slot_quantity": {
+          "utility1_slot_quantity": {
             "type": "integer",
             "minimum": 0.0,
-            "title": "Consumable1 Slot Quantity",
-            "description": "Consumable 1 quantity."
+            "title": "Utility1 Slot Quantity",
+            "description": "Utility 1 quantity."
           },
-          "consumable2_slot": {
+          "utility2_slot": {
             "type": "string",
-            "title": "Consumable2 Slot",
-            "description": "Consumable 2 slot."
+            "title": "Utility2 Slot",
+            "description": "Utility 2 slot."
           },
-          "consumable2_slot_quantity": {
+          "utility2_slot_quantity": {
             "type": "integer",
             "minimum": 0.0,
-            "title": "Consumable2 Slot Quantity",
-            "description": "Consumable 2 quantity."
+            "title": "Utility2 Slot Quantity",
+            "description": "Utility 2 quantity."
           },
           "task": {
             "type": "string",
@@ -4392,11 +5111,11 @@
         "type": "object",
         "required": [
           "name",
+          "account",
           "skin",
           "level",
           "xp",
           "max_xp",
-          "achievements_points",
           "gold",
           "speed",
           "mining_level",
@@ -4420,7 +5139,11 @@
           "cooking_level",
           "cooking_xp",
           "cooking_max_xp",
+          "alchemy_level",
+          "alchemy_xp",
+          "alchemy_max_xp",
           "hp",
+          "max_hp",
           "haste",
           "critical_strike",
           "stamina",
@@ -4451,10 +5174,10 @@
           "artifact1_slot",
           "artifact2_slot",
           "artifact3_slot",
-          "consumable1_slot",
-          "consumable1_slot_quantity",
-          "consumable2_slot",
-          "consumable2_slot_quantity",
+          "utility1_slot",
+          "utility1_slot_quantity",
+          "utility2_slot",
+          "utility2_slot_quantity",
           "task",
           "task_type",
           "task_progress",
@@ -4462,6 +5185,18 @@
           "inventory_max_items"
         ],
         "title": "CharacterSchema"
+      },
+      "CharacterSkin": {
+        "type": "string",
+        "enum": [
+          "men1",
+          "men2",
+          "men3",
+          "women1",
+          "women2",
+          "women3"
+        ],
+        "title": "CharacterSkin"
       },
       "CooldownSchema": {
         "properties": {
@@ -4488,23 +5223,11 @@
             "description": "The expiration of the cooldown."
           },
           "reason": {
-            "type": "string",
-            "enum": [
-              "movement",
-              "fight",
-              "crafting",
-              "gathering",
-              "buy_ge",
-              "sell_ge",
-              "delete_item",
-              "deposit_bank",
-              "withdraw_bank",
-              "equip",
-              "unequip",
-              "task",
-              "recycling"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ActionType"
+              }
             ],
-            "title": "Reason",
             "description": "The reason of the cooldown."
           }
         },
@@ -4521,14 +5244,10 @@
       "CraftSchema": {
         "properties": {
           "skill": {
-            "type": "string",
-            "enum": [
-              "weaponcrafting",
-              "gearcrafting",
-              "jewelrycrafting",
-              "cooking",
-              "woodcutting",
-              "mining"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CraftSkill"
+              }
             ],
             "title": "Skill code",
             "description": "Skill required to craft the item."
@@ -4555,6 +5274,22 @@
         "type": "object",
         "title": "CraftSchema"
       },
+      "CraftSkill": {
+        "type": "string",
+        "enum": [
+          "weaponcrafting",
+          "gearcrafting",
+          "jewelrycrafting",
+          "cooking",
+          "woodcutting",
+          "mining",
+          "alchemy"
+        ],
+        "title": "CraftSkill"
+      },
+      "CraftSkill_a-zA-Z0-9_-_____": {
+        "$ref": "#/components/schemas/CraftSkill"
+      },
       "CraftingSchema": {
         "properties": {
           "code": {
@@ -4576,6 +5311,140 @@
           "code"
         ],
         "title": "CraftingSchema"
+      },
+      "DataPage_AccountAchievementSchema_": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/AccountAchievementSchema"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "total": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "size": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Size"
+          },
+          "pages": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "total",
+          "page",
+          "size"
+        ],
+        "title": "DataPage[AccountAchievementSchema]"
+      },
+      "DataPage_AccountLeaderboardSchema_": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/AccountLeaderboardSchema"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "total": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "size": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Size"
+          },
+          "pages": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "total",
+          "page",
+          "size"
+        ],
+        "title": "DataPage[AccountLeaderboardSchema]"
       },
       "DataPage_AchievementSchema_": {
         "properties": {
@@ -4711,73 +5580,6 @@
         ],
         "title": "DataPage[ActiveEventSchema]"
       },
-      "DataPage_BaseAchievementSchema_": {
-        "properties": {
-          "data": {
-            "items": {
-              "$ref": "#/components/schemas/BaseAchievementSchema"
-            },
-            "type": "array",
-            "title": "Data"
-          },
-          "total": {
-            "anyOf": [
-              {
-                "type": "integer",
-                "minimum": 0.0
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Total"
-          },
-          "page": {
-            "anyOf": [
-              {
-                "type": "integer",
-                "minimum": 1.0
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Page"
-          },
-          "size": {
-            "anyOf": [
-              {
-                "type": "integer",
-                "minimum": 1.0
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Size"
-          },
-          "pages": {
-            "anyOf": [
-              {
-                "type": "integer",
-                "minimum": 0.0
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Pages"
-          }
-        },
-        "type": "object",
-        "required": [
-          "data",
-          "total",
-          "page",
-          "size"
-        ],
-        "title": "DataPage[BaseAchievementSchema]"
-      },
       "DataPage_CharacterLeaderboardSchema_": {
         "properties": {
           "data": {
@@ -4845,11 +5647,11 @@
         ],
         "title": "DataPage[CharacterLeaderboardSchema]"
       },
-      "DataPage_CharacterSchema_": {
+      "DataPage_DropRateSchema_": {
         "properties": {
           "data": {
             "items": {
-              "$ref": "#/components/schemas/CharacterSchema"
+              "$ref": "#/components/schemas/DropRateSchema"
             },
             "type": "array",
             "title": "Data"
@@ -4910,13 +5712,13 @@
           "page",
           "size"
         ],
-        "title": "DataPage[CharacterSchema]"
+        "title": "DataPage[DropRateSchema]"
       },
-      "DataPage_GEItemSchema_": {
+      "DataPage_EventSchema_": {
         "properties": {
           "data": {
             "items": {
-              "$ref": "#/components/schemas/GEItemSchema"
+              "$ref": "#/components/schemas/EventSchema"
             },
             "type": "array",
             "title": "Data"
@@ -4977,7 +5779,141 @@
           "page",
           "size"
         ],
-        "title": "DataPage[GEItemSchema]"
+        "title": "DataPage[EventSchema]"
+      },
+      "DataPage_GEOrderSchema_": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/GEOrderSchema"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "total": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "size": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Size"
+          },
+          "pages": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "total",
+          "page",
+          "size"
+        ],
+        "title": "DataPage[GEOrderSchema]"
+      },
+      "DataPage_GeOrderHistorySchema_": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/GeOrderHistorySchema"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "total": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "size": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Size"
+          },
+          "pages": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "total",
+          "page",
+          "size"
+        ],
+        "title": "DataPage[GeOrderHistorySchema]"
       },
       "DataPage_ItemSchema_": {
         "properties": {
@@ -5448,73 +6384,6 @@
         ],
         "title": "DataPage[TaskFullSchema]"
       },
-      "DataPage_TasksRewardFullSchema_": {
-        "properties": {
-          "data": {
-            "items": {
-              "$ref": "#/components/schemas/TasksRewardFullSchema"
-            },
-            "type": "array",
-            "title": "Data"
-          },
-          "total": {
-            "anyOf": [
-              {
-                "type": "integer",
-                "minimum": 0.0
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Total"
-          },
-          "page": {
-            "anyOf": [
-              {
-                "type": "integer",
-                "minimum": 1.0
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Page"
-          },
-          "size": {
-            "anyOf": [
-              {
-                "type": "integer",
-                "minimum": 1.0
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Size"
-          },
-          "pages": {
-            "anyOf": [
-              {
-                "type": "integer",
-                "minimum": 0.0
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Pages"
-          }
-        },
-        "type": "object",
-        "required": [
-          "data",
-          "total",
-          "page",
-          "size"
-        ],
-        "title": "DataPage[TasksRewardFullSchema]"
-      },
       "DeleteCharacterSchema": {
         "properties": {
           "name": {
@@ -5626,7 +6495,7 @@
             "type": "integer",
             "minimum": 1.0,
             "title": "Rate",
-            "description": "Chance rate."
+            "description": "Chance rate. (1/rate)"
           },
           "min_quantity": {
             "type": "integer",
@@ -5672,27 +6541,6 @@
       },
       "EquipRequestSchema": {
         "properties": {
-          "slot": {
-            "type": "string",
-            "enum": [
-              "weapon",
-              "shield",
-              "helmet",
-              "body_armor",
-              "leg_armor",
-              "boots",
-              "ring1",
-              "ring2",
-              "amulet",
-              "artifact1",
-              "artifact2",
-              "artifact3",
-              "consumable1",
-              "consumable2"
-            ],
-            "title": "Slot",
-            "description": "Item slot."
-          },
           "cooldown": {
             "allOf": [
               {
@@ -5700,6 +6548,14 @@
               }
             ],
             "description": "Cooldown details."
+          },
+          "slot": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ItemSlot"
+              }
+            ],
+            "description": "Item slot."
           },
           "item": {
             "allOf": [
@@ -5720,8 +6576,8 @@
         },
         "type": "object",
         "required": [
-          "slot",
           "cooldown",
+          "slot",
           "item",
           "character"
         ],
@@ -5729,46 +6585,33 @@
       },
       "EquipSchema": {
         "properties": {
-          "slot": {
-            "type": "string",
-            "enum": [
-              "weapon",
-              "shield",
-              "helmet",
-              "body_armor",
-              "leg_armor",
-              "boots",
-              "ring1",
-              "ring2",
-              "amulet",
-              "artifact1",
-              "artifact2",
-              "artifact3",
-              "consumable1",
-              "consumable2"
-            ],
-            "title": "Slot",
-            "description": "Item slot."
-          },
           "code": {
             "type": "string",
             "pattern": "^[a-zA-Z0-9_-]+$",
             "title": "Code",
             "description": "Item code."
           },
+          "slot": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ItemSlot"
+              }
+            ],
+            "description": "Item slot."
+          },
           "quantity": {
             "type": "integer",
             "maximum": 100.0,
             "minimum": 1.0,
             "title": "Quantity",
-            "description": "Item quantity. Applicable to consumables only.",
+            "description": "Item quantity. Applicable to utilitys only.",
             "default": 1
           }
         },
         "type": "object",
         "required": [
-          "slot",
-          "code"
+          "code",
+          "slot"
         ],
         "title": "EquipSchema"
       },
@@ -5783,6 +6626,110 @@
           "data"
         ],
         "title": "EquipmentResponseSchema"
+      },
+      "EventContentSchema": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Type",
+            "description": "Type of the event."
+          },
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Code content."
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "code"
+        ],
+        "title": "EventContentSchema"
+      },
+      "EventMapSchema": {
+        "properties": {
+          "x": {
+            "type": "integer",
+            "title": "X",
+            "description": "Position X of the map."
+          },
+          "y": {
+            "type": "integer",
+            "title": "Y",
+            "description": "Position Y of the map."
+          }
+        },
+        "type": "object",
+        "required": [
+          "x",
+          "y"
+        ],
+        "title": "EventMapSchema"
+      },
+      "EventSchema": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Name of the event."
+          },
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Code of the event. This is the event's unique identifier (ID)."
+          },
+          "maps": {
+            "items": {
+              "$ref": "#/components/schemas/EventMapSchema"
+            },
+            "type": "array",
+            "title": "Maps",
+            "description": "Map list of the event."
+          },
+          "skin": {
+            "type": "string",
+            "title": "Skin",
+            "description": "Map skin of the event."
+          },
+          "duration": {
+            "type": "integer",
+            "title": "Duration",
+            "description": "Duration in minutes."
+          },
+          "rate": {
+            "type": "integer",
+            "title": "Rate",
+            "description": "Rate spawn of the event. (1/rate every minute)"
+          },
+          "content": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EventContentSchema"
+              }
+            ],
+            "description": "Content of the event."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "code",
+          "maps",
+          "skin",
+          "duration",
+          "rate",
+          "content"
+        ],
+        "title": "EventSchema"
+      },
+      "FightResult": {
+        "type": "string",
+        "enum": [
+          "win",
+          "loss"
+        ],
+        "title": "FightResult"
       },
       "FightSchema": {
         "properties": {
@@ -5834,12 +6781,11 @@
             "description": "The fight logs."
           },
           "result": {
-            "type": "string",
-            "enum": [
-              "win",
-              "lose"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FightResult"
+              }
             ],
-            "title": "Result",
             "description": "The result of the fight."
           }
         },
@@ -5856,56 +6802,67 @@
         ],
         "title": "FightSchema"
       },
-      "GEItemResponseSchema": {
+      "GEBuyOrderSchema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "Order id."
+          },
+          "quantity": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Quantity",
+            "description": "Item quantity."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "quantity"
+        ],
+        "title": "GEBuyOrderSchema"
+      },
+      "GECancelOrderSchema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "Order id."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "title": "GECancelOrderSchema"
+      },
+      "GECreateOrderTransactionResponseSchema": {
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/GEItemSchema"
+            "$ref": "#/components/schemas/GEOrderTransactionSchema"
           }
         },
         "type": "object",
         "required": [
           "data"
         ],
-        "title": "GEItemResponseSchema"
+        "title": "GECreateOrderTransactionResponseSchema"
       },
-      "GEItemSchema": {
+      "GEOrderCreatedSchema": {
         "properties": {
-          "code": {
+          "id": {
             "type": "string",
-            "title": "Code",
-            "description": "Item code."
+            "title": "Id",
+            "description": "Order id."
           },
-          "stock": {
-            "type": "integer",
-            "title": "Stock",
-            "description": "Item stock."
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "Order created at."
           },
-          "sell_price": {
-            "type": "integer",
-            "title": "Sell Price",
-            "description": "The item's selling price."
-          },
-          "buy_price": {
-            "type": "integer",
-            "title": "Buy Price",
-            "description": "The item's buying price."
-          },
-          "max_quantity": {
-            "type": "integer",
-            "title": "Max Quantity",
-            "description": "The number of items you can buy or sell at the same time."
-          }
-        },
-        "type": "object",
-        "required": [
-          "code",
-          "stock",
-          "max_quantity"
-        ],
-        "title": "GEItemSchema"
-      },
-      "GETransactionItemSchema": {
-        "properties": {
           "code": {
             "type": "string",
             "pattern": "^[a-zA-Z0-9_-]+$",
@@ -5923,7 +6880,54 @@
             "type": "integer",
             "minimum": 1.0,
             "title": "Price",
-            "description": "Item price. Item price validation protects you if the price has changed since you last checked the buy/sale price of an item."
+            "description": "Item price per unit."
+          },
+          "total_price": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Total Price",
+            "description": "Total price."
+          },
+          "tax": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Tax",
+            "description": "Order creation tax (5%, minimum 1)"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "created_at",
+          "code",
+          "quantity",
+          "price",
+          "total_price",
+          "tax"
+        ],
+        "title": "GEOrderCreatedSchema"
+      },
+      "GEOrderCreationrSchema": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+$",
+            "title": "Code",
+            "description": "Item code."
+          },
+          "quantity": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Quantity",
+            "description": "Item quantity."
+          },
+          "price": {
+            "type": "integer",
+            "maximum": 1000000000.0,
+            "minimum": 1.0,
+            "title": "Price",
+            "description": "Item price per unit."
           }
         },
         "type": "object",
@@ -5932,7 +6936,102 @@
           "quantity",
           "price"
         ],
-        "title": "GETransactionItemSchema"
+        "title": "GEOrderCreationrSchema"
+      },
+      "GEOrderReponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/GEOrderSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "GEOrderReponseSchema"
+      },
+      "GEOrderSchema": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "Order id."
+          },
+          "seller": {
+            "type": "string",
+            "title": "Seller",
+            "description": "Seller account name."
+          },
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Item code."
+          },
+          "quantity": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Quantity",
+            "description": "Item quantity."
+          },
+          "price": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Price",
+            "description": "Item price per unit."
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At",
+            "description": "Order created at."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "seller",
+          "code",
+          "quantity",
+          "price",
+          "created_at"
+        ],
+        "title": "GEOrderSchema"
+      },
+      "GEOrderTransactionSchema": {
+        "properties": {
+          "cooldown": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CooldownSchema"
+              }
+            ],
+            "description": "Cooldown details."
+          },
+          "order": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GEOrderCreatedSchema"
+              }
+            ],
+            "description": "Order details."
+          },
+          "character": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CharacterSchema"
+              }
+            ],
+            "description": "Character details."
+          }
+        },
+        "type": "object",
+        "required": [
+          "cooldown",
+          "order",
+          "character"
+        ],
+        "title": "GEOrderTransactionSchema"
       },
       "GETransactionListSchema": {
         "properties": {
@@ -5944,7 +7043,7 @@
             ],
             "description": "Cooldown details."
           },
-          "transaction": {
+          "order": {
             "allOf": [
               {
                 "$ref": "#/components/schemas/GETransactionSchema"
@@ -5964,7 +7063,7 @@
         "type": "object",
         "required": [
           "cooldown",
-          "transaction",
+          "order",
           "character"
         ],
         "title": "GETransactionListSchema"
@@ -5983,6 +7082,11 @@
       },
       "GETransactionSchema": {
         "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "Order id."
+          },
           "code": {
             "type": "string",
             "title": "Code",
@@ -6006,12 +7110,80 @@
         },
         "type": "object",
         "required": [
+          "id",
           "code",
           "quantity",
           "price",
           "total_price"
         ],
         "title": "GETransactionSchema"
+      },
+      "GatheringSkill": {
+        "type": "string",
+        "enum": [
+          "mining",
+          "woodcutting",
+          "fishing",
+          "alchemy"
+        ],
+        "title": "GatheringSkill"
+      },
+      "GatheringSkill_a-zA-Z0-9_-_____": {
+        "$ref": "#/components/schemas/GatheringSkill"
+      },
+      "GeOrderHistorySchema": {
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "title": "Order Id",
+            "description": "Order id."
+          },
+          "seller": {
+            "type": "string",
+            "title": "Seller",
+            "description": "Seller account name."
+          },
+          "buyer": {
+            "type": "string",
+            "title": "Buyer",
+            "description": "Buyer account name."
+          },
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Item code."
+          },
+          "quantity": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Quantity",
+            "description": "Item quantity."
+          },
+          "price": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Price",
+            "description": "Item price per unit."
+          },
+          "sold_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Sold At",
+            "description": "Sale datetime."
+          }
+        },
+        "type": "object",
+        "required": [
+          "order_id",
+          "seller",
+          "buyer",
+          "code",
+          "quantity",
+          "price",
+          "sold_at"
+        ],
+        "title": "GeOrderHistorySchema"
       },
       "GoldSchema": {
         "properties": {
@@ -6090,7 +7262,7 @@
       "ItemResponseSchema": {
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/SingleItemSchema"
+            "$ref": "#/components/schemas/ItemSchema"
           }
         },
         "type": "object",
@@ -6150,6 +7322,11 @@
               }
             ],
             "description": "Craft information. If applicable."
+          },
+          "tradeable": {
+            "type": "boolean",
+            "title": "Tradeable",
+            "description": "Item tradeable status. A non-tradeable item cannot be exchanged or sold."
           }
         },
         "type": "object",
@@ -6159,9 +7336,52 @@
           "level",
           "type",
           "subtype",
-          "description"
+          "description",
+          "tradeable"
         ],
         "title": "ItemSchema"
+      },
+      "ItemSlot": {
+        "type": "string",
+        "enum": [
+          "weapon",
+          "shield",
+          "helmet",
+          "body_armor",
+          "leg_armor",
+          "boots",
+          "ring1",
+          "ring2",
+          "amulet",
+          "artifact1",
+          "artifact2",
+          "artifact3",
+          "utility1",
+          "utility2"
+        ],
+        "title": "ItemSlot"
+      },
+      "ItemType": {
+        "type": "string",
+        "enum": [
+          "utility",
+          "body_armor",
+          "weapon",
+          "resource",
+          "leg_armor",
+          "helmet",
+          "boots",
+          "shield",
+          "amulet",
+          "ring",
+          "artifact",
+          "currency",
+          "consumable"
+        ],
+        "title": "ItemType"
+      },
+      "ItemType_a-zA-Z0-9_-_____": {
+        "$ref": "#/components/schemas/ItemType"
       },
       "LogSchema": {
         "properties": {
@@ -6176,8 +7396,11 @@
             "description": "Account character."
           },
           "type": {
-            "type": "string",
-            "title": "Type",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LogType"
+              }
+            ],
             "description": "Type of action."
           },
           "description": {
@@ -6227,6 +7450,37 @@
         ],
         "title": "LogSchema"
       },
+      "LogType": {
+        "type": "string",
+        "enum": [
+          "spawn",
+          "movement",
+          "fight",
+          "crafting",
+          "gathering",
+          "buy_ge",
+          "sell_ge",
+          "cancel_ge",
+          "delete_item",
+          "deposit",
+          "withdraw",
+          "deposit_gold",
+          "withdraw_gold",
+          "equip",
+          "unequip",
+          "new_task",
+          "task_exchange",
+          "task_cancelled",
+          "task_completed",
+          "task_trade",
+          "recycling",
+          "rest",
+          "use",
+          "buy_bank_expansion",
+          "achievement"
+        ],
+        "title": "LogType"
+      },
       "MapContentSchema": {
         "properties": {
           "type": {
@@ -6246,6 +7500,21 @@
           "code"
         ],
         "title": "MapContentSchema"
+      },
+      "MapContentType": {
+        "type": "string",
+        "enum": [
+          "monster",
+          "resource",
+          "workshop",
+          "bank",
+          "grand_exchange",
+          "tasks_master"
+        ],
+        "title": "MapContentType"
+      },
+      "MapContentType_a-zA-Z0-9_-_____": {
+        "$ref": "#/components/schemas/MapContentType"
       },
       "MapResponseSchema": {
         "properties": {
@@ -6416,6 +7685,90 @@
         ],
         "title": "MonsterSchema"
       },
+      "MyAccountDetails": {
+        "properties": {
+          "username": {
+            "type": "string",
+            "title": "Username",
+            "description": "Username."
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "title": "Email",
+            "description": "Email."
+          },
+          "subscribed": {
+            "type": "boolean",
+            "title": "Subscribed",
+            "description": "Subscribed for the current season."
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AccountStatus"
+              }
+            ],
+            "description": "Member status."
+          },
+          "badges": {
+            "anyOf": [
+              {
+                "items": {},
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Badges",
+            "description": "Account badges."
+          },
+          "gems": {
+            "type": "integer",
+            "title": "Gems",
+            "description": "Gems."
+          },
+          "achievements_points": {
+            "type": "integer",
+            "title": "Achievements Points",
+            "description": "Achievement points."
+          },
+          "banned": {
+            "type": "boolean",
+            "title": "Banned",
+            "description": "Banned."
+          },
+          "ban_reason": {
+            "type": "string",
+            "title": "Ban Reason",
+            "description": "Ban reason."
+          }
+        },
+        "type": "object",
+        "required": [
+          "username",
+          "email",
+          "subscribed",
+          "status",
+          "gems",
+          "achievements_points",
+          "banned"
+        ],
+        "title": "MyAccountDetails"
+      },
+      "MyAccountDetailsSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/MyAccountDetails"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "MyAccountDetailsSchema"
+      },
       "MyCharactersListSchema": {
         "properties": {
           "data": {
@@ -6544,11 +7897,10 @@
             "description": "The code of the resource. This is the resource's unique identifier (ID)."
           },
           "skill": {
-            "type": "string",
-            "enum": [
-              "mining",
-              "woodcutting",
-              "fishing"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/GatheringSkill"
+              }
             ],
             "title": "Skill code",
             "description": "The skill required to gather this resource."
@@ -6612,33 +7964,19 @@
         ],
         "title": "SimpleItemSchema"
       },
-      "SingleItemSchema": {
-        "properties": {
-          "item": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ItemSchema"
-              }
-            ],
-            "description": "Item information."
-          },
-          "ge": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/GEItemSchema"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "description": "Grand Exchange information. If applicable."
-          }
-        },
-        "type": "object",
-        "required": [
-          "item"
+      "Skill": {
+        "type": "string",
+        "enum": [
+          "weaponcrafting",
+          "gearcrafting",
+          "jewelrycrafting",
+          "cooking",
+          "woodcutting",
+          "mining",
+          "alchemy",
+          "fishing"
         ],
-        "title": "SingleItemSchema"
+        "title": "Skill"
       },
       "SkillDataSchema": {
         "properties": {
@@ -6710,6 +8048,9 @@
         ],
         "title": "SkillResponseSchema"
       },
+      "Skill_a-zA-Z0-9_-_____": {
+        "$ref": "#/components/schemas/Skill"
+      },
       "StatusResponseSchema": {
         "properties": {
           "data": {
@@ -6731,7 +8072,8 @@
           },
           "version": {
             "type": "string",
-            "title": "Version"
+            "title": "Version",
+            "description": "Game version."
           },
           "max_level": {
             "type": "integer",
@@ -6771,6 +8113,7 @@
         "type": "object",
         "required": [
           "status",
+          "version",
           "max_level",
           "characters_online",
           "server_time",
@@ -6878,10 +8221,10 @@
             "description": "Task level."
           },
           "type": {
-            "type": "string",
-            "enum": [
-              "monsters",
-              "items"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TaskType"
+              }
             ],
             "title": "Type",
             "description": "The type of task."
@@ -6950,11 +8293,17 @@
             "type": "array",
             "title": "Items",
             "description": "Items rewards."
+          },
+          "gold": {
+            "type": "integer",
+            "title": "Gold",
+            "description": "Gold rewards."
           }
         },
         "type": "object",
         "required": [
-          "items"
+          "items",
+          "gold"
         ],
         "title": "TaskRewardsSchema"
       },
@@ -6966,10 +8315,10 @@
             "description": "Task objective."
           },
           "type": {
-            "type": "string",
-            "enum": [
-              "monsters",
-              "items"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TaskType"
+              }
             ],
             "title": "Type",
             "description": "The type of task."
@@ -6978,13 +8327,22 @@
             "type": "integer",
             "title": "Total",
             "description": "The total required to complete the task."
+          },
+          "rewards": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TaskRewardsSchema"
+              }
+            ],
+            "description": "Rewards for completing the task."
           }
         },
         "type": "object",
         "required": [
           "code",
           "type",
-          "total"
+          "total",
+          "rewards"
         ],
         "title": "TaskSchema"
       },
@@ -7055,6 +8413,29 @@
         ],
         "title": "TaskTradeSchema"
       },
+      "TaskType": {
+        "type": "string",
+        "enum": [
+          "monsters",
+          "items"
+        ],
+        "title": "TaskType"
+      },
+      "TaskType_a-zA-Z0-9_-_____": {
+        "$ref": "#/components/schemas/TaskType"
+      },
+      "TasksRewardDataResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/TasksRewardDataSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "TasksRewardDataResponseSchema"
+      },
       "TasksRewardDataSchema": {
         "properties": {
           "cooldown": {
@@ -7065,10 +8446,10 @@
             ],
             "description": "Cooldown details."
           },
-          "reward": {
+          "rewards": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/TasksRewardSchema"
+                "$ref": "#/components/schemas/TaskRewardsSchema"
               }
             ],
             "description": "Reward details."
@@ -7085,59 +8466,15 @@
         "type": "object",
         "required": [
           "cooldown",
-          "reward",
+          "rewards",
           "character"
         ],
         "title": "TasksRewardDataSchema"
       },
-      "TasksRewardFullResponseSchema": {
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/TasksRewardFullSchema"
-          }
-        },
-        "type": "object",
-        "required": [
-          "data"
-        ],
-        "title": "TasksRewardFullResponseSchema"
-      },
-      "TasksRewardFullSchema": {
-        "properties": {
-          "code": {
-            "type": "string",
-            "title": "Code",
-            "description": "Item code."
-          },
-          "min_quantity": {
-            "type": "integer",
-            "title": "Min Quantity",
-            "description": "Minimum quantity of item."
-          },
-          "max_quantity": {
-            "type": "integer",
-            "title": "Max Quantity",
-            "description": "Maximum quantity of item."
-          },
-          "odds": {
-            "type": "number",
-            "title": "Odds",
-            "description": "Item odds."
-          }
-        },
-        "type": "object",
-        "required": [
-          "code",
-          "min_quantity",
-          "max_quantity",
-          "odds"
-        ],
-        "title": "TasksRewardFullSchema"
-      },
       "TasksRewardResponseSchema": {
         "properties": {
           "data": {
-            "$ref": "#/components/schemas/TasksRewardDataSchema"
+            "$ref": "#/components/schemas/DropRateSchema"
           }
         },
         "type": "object",
@@ -7145,26 +8482,6 @@
           "data"
         ],
         "title": "TasksRewardResponseSchema"
-      },
-      "TasksRewardSchema": {
-        "properties": {
-          "code": {
-            "type": "string",
-            "title": "Code",
-            "description": "Item code."
-          },
-          "quantity": {
-            "type": "integer",
-            "title": "Quantity",
-            "description": "Item quantity."
-          }
-        },
-        "type": "object",
-        "required": [
-          "code",
-          "quantity"
-        ],
-        "title": "TasksRewardSchema"
       },
       "TokenResponseSchema": {
         "properties": {
@@ -7182,24 +8499,11 @@
       "UnequipSchema": {
         "properties": {
           "slot": {
-            "type": "string",
-            "enum": [
-              "weapon",
-              "shield",
-              "helmet",
-              "body_armor",
-              "leg_armor",
-              "boots",
-              "ring1",
-              "ring2",
-              "amulet",
-              "artifact1",
-              "artifact2",
-              "artifact3",
-              "consumable1",
-              "consumable2"
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ItemSlot"
+              }
             ],
-            "title": "Slot",
             "description": "Item slot."
           },
           "quantity": {
@@ -7207,7 +8511,7 @@
             "maximum": 100.0,
             "minimum": 1.0,
             "title": "Quantity",
-            "description": "Item quantity. Applicable to consumables only.",
+            "description": "Item quantity. Applicable to utilitys only.",
             "default": 1
           }
         },
@@ -7216,6 +8520,53 @@
           "slot"
         ],
         "title": "UnequipSchema"
+      },
+      "UseItemResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/UseItemSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "UseItemResponseSchema"
+      },
+      "UseItemSchema": {
+        "properties": {
+          "cooldown": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CooldownSchema"
+              }
+            ],
+            "description": "Cooldown details."
+          },
+          "item": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ItemSchema"
+              }
+            ],
+            "description": "Item details."
+          },
+          "character": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CharacterSchema"
+              }
+            ],
+            "description": "Player details."
+          }
+        },
+        "type": "object",
+        "required": [
+          "cooldown",
+          "item",
+          "character"
+        ],
+        "title": "UseItemSchema"
       },
       "ValidationError": {
         "properties": {
