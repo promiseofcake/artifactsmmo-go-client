@@ -50,25 +50,26 @@ const (
 
 // Defines values for ActionType.
 const (
-	ActionTypeBuyBankExpansion ActionType = "buy_bank_expansion"
-	ActionTypeBuyGe            ActionType = "buy_ge"
-	ActionTypeCancelGe         ActionType = "cancel_ge"
-	ActionTypeCrafting         ActionType = "crafting"
-	ActionTypeDeleteItem       ActionType = "delete_item"
-	ActionTypeDeposit          ActionType = "deposit"
-	ActionTypeDepositGold      ActionType = "deposit_gold"
-	ActionTypeEquip            ActionType = "equip"
-	ActionTypeFight            ActionType = "fight"
-	ActionTypeGathering        ActionType = "gathering"
-	ActionTypeMovement         ActionType = "movement"
-	ActionTypeRecycling        ActionType = "recycling"
-	ActionTypeRest             ActionType = "rest"
-	ActionTypeSellGe           ActionType = "sell_ge"
-	ActionTypeTask             ActionType = "task"
-	ActionTypeUnequip          ActionType = "unequip"
-	ActionTypeUse              ActionType = "use"
-	ActionTypeWithdraw         ActionType = "withdraw"
-	ActionTypeWithdrawGold     ActionType = "withdraw_gold"
+	ActionTypeBuyBankExpansion  ActionType = "buy_bank_expansion"
+	ActionTypeBuyGe             ActionType = "buy_ge"
+	ActionTypeCancelGe          ActionType = "cancel_ge"
+	ActionTypeChristmasExchange ActionType = "christmas_exchange"
+	ActionTypeCrafting          ActionType = "crafting"
+	ActionTypeDeleteItem        ActionType = "delete_item"
+	ActionTypeDeposit           ActionType = "deposit"
+	ActionTypeDepositGold       ActionType = "deposit_gold"
+	ActionTypeEquip             ActionType = "equip"
+	ActionTypeFight             ActionType = "fight"
+	ActionTypeGathering         ActionType = "gathering"
+	ActionTypeMovement          ActionType = "movement"
+	ActionTypeRecycling         ActionType = "recycling"
+	ActionTypeRest              ActionType = "rest"
+	ActionTypeSellGe            ActionType = "sell_ge"
+	ActionTypeTask              ActionType = "task"
+	ActionTypeUnequip           ActionType = "unequip"
+	ActionTypeUse               ActionType = "use"
+	ActionTypeWithdraw          ActionType = "withdraw"
+	ActionTypeWithdrawGold      ActionType = "withdraw_gold"
 )
 
 // Defines values for CharacterLeaderboardType.
@@ -157,31 +158,32 @@ const (
 
 // Defines values for LogType.
 const (
-	Achievement      LogType = "achievement"
-	BuyBankExpansion LogType = "buy_bank_expansion"
-	BuyGe            LogType = "buy_ge"
-	CancelGe         LogType = "cancel_ge"
-	Crafting         LogType = "crafting"
-	DeleteItem       LogType = "delete_item"
-	Deposit          LogType = "deposit"
-	DepositGold      LogType = "deposit_gold"
-	Equip            LogType = "equip"
-	Fight            LogType = "fight"
-	Gathering        LogType = "gathering"
-	Movement         LogType = "movement"
-	NewTask          LogType = "new_task"
-	Recycling        LogType = "recycling"
-	Rest             LogType = "rest"
-	SellGe           LogType = "sell_ge"
-	Spawn            LogType = "spawn"
-	TaskCancelled    LogType = "task_cancelled"
-	TaskCompleted    LogType = "task_completed"
-	TaskExchange     LogType = "task_exchange"
-	TaskTrade        LogType = "task_trade"
-	Unequip          LogType = "unequip"
-	Use              LogType = "use"
-	Withdraw         LogType = "withdraw"
-	WithdrawGold     LogType = "withdraw_gold"
+	Achievement       LogType = "achievement"
+	BuyBankExpansion  LogType = "buy_bank_expansion"
+	BuyGe             LogType = "buy_ge"
+	CancelGe          LogType = "cancel_ge"
+	ChristmasExchange LogType = "christmas_exchange"
+	Crafting          LogType = "crafting"
+	DeleteItem        LogType = "delete_item"
+	Deposit           LogType = "deposit"
+	DepositGold       LogType = "deposit_gold"
+	Equip             LogType = "equip"
+	Fight             LogType = "fight"
+	Gathering         LogType = "gathering"
+	Movement          LogType = "movement"
+	NewTask           LogType = "new_task"
+	Recycling         LogType = "recycling"
+	Rest              LogType = "rest"
+	SellGe            LogType = "sell_ge"
+	Spawn             LogType = "spawn"
+	TaskCancelled     LogType = "task_cancelled"
+	TaskCompleted     LogType = "task_completed"
+	TaskExchange      LogType = "task_exchange"
+	TaskTrade         LogType = "task_trade"
+	Unequip           LogType = "unequip"
+	Use               LogType = "use"
+	Withdraw          LogType = "withdraw"
+	WithdrawGold      LogType = "withdraw_gold"
 )
 
 // Defines values for MapContentType.
@@ -273,7 +275,7 @@ type AccountDetails struct {
 	AchievementsPoints int `json:"achievements_points"`
 
 	// Badges Account badges.
-	Badges *AccountDetails_Badges `json:"badges,omitempty"`
+	Badges *[]interface{} `json:"badges,omitempty"`
 
 	// BanReason Ban reason.
 	BanReason *string `json:"ban_reason,omitempty"`
@@ -289,17 +291,6 @@ type AccountDetails struct {
 
 	// Username Username.
 	Username string `json:"username"`
-}
-
-// AccountDetailsBadges0 defines model for .
-type AccountDetailsBadges0 = []interface{}
-
-// AccountDetailsBadges1 defines model for .
-type AccountDetailsBadges1 = interface{}
-
-// AccountDetails_Badges Account badges.
-type AccountDetails_Badges struct {
-	union json.RawMessage
 }
 
 // AccountDetailsSchema defines model for AccountDetailsSchema.
@@ -415,8 +406,7 @@ type ActiveEventSchema struct {
 
 // AddAccountSchema defines model for AddAccountSchema.
 type AddAccountSchema struct {
-	// Email Your email.
-	Email openapi_types.Email `json:"email"`
+	Email *openapi_types.Email `json:"email,omitempty"`
 
 	// Password Your password.
 	Password string `json:"password"`
@@ -441,6 +431,57 @@ type AnnouncementSchema struct {
 
 	// Message Announcement text.
 	Message string `json:"message"`
+}
+
+// BadgeConditionSchema defines model for BadgeConditionSchema.
+type BadgeConditionSchema struct {
+	// Code Code of the condition.
+	Code string `json:"code"`
+
+	// Quantity Quantity of the condition (if any).
+	Quantity BadgeConditionSchema_Quantity `json:"quantity"`
+}
+
+// BadgeConditionSchemaQuantity0 defines model for .
+type BadgeConditionSchemaQuantity0 = int
+
+// BadgeConditionSchemaQuantity1 defines model for .
+type BadgeConditionSchemaQuantity1 = interface{}
+
+// BadgeConditionSchema_Quantity Quantity of the condition (if any).
+type BadgeConditionSchema_Quantity struct {
+	union json.RawMessage
+}
+
+// BadgeResponseSchema defines model for BadgeResponseSchema.
+type BadgeResponseSchema struct {
+	Data BadgeSchema `json:"data"`
+}
+
+// BadgeSchema defines model for BadgeSchema.
+type BadgeSchema struct {
+	// Code Code of the badge. This is the badge's unique identifier (ID).
+	Code string `json:"code"`
+
+	// Conditions Conditions to get the badge.
+	Conditions []BadgeConditionSchema `json:"conditions"`
+
+	// Description Description of the badge.
+	Description string `json:"description"`
+
+	// Season Season of the badge.
+	Season *BadgeSchema_Season `json:"season,omitempty"`
+}
+
+// BadgeSchemaSeason0 defines model for .
+type BadgeSchemaSeason0 = int
+
+// BadgeSchemaSeason1 defines model for .
+type BadgeSchemaSeason1 = interface{}
+
+// BadgeSchema_Season Season of the badge.
+type BadgeSchema_Season struct {
+	union json.RawMessage
 }
 
 // BankExtensionSchema defines model for BankExtensionSchema.
@@ -1172,6 +1213,59 @@ type DataPageActiveEventSchemaTotal1 = interface{}
 
 // DataPageActiveEventSchema_Total defines model for DataPageActiveEventSchema.Total.
 type DataPageActiveEventSchema_Total struct {
+	union json.RawMessage
+}
+
+// DataPageBadgeSchema defines model for DataPage_BadgeSchema_.
+type DataPageBadgeSchema struct {
+	Data  []BadgeSchema              `json:"data"`
+	Page  DataPageBadgeSchema_Page   `json:"page"`
+	Pages *DataPageBadgeSchema_Pages `json:"pages,omitempty"`
+	Size  DataPageBadgeSchema_Size   `json:"size"`
+	Total DataPageBadgeSchema_Total  `json:"total"`
+}
+
+// DataPageBadgeSchemaPage0 defines model for .
+type DataPageBadgeSchemaPage0 = int
+
+// DataPageBadgeSchemaPage1 defines model for .
+type DataPageBadgeSchemaPage1 = interface{}
+
+// DataPageBadgeSchema_Page defines model for DataPageBadgeSchema.Page.
+type DataPageBadgeSchema_Page struct {
+	union json.RawMessage
+}
+
+// DataPageBadgeSchemaPages0 defines model for .
+type DataPageBadgeSchemaPages0 = int
+
+// DataPageBadgeSchemaPages1 defines model for .
+type DataPageBadgeSchemaPages1 = interface{}
+
+// DataPageBadgeSchema_Pages defines model for DataPageBadgeSchema.Pages.
+type DataPageBadgeSchema_Pages struct {
+	union json.RawMessage
+}
+
+// DataPageBadgeSchemaSize0 defines model for .
+type DataPageBadgeSchemaSize0 = int
+
+// DataPageBadgeSchemaSize1 defines model for .
+type DataPageBadgeSchemaSize1 = interface{}
+
+// DataPageBadgeSchema_Size defines model for DataPageBadgeSchema.Size.
+type DataPageBadgeSchema_Size struct {
+	union json.RawMessage
+}
+
+// DataPageBadgeSchemaTotal0 defines model for .
+type DataPageBadgeSchemaTotal0 = int
+
+// DataPageBadgeSchemaTotal1 defines model for .
+type DataPageBadgeSchemaTotal1 = interface{}
+
+// DataPageBadgeSchema_Total defines model for DataPageBadgeSchema.Total.
+type DataPageBadgeSchema_Total struct {
 	union json.RawMessage
 }
 
@@ -2361,7 +2455,7 @@ type MyAccountDetails struct {
 	AchievementsPoints int `json:"achievements_points"`
 
 	// Badges Account badges.
-	Badges *MyAccountDetails_Badges `json:"badges,omitempty"`
+	Badges *[]interface{} `json:"badges,omitempty"`
 
 	// BanReason Ban reason.
 	BanReason *string `json:"ban_reason,omitempty"`
@@ -2383,17 +2477,6 @@ type MyAccountDetails struct {
 
 	// Username Username.
 	Username string `json:"username"`
-}
-
-// MyAccountDetailsBadges0 defines model for .
-type MyAccountDetailsBadges0 = []interface{}
-
-// MyAccountDetailsBadges1 defines model for .
-type MyAccountDetailsBadges1 = interface{}
-
-// MyAccountDetails_Badges Account badges.
-type MyAccountDetails_Badges struct {
-	union json.RawMessage
 }
 
 // MyAccountDetailsSchema defines model for MyAccountDetailsSchema.
@@ -2465,6 +2548,37 @@ type ResourceSchema struct {
 // ResponseSchema defines model for ResponseSchema.
 type ResponseSchema struct {
 	Message string `json:"message"`
+}
+
+// RewardDataResponseSchema defines model for RewardDataResponseSchema.
+type RewardDataResponseSchema struct {
+	Data RewardDataSchema `json:"data"`
+}
+
+// RewardDataSchema defines model for RewardDataSchema.
+type RewardDataSchema struct {
+	// Character Player details.
+	Character CharacterSchema `json:"character"`
+
+	// Cooldown Cooldown details.
+	Cooldown CooldownSchema `json:"cooldown"`
+
+	// Rewards Reward details.
+	Rewards RewardsSchema `json:"rewards"`
+}
+
+// RewardResponseSchema defines model for RewardResponseSchema.
+type RewardResponseSchema struct {
+	Data DropRateSchema `json:"data"`
+}
+
+// RewardsSchema defines model for RewardsSchema.
+type RewardsSchema struct {
+	// Gold Gold rewards.
+	Gold int `json:"gold"`
+
+	// Items Items rewards.
+	Items []SimpleItemSchema `json:"items"`
 }
 
 // SimpleItemSchema defines model for SimpleItemSchema.
@@ -2586,7 +2700,7 @@ type TaskFullSchema struct {
 	MinQuantity int `json:"min_quantity"`
 
 	// Rewards Rewards.
-	Rewards TaskRewardsSchema `json:"rewards"`
+	Rewards RewardsSchema `json:"rewards"`
 
 	// Skill Skill required to complete the task.
 	Skill TaskFullSchema_Skill `json:"skill"`
@@ -2611,22 +2725,13 @@ type TaskResponseSchema struct {
 	Data TaskDataSchema `json:"data"`
 }
 
-// TaskRewardsSchema defines model for TaskRewardsSchema.
-type TaskRewardsSchema struct {
-	// Gold Gold rewards.
-	Gold int `json:"gold"`
-
-	// Items Items rewards.
-	Items []SimpleItemSchema `json:"items"`
-}
-
 // TaskSchema defines model for TaskSchema.
 type TaskSchema struct {
 	// Code Task objective.
 	Code string `json:"code"`
 
 	// Rewards Rewards for completing the task.
-	Rewards TaskRewardsSchema `json:"rewards"`
+	Rewards RewardsSchema `json:"rewards"`
 
 	// Total The total required to complete the task.
 	Total int `json:"total"`
@@ -2666,28 +2771,6 @@ type TaskType string
 
 // TaskTypeAZAZ09 defines model for TaskType_a-zA-Z0-9_-_____.
 type TaskTypeAZAZ09 = TaskType
-
-// TasksRewardDataResponseSchema defines model for TasksRewardDataResponseSchema.
-type TasksRewardDataResponseSchema struct {
-	Data TasksRewardDataSchema `json:"data"`
-}
-
-// TasksRewardDataSchema defines model for TasksRewardDataSchema.
-type TasksRewardDataSchema struct {
-	// Character Player details.
-	Character CharacterSchema `json:"character"`
-
-	// Cooldown Cooldown details.
-	Cooldown CooldownSchema `json:"cooldown"`
-
-	// Rewards Reward details.
-	Rewards TaskRewardsSchema `json:"rewards"`
-}
-
-// TasksRewardResponseSchema defines model for TasksRewardResponseSchema.
-type TasksRewardResponseSchema struct {
-	Data DropRateSchema `json:"data"`
-}
 
 // TokenResponseSchema defines model for TokenResponseSchema.
 type TokenResponseSchema struct {
@@ -2740,6 +2823,15 @@ type GetAllAchievementsAchievementsGetParams struct {
 	// Type Type of achievements.
 	Type *AchievementTypeAZAZ09 `form:"type,omitempty" json:"type,omitempty"`
 
+	// Page Page number
+	Page *int `form:"page,omitempty" json:"page,omitempty"`
+
+	// Size Page size
+	Size *int `form:"size,omitempty" json:"size,omitempty"`
+}
+
+// GetAllBadgesBadgesGetParams defines parameters for GetAllBadgesBadgesGet.
+type GetAllBadgesBadgesGetParams struct {
 	// Page Page number
 	Page *int `form:"page,omitempty" json:"page,omitempty"`
 
@@ -3159,68 +3251,6 @@ func (t *AccountAchievementSchema_Target) UnmarshalJSON(b []byte) error {
 	return err
 }
 
-// AsAccountDetailsBadges0 returns the union data inside the AccountDetails_Badges as a AccountDetailsBadges0
-func (t AccountDetails_Badges) AsAccountDetailsBadges0() (AccountDetailsBadges0, error) {
-	var body AccountDetailsBadges0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromAccountDetailsBadges0 overwrites any union data inside the AccountDetails_Badges as the provided AccountDetailsBadges0
-func (t *AccountDetails_Badges) FromAccountDetailsBadges0(v AccountDetailsBadges0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeAccountDetailsBadges0 performs a merge with any union data inside the AccountDetails_Badges, using the provided AccountDetailsBadges0
-func (t *AccountDetails_Badges) MergeAccountDetailsBadges0(v AccountDetailsBadges0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsAccountDetailsBadges1 returns the union data inside the AccountDetails_Badges as a AccountDetailsBadges1
-func (t AccountDetails_Badges) AsAccountDetailsBadges1() (AccountDetailsBadges1, error) {
-	var body AccountDetailsBadges1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromAccountDetailsBadges1 overwrites any union data inside the AccountDetails_Badges as the provided AccountDetailsBadges1
-func (t *AccountDetails_Badges) FromAccountDetailsBadges1(v AccountDetailsBadges1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeAccountDetailsBadges1 performs a merge with any union data inside the AccountDetails_Badges, using the provided AccountDetailsBadges1
-func (t *AccountDetails_Badges) MergeAccountDetailsBadges1(v AccountDetailsBadges1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t AccountDetails_Badges) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *AccountDetails_Badges) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
 // AsAchievementSchemaTarget0 returns the union data inside the AchievementSchema_Target as a AchievementSchemaTarget0
 func (t AchievementSchema_Target) AsAchievementSchemaTarget0() (AchievementSchemaTarget0, error) {
 	var body AchievementSchemaTarget0
@@ -3279,6 +3309,130 @@ func (t AchievementSchema_Target) MarshalJSON() ([]byte, error) {
 }
 
 func (t *AchievementSchema_Target) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsBadgeConditionSchemaQuantity0 returns the union data inside the BadgeConditionSchema_Quantity as a BadgeConditionSchemaQuantity0
+func (t BadgeConditionSchema_Quantity) AsBadgeConditionSchemaQuantity0() (BadgeConditionSchemaQuantity0, error) {
+	var body BadgeConditionSchemaQuantity0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromBadgeConditionSchemaQuantity0 overwrites any union data inside the BadgeConditionSchema_Quantity as the provided BadgeConditionSchemaQuantity0
+func (t *BadgeConditionSchema_Quantity) FromBadgeConditionSchemaQuantity0(v BadgeConditionSchemaQuantity0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeBadgeConditionSchemaQuantity0 performs a merge with any union data inside the BadgeConditionSchema_Quantity, using the provided BadgeConditionSchemaQuantity0
+func (t *BadgeConditionSchema_Quantity) MergeBadgeConditionSchemaQuantity0(v BadgeConditionSchemaQuantity0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsBadgeConditionSchemaQuantity1 returns the union data inside the BadgeConditionSchema_Quantity as a BadgeConditionSchemaQuantity1
+func (t BadgeConditionSchema_Quantity) AsBadgeConditionSchemaQuantity1() (BadgeConditionSchemaQuantity1, error) {
+	var body BadgeConditionSchemaQuantity1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromBadgeConditionSchemaQuantity1 overwrites any union data inside the BadgeConditionSchema_Quantity as the provided BadgeConditionSchemaQuantity1
+func (t *BadgeConditionSchema_Quantity) FromBadgeConditionSchemaQuantity1(v BadgeConditionSchemaQuantity1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeBadgeConditionSchemaQuantity1 performs a merge with any union data inside the BadgeConditionSchema_Quantity, using the provided BadgeConditionSchemaQuantity1
+func (t *BadgeConditionSchema_Quantity) MergeBadgeConditionSchemaQuantity1(v BadgeConditionSchemaQuantity1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t BadgeConditionSchema_Quantity) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *BadgeConditionSchema_Quantity) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsBadgeSchemaSeason0 returns the union data inside the BadgeSchema_Season as a BadgeSchemaSeason0
+func (t BadgeSchema_Season) AsBadgeSchemaSeason0() (BadgeSchemaSeason0, error) {
+	var body BadgeSchemaSeason0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromBadgeSchemaSeason0 overwrites any union data inside the BadgeSchema_Season as the provided BadgeSchemaSeason0
+func (t *BadgeSchema_Season) FromBadgeSchemaSeason0(v BadgeSchemaSeason0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeBadgeSchemaSeason0 performs a merge with any union data inside the BadgeSchema_Season, using the provided BadgeSchemaSeason0
+func (t *BadgeSchema_Season) MergeBadgeSchemaSeason0(v BadgeSchemaSeason0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsBadgeSchemaSeason1 returns the union data inside the BadgeSchema_Season as a BadgeSchemaSeason1
+func (t BadgeSchema_Season) AsBadgeSchemaSeason1() (BadgeSchemaSeason1, error) {
+	var body BadgeSchemaSeason1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromBadgeSchemaSeason1 overwrites any union data inside the BadgeSchema_Season as the provided BadgeSchemaSeason1
+func (t *BadgeSchema_Season) FromBadgeSchemaSeason1(v BadgeSchemaSeason1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeBadgeSchemaSeason1 performs a merge with any union data inside the BadgeSchema_Season, using the provided BadgeSchemaSeason1
+func (t *BadgeSchema_Season) MergeBadgeSchemaSeason1(v BadgeSchemaSeason1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t BadgeSchema_Season) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *BadgeSchema_Season) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -4271,6 +4425,254 @@ func (t DataPageActiveEventSchema_Total) MarshalJSON() ([]byte, error) {
 }
 
 func (t *DataPageActiveEventSchema_Total) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageBadgeSchemaPage0 returns the union data inside the DataPageBadgeSchema_Page as a DataPageBadgeSchemaPage0
+func (t DataPageBadgeSchema_Page) AsDataPageBadgeSchemaPage0() (DataPageBadgeSchemaPage0, error) {
+	var body DataPageBadgeSchemaPage0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageBadgeSchemaPage0 overwrites any union data inside the DataPageBadgeSchema_Page as the provided DataPageBadgeSchemaPage0
+func (t *DataPageBadgeSchema_Page) FromDataPageBadgeSchemaPage0(v DataPageBadgeSchemaPage0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageBadgeSchemaPage0 performs a merge with any union data inside the DataPageBadgeSchema_Page, using the provided DataPageBadgeSchemaPage0
+func (t *DataPageBadgeSchema_Page) MergeDataPageBadgeSchemaPage0(v DataPageBadgeSchemaPage0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageBadgeSchemaPage1 returns the union data inside the DataPageBadgeSchema_Page as a DataPageBadgeSchemaPage1
+func (t DataPageBadgeSchema_Page) AsDataPageBadgeSchemaPage1() (DataPageBadgeSchemaPage1, error) {
+	var body DataPageBadgeSchemaPage1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageBadgeSchemaPage1 overwrites any union data inside the DataPageBadgeSchema_Page as the provided DataPageBadgeSchemaPage1
+func (t *DataPageBadgeSchema_Page) FromDataPageBadgeSchemaPage1(v DataPageBadgeSchemaPage1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageBadgeSchemaPage1 performs a merge with any union data inside the DataPageBadgeSchema_Page, using the provided DataPageBadgeSchemaPage1
+func (t *DataPageBadgeSchema_Page) MergeDataPageBadgeSchemaPage1(v DataPageBadgeSchemaPage1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageBadgeSchema_Page) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageBadgeSchema_Page) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageBadgeSchemaPages0 returns the union data inside the DataPageBadgeSchema_Pages as a DataPageBadgeSchemaPages0
+func (t DataPageBadgeSchema_Pages) AsDataPageBadgeSchemaPages0() (DataPageBadgeSchemaPages0, error) {
+	var body DataPageBadgeSchemaPages0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageBadgeSchemaPages0 overwrites any union data inside the DataPageBadgeSchema_Pages as the provided DataPageBadgeSchemaPages0
+func (t *DataPageBadgeSchema_Pages) FromDataPageBadgeSchemaPages0(v DataPageBadgeSchemaPages0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageBadgeSchemaPages0 performs a merge with any union data inside the DataPageBadgeSchema_Pages, using the provided DataPageBadgeSchemaPages0
+func (t *DataPageBadgeSchema_Pages) MergeDataPageBadgeSchemaPages0(v DataPageBadgeSchemaPages0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageBadgeSchemaPages1 returns the union data inside the DataPageBadgeSchema_Pages as a DataPageBadgeSchemaPages1
+func (t DataPageBadgeSchema_Pages) AsDataPageBadgeSchemaPages1() (DataPageBadgeSchemaPages1, error) {
+	var body DataPageBadgeSchemaPages1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageBadgeSchemaPages1 overwrites any union data inside the DataPageBadgeSchema_Pages as the provided DataPageBadgeSchemaPages1
+func (t *DataPageBadgeSchema_Pages) FromDataPageBadgeSchemaPages1(v DataPageBadgeSchemaPages1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageBadgeSchemaPages1 performs a merge with any union data inside the DataPageBadgeSchema_Pages, using the provided DataPageBadgeSchemaPages1
+func (t *DataPageBadgeSchema_Pages) MergeDataPageBadgeSchemaPages1(v DataPageBadgeSchemaPages1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageBadgeSchema_Pages) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageBadgeSchema_Pages) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageBadgeSchemaSize0 returns the union data inside the DataPageBadgeSchema_Size as a DataPageBadgeSchemaSize0
+func (t DataPageBadgeSchema_Size) AsDataPageBadgeSchemaSize0() (DataPageBadgeSchemaSize0, error) {
+	var body DataPageBadgeSchemaSize0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageBadgeSchemaSize0 overwrites any union data inside the DataPageBadgeSchema_Size as the provided DataPageBadgeSchemaSize0
+func (t *DataPageBadgeSchema_Size) FromDataPageBadgeSchemaSize0(v DataPageBadgeSchemaSize0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageBadgeSchemaSize0 performs a merge with any union data inside the DataPageBadgeSchema_Size, using the provided DataPageBadgeSchemaSize0
+func (t *DataPageBadgeSchema_Size) MergeDataPageBadgeSchemaSize0(v DataPageBadgeSchemaSize0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageBadgeSchemaSize1 returns the union data inside the DataPageBadgeSchema_Size as a DataPageBadgeSchemaSize1
+func (t DataPageBadgeSchema_Size) AsDataPageBadgeSchemaSize1() (DataPageBadgeSchemaSize1, error) {
+	var body DataPageBadgeSchemaSize1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageBadgeSchemaSize1 overwrites any union data inside the DataPageBadgeSchema_Size as the provided DataPageBadgeSchemaSize1
+func (t *DataPageBadgeSchema_Size) FromDataPageBadgeSchemaSize1(v DataPageBadgeSchemaSize1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageBadgeSchemaSize1 performs a merge with any union data inside the DataPageBadgeSchema_Size, using the provided DataPageBadgeSchemaSize1
+func (t *DataPageBadgeSchema_Size) MergeDataPageBadgeSchemaSize1(v DataPageBadgeSchemaSize1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageBadgeSchema_Size) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageBadgeSchema_Size) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageBadgeSchemaTotal0 returns the union data inside the DataPageBadgeSchema_Total as a DataPageBadgeSchemaTotal0
+func (t DataPageBadgeSchema_Total) AsDataPageBadgeSchemaTotal0() (DataPageBadgeSchemaTotal0, error) {
+	var body DataPageBadgeSchemaTotal0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageBadgeSchemaTotal0 overwrites any union data inside the DataPageBadgeSchema_Total as the provided DataPageBadgeSchemaTotal0
+func (t *DataPageBadgeSchema_Total) FromDataPageBadgeSchemaTotal0(v DataPageBadgeSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageBadgeSchemaTotal0 performs a merge with any union data inside the DataPageBadgeSchema_Total, using the provided DataPageBadgeSchemaTotal0
+func (t *DataPageBadgeSchema_Total) MergeDataPageBadgeSchemaTotal0(v DataPageBadgeSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageBadgeSchemaTotal1 returns the union data inside the DataPageBadgeSchema_Total as a DataPageBadgeSchemaTotal1
+func (t DataPageBadgeSchema_Total) AsDataPageBadgeSchemaTotal1() (DataPageBadgeSchemaTotal1, error) {
+	var body DataPageBadgeSchemaTotal1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageBadgeSchemaTotal1 overwrites any union data inside the DataPageBadgeSchema_Total as the provided DataPageBadgeSchemaTotal1
+func (t *DataPageBadgeSchema_Total) FromDataPageBadgeSchemaTotal1(v DataPageBadgeSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageBadgeSchemaTotal1 performs a merge with any union data inside the DataPageBadgeSchema_Total, using the provided DataPageBadgeSchemaTotal1
+func (t *DataPageBadgeSchema_Total) MergeDataPageBadgeSchemaTotal1(v DataPageBadgeSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageBadgeSchema_Total) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageBadgeSchema_Total) UnmarshalJSON(b []byte) error {
 	err := t.union.UnmarshalJSON(b)
 	return err
 }
@@ -7437,68 +7839,6 @@ func (t *MapSchema_Content) UnmarshalJSON(b []byte) error {
 	return err
 }
 
-// AsMyAccountDetailsBadges0 returns the union data inside the MyAccountDetails_Badges as a MyAccountDetailsBadges0
-func (t MyAccountDetails_Badges) AsMyAccountDetailsBadges0() (MyAccountDetailsBadges0, error) {
-	var body MyAccountDetailsBadges0
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromMyAccountDetailsBadges0 overwrites any union data inside the MyAccountDetails_Badges as the provided MyAccountDetailsBadges0
-func (t *MyAccountDetails_Badges) FromMyAccountDetailsBadges0(v MyAccountDetailsBadges0) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeMyAccountDetailsBadges0 performs a merge with any union data inside the MyAccountDetails_Badges, using the provided MyAccountDetailsBadges0
-func (t *MyAccountDetails_Badges) MergeMyAccountDetailsBadges0(v MyAccountDetailsBadges0) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-// AsMyAccountDetailsBadges1 returns the union data inside the MyAccountDetails_Badges as a MyAccountDetailsBadges1
-func (t MyAccountDetails_Badges) AsMyAccountDetailsBadges1() (MyAccountDetailsBadges1, error) {
-	var body MyAccountDetailsBadges1
-	err := json.Unmarshal(t.union, &body)
-	return body, err
-}
-
-// FromMyAccountDetailsBadges1 overwrites any union data inside the MyAccountDetails_Badges as the provided MyAccountDetailsBadges1
-func (t *MyAccountDetails_Badges) FromMyAccountDetailsBadges1(v MyAccountDetailsBadges1) error {
-	b, err := json.Marshal(v)
-	t.union = b
-	return err
-}
-
-// MergeMyAccountDetailsBadges1 performs a merge with any union data inside the MyAccountDetails_Badges, using the provided MyAccountDetailsBadges1
-func (t *MyAccountDetails_Badges) MergeMyAccountDetailsBadges1(v MyAccountDetailsBadges1) error {
-	b, err := json.Marshal(v)
-	if err != nil {
-		return err
-	}
-
-	merged, err := runtime.JSONMerge(t.union, b)
-	t.union = merged
-	return err
-}
-
-func (t MyAccountDetails_Badges) MarshalJSON() ([]byte, error) {
-	b, err := t.union.MarshalJSON()
-	return b, err
-}
-
-func (t *MyAccountDetails_Badges) UnmarshalJSON(b []byte) error {
-	err := t.union.UnmarshalJSON(b)
-	return err
-}
-
 // AsTaskFullSchemaSkill0 returns the union data inside the TaskFullSchema_Skill as a TaskFullSchemaSkill0
 func (t TaskFullSchema_Skill) AsTaskFullSchemaSkill0() (TaskFullSchemaSkill0, error) {
 	var body TaskFullSchemaSkill0
@@ -7654,6 +7994,12 @@ type ClientInterface interface {
 	// GetAchievementAchievementsCodeGet request
 	GetAchievementAchievementsCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetAllBadgesBadgesGet request
+	GetAllBadgesBadgesGet(ctx context.Context, params *GetAllBadgesBadgesGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetBadgeBadgesCodeGet request
+	GetBadgeBadgesCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// CreateCharacterCharactersCreatePostWithBody request with any body
 	CreateCharacterCharactersCreatePostWithBody(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -7754,6 +8100,9 @@ type ClientInterface interface {
 	ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPost(ctx context.Context, name string, body ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ActionChristmasExchangeMyNameActionChristmasExchangePost request
+	ActionChristmasExchangeMyNameActionChristmasExchangePost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// ActionCraftingMyNameActionCraftingPostWithBody request with any body
 	ActionCraftingMyNameActionCraftingPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -7927,6 +8276,30 @@ func (c *Client) GetAllAchievementsAchievementsGet(ctx context.Context, params *
 
 func (c *Client) GetAchievementAchievementsCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetAchievementAchievementsCodeGetRequest(c.Server, code)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetAllBadgesBadgesGet(ctx context.Context, params *GetAllBadgesBadgesGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAllBadgesBadgesGetRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetBadgeBadgesCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetBadgeBadgesCodeGetRequest(c.Server, code)
 	if err != nil {
 		return nil, err
 	}
@@ -8359,6 +8732,18 @@ func (c *Client) ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithBody(
 
 func (c *Client) ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPost(ctx context.Context, name string, body ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostRequest(c.Server, name, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ActionChristmasExchangeMyNameActionChristmasExchangePost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewActionChristmasExchangeMyNameActionChristmasExchangePostRequest(c.Server, name)
 	if err != nil {
 		return nil, err
 	}
@@ -9104,6 +9489,105 @@ func NewGetAchievementAchievementsCodeGetRequest(server string, code string) (*h
 	}
 
 	operationPath := fmt.Sprintf("/achievements/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetAllBadgesBadgesGetRequest generates requests for GetAllBadgesBadgesGet
+func NewGetAllBadgesBadgesGetRequest(server string, params *GetAllBadgesBadgesGetParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/badges")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Page != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "page", runtime.ParamLocationQuery, *params.Page); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Size != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "size", runtime.ParamLocationQuery, *params.Size); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetBadgeBadgesCodeGetRequest generates requests for GetBadgeBadgesCodeGet
+func NewGetBadgeBadgesCodeGetRequest(server string, code string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "code", runtime.ParamLocationPath, code)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/badges/%s", pathParam0)
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -10909,6 +11393,40 @@ func NewActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostRequestWithBody(se
 	return req, nil
 }
 
+// NewActionChristmasExchangeMyNameActionChristmasExchangePostRequest generates requests for ActionChristmasExchangeMyNameActionChristmasExchangePost
+func NewActionChristmasExchangeMyNameActionChristmasExchangePostRequest(server string, name string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "name", runtime.ParamLocationPath, name)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/my/%s/action/christmas/exchange", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
 // NewActionCraftingMyNameActionCraftingPostRequest calls the generic ActionCraftingMyNameActionCraftingPost builder with application/json body
 func NewActionCraftingMyNameActionCraftingPostRequest(server string, name string, body ActionCraftingMyNameActionCraftingPostJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
@@ -12179,6 +12697,12 @@ type ClientWithResponsesInterface interface {
 	// GetAchievementAchievementsCodeGetWithResponse request
 	GetAchievementAchievementsCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetAchievementAchievementsCodeGetResponse, error)
 
+	// GetAllBadgesBadgesGetWithResponse request
+	GetAllBadgesBadgesGetWithResponse(ctx context.Context, params *GetAllBadgesBadgesGetParams, reqEditors ...RequestEditorFn) (*GetAllBadgesBadgesGetResponse, error)
+
+	// GetBadgeBadgesCodeGetWithResponse request
+	GetBadgeBadgesCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetBadgeBadgesCodeGetResponse, error)
+
 	// CreateCharacterCharactersCreatePostWithBodyWithResponse request with any body
 	CreateCharacterCharactersCreatePostWithBodyWithResponse(ctx context.Context, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*CreateCharacterCharactersCreatePostResponse, error)
 
@@ -12279,6 +12803,9 @@ type ClientWithResponsesInterface interface {
 	ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse, error)
 
 	ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithResponse(ctx context.Context, name string, body ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse, error)
+
+	// ActionChristmasExchangeMyNameActionChristmasExchangePostWithResponse request
+	ActionChristmasExchangeMyNameActionChristmasExchangePostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionChristmasExchangeMyNameActionChristmasExchangePostResponse, error)
 
 	// ActionCraftingMyNameActionCraftingPostWithBodyWithResponse request with any body
 	ActionCraftingMyNameActionCraftingPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionCraftingMyNameActionCraftingPostResponse, error)
@@ -12504,6 +13031,50 @@ func (r GetAchievementAchievementsCodeGetResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r GetAchievementAchievementsCodeGetResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetAllBadgesBadgesGetResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *DataPageBadgeSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r GetAllBadgesBadgesGetResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetAllBadgesBadgesGetResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetBadgeBadgesCodeGetResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *BadgeResponseSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r GetBadgeBadgesCodeGetResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetBadgeBadgesCodeGetResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -13148,6 +13719,28 @@ func (r ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse) StatusCo
 	return 0
 }
 
+type ActionChristmasExchangeMyNameActionChristmasExchangePostResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *RewardDataResponseSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r ActionChristmasExchangeMyNameActionChristmasExchangePostResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ActionChristmasExchangeMyNameActionChristmasExchangePostResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type ActionCraftingMyNameActionCraftingPostResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -13415,7 +14008,7 @@ func (r ActionTaskCancelMyNameActionTaskCancelPostResponse) StatusCode() int {
 type ActionCompleteTaskMyNameActionTaskCompletePostResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *TasksRewardDataResponseSchema
+	JSON200      *RewardDataResponseSchema
 }
 
 // Status returns HTTPResponse.Status
@@ -13437,7 +14030,7 @@ func (r ActionCompleteTaskMyNameActionTaskCompletePostResponse) StatusCode() int
 type ActionTaskExchangeMyNameActionTaskExchangePostResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *TasksRewardDataResponseSchema
+	JSON200      *RewardDataResponseSchema
 }
 
 // Status returns HTTPResponse.Status
@@ -13657,7 +14250,7 @@ func (r GetAllTasksRewardsTasksRewardsGetResponse) StatusCode() int {
 type GetTasksRewardTasksRewardsCodeGetResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
-	JSON200      *TasksRewardResponseSchema
+	JSON200      *RewardResponseSchema
 }
 
 // Status returns HTTPResponse.Status
@@ -13758,6 +14351,24 @@ func (c *ClientWithResponses) GetAchievementAchievementsCodeGetWithResponse(ctx 
 		return nil, err
 	}
 	return ParseGetAchievementAchievementsCodeGetResponse(rsp)
+}
+
+// GetAllBadgesBadgesGetWithResponse request returning *GetAllBadgesBadgesGetResponse
+func (c *ClientWithResponses) GetAllBadgesBadgesGetWithResponse(ctx context.Context, params *GetAllBadgesBadgesGetParams, reqEditors ...RequestEditorFn) (*GetAllBadgesBadgesGetResponse, error) {
+	rsp, err := c.GetAllBadgesBadgesGet(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetAllBadgesBadgesGetResponse(rsp)
+}
+
+// GetBadgeBadgesCodeGetWithResponse request returning *GetBadgeBadgesCodeGetResponse
+func (c *ClientWithResponses) GetBadgeBadgesCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetBadgeBadgesCodeGetResponse, error) {
+	rsp, err := c.GetBadgeBadgesCodeGet(ctx, code, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetBadgeBadgesCodeGetResponse(rsp)
 }
 
 // CreateCharacterCharactersCreatePostWithBodyWithResponse request with arbitrary body returning *CreateCharacterCharactersCreatePostResponse
@@ -14075,6 +14686,15 @@ func (c *ClientWithResponses) ActionWithdrawBankGoldMyNameActionBankWithdrawGold
 		return nil, err
 	}
 	return ParseActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse(rsp)
+}
+
+// ActionChristmasExchangeMyNameActionChristmasExchangePostWithResponse request returning *ActionChristmasExchangeMyNameActionChristmasExchangePostResponse
+func (c *ClientWithResponses) ActionChristmasExchangeMyNameActionChristmasExchangePostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionChristmasExchangeMyNameActionChristmasExchangePostResponse, error) {
+	rsp, err := c.ActionChristmasExchangeMyNameActionChristmasExchangePost(ctx, name, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseActionChristmasExchangeMyNameActionChristmasExchangePostResponse(rsp)
 }
 
 // ActionCraftingMyNameActionCraftingPostWithBodyWithResponse request with arbitrary body returning *ActionCraftingMyNameActionCraftingPostResponse
@@ -14536,6 +15156,58 @@ func ParseGetAchievementAchievementsCodeGetResponse(rsp *http.Response) (*GetAch
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest AchievementResponseSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetAllBadgesBadgesGetResponse parses an HTTP response from a GetAllBadgesBadgesGetWithResponse call
+func ParseGetAllBadgesBadgesGetResponse(rsp *http.Response) (*GetAllBadgesBadgesGetResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetAllBadgesBadgesGetResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest DataPageBadgeSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetBadgeBadgesCodeGetResponse parses an HTTP response from a GetBadgeBadgesCodeGetWithResponse call
+func ParseGetBadgeBadgesCodeGetResponse(rsp *http.Response) (*GetBadgeBadgesCodeGetResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetBadgeBadgesCodeGetResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest BadgeResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -15300,6 +15972,32 @@ func ParseActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse(rsp *ht
 	return response, nil
 }
 
+// ParseActionChristmasExchangeMyNameActionChristmasExchangePostResponse parses an HTTP response from a ActionChristmasExchangeMyNameActionChristmasExchangePostWithResponse call
+func ParseActionChristmasExchangeMyNameActionChristmasExchangePostResponse(rsp *http.Response) (*ActionChristmasExchangeMyNameActionChristmasExchangePostResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ActionChristmasExchangeMyNameActionChristmasExchangePostResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest RewardDataResponseSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseActionCraftingMyNameActionCraftingPostResponse parses an HTTP response from a ActionCraftingMyNameActionCraftingPostWithResponse call
 func ParseActionCraftingMyNameActionCraftingPostResponse(rsp *http.Response) (*ActionCraftingMyNameActionCraftingPostResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -15627,7 +16325,7 @@ func ParseActionCompleteTaskMyNameActionTaskCompletePostResponse(rsp *http.Respo
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest TasksRewardDataResponseSchema
+		var dest RewardDataResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -15653,7 +16351,7 @@ func ParseActionTaskExchangeMyNameActionTaskExchangePostResponse(rsp *http.Respo
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest TasksRewardDataResponseSchema
+		var dest RewardDataResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -15913,7 +16611,7 @@ func ParseGetTasksRewardTasksRewardsCodeGetResponse(rsp *http.Response) (*GetTas
 
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest TasksRewardResponseSchema
+		var dest RewardResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
