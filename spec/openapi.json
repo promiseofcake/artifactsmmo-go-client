@@ -3,9 +3,319 @@
   "info": {
     "title": "Artifacts API",
     "description": "\nArtifacts is an API-based MMO game where you can manage 5 characters to explore, fight, gather resources, craft items and much more.\n\nWebsite: https://artifactsmmo.com/\n\nDocumentation: https://docs.artifactsmmo.com/\n\nOpenAPI Spec: https://api.artifactsmmo.com/openapi.json\n",
-    "version": "3.0"
+    "version": "3.3"
   },
   "paths": {
+    "/my/bank": {
+      "get": {
+        "tags": [
+          "My account"
+        ],
+        "summary": "Get Bank Details",
+        "description": "Fetch bank details.",
+        "operationId": "get_bank_details_my_bank_get",
+        "responses": {
+          "200": {
+            "description": "Successfully fetched bank details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BankResponseSchema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/my/bank/items": {
+      "get": {
+        "tags": [
+          "My account"
+        ],
+        "summary": "Get Bank Items",
+        "description": "Fetch all items in your bank.",
+        "operationId": "get_bank_items_my_bank_items_get",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "item_code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Item code",
+              "description": "Item to search in your bank."
+            },
+            "description": "Item to search in your bank."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched items.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_SimpleItemSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/my/grandexchange/orders": {
+      "get": {
+        "tags": [
+          "My account"
+        ],
+        "summary": "Get Ge Sell Orders",
+        "description": "Fetch your sell orders details.",
+        "operationId": "get_ge_sell_orders_my_grandexchange_orders_get",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Item code",
+              "description": "The code of the item."
+            },
+            "description": "The code of the item."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched orders details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_GEOrderSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/my/grandexchange/history": {
+      "get": {
+        "tags": [
+          "My account"
+        ],
+        "summary": "Get Ge Sell History",
+        "description": "Fetch your sales history of the last 7 days.",
+        "operationId": "get_ge_sell_history_my_grandexchange_history_get",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Order ID",
+              "description": "Order ID to search in your history."
+            },
+            "description": "Order ID to search in your history."
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Item code",
+              "description": "Item to search in your history."
+            },
+            "description": "Item to search in your history."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched sales history.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_GeOrderHistorySchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/my/details": {
+      "get": {
+        "tags": [
+          "My account"
+        ],
+        "summary": "Get Account Details",
+        "description": "Fetch account details.",
+        "operationId": "get_account_details_my_details_get",
+        "responses": {
+          "200": {
+            "description": "Successfully fetched account details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MyAccountDetailsSchema"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
+    "/my/change_password": {
+      "post": {
+        "tags": [
+          "My account"
+        ],
+        "summary": "Change Password",
+        "description": "Change your account password. Changing the password reset the account token.",
+        "operationId": "change_password_my_change_password_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePassword"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Password changed successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseSchema"
+                }
+              }
+            }
+          },
+          "458": {
+            "description": "Use a different password."
+          }
+        },
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ]
+      }
+    },
     "/my/{name}/action/move": {
       "post": {
         "tags": [
@@ -1229,7 +1539,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TasksRewardDataResponseSchema"
+                  "$ref": "#/components/schemas/RewardDataResponseSchema"
                 }
               }
             }
@@ -1291,7 +1601,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TasksRewardDataResponseSchema"
+                  "$ref": "#/components/schemas/RewardDataResponseSchema"
                 }
               }
             }
@@ -1501,6 +1811,65 @@
         }
       }
     },
+    "/my/{name}/action/christmas/exchange": {
+      "post": {
+        "tags": [
+          "My characters"
+        ],
+        "summary": "Action Christmas Exchange",
+        "description": "Exchange 1 gift for a random reward.",
+        "operationId": "action_christmas_exchange_my__name__action_christmas_exchange_post",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Character name",
+              "description": "Name of your character."
+            },
+            "description": "Name of your character."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The gift have been successfully exchanged.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RewardDataResponseSchema"
+                }
+              }
+            }
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          },
+          "486": {
+            "description": "An action is already in progress by your character."
+          },
+          "598": {
+            "description": "Santa Claus not found on this map."
+          },
+          "478": {
+            "description": "Missing item or insufficient quantity."
+          },
+          "497": {
+            "description": "Character inventory is full."
+          }
+        }
+      }
+    },
     "/my/{name}/action/delete": {
       "post": {
         "tags": [
@@ -1653,289 +2022,18 @@
         ]
       }
     },
-    "/my/bank": {
-      "get": {
-        "tags": [
-          "My account"
-        ],
-        "summary": "Get Bank Details",
-        "description": "Fetch bank details.",
-        "operationId": "get_bank_details_my_bank_get",
-        "responses": {
-          "200": {
-            "description": "Successfully fetched bank details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BankResponseSchema"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "JWTBearer": []
-          }
-        ]
-      }
-    },
-    "/my/bank/items": {
-      "get": {
-        "tags": [
-          "My account"
-        ],
-        "summary": "Get Bank Items",
-        "description": "Fetch all items in your bank.",
-        "operationId": "get_bank_items_my_bank_items_get",
-        "security": [
-          {
-            "JWTBearer": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "item_code",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Item code",
-              "description": "Item to search in your bank."
-            },
-            "description": "Item to search in your bank."
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number",
-              "default": 1,
-              "title": "Page"
-            },
-            "description": "Page number"
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "minimum": 1,
-              "description": "Page size",
-              "default": 50,
-              "title": "Size"
-            },
-            "description": "Page size"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched items.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DataPage_SimpleItemSchema_"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/my/grandexchange/orders": {
-      "get": {
-        "tags": [
-          "My account"
-        ],
-        "summary": "Get Ge Sell Orders",
-        "description": "Fetch your sell orders details.",
-        "operationId": "get_ge_sell_orders_my_grandexchange_orders_get",
-        "security": [
-          {
-            "JWTBearer": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "code",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Item code",
-              "description": "The code of the item."
-            },
-            "description": "The code of the item."
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number",
-              "default": 1,
-              "title": "Page"
-            },
-            "description": "Page number"
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "minimum": 1,
-              "description": "Page size",
-              "default": 50,
-              "title": "Size"
-            },
-            "description": "Page size"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched orders details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DataPage_GEOrderSchema_"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/my/grandexchange/history": {
-      "get": {
-        "tags": [
-          "My account"
-        ],
-        "summary": "Get Ge Sell History",
-        "description": "Fetch your sales history of the last 7 days.",
-        "operationId": "get_ge_sell_history_my_grandexchange_history_get",
-        "security": [
-          {
-            "JWTBearer": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Order ID",
-              "description": "Order ID to search in your history."
-            },
-            "description": "Order ID to search in your history."
-          },
-          {
-            "name": "code",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Item code",
-              "description": "Item to search in your history."
-            },
-            "description": "Item to search in your history."
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number",
-              "default": 1,
-              "title": "Page"
-            },
-            "description": "Page number"
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "minimum": 1,
-              "description": "Page size",
-              "default": 50,
-              "title": "Size"
-            },
-            "description": "Page size"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched sales history.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DataPage_GeOrderHistorySchema_"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/my/details": {
-      "get": {
-        "tags": [
-          "My account"
-        ],
-        "summary": "Get Account Details",
-        "description": "Fetch account details.",
-        "operationId": "get_account_details_my_details_get",
-        "responses": {
-          "200": {
-            "description": "Successfully fetched account details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MyAccountDetailsSchema"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "JWTBearer": []
-          }
-        ]
-      }
-    },
-    "/my/change_password": {
+    "/accounts/create": {
       "post": {
         "tags": [
-          "My account"
+          "Accounts"
         ],
-        "summary": "Change Password",
-        "description": "Change your account password. Changing the password reset the account token.",
-        "operationId": "change_password_my_change_password_post",
+        "summary": "Create Account",
+        "operationId": "create_account_accounts_create_post",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ChangePassword"
+                "$ref": "#/components/schemas/AddAccountSchema"
               }
             }
           },
@@ -1943,7 +2041,7 @@
         },
         "responses": {
           "200": {
-            "description": "Password changed successfully.",
+            "description": "Account created successfully.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1952,15 +2050,339 @@
               }
             }
           },
-          "458": {
-            "description": "Use a different password."
+          "456": {
+            "description": "Username already used."
+          },
+          "457": {
+            "description": "Email already used."
           }
-        },
-        "security": [
+        }
+      }
+    },
+    "/accounts/{account}/achievements": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Get Account Achievements",
+        "description": "Retrieve the achievements of a account.",
+        "operationId": "get_account_achievements_accounts__account__achievements_get",
+        "parameters": [
           {
-            "JWTBearer": []
+            "name": "account",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Account name",
+              "description": "The character name."
+            },
+            "description": "The character name."
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/AchievementType_a-zA-Z0-9_-_____"
+                }
+              ],
+              "title": "Type",
+              "description": "Type of achievements."
+            },
+            "description": "Type of achievements."
+          },
+          {
+            "name": "completed",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "title": "Completed",
+              "description": "Filter by completed achievements."
+            },
+            "description": "Filter by completed achievements."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
           }
-        ]
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched achievements.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_AccountAchievementSchema_"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Account not found."
+          }
+        }
+      }
+    },
+    "/accounts/{account}": {
+      "get": {
+        "tags": [
+          "Accounts"
+        ],
+        "summary": "Get Account",
+        "description": "Retrieve the details of a character.",
+        "operationId": "get_account_accounts__account__get",
+        "parameters": [
+          {
+            "name": "account",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Account name",
+              "description": "The account name."
+            },
+            "description": "The account name."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched account.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AccountDetailsSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Account not found."
+          }
+        }
+      }
+    },
+    "/achievements": {
+      "get": {
+        "tags": [
+          "Achievements"
+        ],
+        "summary": "Get All Achievements",
+        "description": "List of all achievements.",
+        "operationId": "get_all_achievements_achievements_get",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/AchievementType_a-zA-Z0-9_-_____"
+                }
+              ],
+              "title": "Type",
+              "description": "Type of achievements."
+            },
+            "description": "Type of achievements."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched achievements.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_AchievementSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/achievements/{code}": {
+      "get": {
+        "tags": [
+          "Achievements"
+        ],
+        "summary": "Get Achievement",
+        "description": "Retrieve the details of a achievement.",
+        "operationId": "get_achievement_achievements__code__get",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "achievement code",
+              "description": "The code of the achievement."
+            },
+            "description": "The code of the achievement."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched achievement.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AchievementResponseSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "achievement not found."
+          }
+        }
+      }
+    },
+    "/badges": {
+      "get": {
+        "tags": [
+          "Badges"
+        ],
+        "summary": "Get All Badges",
+        "description": "List of all badges.",
+        "operationId": "get_all_badges_badges_get",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched badges.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_BadgeSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/badges/{code}": {
+      "get": {
+        "tags": [
+          "Badges"
+        ],
+        "summary": "Get Badge",
+        "description": "Retrieve the details of a badge.",
+        "operationId": "get_badge_badges__code__get",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "achievement code",
+              "description": "The code of the achievement."
+            },
+            "description": "The code of the achievement."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched badge.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadgeResponseSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "badge not found."
+          }
+        }
       }
     },
     "/characters/create": {
@@ -2081,569 +2503,6 @@
           },
           "404": {
             "description": "Character not found."
-          }
-        }
-      }
-    },
-    "/maps": {
-      "get": {
-        "tags": [
-          "Maps"
-        ],
-        "summary": "Get All Maps",
-        "description": "Fetch maps details.",
-        "operationId": "get_all_maps_maps_get",
-        "parameters": [
-          {
-            "name": "content_type",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/MapContentType_a-zA-Z0-9_-_____"
-                }
-              ],
-              "title": "Content type",
-              "description": "Type of content on the map."
-            },
-            "description": "Type of content on the map."
-          },
-          {
-            "name": "content_code",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Content code",
-              "description": "Content code on the map."
-            },
-            "description": "Content code on the map."
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number",
-              "default": 1,
-              "title": "Page"
-            },
-            "description": "Page number"
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "minimum": 1,
-              "description": "Page size",
-              "default": 50,
-              "title": "Size"
-            },
-            "description": "Page size"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched maps details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DataPage_MapSchema_"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/maps/{x}/{y}": {
-      "get": {
-        "tags": [
-          "Maps"
-        ],
-        "summary": "Get Map",
-        "description": "Retrieve the details of a map.",
-        "operationId": "get_map_maps__x___y__get",
-        "parameters": [
-          {
-            "name": "x",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "title": "Position X",
-              "description": "The position x of the map."
-            },
-            "description": "The position x of the map."
-          },
-          {
-            "name": "y",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "title": "Position Y",
-              "description": "The position X of the map."
-            },
-            "description": "The position X of the map."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched map.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MapResponseSchema"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Map not found."
-          }
-        }
-      }
-    },
-    "/items": {
-      "get": {
-        "tags": [
-          "Items"
-        ],
-        "summary": "Get All Items",
-        "description": "Fetch items details.",
-        "operationId": "get_all_items_items_get",
-        "parameters": [
-          {
-            "name": "min_level",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 0,
-              "title": "Minimum level",
-              "description": "Minimum level items."
-            },
-            "description": "Minimum level items."
-          },
-          {
-            "name": "max_level",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 0,
-              "title": "Maximum level",
-              "description": "Maximum level items."
-            },
-            "description": "Maximum level items."
-          },
-          {
-            "name": "name",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Item name",
-              "description": "Name of the item."
-            },
-            "description": "Name of the item."
-          },
-          {
-            "name": "type",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/ItemType_a-zA-Z0-9_-_____"
-                }
-              ],
-              "title": "Type",
-              "description": "Type of items."
-            },
-            "description": "Type of items."
-          },
-          {
-            "name": "craft_skill",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/CraftSkill_a-zA-Z0-9_-_____"
-                }
-              ],
-              "title": "Crafting skill",
-              "description": "Skill to craft items."
-            },
-            "description": "Skill to craft items."
-          },
-          {
-            "name": "craft_material",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Crafting material",
-              "description": "Item code of items used as material for crafting."
-            },
-            "description": "Item code of items used as material for crafting."
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number",
-              "default": 1,
-              "title": "Page"
-            },
-            "description": "Page number"
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "minimum": 1,
-              "description": "Page size",
-              "default": 50,
-              "title": "Size"
-            },
-            "description": "Page size"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Fetch items details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DataPage_ItemSchema_"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/items/{code}": {
-      "get": {
-        "tags": [
-          "Items"
-        ],
-        "summary": "Get Item",
-        "description": "Retrieve the details of a item.",
-        "operationId": "get_item_items__code__get",
-        "parameters": [
-          {
-            "name": "code",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Item code",
-              "description": "The code of the item."
-            },
-            "description": "The code of the item."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched item.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ItemResponseSchema"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Item not found."
-          }
-        }
-      }
-    },
-    "/monsters": {
-      "get": {
-        "tags": [
-          "Monsters"
-        ],
-        "summary": "Get All Monsters",
-        "description": "Fetch monsters details.",
-        "operationId": "get_all_monsters_monsters_get",
-        "parameters": [
-          {
-            "name": "min_level",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 0,
-              "title": "Minimum level",
-              "description": "Monster minimum level."
-            },
-            "description": "Monster minimum level."
-          },
-          {
-            "name": "max_level",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 0,
-              "title": "Maximum level",
-              "description": "Monster maximum level."
-            },
-            "description": "Monster maximum level."
-          },
-          {
-            "name": "drop",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Drop",
-              "description": "Item code of the drop."
-            },
-            "description": "Item code of the drop."
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number",
-              "default": 1,
-              "title": "Page"
-            },
-            "description": "Page number"
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "minimum": 1,
-              "description": "Page size",
-              "default": 50,
-              "title": "Size"
-            },
-            "description": "Page size"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched monsters details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DataPage_MonsterSchema_"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/monsters/{code}": {
-      "get": {
-        "tags": [
-          "Monsters"
-        ],
-        "summary": "Get Monster",
-        "description": "Retrieve the details of a monster.",
-        "operationId": "get_monster_monsters__code__get",
-        "parameters": [
-          {
-            "name": "code",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Monster code",
-              "description": "The code of the monster."
-            },
-            "description": "The code of the monster."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched monster.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MonsterResponseSchema"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Monster not found."
-          }
-        }
-      }
-    },
-    "/resources": {
-      "get": {
-        "tags": [
-          "Resources"
-        ],
-        "summary": "Get All Resources",
-        "description": "Fetch resources details.",
-        "operationId": "get_all_resources_resources_get",
-        "parameters": [
-          {
-            "name": "min_level",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 0,
-              "title": "Minimum level",
-              "description": "Skill minimum level."
-            },
-            "description": "Skill minimum level."
-          },
-          {
-            "name": "max_level",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 0,
-              "title": "Maximum level",
-              "description": "Skill maximum level."
-            },
-            "description": "Skill maximum level."
-          },
-          {
-            "name": "skill",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/GatheringSkill_a-zA-Z0-9_-_____"
-                }
-              ],
-              "title": "Skill code",
-              "description": "The code of the skill."
-            },
-            "description": "The code of the skill."
-          },
-          {
-            "name": "drop",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Drop",
-              "description": "Item code of the drop."
-            },
-            "description": "Item code of the drop."
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number",
-              "default": 1,
-              "title": "Page"
-            },
-            "description": "Page number"
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "minimum": 1,
-              "description": "Page size",
-              "default": 50,
-              "title": "Size"
-            },
-            "description": "Page size"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched resources details.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DataPage_ResourceSchema_"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/resources/{code}": {
-      "get": {
-        "tags": [
-          "Resources"
-        ],
-        "summary": "Get Resource",
-        "description": "Retrieve the details of a resource.",
-        "operationId": "get_resource_resources__code__get",
-        "parameters": [
-          {
-            "name": "code",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Resource code",
-              "description": "The code of the resource."
-            },
-            "description": "The code of the resource.",
-            "example": "copper_rocks"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched resource.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceResponseSchema"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Resource not found."
           }
         }
       }
@@ -2954,6 +2813,701 @@
         }
       }
     },
+    "/items": {
+      "get": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Get All Items",
+        "description": "Fetch items details.",
+        "operationId": "get_all_items_items_get",
+        "parameters": [
+          {
+            "name": "min_level",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "title": "Minimum level",
+              "description": "Minimum level items."
+            },
+            "description": "Minimum level items."
+          },
+          {
+            "name": "max_level",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "title": "Maximum level",
+              "description": "Maximum level items."
+            },
+            "description": "Maximum level items."
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Item name",
+              "description": "Name of the item."
+            },
+            "description": "Name of the item."
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/ItemType_a-zA-Z0-9_-_____"
+                }
+              ],
+              "title": "Type",
+              "description": "Type of items."
+            },
+            "description": "Type of items."
+          },
+          {
+            "name": "craft_skill",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/CraftSkill_a-zA-Z0-9_-_____"
+                }
+              ],
+              "title": "Crafting skill",
+              "description": "Skill to craft items."
+            },
+            "description": "Skill to craft items."
+          },
+          {
+            "name": "craft_material",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Crafting material",
+              "description": "Item code of items used as material for crafting."
+            },
+            "description": "Item code of items used as material for crafting."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Fetch items details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_ItemSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/items/{code}": {
+      "get": {
+        "tags": [
+          "Items"
+        ],
+        "summary": "Get Item",
+        "description": "Retrieve the details of a item.",
+        "operationId": "get_item_items__code__get",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Item code",
+              "description": "The code of the item."
+            },
+            "description": "The code of the item."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched item.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ItemResponseSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Item not found."
+          }
+        }
+      }
+    },
+    "/leaderboard/characters": {
+      "get": {
+        "tags": [
+          "Leaderboard"
+        ],
+        "summary": "Get Characters Leaderboard",
+        "description": "Fetch leaderboard details.",
+        "operationId": "get_characters_leaderboard_leaderboard_characters_get",
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/CharacterLeaderboardType_a-zA-Z0-9_-_____"
+                }
+              ],
+              "title": "Sort",
+              "description": "Default sort by combat total XP."
+            },
+            "description": "Default sort by combat total XP."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched leaderboard.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_CharacterLeaderboardSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/leaderboard/accounts": {
+      "get": {
+        "tags": [
+          "Leaderboard"
+        ],
+        "summary": "Get Accounts Leaderboard",
+        "description": "Fetch leaderboard details.",
+        "operationId": "get_accounts_leaderboard_leaderboard_accounts_get",
+        "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/AccountLeaderboardType_a-zA-Z0-9_-_____"
+                }
+              ],
+              "title": "Sort",
+              "description": "Default sort by achievements points."
+            },
+            "description": "Default sort by achievements points."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched leaderboard.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_AccountLeaderboardSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/maps": {
+      "get": {
+        "tags": [
+          "Maps"
+        ],
+        "summary": "Get All Maps",
+        "description": "Fetch maps details.",
+        "operationId": "get_all_maps_maps_get",
+        "parameters": [
+          {
+            "name": "content_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/MapContentType_a-zA-Z0-9_-_____"
+                }
+              ],
+              "title": "Content type",
+              "description": "Type of content on the map."
+            },
+            "description": "Type of content on the map."
+          },
+          {
+            "name": "content_code",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Content code",
+              "description": "Content code on the map."
+            },
+            "description": "Content code on the map."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched maps details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_MapSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/maps/{x}/{y}": {
+      "get": {
+        "tags": [
+          "Maps"
+        ],
+        "summary": "Get Map",
+        "description": "Retrieve the details of a map.",
+        "operationId": "get_map_maps__x___y__get",
+        "parameters": [
+          {
+            "name": "x",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Position X",
+              "description": "The position x of the map."
+            },
+            "description": "The position x of the map."
+          },
+          {
+            "name": "y",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Position Y",
+              "description": "The position X of the map."
+            },
+            "description": "The position X of the map."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched map.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MapResponseSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Map not found."
+          }
+        }
+      }
+    },
+    "/monsters": {
+      "get": {
+        "tags": [
+          "Monsters"
+        ],
+        "summary": "Get All Monsters",
+        "description": "Fetch monsters details.",
+        "operationId": "get_all_monsters_monsters_get",
+        "parameters": [
+          {
+            "name": "min_level",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "title": "Minimum level",
+              "description": "Monster minimum level."
+            },
+            "description": "Monster minimum level."
+          },
+          {
+            "name": "max_level",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "title": "Maximum level",
+              "description": "Monster maximum level."
+            },
+            "description": "Monster maximum level."
+          },
+          {
+            "name": "drop",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Drop",
+              "description": "Item code of the drop."
+            },
+            "description": "Item code of the drop."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched monsters details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_MonsterSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/monsters/{code}": {
+      "get": {
+        "tags": [
+          "Monsters"
+        ],
+        "summary": "Get Monster",
+        "description": "Retrieve the details of a monster.",
+        "operationId": "get_monster_monsters__code__get",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Monster code",
+              "description": "The code of the monster."
+            },
+            "description": "The code of the monster."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched monster.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MonsterResponseSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Monster not found."
+          }
+        }
+      }
+    },
+    "/resources": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Get All Resources",
+        "description": "Fetch resources details.",
+        "operationId": "get_all_resources_resources_get",
+        "parameters": [
+          {
+            "name": "min_level",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "title": "Minimum level",
+              "description": "Skill minimum level."
+            },
+            "description": "Skill minimum level."
+          },
+          {
+            "name": "max_level",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "title": "Maximum level",
+              "description": "Skill maximum level."
+            },
+            "description": "Skill maximum level."
+          },
+          {
+            "name": "skill",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/GatheringSkill_a-zA-Z0-9_-_____"
+                }
+              ],
+              "title": "Skill code",
+              "description": "The code of the skill."
+            },
+            "description": "The code of the skill."
+          },
+          {
+            "name": "drop",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Drop",
+              "description": "Item code of the drop."
+            },
+            "description": "Item code of the drop."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched resources details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_ResourceSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resources/{code}": {
+      "get": {
+        "tags": [
+          "Resources"
+        ],
+        "summary": "Get Resource",
+        "description": "Retrieve the details of a resource.",
+        "operationId": "get_resource_resources__code__get",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Resource code",
+              "description": "The code of the resource."
+            },
+            "description": "The code of the resource.",
+            "example": "copper_rocks"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceResponseSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found."
+          }
+        }
+      }
+    },
     "/tasks/list": {
       "get": {
         "tags": [
@@ -3177,418 +3731,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TasksRewardResponseSchema"
+                  "$ref": "#/components/schemas/RewardResponseSchema"
                 }
               }
             }
           },
           "404": {
             "description": "Tasks reward not found."
-          }
-        }
-      }
-    },
-    "/achievements": {
-      "get": {
-        "tags": [
-          "Achievements"
-        ],
-        "summary": "Get All Achievements",
-        "description": "List of all achievements.",
-        "operationId": "get_all_achievements_achievements_get",
-        "parameters": [
-          {
-            "name": "type",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AchievementType_a-zA-Z0-9_-_____"
-                }
-              ],
-              "title": "Type",
-              "description": "Type of achievements."
-            },
-            "description": "Type of achievements."
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number",
-              "default": 1,
-              "title": "Page"
-            },
-            "description": "Page number"
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "minimum": 1,
-              "description": "Page size",
-              "default": 50,
-              "title": "Size"
-            },
-            "description": "Page size"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched achievements.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DataPage_AchievementSchema_"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/achievements/{code}": {
-      "get": {
-        "tags": [
-          "Achievements"
-        ],
-        "summary": "Get Achievement",
-        "description": "Retrieve the details of a achievement.",
-        "operationId": "get_achievement_achievements__code__get",
-        "parameters": [
-          {
-            "name": "code",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "achievement code",
-              "description": "The code of the achievement."
-            },
-            "description": "The code of the achievement."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched achievement.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AchievementResponseSchema"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "achievement not found."
-          }
-        }
-      }
-    },
-    "/leaderboard/characters": {
-      "get": {
-        "tags": [
-          "Leaderboard"
-        ],
-        "summary": "Get Characters Leaderboard",
-        "description": "Fetch leaderboard details.",
-        "operationId": "get_characters_leaderboard_leaderboard_characters_get",
-        "parameters": [
-          {
-            "name": "sort",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/CharacterLeaderboardType_a-zA-Z0-9_-_____"
-                }
-              ],
-              "title": "Sort",
-              "description": "Default sort by combat total XP."
-            },
-            "description": "Default sort by combat total XP."
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number",
-              "default": 1,
-              "title": "Page"
-            },
-            "description": "Page number"
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "minimum": 1,
-              "description": "Page size",
-              "default": 50,
-              "title": "Size"
-            },
-            "description": "Page size"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched leaderboard.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DataPage_CharacterLeaderboardSchema_"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/leaderboard/accounts": {
-      "get": {
-        "tags": [
-          "Leaderboard"
-        ],
-        "summary": "Get Accounts Leaderboard",
-        "description": "Fetch leaderboard details.",
-        "operationId": "get_accounts_leaderboard_leaderboard_accounts_get",
-        "parameters": [
-          {
-            "name": "sort",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AccountLeaderboardType_a-zA-Z0-9_-_____"
-                }
-              ],
-              "title": "Sort",
-              "description": "Default sort by achievements points."
-            },
-            "description": "Default sort by achievements points."
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number",
-              "default": 1,
-              "title": "Page"
-            },
-            "description": "Page number"
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "minimum": 1,
-              "description": "Page size",
-              "default": 50,
-              "title": "Size"
-            },
-            "description": "Page size"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched leaderboard.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DataPage_AccountLeaderboardSchema_"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/accounts/create": {
-      "post": {
-        "tags": [
-          "Accounts"
-        ],
-        "summary": "Create Account",
-        "operationId": "create_account_accounts_create_post",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddAccountSchema"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Account created successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseSchema"
-                }
-              }
-            }
-          },
-          "456": {
-            "description": "Username already used."
-          },
-          "457": {
-            "description": "Email already used."
-          }
-        }
-      }
-    },
-    "/accounts/{account}/achievements": {
-      "get": {
-        "tags": [
-          "Accounts"
-        ],
-        "summary": "Get Account Achievements",
-        "description": "Retrieve the achievements of a account.",
-        "operationId": "get_account_achievements_accounts__account__achievements_get",
-        "parameters": [
-          {
-            "name": "account",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Account name",
-              "description": "The character name."
-            },
-            "description": "The character name."
-          },
-          {
-            "name": "type",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "allOf": [
-                {
-                  "$ref": "#/components/schemas/AchievementType_a-zA-Z0-9_-_____"
-                }
-              ],
-              "title": "Type",
-              "description": "Type of achievements."
-            },
-            "description": "Type of achievements."
-          },
-          {
-            "name": "completed",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "boolean",
-              "title": "Completed",
-              "description": "Filter by completed achievements."
-            },
-            "description": "Filter by completed achievements."
-          },
-          {
-            "name": "page",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "minimum": 1,
-              "description": "Page number",
-              "default": 1,
-              "title": "Page"
-            },
-            "description": "Page number"
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "maximum": 100,
-              "minimum": 1,
-              "description": "Page size",
-              "default": 50,
-              "title": "Size"
-            },
-            "description": "Page size"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched achievements.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DataPage_AccountAchievementSchema_"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Account not found."
-          }
-        }
-      }
-    },
-    "/accounts/{account}": {
-      "get": {
-        "tags": [
-          "Accounts"
-        ],
-        "summary": "Get Account",
-        "description": "Retrieve the details of a character.",
-        "operationId": "get_account_accounts__account__get",
-        "parameters": [
-          {
-            "name": "account",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Account name",
-              "description": "The account name."
-            },
-            "description": "The account name."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successfully fetched account.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AccountDetailsSchema"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Account not found."
           }
         }
       }
@@ -3755,15 +3904,8 @@
             "description": "Member status."
           },
           "badges": {
-            "anyOf": [
-              {
-                "items": {},
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
+            "items": {},
+            "type": "array",
             "title": "Badges",
             "description": "Account badges."
           },
@@ -3988,6 +4130,7 @@
           "equip",
           "unequip",
           "task",
+          "christmas_exchange",
           "recycling",
           "rest",
           "use",
@@ -4071,15 +4214,13 @@
           "email": {
             "type": "string",
             "format": "email",
-            "title": "Email",
-            "description": "Your email."
+            "title": "Email"
           }
         },
         "type": "object",
         "required": [
           "username",
-          "password",
-          "email"
+          "password"
         ],
         "title": "AddAccountSchema"
       },
@@ -4128,6 +4269,86 @@
           "message"
         ],
         "title": "AnnouncementSchema"
+      },
+      "BadgeConditionSchema": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Code of the condition."
+          },
+          "quantity": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Quantity",
+            "description": "Quantity of the condition (if any)."
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "quantity"
+        ],
+        "title": "BadgeConditionSchema"
+      },
+      "BadgeResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BadgeSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "BadgeResponseSchema"
+      },
+      "BadgeSchema": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Code of the badge. This is the badge's unique identifier (ID)."
+          },
+          "season": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Season",
+            "description": "Season of the badge."
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "description": "Description of the badge."
+          },
+          "conditions": {
+            "items": {
+              "$ref": "#/components/schemas/BadgeConditionSchema"
+            },
+            "type": "array",
+            "title": "Conditions",
+            "description": "Conditions to get the badge."
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "description",
+          "conditions"
+        ],
+        "title": "BadgeSchema"
       },
       "BankExtensionSchema": {
         "properties": {
@@ -5579,6 +5800,73 @@
           "size"
         ],
         "title": "DataPage[ActiveEventSchema]"
+      },
+      "DataPage_BadgeSchema_": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/BadgeSchema"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "total": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "size": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Size"
+          },
+          "pages": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "total",
+          "page",
+          "size"
+        ],
+        "title": "DataPage[BadgeSchema]"
       },
       "DataPage_CharacterLeaderboardSchema_": {
         "properties": {
@@ -7473,6 +7761,7 @@
           "task_cancelled",
           "task_completed",
           "task_trade",
+          "christmas_exchange",
           "recycling",
           "rest",
           "use",
@@ -7712,15 +8001,8 @@
             "description": "Member status."
           },
           "badges": {
-            "anyOf": [
-              {
-                "items": {},
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ],
+            "items": {},
+            "type": "array",
             "title": "Badges",
             "description": "Account badges."
           },
@@ -7941,6 +8223,88 @@
           "message"
         ],
         "title": "ResponseSchema"
+      },
+      "RewardDataResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/RewardDataSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "RewardDataResponseSchema"
+      },
+      "RewardDataSchema": {
+        "properties": {
+          "cooldown": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CooldownSchema"
+              }
+            ],
+            "description": "Cooldown details."
+          },
+          "rewards": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RewardsSchema"
+              }
+            ],
+            "description": "Reward details."
+          },
+          "character": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CharacterSchema"
+              }
+            ],
+            "description": "Player details."
+          }
+        },
+        "type": "object",
+        "required": [
+          "cooldown",
+          "rewards",
+          "character"
+        ],
+        "title": "RewardDataSchema"
+      },
+      "RewardResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/DropRateSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "RewardResponseSchema"
+      },
+      "RewardsSchema": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/SimpleItemSchema"
+            },
+            "type": "array",
+            "title": "Items",
+            "description": "Items rewards."
+          },
+          "gold": {
+            "type": "integer",
+            "title": "Gold",
+            "description": "Gold rewards."
+          }
+        },
+        "type": "object",
+        "required": [
+          "items",
+          "gold"
+        ],
+        "title": "RewardsSchema"
       },
       "SimpleItemSchema": {
         "properties": {
@@ -8254,7 +8618,7 @@
           "rewards": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/TaskRewardsSchema"
+                "$ref": "#/components/schemas/RewardsSchema"
               }
             ],
             "description": "Rewards."
@@ -8284,29 +8648,6 @@
         ],
         "title": "TaskResponseSchema"
       },
-      "TaskRewardsSchema": {
-        "properties": {
-          "items": {
-            "items": {
-              "$ref": "#/components/schemas/SimpleItemSchema"
-            },
-            "type": "array",
-            "title": "Items",
-            "description": "Items rewards."
-          },
-          "gold": {
-            "type": "integer",
-            "title": "Gold",
-            "description": "Gold rewards."
-          }
-        },
-        "type": "object",
-        "required": [
-          "items",
-          "gold"
-        ],
-        "title": "TaskRewardsSchema"
-      },
       "TaskSchema": {
         "properties": {
           "code": {
@@ -8331,7 +8672,7 @@
           "rewards": {
             "allOf": [
               {
-                "$ref": "#/components/schemas/TaskRewardsSchema"
+                "$ref": "#/components/schemas/RewardsSchema"
               }
             ],
             "description": "Rewards for completing the task."
@@ -8423,65 +8764,6 @@
       },
       "TaskType_a-zA-Z0-9_-_____": {
         "$ref": "#/components/schemas/TaskType"
-      },
-      "TasksRewardDataResponseSchema": {
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/TasksRewardDataSchema"
-          }
-        },
-        "type": "object",
-        "required": [
-          "data"
-        ],
-        "title": "TasksRewardDataResponseSchema"
-      },
-      "TasksRewardDataSchema": {
-        "properties": {
-          "cooldown": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/CooldownSchema"
-              }
-            ],
-            "description": "Cooldown details."
-          },
-          "rewards": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/TaskRewardsSchema"
-              }
-            ],
-            "description": "Reward details."
-          },
-          "character": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/CharacterSchema"
-              }
-            ],
-            "description": "Player details."
-          }
-        },
-        "type": "object",
-        "required": [
-          "cooldown",
-          "rewards",
-          "character"
-        ],
-        "title": "TasksRewardDataSchema"
-      },
-      "TasksRewardResponseSchema": {
-        "properties": {
-          "data": {
-            "$ref": "#/components/schemas/DropRateSchema"
-          }
-        },
-        "type": "object",
-        "required": [
-          "data"
-        ],
-        "title": "TasksRewardResponseSchema"
       },
       "TokenResponseSchema": {
         "properties": {
