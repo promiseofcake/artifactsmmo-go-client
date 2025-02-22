@@ -25,7 +25,8 @@ const (
 
 // Defines values for AccountLeaderboardType.
 const (
-	AchievementsPoints AccountLeaderboardType = "achievements_points"
+	AccountLeaderboardTypeAchievementsPoints AccountLeaderboardType = "achievements_points"
+	AccountLeaderboardTypeGold               AccountLeaderboardType = "gold"
 )
 
 // Defines values for AccountStatus.
@@ -46,12 +47,14 @@ const (
 	AchievementTypeOther       AchievementType = "other"
 	AchievementTypeRecycling   AchievementType = "recycling"
 	AchievementTypeTask        AchievementType = "task"
+	AchievementTypeUse         AchievementType = "use"
 )
 
 // Defines values for ActionType.
 const (
 	ActionTypeBuyBankExpansion  ActionType = "buy_bank_expansion"
 	ActionTypeBuyGe             ActionType = "buy_ge"
+	ActionTypeBuyNpc            ActionType = "buy_npc"
 	ActionTypeCancelGe          ActionType = "cancel_ge"
 	ActionTypeChristmasExchange ActionType = "christmas_exchange"
 	ActionTypeCrafting          ActionType = "crafting"
@@ -65,6 +68,7 @@ const (
 	ActionTypeRecycling         ActionType = "recycling"
 	ActionTypeRest              ActionType = "rest"
 	ActionTypeSellGe            ActionType = "sell_ge"
+	ActionTypeSellNpc           ActionType = "sell_npc"
 	ActionTypeTask              ActionType = "task"
 	ActionTypeUnequip           ActionType = "unequip"
 	ActionTypeUse               ActionType = "use"
@@ -79,7 +83,6 @@ const (
 	CharacterLeaderboardTypeCooking         CharacterLeaderboardType = "cooking"
 	CharacterLeaderboardTypeFishing         CharacterLeaderboardType = "fishing"
 	CharacterLeaderboardTypeGearcrafting    CharacterLeaderboardType = "gearcrafting"
-	CharacterLeaderboardTypeGold            CharacterLeaderboardType = "gold"
 	CharacterLeaderboardTypeJewelrycrafting CharacterLeaderboardType = "jewelrycrafting"
 	CharacterLeaderboardTypeMining          CharacterLeaderboardType = "mining"
 	CharacterLeaderboardTypeWeaponcrafting  CharacterLeaderboardType = "weaponcrafting"
@@ -107,6 +110,27 @@ const (
 	CraftSkillWoodcutting     CraftSkill = "woodcutting"
 )
 
+// Defines values for EffectSubtype.
+const (
+	EffectSubtypeBuff      EffectSubtype = "buff"
+	EffectSubtypeDebuff    EffectSubtype = "debuff"
+	EffectSubtypeGathering EffectSubtype = "gathering"
+	EffectSubtypeGold      EffectSubtype = "gold"
+	EffectSubtypeHeal      EffectSubtype = "heal"
+	EffectSubtypeOther     EffectSubtype = "other"
+	EffectSubtypeSpecial   EffectSubtype = "special"
+	EffectSubtypeStat      EffectSubtype = "stat"
+	EffectSubtypeTeleport  EffectSubtype = "teleport"
+)
+
+// Defines values for EffectType.
+const (
+	EffectTypeCombat     EffectType = "combat"
+	EffectTypeConsumable EffectType = "consumable"
+	EffectTypeEquipment  EffectType = "equipment"
+	EffectTypeItem       EffectType = "item"
+)
+
 // Defines values for FightResult.
 const (
 	Loss FightResult = "loss"
@@ -123,26 +147,29 @@ const (
 
 // Defines values for ItemSlot.
 const (
-	ItemSlotAmulet    ItemSlot = "amulet"
-	ItemSlotArtifact1 ItemSlot = "artifact1"
-	ItemSlotArtifact2 ItemSlot = "artifact2"
-	ItemSlotArtifact3 ItemSlot = "artifact3"
-	ItemSlotBodyArmor ItemSlot = "body_armor"
-	ItemSlotBoots     ItemSlot = "boots"
-	ItemSlotHelmet    ItemSlot = "helmet"
-	ItemSlotLegArmor  ItemSlot = "leg_armor"
-	ItemSlotRing1     ItemSlot = "ring1"
-	ItemSlotRing2     ItemSlot = "ring2"
-	ItemSlotShield    ItemSlot = "shield"
-	ItemSlotUtility1  ItemSlot = "utility1"
-	ItemSlotUtility2  ItemSlot = "utility2"
-	ItemSlotWeapon    ItemSlot = "weapon"
+	Amulet    ItemSlot = "amulet"
+	Artifact1 ItemSlot = "artifact1"
+	Artifact2 ItemSlot = "artifact2"
+	Artifact3 ItemSlot = "artifact3"
+	Bag       ItemSlot = "bag"
+	BodyArmor ItemSlot = "body_armor"
+	Boots     ItemSlot = "boots"
+	Helmet    ItemSlot = "helmet"
+	LegArmor  ItemSlot = "leg_armor"
+	Ring1     ItemSlot = "ring1"
+	Ring2     ItemSlot = "ring2"
+	Rune      ItemSlot = "rune"
+	Shield    ItemSlot = "shield"
+	Utility1  ItemSlot = "utility1"
+	Utility2  ItemSlot = "utility2"
+	Weapon    ItemSlot = "weapon"
 )
 
 // Defines values for ItemType.
 const (
 	ItemTypeAmulet     ItemType = "amulet"
 	ItemTypeArtifact   ItemType = "artifact"
+	ItemTypeBag        ItemType = "bag"
 	ItemTypeBodyArmor  ItemType = "body_armor"
 	ItemTypeBoots      ItemType = "boots"
 	ItemTypeConsumable ItemType = "consumable"
@@ -151,6 +178,7 @@ const (
 	ItemTypeLegArmor   ItemType = "leg_armor"
 	ItemTypeResource   ItemType = "resource"
 	ItemTypeRing       ItemType = "ring"
+	ItemTypeRune       ItemType = "rune"
 	ItemTypeShield     ItemType = "shield"
 	ItemTypeUtility    ItemType = "utility"
 	ItemTypeWeapon     ItemType = "weapon"
@@ -161,6 +189,7 @@ const (
 	Achievement       LogType = "achievement"
 	BuyBankExpansion  LogType = "buy_bank_expansion"
 	BuyGe             LogType = "buy_ge"
+	BuyNpc            LogType = "buy_npc"
 	CancelGe          LogType = "cancel_ge"
 	ChristmasExchange LogType = "christmas_exchange"
 	Crafting          LogType = "crafting"
@@ -175,6 +204,7 @@ const (
 	Recycling         LogType = "recycling"
 	Rest              LogType = "rest"
 	SellGe            LogType = "sell_ge"
+	SellNpc           LogType = "sell_npc"
 	Spawn             LogType = "spawn"
 	TaskCancelled     LogType = "task_cancelled"
 	TaskCompleted     LogType = "task_completed"
@@ -191,9 +221,15 @@ const (
 	Bank          MapContentType = "bank"
 	GrandExchange MapContentType = "grand_exchange"
 	Monster       MapContentType = "monster"
+	Npc           MapContentType = "npc"
 	Resource      MapContentType = "resource"
 	TasksMaster   MapContentType = "tasks_master"
 	Workshop      MapContentType = "workshop"
+)
+
+// Defines values for NPCType.
+const (
+	Merchant NPCType = "merchant"
 )
 
 // Defines values for Skill.
@@ -306,6 +342,9 @@ type AccountLeaderboardSchema struct {
 	// AchievementsPoints Achievements points.
 	AchievementsPoints int `json:"achievements_points"`
 
+	// Gold Gold in the account.
+	Gold int `json:"gold"`
+
 	// Position Position in the leaderboard.
 	Position int `json:"position"`
 
@@ -382,7 +421,7 @@ type ActionType string
 
 // ActiveEventSchema defines model for ActiveEventSchema.
 type ActiveEventSchema struct {
-	// Code Code of the event. This is the event's unique identifier (ID).
+	// Code Code of the event.
 	Code string `json:"code"`
 
 	// CreatedAt Start datetime.
@@ -763,6 +802,9 @@ type CharacterSchema struct {
 	// AttackWater Water attack.
 	AttackWater int `json:"attack_water"`
 
+	// BagSlot Bag slot.
+	BagSlot string `json:"bag_slot"`
+
 	// BodyArmorSlot Body armor slot.
 	BodyArmorSlot string `json:"body_armor_slot"`
 
@@ -784,19 +826,22 @@ type CharacterSchema struct {
 	// CooldownExpiration Datetime Cooldown expiration.
 	CooldownExpiration *time.Time `json:"cooldown_expiration,omitempty"`
 
-	// CriticalStrike *Not available, on the roadmap. Character Critical   Strike. Critical strikes increase the attack's damage.
+	// CriticalStrike % Critical strike. Critical strikes adds 50% extra damage to an attack (1.5x).
 	CriticalStrike int `json:"critical_strike"`
 
-	// DmgAir % Air damage.
+	// Dmg % Damage. Damage increases your attack in all elements.
+	Dmg int `json:"dmg"`
+
+	// DmgAir % Air damage. Damage increases your air attack.
 	DmgAir int `json:"dmg_air"`
 
-	// DmgEarth % Earth damage.
+	// DmgEarth % Earth damage. Damage increases your earth attack.
 	DmgEarth int `json:"dmg_earth"`
 
-	// DmgFire % Fire damage.
+	// DmgFire % Fire damage. Damage increases your fire attack.
 	DmgFire int `json:"dmg_fire"`
 
-	// DmgWater % Water damage.
+	// DmgWater % Water damage. Damage increases your water attack.
 	DmgWater int `json:"dmg_water"`
 
 	// FishingLevel Fishing level.
@@ -820,7 +865,7 @@ type CharacterSchema struct {
 	// Gold The numbers of gold on this character.
 	Gold int `json:"gold"`
 
-	// Haste *Character Haste. Increase speed attack (reduce fight cooldown)
+	// Haste *Increase speed attack (reduce fight cooldown)
 	Haste int `json:"haste"`
 
 	// HelmetSlot Helmet slot.
@@ -868,16 +913,19 @@ type CharacterSchema struct {
 	// Name Name of the character.
 	Name string `json:"name"`
 
-	// ResAir % Air resistance.
+	// Prospecting Prospecting increases the chances of getting better loot (1% extra per 10 PP).
+	Prospecting int `json:"prospecting"`
+
+	// ResAir % Air resistance. Reduces air attack.
 	ResAir int `json:"res_air"`
 
-	// ResEarth % Earth resistance.
+	// ResEarth % Earth resistance. Reduces earth attack.
 	ResEarth int `json:"res_earth"`
 
-	// ResFire % Fire resistance.
+	// ResFire % Fire resistance. Reduces fire attack.
 	ResFire int `json:"res_fire"`
 
-	// ResWater % Water resistance.
+	// ResWater % Water resistance. Reduces water attack.
 	ResWater int `json:"res_water"`
 
 	// Ring1Slot Ring 1 slot.
@@ -885,6 +933,9 @@ type CharacterSchema struct {
 
 	// Ring2Slot Ring 2 slot.
 	Ring2Slot string `json:"ring2_slot"`
+
+	// RuneSlot Rune slot.
+	RuneSlot string `json:"rune_slot"`
 
 	// ShieldSlot Shield slot.
 	ShieldSlot string `json:"shield_slot"`
@@ -894,9 +945,6 @@ type CharacterSchema struct {
 
 	// Speed *Not available, on the roadmap. Character movement speed.
 	Speed int `json:"speed"`
-
-	// Stamina *Not available, on the roadmap. Regenerates life at the start of each turn.
-	Stamina int `json:"stamina"`
 
 	// Task Task in progress.
 	Task string `json:"task"`
@@ -933,6 +981,9 @@ type CharacterSchema struct {
 
 	// WeaponcraftingXp The current xp level of the Weaponcrafting skill.
 	WeaponcraftingXp int `json:"weaponcrafting_xp"`
+
+	// Wisdom Wisdom increases the amount of XP gained from fights (1% extra per 10 wisdom).
+	Wisdom int `json:"wisdom"`
 
 	// WoodcuttingLevel Woodcutting level.
 	WoodcuttingLevel int `json:"woodcutting_level"`
@@ -1375,6 +1426,59 @@ type DataPageDropRateSchema_Total struct {
 	union json.RawMessage
 }
 
+// DataPageEffectSchema defines model for DataPage_EffectSchema_.
+type DataPageEffectSchema struct {
+	Data  []EffectSchema              `json:"data"`
+	Page  DataPageEffectSchema_Page   `json:"page"`
+	Pages *DataPageEffectSchema_Pages `json:"pages,omitempty"`
+	Size  DataPageEffectSchema_Size   `json:"size"`
+	Total DataPageEffectSchema_Total  `json:"total"`
+}
+
+// DataPageEffectSchemaPage0 defines model for .
+type DataPageEffectSchemaPage0 = int
+
+// DataPageEffectSchemaPage1 defines model for .
+type DataPageEffectSchemaPage1 = interface{}
+
+// DataPageEffectSchema_Page defines model for DataPageEffectSchema.Page.
+type DataPageEffectSchema_Page struct {
+	union json.RawMessage
+}
+
+// DataPageEffectSchemaPages0 defines model for .
+type DataPageEffectSchemaPages0 = int
+
+// DataPageEffectSchemaPages1 defines model for .
+type DataPageEffectSchemaPages1 = interface{}
+
+// DataPageEffectSchema_Pages defines model for DataPageEffectSchema.Pages.
+type DataPageEffectSchema_Pages struct {
+	union json.RawMessage
+}
+
+// DataPageEffectSchemaSize0 defines model for .
+type DataPageEffectSchemaSize0 = int
+
+// DataPageEffectSchemaSize1 defines model for .
+type DataPageEffectSchemaSize1 = interface{}
+
+// DataPageEffectSchema_Size defines model for DataPageEffectSchema.Size.
+type DataPageEffectSchema_Size struct {
+	union json.RawMessage
+}
+
+// DataPageEffectSchemaTotal0 defines model for .
+type DataPageEffectSchemaTotal0 = int
+
+// DataPageEffectSchemaTotal1 defines model for .
+type DataPageEffectSchemaTotal1 = interface{}
+
+// DataPageEffectSchema_Total defines model for DataPageEffectSchema.Total.
+type DataPageEffectSchema_Total struct {
+	union json.RawMessage
+}
+
 // DataPageEventSchema defines model for DataPage_EventSchema_.
 type DataPageEventSchema struct {
 	Data  []EventSchema              `json:"data"`
@@ -1746,6 +1850,112 @@ type DataPageMonsterSchema_Total struct {
 	union json.RawMessage
 }
 
+// DataPageNPCItem defines model for DataPage_NPCItem_.
+type DataPageNPCItem struct {
+	Data  []NPCItem              `json:"data"`
+	Page  DataPageNPCItem_Page   `json:"page"`
+	Pages *DataPageNPCItem_Pages `json:"pages,omitempty"`
+	Size  DataPageNPCItem_Size   `json:"size"`
+	Total DataPageNPCItem_Total  `json:"total"`
+}
+
+// DataPageNPCItemPage0 defines model for .
+type DataPageNPCItemPage0 = int
+
+// DataPageNPCItemPage1 defines model for .
+type DataPageNPCItemPage1 = interface{}
+
+// DataPageNPCItem_Page defines model for DataPageNPCItem.Page.
+type DataPageNPCItem_Page struct {
+	union json.RawMessage
+}
+
+// DataPageNPCItemPages0 defines model for .
+type DataPageNPCItemPages0 = int
+
+// DataPageNPCItemPages1 defines model for .
+type DataPageNPCItemPages1 = interface{}
+
+// DataPageNPCItem_Pages defines model for DataPageNPCItem.Pages.
+type DataPageNPCItem_Pages struct {
+	union json.RawMessage
+}
+
+// DataPageNPCItemSize0 defines model for .
+type DataPageNPCItemSize0 = int
+
+// DataPageNPCItemSize1 defines model for .
+type DataPageNPCItemSize1 = interface{}
+
+// DataPageNPCItem_Size defines model for DataPageNPCItem.Size.
+type DataPageNPCItem_Size struct {
+	union json.RawMessage
+}
+
+// DataPageNPCItemTotal0 defines model for .
+type DataPageNPCItemTotal0 = int
+
+// DataPageNPCItemTotal1 defines model for .
+type DataPageNPCItemTotal1 = interface{}
+
+// DataPageNPCItem_Total defines model for DataPageNPCItem.Total.
+type DataPageNPCItem_Total struct {
+	union json.RawMessage
+}
+
+// DataPageNPCSchema defines model for DataPage_NPCSchema_.
+type DataPageNPCSchema struct {
+	Data  []NPCSchema              `json:"data"`
+	Page  DataPageNPCSchema_Page   `json:"page"`
+	Pages *DataPageNPCSchema_Pages `json:"pages,omitempty"`
+	Size  DataPageNPCSchema_Size   `json:"size"`
+	Total DataPageNPCSchema_Total  `json:"total"`
+}
+
+// DataPageNPCSchemaPage0 defines model for .
+type DataPageNPCSchemaPage0 = int
+
+// DataPageNPCSchemaPage1 defines model for .
+type DataPageNPCSchemaPage1 = interface{}
+
+// DataPageNPCSchema_Page defines model for DataPageNPCSchema.Page.
+type DataPageNPCSchema_Page struct {
+	union json.RawMessage
+}
+
+// DataPageNPCSchemaPages0 defines model for .
+type DataPageNPCSchemaPages0 = int
+
+// DataPageNPCSchemaPages1 defines model for .
+type DataPageNPCSchemaPages1 = interface{}
+
+// DataPageNPCSchema_Pages defines model for DataPageNPCSchema.Pages.
+type DataPageNPCSchema_Pages struct {
+	union json.RawMessage
+}
+
+// DataPageNPCSchemaSize0 defines model for .
+type DataPageNPCSchemaSize0 = int
+
+// DataPageNPCSchemaSize1 defines model for .
+type DataPageNPCSchemaSize1 = interface{}
+
+// DataPageNPCSchema_Size defines model for DataPageNPCSchema.Size.
+type DataPageNPCSchema_Size struct {
+	union json.RawMessage
+}
+
+// DataPageNPCSchemaTotal0 defines model for .
+type DataPageNPCSchemaTotal0 = int
+
+// DataPageNPCSchemaTotal1 defines model for .
+type DataPageNPCSchemaTotal1 = interface{}
+
+// DataPageNPCSchema_Total defines model for DataPageNPCSchema.Total.
+type DataPageNPCSchema_Total struct {
+	union json.RawMessage
+}
+
 // DataPageResourceSchema defines model for DataPage_ResourceSchema_.
 type DataPageResourceSchema struct {
 	Data  []ResourceSchema              `json:"data"`
@@ -1967,6 +2177,35 @@ type DropSchema struct {
 	Quantity int `json:"quantity"`
 }
 
+// EffectResponseSchema defines model for EffectResponseSchema.
+type EffectResponseSchema struct {
+	Data EffectSchema `json:"data"`
+}
+
+// EffectSchema defines model for EffectSchema.
+type EffectSchema struct {
+	// Code The code of the effect. This is the effect's unique identifier (ID).
+	Code string `json:"code"`
+
+	// Description Description of the effect. This is a brief description of the effect.
+	Description string `json:"description"`
+
+	// Name Name of the monster.
+	Name string `json:"name"`
+
+	// Subtype Subtype of the effect.
+	Subtype EffectSubtype `json:"subtype"`
+
+	// Type Type of the effect.
+	Type EffectType `json:"type"`
+}
+
+// EffectSubtype defines model for EffectSubtype.
+type EffectSubtype string
+
+// EffectType defines model for EffectType.
+type EffectType string
+
 // EquipRequestSchema defines model for EquipRequestSchema.
 type EquipRequestSchema struct {
 	// Character Player details.
@@ -2019,7 +2258,7 @@ type EventMapSchema struct {
 
 // EventSchema defines model for EventSchema.
 type EventSchema struct {
-	// Code Code of the event. This is the event's unique identifier (ID).
+	// Code Code of the event.
 	Code string `json:"code"`
 
 	// Content Content of the event.
@@ -2108,7 +2347,7 @@ type GEOrderCreatedSchema struct {
 	// Quantity Item quantity.
 	Quantity int `json:"quantity"`
 
-	// Tax Order creation tax (5%, minimum 1)
+	// Tax Order creation tax (3%, minimum 1)
 	Tax int `json:"tax"`
 
 	// TotalPrice Total price.
@@ -2248,15 +2487,6 @@ type InventorySlot struct {
 	Slot int `json:"slot"`
 }
 
-// ItemEffectSchema defines model for ItemEffectSchema.
-type ItemEffectSchema struct {
-	// Name Effect name.
-	Name string `json:"name"`
-
-	// Value Effect value.
-	Value int `json:"value"`
-}
-
 // ItemResponseSchema defines model for ItemResponseSchema.
 type ItemResponseSchema struct {
 	Data ItemSchema `json:"data"`
@@ -2274,7 +2504,7 @@ type ItemSchema struct {
 	Description string `json:"description"`
 
 	// Effects List of object effects. For equipment, it will include item stats.
-	Effects *[]ItemEffectSchema `json:"effects,omitempty"`
+	Effects *[]SimpleEffectSchema `json:"effects,omitempty"`
 
 	// Level Item level.
 	Level int `json:"level"`
@@ -2418,8 +2648,14 @@ type MonsterSchema struct {
 	// Code The code of the monster. This is the monster's unique identifier (ID).
 	Code string `json:"code"`
 
+	// CriticalStrike Monster % critical strike.
+	CriticalStrike int `json:"critical_strike"`
+
 	// Drops Monster drops. This is a list of items that the monster drops after killing the monster.
 	Drops []DropRateSchema `json:"drops"`
+
+	// Effects List of effects.
+	Effects *[]SimpleEffectSchema `json:"effects,omitempty"`
 
 	// Hp Monster hit points.
 	Hp int `json:"hp"`
@@ -2488,6 +2724,110 @@ type MyAccountDetailsSchema struct {
 type MyCharactersListSchema struct {
 	// Data List of your characters.
 	Data []CharacterSchema `json:"data"`
+}
+
+// NPCItem defines model for NPCItem.
+type NPCItem struct {
+	// BuyPrice Price to buy the item.
+	BuyPrice NPCItem_BuyPrice `json:"buy_price"`
+
+	// Code The code of the NPC. This is the NPC's unique identifier (ID).
+	Code string `json:"code"`
+
+	// Npc Code of the NPC that sells/buys the item.
+	Npc string `json:"npc"`
+
+	// SellPrice Price to sell the item.
+	SellPrice NPCItem_SellPrice `json:"sell_price"`
+}
+
+// NPCItemBuyPrice0 defines model for .
+type NPCItemBuyPrice0 = int
+
+// NPCItemBuyPrice1 defines model for .
+type NPCItemBuyPrice1 = interface{}
+
+// NPCItem_BuyPrice Price to buy the item.
+type NPCItem_BuyPrice struct {
+	union json.RawMessage
+}
+
+// NPCItemSellPrice0 defines model for .
+type NPCItemSellPrice0 = int
+
+// NPCItemSellPrice1 defines model for .
+type NPCItemSellPrice1 = interface{}
+
+// NPCItem_SellPrice Price to sell the item.
+type NPCItem_SellPrice struct {
+	union json.RawMessage
+}
+
+// NPCResponseSchema defines model for NPCResponseSchema.
+type NPCResponseSchema struct {
+	Data NPCSchema `json:"data"`
+}
+
+// NPCSchema defines model for NPCSchema.
+type NPCSchema struct {
+	// Code The code of the NPC. This is the NPC's unique identifier (ID).
+	Code string `json:"code"`
+
+	// Description Description of the NPC.
+	Description string `json:"description"`
+
+	// Name Name of the NPC.
+	Name string `json:"name"`
+
+	// Type Type of the NPC.
+	Type NPCType `json:"type"`
+}
+
+// NPCType defines model for NPCType.
+type NPCType string
+
+// NPCTypeAZAZ09 defines model for NPCType_a-zA-Z0-9_-_____.
+type NPCTypeAZAZ09 = NPCType
+
+// NpcItemTransactionSchema defines model for NpcItemTransactionSchema.
+type NpcItemTransactionSchema struct {
+	// Code Item code.
+	Code string `json:"code"`
+
+	// Price Item price.
+	Price int `json:"price"`
+
+	// Quantity Item quantity.
+	Quantity int `json:"quantity"`
+
+	// TotalPrice Total price of the transaction.
+	TotalPrice int `json:"total_price"`
+}
+
+// NpcMerchantBuySchema defines model for NpcMerchantBuySchema.
+type NpcMerchantBuySchema struct {
+	// Code Item code.
+	Code string `json:"code"`
+
+	// Quantity Item quantity.
+	Quantity int `json:"quantity"`
+}
+
+// NpcMerchantTransactionResponseSchema defines model for NpcMerchantTransactionResponseSchema.
+type NpcMerchantTransactionResponseSchema struct {
+	Data NpcMerchantTransactionSchema `json:"data"`
+}
+
+// NpcMerchantTransactionSchema defines model for NpcMerchantTransactionSchema.
+type NpcMerchantTransactionSchema struct {
+	// Character Character details.
+	Character CharacterSchema `json:"character"`
+
+	// Cooldown Cooldown details.
+	Cooldown CooldownSchema `json:"cooldown"`
+
+	// Transaction Transaction details.
+	Transaction NpcItemTransactionSchema `json:"transaction"`
 }
 
 // RecyclingDataSchema defines model for RecyclingDataSchema.
@@ -2579,6 +2919,15 @@ type RewardsSchema struct {
 
 	// Items Items rewards.
 	Items []SimpleItemSchema `json:"items"`
+}
+
+// SimpleEffectSchema defines model for SimpleEffectSchema.
+type SimpleEffectSchema struct {
+	// Code Effect code.
+	Code string `json:"code"`
+
+	// Value Effect value.
+	Value int `json:"value"`
 }
 
 // SimpleItemSchema defines model for SimpleItemSchema.
@@ -2839,6 +3188,15 @@ type GetAllBadgesBadgesGetParams struct {
 	Size *int `form:"size,omitempty" json:"size,omitempty"`
 }
 
+// GetAllEffectsEffectsGetParams defines parameters for GetAllEffectsEffectsGet.
+type GetAllEffectsEffectsGetParams struct {
+	// Page Page number
+	Page *int `form:"page,omitempty" json:"page,omitempty"`
+
+	// Size Page size
+	Size *int `form:"size,omitempty" json:"size,omitempty"`
+}
+
 // GetAllEventsEventsGetParams defines parameters for GetAllEventsEventsGet.
 type GetAllEventsEventsGetParams struct {
 	// Page Page number
@@ -3019,6 +3377,27 @@ type GetAllCharactersLogsMyLogsGetParams struct {
 	Size *int `form:"size,omitempty" json:"size,omitempty"`
 }
 
+// GetAllNpcsNpcsGetParams defines parameters for GetAllNpcsNpcsGet.
+type GetAllNpcsNpcsGetParams struct {
+	// Type The type of the NPC.
+	Type *NPCTypeAZAZ09 `form:"type,omitempty" json:"type,omitempty"`
+
+	// Page Page number
+	Page *int `form:"page,omitempty" json:"page,omitempty"`
+
+	// Size Page size
+	Size *int `form:"size,omitempty" json:"size,omitempty"`
+}
+
+// GetNpcItemsNpcsCodeItemsGetParams defines parameters for GetNpcItemsNpcsCodeItemsGet.
+type GetNpcItemsNpcsCodeItemsGetParams struct {
+	// Page Page number
+	Page *int `form:"page,omitempty" json:"page,omitempty"`
+
+	// Size Page size
+	Size *int `form:"size,omitempty" json:"size,omitempty"`
+}
+
 // GetAllResourcesResourcesGetParams defines parameters for GetAllResourcesResourcesGet.
 type GetAllResourcesResourcesGetParams struct {
 	// MinLevel Skill minimum level.
@@ -3114,6 +3493,12 @@ type ActionGeCreateSellOrderMyNameActionGrandexchangeSellPostJSONRequestBody = G
 
 // ActionMoveMyNameActionMovePostJSONRequestBody defines body for ActionMoveMyNameActionMovePost for application/json ContentType.
 type ActionMoveMyNameActionMovePostJSONRequestBody = DestinationSchema
+
+// ActionNpcBuyItemMyNameActionNpcBuyPostJSONRequestBody defines body for ActionNpcBuyItemMyNameActionNpcBuyPost for application/json ContentType.
+type ActionNpcBuyItemMyNameActionNpcBuyPostJSONRequestBody = NpcMerchantBuySchema
+
+// ActionNpcSellItemMyNameActionNpcSellPostJSONRequestBody defines body for ActionNpcSellItemMyNameActionNpcSellPost for application/json ContentType.
+type ActionNpcSellItemMyNameActionNpcSellPostJSONRequestBody = NpcMerchantBuySchema
 
 // ActionRecyclingMyNameActionRecyclingPostJSONRequestBody defines body for ActionRecyclingMyNameActionRecyclingPost for application/json ContentType.
 type ActionRecyclingMyNameActionRecyclingPostJSONRequestBody = RecyclingSchema
@@ -5173,6 +5558,254 @@ func (t *DataPageDropRateSchema_Total) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsDataPageEffectSchemaPage0 returns the union data inside the DataPageEffectSchema_Page as a DataPageEffectSchemaPage0
+func (t DataPageEffectSchema_Page) AsDataPageEffectSchemaPage0() (DataPageEffectSchemaPage0, error) {
+	var body DataPageEffectSchemaPage0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageEffectSchemaPage0 overwrites any union data inside the DataPageEffectSchema_Page as the provided DataPageEffectSchemaPage0
+func (t *DataPageEffectSchema_Page) FromDataPageEffectSchemaPage0(v DataPageEffectSchemaPage0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageEffectSchemaPage0 performs a merge with any union data inside the DataPageEffectSchema_Page, using the provided DataPageEffectSchemaPage0
+func (t *DataPageEffectSchema_Page) MergeDataPageEffectSchemaPage0(v DataPageEffectSchemaPage0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageEffectSchemaPage1 returns the union data inside the DataPageEffectSchema_Page as a DataPageEffectSchemaPage1
+func (t DataPageEffectSchema_Page) AsDataPageEffectSchemaPage1() (DataPageEffectSchemaPage1, error) {
+	var body DataPageEffectSchemaPage1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageEffectSchemaPage1 overwrites any union data inside the DataPageEffectSchema_Page as the provided DataPageEffectSchemaPage1
+func (t *DataPageEffectSchema_Page) FromDataPageEffectSchemaPage1(v DataPageEffectSchemaPage1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageEffectSchemaPage1 performs a merge with any union data inside the DataPageEffectSchema_Page, using the provided DataPageEffectSchemaPage1
+func (t *DataPageEffectSchema_Page) MergeDataPageEffectSchemaPage1(v DataPageEffectSchemaPage1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageEffectSchema_Page) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageEffectSchema_Page) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageEffectSchemaPages0 returns the union data inside the DataPageEffectSchema_Pages as a DataPageEffectSchemaPages0
+func (t DataPageEffectSchema_Pages) AsDataPageEffectSchemaPages0() (DataPageEffectSchemaPages0, error) {
+	var body DataPageEffectSchemaPages0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageEffectSchemaPages0 overwrites any union data inside the DataPageEffectSchema_Pages as the provided DataPageEffectSchemaPages0
+func (t *DataPageEffectSchema_Pages) FromDataPageEffectSchemaPages0(v DataPageEffectSchemaPages0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageEffectSchemaPages0 performs a merge with any union data inside the DataPageEffectSchema_Pages, using the provided DataPageEffectSchemaPages0
+func (t *DataPageEffectSchema_Pages) MergeDataPageEffectSchemaPages0(v DataPageEffectSchemaPages0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageEffectSchemaPages1 returns the union data inside the DataPageEffectSchema_Pages as a DataPageEffectSchemaPages1
+func (t DataPageEffectSchema_Pages) AsDataPageEffectSchemaPages1() (DataPageEffectSchemaPages1, error) {
+	var body DataPageEffectSchemaPages1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageEffectSchemaPages1 overwrites any union data inside the DataPageEffectSchema_Pages as the provided DataPageEffectSchemaPages1
+func (t *DataPageEffectSchema_Pages) FromDataPageEffectSchemaPages1(v DataPageEffectSchemaPages1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageEffectSchemaPages1 performs a merge with any union data inside the DataPageEffectSchema_Pages, using the provided DataPageEffectSchemaPages1
+func (t *DataPageEffectSchema_Pages) MergeDataPageEffectSchemaPages1(v DataPageEffectSchemaPages1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageEffectSchema_Pages) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageEffectSchema_Pages) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageEffectSchemaSize0 returns the union data inside the DataPageEffectSchema_Size as a DataPageEffectSchemaSize0
+func (t DataPageEffectSchema_Size) AsDataPageEffectSchemaSize0() (DataPageEffectSchemaSize0, error) {
+	var body DataPageEffectSchemaSize0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageEffectSchemaSize0 overwrites any union data inside the DataPageEffectSchema_Size as the provided DataPageEffectSchemaSize0
+func (t *DataPageEffectSchema_Size) FromDataPageEffectSchemaSize0(v DataPageEffectSchemaSize0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageEffectSchemaSize0 performs a merge with any union data inside the DataPageEffectSchema_Size, using the provided DataPageEffectSchemaSize0
+func (t *DataPageEffectSchema_Size) MergeDataPageEffectSchemaSize0(v DataPageEffectSchemaSize0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageEffectSchemaSize1 returns the union data inside the DataPageEffectSchema_Size as a DataPageEffectSchemaSize1
+func (t DataPageEffectSchema_Size) AsDataPageEffectSchemaSize1() (DataPageEffectSchemaSize1, error) {
+	var body DataPageEffectSchemaSize1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageEffectSchemaSize1 overwrites any union data inside the DataPageEffectSchema_Size as the provided DataPageEffectSchemaSize1
+func (t *DataPageEffectSchema_Size) FromDataPageEffectSchemaSize1(v DataPageEffectSchemaSize1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageEffectSchemaSize1 performs a merge with any union data inside the DataPageEffectSchema_Size, using the provided DataPageEffectSchemaSize1
+func (t *DataPageEffectSchema_Size) MergeDataPageEffectSchemaSize1(v DataPageEffectSchemaSize1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageEffectSchema_Size) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageEffectSchema_Size) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageEffectSchemaTotal0 returns the union data inside the DataPageEffectSchema_Total as a DataPageEffectSchemaTotal0
+func (t DataPageEffectSchema_Total) AsDataPageEffectSchemaTotal0() (DataPageEffectSchemaTotal0, error) {
+	var body DataPageEffectSchemaTotal0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageEffectSchemaTotal0 overwrites any union data inside the DataPageEffectSchema_Total as the provided DataPageEffectSchemaTotal0
+func (t *DataPageEffectSchema_Total) FromDataPageEffectSchemaTotal0(v DataPageEffectSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageEffectSchemaTotal0 performs a merge with any union data inside the DataPageEffectSchema_Total, using the provided DataPageEffectSchemaTotal0
+func (t *DataPageEffectSchema_Total) MergeDataPageEffectSchemaTotal0(v DataPageEffectSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageEffectSchemaTotal1 returns the union data inside the DataPageEffectSchema_Total as a DataPageEffectSchemaTotal1
+func (t DataPageEffectSchema_Total) AsDataPageEffectSchemaTotal1() (DataPageEffectSchemaTotal1, error) {
+	var body DataPageEffectSchemaTotal1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageEffectSchemaTotal1 overwrites any union data inside the DataPageEffectSchema_Total as the provided DataPageEffectSchemaTotal1
+func (t *DataPageEffectSchema_Total) FromDataPageEffectSchemaTotal1(v DataPageEffectSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageEffectSchemaTotal1 performs a merge with any union data inside the DataPageEffectSchema_Total, using the provided DataPageEffectSchemaTotal1
+func (t *DataPageEffectSchema_Total) MergeDataPageEffectSchemaTotal1(v DataPageEffectSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageEffectSchema_Total) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageEffectSchema_Total) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsDataPageEventSchemaPage0 returns the union data inside the DataPageEventSchema_Page as a DataPageEventSchemaPage0
 func (t DataPageEventSchema_Page) AsDataPageEventSchemaPage0() (DataPageEventSchemaPage0, error) {
 	var body DataPageEventSchemaPage0
@@ -6909,6 +7542,502 @@ func (t *DataPageMonsterSchema_Total) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsDataPageNPCItemPage0 returns the union data inside the DataPageNPCItem_Page as a DataPageNPCItemPage0
+func (t DataPageNPCItem_Page) AsDataPageNPCItemPage0() (DataPageNPCItemPage0, error) {
+	var body DataPageNPCItemPage0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageNPCItemPage0 overwrites any union data inside the DataPageNPCItem_Page as the provided DataPageNPCItemPage0
+func (t *DataPageNPCItem_Page) FromDataPageNPCItemPage0(v DataPageNPCItemPage0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageNPCItemPage0 performs a merge with any union data inside the DataPageNPCItem_Page, using the provided DataPageNPCItemPage0
+func (t *DataPageNPCItem_Page) MergeDataPageNPCItemPage0(v DataPageNPCItemPage0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageNPCItemPage1 returns the union data inside the DataPageNPCItem_Page as a DataPageNPCItemPage1
+func (t DataPageNPCItem_Page) AsDataPageNPCItemPage1() (DataPageNPCItemPage1, error) {
+	var body DataPageNPCItemPage1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageNPCItemPage1 overwrites any union data inside the DataPageNPCItem_Page as the provided DataPageNPCItemPage1
+func (t *DataPageNPCItem_Page) FromDataPageNPCItemPage1(v DataPageNPCItemPage1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageNPCItemPage1 performs a merge with any union data inside the DataPageNPCItem_Page, using the provided DataPageNPCItemPage1
+func (t *DataPageNPCItem_Page) MergeDataPageNPCItemPage1(v DataPageNPCItemPage1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageNPCItem_Page) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageNPCItem_Page) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageNPCItemPages0 returns the union data inside the DataPageNPCItem_Pages as a DataPageNPCItemPages0
+func (t DataPageNPCItem_Pages) AsDataPageNPCItemPages0() (DataPageNPCItemPages0, error) {
+	var body DataPageNPCItemPages0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageNPCItemPages0 overwrites any union data inside the DataPageNPCItem_Pages as the provided DataPageNPCItemPages0
+func (t *DataPageNPCItem_Pages) FromDataPageNPCItemPages0(v DataPageNPCItemPages0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageNPCItemPages0 performs a merge with any union data inside the DataPageNPCItem_Pages, using the provided DataPageNPCItemPages0
+func (t *DataPageNPCItem_Pages) MergeDataPageNPCItemPages0(v DataPageNPCItemPages0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageNPCItemPages1 returns the union data inside the DataPageNPCItem_Pages as a DataPageNPCItemPages1
+func (t DataPageNPCItem_Pages) AsDataPageNPCItemPages1() (DataPageNPCItemPages1, error) {
+	var body DataPageNPCItemPages1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageNPCItemPages1 overwrites any union data inside the DataPageNPCItem_Pages as the provided DataPageNPCItemPages1
+func (t *DataPageNPCItem_Pages) FromDataPageNPCItemPages1(v DataPageNPCItemPages1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageNPCItemPages1 performs a merge with any union data inside the DataPageNPCItem_Pages, using the provided DataPageNPCItemPages1
+func (t *DataPageNPCItem_Pages) MergeDataPageNPCItemPages1(v DataPageNPCItemPages1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageNPCItem_Pages) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageNPCItem_Pages) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageNPCItemSize0 returns the union data inside the DataPageNPCItem_Size as a DataPageNPCItemSize0
+func (t DataPageNPCItem_Size) AsDataPageNPCItemSize0() (DataPageNPCItemSize0, error) {
+	var body DataPageNPCItemSize0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageNPCItemSize0 overwrites any union data inside the DataPageNPCItem_Size as the provided DataPageNPCItemSize0
+func (t *DataPageNPCItem_Size) FromDataPageNPCItemSize0(v DataPageNPCItemSize0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageNPCItemSize0 performs a merge with any union data inside the DataPageNPCItem_Size, using the provided DataPageNPCItemSize0
+func (t *DataPageNPCItem_Size) MergeDataPageNPCItemSize0(v DataPageNPCItemSize0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageNPCItemSize1 returns the union data inside the DataPageNPCItem_Size as a DataPageNPCItemSize1
+func (t DataPageNPCItem_Size) AsDataPageNPCItemSize1() (DataPageNPCItemSize1, error) {
+	var body DataPageNPCItemSize1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageNPCItemSize1 overwrites any union data inside the DataPageNPCItem_Size as the provided DataPageNPCItemSize1
+func (t *DataPageNPCItem_Size) FromDataPageNPCItemSize1(v DataPageNPCItemSize1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageNPCItemSize1 performs a merge with any union data inside the DataPageNPCItem_Size, using the provided DataPageNPCItemSize1
+func (t *DataPageNPCItem_Size) MergeDataPageNPCItemSize1(v DataPageNPCItemSize1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageNPCItem_Size) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageNPCItem_Size) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageNPCItemTotal0 returns the union data inside the DataPageNPCItem_Total as a DataPageNPCItemTotal0
+func (t DataPageNPCItem_Total) AsDataPageNPCItemTotal0() (DataPageNPCItemTotal0, error) {
+	var body DataPageNPCItemTotal0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageNPCItemTotal0 overwrites any union data inside the DataPageNPCItem_Total as the provided DataPageNPCItemTotal0
+func (t *DataPageNPCItem_Total) FromDataPageNPCItemTotal0(v DataPageNPCItemTotal0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageNPCItemTotal0 performs a merge with any union data inside the DataPageNPCItem_Total, using the provided DataPageNPCItemTotal0
+func (t *DataPageNPCItem_Total) MergeDataPageNPCItemTotal0(v DataPageNPCItemTotal0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageNPCItemTotal1 returns the union data inside the DataPageNPCItem_Total as a DataPageNPCItemTotal1
+func (t DataPageNPCItem_Total) AsDataPageNPCItemTotal1() (DataPageNPCItemTotal1, error) {
+	var body DataPageNPCItemTotal1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageNPCItemTotal1 overwrites any union data inside the DataPageNPCItem_Total as the provided DataPageNPCItemTotal1
+func (t *DataPageNPCItem_Total) FromDataPageNPCItemTotal1(v DataPageNPCItemTotal1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageNPCItemTotal1 performs a merge with any union data inside the DataPageNPCItem_Total, using the provided DataPageNPCItemTotal1
+func (t *DataPageNPCItem_Total) MergeDataPageNPCItemTotal1(v DataPageNPCItemTotal1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageNPCItem_Total) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageNPCItem_Total) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageNPCSchemaPage0 returns the union data inside the DataPageNPCSchema_Page as a DataPageNPCSchemaPage0
+func (t DataPageNPCSchema_Page) AsDataPageNPCSchemaPage0() (DataPageNPCSchemaPage0, error) {
+	var body DataPageNPCSchemaPage0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageNPCSchemaPage0 overwrites any union data inside the DataPageNPCSchema_Page as the provided DataPageNPCSchemaPage0
+func (t *DataPageNPCSchema_Page) FromDataPageNPCSchemaPage0(v DataPageNPCSchemaPage0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageNPCSchemaPage0 performs a merge with any union data inside the DataPageNPCSchema_Page, using the provided DataPageNPCSchemaPage0
+func (t *DataPageNPCSchema_Page) MergeDataPageNPCSchemaPage0(v DataPageNPCSchemaPage0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageNPCSchemaPage1 returns the union data inside the DataPageNPCSchema_Page as a DataPageNPCSchemaPage1
+func (t DataPageNPCSchema_Page) AsDataPageNPCSchemaPage1() (DataPageNPCSchemaPage1, error) {
+	var body DataPageNPCSchemaPage1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageNPCSchemaPage1 overwrites any union data inside the DataPageNPCSchema_Page as the provided DataPageNPCSchemaPage1
+func (t *DataPageNPCSchema_Page) FromDataPageNPCSchemaPage1(v DataPageNPCSchemaPage1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageNPCSchemaPage1 performs a merge with any union data inside the DataPageNPCSchema_Page, using the provided DataPageNPCSchemaPage1
+func (t *DataPageNPCSchema_Page) MergeDataPageNPCSchemaPage1(v DataPageNPCSchemaPage1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageNPCSchema_Page) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageNPCSchema_Page) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageNPCSchemaPages0 returns the union data inside the DataPageNPCSchema_Pages as a DataPageNPCSchemaPages0
+func (t DataPageNPCSchema_Pages) AsDataPageNPCSchemaPages0() (DataPageNPCSchemaPages0, error) {
+	var body DataPageNPCSchemaPages0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageNPCSchemaPages0 overwrites any union data inside the DataPageNPCSchema_Pages as the provided DataPageNPCSchemaPages0
+func (t *DataPageNPCSchema_Pages) FromDataPageNPCSchemaPages0(v DataPageNPCSchemaPages0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageNPCSchemaPages0 performs a merge with any union data inside the DataPageNPCSchema_Pages, using the provided DataPageNPCSchemaPages0
+func (t *DataPageNPCSchema_Pages) MergeDataPageNPCSchemaPages0(v DataPageNPCSchemaPages0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageNPCSchemaPages1 returns the union data inside the DataPageNPCSchema_Pages as a DataPageNPCSchemaPages1
+func (t DataPageNPCSchema_Pages) AsDataPageNPCSchemaPages1() (DataPageNPCSchemaPages1, error) {
+	var body DataPageNPCSchemaPages1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageNPCSchemaPages1 overwrites any union data inside the DataPageNPCSchema_Pages as the provided DataPageNPCSchemaPages1
+func (t *DataPageNPCSchema_Pages) FromDataPageNPCSchemaPages1(v DataPageNPCSchemaPages1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageNPCSchemaPages1 performs a merge with any union data inside the DataPageNPCSchema_Pages, using the provided DataPageNPCSchemaPages1
+func (t *DataPageNPCSchema_Pages) MergeDataPageNPCSchemaPages1(v DataPageNPCSchemaPages1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageNPCSchema_Pages) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageNPCSchema_Pages) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageNPCSchemaSize0 returns the union data inside the DataPageNPCSchema_Size as a DataPageNPCSchemaSize0
+func (t DataPageNPCSchema_Size) AsDataPageNPCSchemaSize0() (DataPageNPCSchemaSize0, error) {
+	var body DataPageNPCSchemaSize0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageNPCSchemaSize0 overwrites any union data inside the DataPageNPCSchema_Size as the provided DataPageNPCSchemaSize0
+func (t *DataPageNPCSchema_Size) FromDataPageNPCSchemaSize0(v DataPageNPCSchemaSize0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageNPCSchemaSize0 performs a merge with any union data inside the DataPageNPCSchema_Size, using the provided DataPageNPCSchemaSize0
+func (t *DataPageNPCSchema_Size) MergeDataPageNPCSchemaSize0(v DataPageNPCSchemaSize0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageNPCSchemaSize1 returns the union data inside the DataPageNPCSchema_Size as a DataPageNPCSchemaSize1
+func (t DataPageNPCSchema_Size) AsDataPageNPCSchemaSize1() (DataPageNPCSchemaSize1, error) {
+	var body DataPageNPCSchemaSize1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageNPCSchemaSize1 overwrites any union data inside the DataPageNPCSchema_Size as the provided DataPageNPCSchemaSize1
+func (t *DataPageNPCSchema_Size) FromDataPageNPCSchemaSize1(v DataPageNPCSchemaSize1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageNPCSchemaSize1 performs a merge with any union data inside the DataPageNPCSchema_Size, using the provided DataPageNPCSchemaSize1
+func (t *DataPageNPCSchema_Size) MergeDataPageNPCSchemaSize1(v DataPageNPCSchemaSize1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageNPCSchema_Size) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageNPCSchema_Size) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsDataPageNPCSchemaTotal0 returns the union data inside the DataPageNPCSchema_Total as a DataPageNPCSchemaTotal0
+func (t DataPageNPCSchema_Total) AsDataPageNPCSchemaTotal0() (DataPageNPCSchemaTotal0, error) {
+	var body DataPageNPCSchemaTotal0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageNPCSchemaTotal0 overwrites any union data inside the DataPageNPCSchema_Total as the provided DataPageNPCSchemaTotal0
+func (t *DataPageNPCSchema_Total) FromDataPageNPCSchemaTotal0(v DataPageNPCSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageNPCSchemaTotal0 performs a merge with any union data inside the DataPageNPCSchema_Total, using the provided DataPageNPCSchemaTotal0
+func (t *DataPageNPCSchema_Total) MergeDataPageNPCSchemaTotal0(v DataPageNPCSchemaTotal0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsDataPageNPCSchemaTotal1 returns the union data inside the DataPageNPCSchema_Total as a DataPageNPCSchemaTotal1
+func (t DataPageNPCSchema_Total) AsDataPageNPCSchemaTotal1() (DataPageNPCSchemaTotal1, error) {
+	var body DataPageNPCSchemaTotal1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromDataPageNPCSchemaTotal1 overwrites any union data inside the DataPageNPCSchema_Total as the provided DataPageNPCSchemaTotal1
+func (t *DataPageNPCSchema_Total) FromDataPageNPCSchemaTotal1(v DataPageNPCSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeDataPageNPCSchemaTotal1 performs a merge with any union data inside the DataPageNPCSchema_Total, using the provided DataPageNPCSchemaTotal1
+func (t *DataPageNPCSchema_Total) MergeDataPageNPCSchemaTotal1(v DataPageNPCSchemaTotal1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t DataPageNPCSchema_Total) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *DataPageNPCSchema_Total) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsDataPageResourceSchemaPage0 returns the union data inside the DataPageResourceSchema_Page as a DataPageResourceSchemaPage0
 func (t DataPageResourceSchema_Page) AsDataPageResourceSchemaPage0() (DataPageResourceSchemaPage0, error) {
 	var body DataPageResourceSchemaPage0
@@ -7839,6 +8968,130 @@ func (t *MapSchema_Content) UnmarshalJSON(b []byte) error {
 	return err
 }
 
+// AsNPCItemBuyPrice0 returns the union data inside the NPCItem_BuyPrice as a NPCItemBuyPrice0
+func (t NPCItem_BuyPrice) AsNPCItemBuyPrice0() (NPCItemBuyPrice0, error) {
+	var body NPCItemBuyPrice0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromNPCItemBuyPrice0 overwrites any union data inside the NPCItem_BuyPrice as the provided NPCItemBuyPrice0
+func (t *NPCItem_BuyPrice) FromNPCItemBuyPrice0(v NPCItemBuyPrice0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeNPCItemBuyPrice0 performs a merge with any union data inside the NPCItem_BuyPrice, using the provided NPCItemBuyPrice0
+func (t *NPCItem_BuyPrice) MergeNPCItemBuyPrice0(v NPCItemBuyPrice0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsNPCItemBuyPrice1 returns the union data inside the NPCItem_BuyPrice as a NPCItemBuyPrice1
+func (t NPCItem_BuyPrice) AsNPCItemBuyPrice1() (NPCItemBuyPrice1, error) {
+	var body NPCItemBuyPrice1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromNPCItemBuyPrice1 overwrites any union data inside the NPCItem_BuyPrice as the provided NPCItemBuyPrice1
+func (t *NPCItem_BuyPrice) FromNPCItemBuyPrice1(v NPCItemBuyPrice1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeNPCItemBuyPrice1 performs a merge with any union data inside the NPCItem_BuyPrice, using the provided NPCItemBuyPrice1
+func (t *NPCItem_BuyPrice) MergeNPCItemBuyPrice1(v NPCItemBuyPrice1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t NPCItem_BuyPrice) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *NPCItem_BuyPrice) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
+// AsNPCItemSellPrice0 returns the union data inside the NPCItem_SellPrice as a NPCItemSellPrice0
+func (t NPCItem_SellPrice) AsNPCItemSellPrice0() (NPCItemSellPrice0, error) {
+	var body NPCItemSellPrice0
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromNPCItemSellPrice0 overwrites any union data inside the NPCItem_SellPrice as the provided NPCItemSellPrice0
+func (t *NPCItem_SellPrice) FromNPCItemSellPrice0(v NPCItemSellPrice0) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeNPCItemSellPrice0 performs a merge with any union data inside the NPCItem_SellPrice, using the provided NPCItemSellPrice0
+func (t *NPCItem_SellPrice) MergeNPCItemSellPrice0(v NPCItemSellPrice0) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+// AsNPCItemSellPrice1 returns the union data inside the NPCItem_SellPrice as a NPCItemSellPrice1
+func (t NPCItem_SellPrice) AsNPCItemSellPrice1() (NPCItemSellPrice1, error) {
+	var body NPCItemSellPrice1
+	err := json.Unmarshal(t.union, &body)
+	return body, err
+}
+
+// FromNPCItemSellPrice1 overwrites any union data inside the NPCItem_SellPrice as the provided NPCItemSellPrice1
+func (t *NPCItem_SellPrice) FromNPCItemSellPrice1(v NPCItemSellPrice1) error {
+	b, err := json.Marshal(v)
+	t.union = b
+	return err
+}
+
+// MergeNPCItemSellPrice1 performs a merge with any union data inside the NPCItem_SellPrice, using the provided NPCItemSellPrice1
+func (t *NPCItem_SellPrice) MergeNPCItemSellPrice1(v NPCItemSellPrice1) error {
+	b, err := json.Marshal(v)
+	if err != nil {
+		return err
+	}
+
+	merged, err := runtime.JSONMerge(t.union, b)
+	t.union = merged
+	return err
+}
+
+func (t NPCItem_SellPrice) MarshalJSON() ([]byte, error) {
+	b, err := t.union.MarshalJSON()
+	return b, err
+}
+
+func (t *NPCItem_SellPrice) UnmarshalJSON(b []byte) error {
+	err := t.union.UnmarshalJSON(b)
+	return err
+}
+
 // AsTaskFullSchemaSkill0 returns the union data inside the TaskFullSchema_Skill as a TaskFullSchemaSkill0
 func (t TaskFullSchema_Skill) AsTaskFullSchemaSkill0() (TaskFullSchemaSkill0, error) {
 	var body TaskFullSchemaSkill0
@@ -8013,6 +9266,12 @@ type ClientInterface interface {
 	// GetCharacterCharactersNameGet request
 	GetCharacterCharactersNameGet(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// GetAllEffectsEffectsGet request
+	GetAllEffectsEffectsGet(ctx context.Context, params *GetAllEffectsEffectsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetEffectEffectsCodeGet request
+	GetEffectEffectsCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// GetAllEventsEventsGet request
 	GetAllEventsEventsGet(ctx context.Context, params *GetAllEventsEventsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -8101,9 +9360,6 @@ type ClientInterface interface {
 
 	ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPost(ctx context.Context, name string, body ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
-	// ActionChristmasExchangeMyNameActionChristmasExchangePost request
-	ActionChristmasExchangeMyNameActionChristmasExchangePost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error)
-
 	// ActionCraftingMyNameActionCraftingPostWithBody request with any body
 	ActionCraftingMyNameActionCraftingPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -8145,6 +9401,16 @@ type ClientInterface interface {
 
 	ActionMoveMyNameActionMovePost(ctx context.Context, name string, body ActionMoveMyNameActionMovePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
 
+	// ActionNpcBuyItemMyNameActionNpcBuyPostWithBody request with any body
+	ActionNpcBuyItemMyNameActionNpcBuyPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	ActionNpcBuyItemMyNameActionNpcBuyPost(ctx context.Context, name string, body ActionNpcBuyItemMyNameActionNpcBuyPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// ActionNpcSellItemMyNameActionNpcSellPostWithBody request with any body
+	ActionNpcSellItemMyNameActionNpcSellPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	ActionNpcSellItemMyNameActionNpcSellPost(ctx context.Context, name string, body ActionNpcSellItemMyNameActionNpcSellPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
 	// ActionRecyclingMyNameActionRecyclingPostWithBody request with any body
 	ActionRecyclingMyNameActionRecyclingPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
@@ -8179,6 +9445,15 @@ type ClientInterface interface {
 	ActionUseItemMyNameActionUsePostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	ActionUseItemMyNameActionUsePost(ctx context.Context, name string, body ActionUseItemMyNameActionUsePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetAllNpcsNpcsGet request
+	GetAllNpcsNpcsGet(ctx context.Context, params *GetAllNpcsNpcsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetNpcNpcsCodeGet request
+	GetNpcNpcsCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error)
+
+	// GetNpcItemsNpcsCodeItemsGet request
+	GetNpcItemsNpcsCodeItemsGet(ctx context.Context, code string, params *GetNpcItemsNpcsCodeItemsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
 
 	// GetAllResourcesResourcesGet request
 	GetAllResourcesResourcesGet(ctx context.Context, params *GetAllResourcesResourcesGetParams, reqEditors ...RequestEditorFn) (*http.Response, error)
@@ -8360,6 +9635,30 @@ func (c *Client) DeleteCharacterCharactersDeletePost(ctx context.Context, body D
 
 func (c *Client) GetCharacterCharactersNameGet(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewGetCharacterCharactersNameGetRequest(c.Server, name)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetAllEffectsEffectsGet(ctx context.Context, params *GetAllEffectsEffectsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAllEffectsEffectsGetRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetEffectEffectsCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetEffectEffectsCodeGetRequest(c.Server, code)
 	if err != nil {
 		return nil, err
 	}
@@ -8742,18 +10041,6 @@ func (c *Client) ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPost(ctx cont
 	return c.Client.Do(req)
 }
 
-func (c *Client) ActionChristmasExchangeMyNameActionChristmasExchangePost(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*http.Response, error) {
-	req, err := NewActionChristmasExchangeMyNameActionChristmasExchangePostRequest(c.Server, name)
-	if err != nil {
-		return nil, err
-	}
-	req = req.WithContext(ctx)
-	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
-		return nil, err
-	}
-	return c.Client.Do(req)
-}
-
 func (c *Client) ActionCraftingMyNameActionCraftingPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewActionCraftingMyNameActionCraftingPostRequestWithBody(c.Server, name, contentType, body)
 	if err != nil {
@@ -8946,6 +10233,54 @@ func (c *Client) ActionMoveMyNameActionMovePost(ctx context.Context, name string
 	return c.Client.Do(req)
 }
 
+func (c *Client) ActionNpcBuyItemMyNameActionNpcBuyPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewActionNpcBuyItemMyNameActionNpcBuyPostRequestWithBody(c.Server, name, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ActionNpcBuyItemMyNameActionNpcBuyPost(ctx context.Context, name string, body ActionNpcBuyItemMyNameActionNpcBuyPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewActionNpcBuyItemMyNameActionNpcBuyPostRequest(c.Server, name, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ActionNpcSellItemMyNameActionNpcSellPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewActionNpcSellItemMyNameActionNpcSellPostRequestWithBody(c.Server, name, contentType, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) ActionNpcSellItemMyNameActionNpcSellPost(ctx context.Context, name string, body ActionNpcSellItemMyNameActionNpcSellPostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewActionNpcSellItemMyNameActionNpcSellPostRequest(c.Server, name, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
 func (c *Client) ActionRecyclingMyNameActionRecyclingPostWithBody(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewActionRecyclingMyNameActionRecyclingPostRequestWithBody(c.Server, name, contentType, body)
 	if err != nil {
@@ -9092,6 +10427,42 @@ func (c *Client) ActionUseItemMyNameActionUsePostWithBody(ctx context.Context, n
 
 func (c *Client) ActionUseItemMyNameActionUsePost(ctx context.Context, name string, body ActionUseItemMyNameActionUsePostJSONRequestBody, reqEditors ...RequestEditorFn) (*http.Response, error) {
 	req, err := NewActionUseItemMyNameActionUsePostRequest(c.Server, name, body)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetAllNpcsNpcsGet(ctx context.Context, params *GetAllNpcsNpcsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetAllNpcsNpcsGetRequest(c.Server, params)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetNpcNpcsCodeGet(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetNpcNpcsCodeGetRequest(c.Server, code)
+	if err != nil {
+		return nil, err
+	}
+	req = req.WithContext(ctx)
+	if err := c.applyEditors(ctx, req, reqEditors); err != nil {
+		return nil, err
+	}
+	return c.Client.Do(req)
+}
+
+func (c *Client) GetNpcItemsNpcsCodeItemsGet(ctx context.Context, code string, params *GetNpcItemsNpcsCodeItemsGetParams, reqEditors ...RequestEditorFn) (*http.Response, error) {
+	req, err := NewGetNpcItemsNpcsCodeItemsGetRequest(c.Server, code, params)
 	if err != nil {
 		return nil, err
 	}
@@ -9702,6 +11073,105 @@ func NewGetCharacterCharactersNameGetRequest(server string, name string) (*http.
 	}
 
 	operationPath := fmt.Sprintf("/characters/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetAllEffectsEffectsGetRequest generates requests for GetAllEffectsEffectsGet
+func NewGetAllEffectsEffectsGetRequest(server string, params *GetAllEffectsEffectsGetParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/effects")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Page != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "page", runtime.ParamLocationQuery, *params.Page); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Size != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "size", runtime.ParamLocationQuery, *params.Size); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetEffectEffectsCodeGetRequest generates requests for GetEffectEffectsCodeGet
+func NewGetEffectEffectsCodeGetRequest(server string, code string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "code", runtime.ParamLocationPath, code)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/effects/%s", pathParam0)
 	if operationPath[0] == '/' {
 		operationPath = "." + operationPath
 	}
@@ -11393,40 +12863,6 @@ func NewActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostRequestWithBody(se
 	return req, nil
 }
 
-// NewActionChristmasExchangeMyNameActionChristmasExchangePostRequest generates requests for ActionChristmasExchangeMyNameActionChristmasExchangePost
-func NewActionChristmasExchangeMyNameActionChristmasExchangePostRequest(server string, name string) (*http.Request, error) {
-	var err error
-
-	var pathParam0 string
-
-	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "name", runtime.ParamLocationPath, name)
-	if err != nil {
-		return nil, err
-	}
-
-	serverURL, err := url.Parse(server)
-	if err != nil {
-		return nil, err
-	}
-
-	operationPath := fmt.Sprintf("/my/%s/action/christmas/exchange", pathParam0)
-	if operationPath[0] == '/' {
-		operationPath = "." + operationPath
-	}
-
-	queryURL, err := serverURL.Parse(operationPath)
-	if err != nil {
-		return nil, err
-	}
-
-	req, err := http.NewRequest("POST", queryURL.String(), nil)
-	if err != nil {
-		return nil, err
-	}
-
-	return req, nil
-}
-
 // NewActionCraftingMyNameActionCraftingPostRequest calls the generic ActionCraftingMyNameActionCraftingPost builder with application/json body
 func NewActionCraftingMyNameActionCraftingPostRequest(server string, name string, body ActionCraftingMyNameActionCraftingPostJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
@@ -11824,6 +13260,100 @@ func NewActionMoveMyNameActionMovePostRequestWithBody(server string, name string
 	return req, nil
 }
 
+// NewActionNpcBuyItemMyNameActionNpcBuyPostRequest calls the generic ActionNpcBuyItemMyNameActionNpcBuyPost builder with application/json body
+func NewActionNpcBuyItemMyNameActionNpcBuyPostRequest(server string, name string, body ActionNpcBuyItemMyNameActionNpcBuyPostJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewActionNpcBuyItemMyNameActionNpcBuyPostRequestWithBody(server, name, "application/json", bodyReader)
+}
+
+// NewActionNpcBuyItemMyNameActionNpcBuyPostRequestWithBody generates requests for ActionNpcBuyItemMyNameActionNpcBuyPost with any type of body
+func NewActionNpcBuyItemMyNameActionNpcBuyPostRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "name", runtime.ParamLocationPath, name)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/my/%s/action/npc/buy", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewActionNpcSellItemMyNameActionNpcSellPostRequest calls the generic ActionNpcSellItemMyNameActionNpcSellPost builder with application/json body
+func NewActionNpcSellItemMyNameActionNpcSellPostRequest(server string, name string, body ActionNpcSellItemMyNameActionNpcSellPostJSONRequestBody) (*http.Request, error) {
+	var bodyReader io.Reader
+	buf, err := json.Marshal(body)
+	if err != nil {
+		return nil, err
+	}
+	bodyReader = bytes.NewReader(buf)
+	return NewActionNpcSellItemMyNameActionNpcSellPostRequestWithBody(server, name, "application/json", bodyReader)
+}
+
+// NewActionNpcSellItemMyNameActionNpcSellPostRequestWithBody generates requests for ActionNpcSellItemMyNameActionNpcSellPost with any type of body
+func NewActionNpcSellItemMyNameActionNpcSellPostRequestWithBody(server string, name string, contentType string, body io.Reader) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "name", runtime.ParamLocationPath, name)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/my/%s/action/npc/sell", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("POST", queryURL.String(), body)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
 // NewActionRecyclingMyNameActionRecyclingPostRequest calls the generic ActionRecyclingMyNameActionRecyclingPost builder with application/json body
 func NewActionRecyclingMyNameActionRecyclingPostRequest(server string, name string, body ActionRecyclingMyNameActionRecyclingPostJSONRequestBody) (*http.Request, error) {
 	var bodyReader io.Reader
@@ -12178,6 +13708,193 @@ func NewActionUseItemMyNameActionUsePostRequestWithBody(server string, name stri
 	}
 
 	req.Header.Add("Content-Type", contentType)
+
+	return req, nil
+}
+
+// NewGetAllNpcsNpcsGetRequest generates requests for GetAllNpcsNpcsGet
+func NewGetAllNpcsNpcsGetRequest(server string, params *GetAllNpcsNpcsGetParams) (*http.Request, error) {
+	var err error
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/npcs")
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Type != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "type", runtime.ParamLocationQuery, *params.Type); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Page != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "page", runtime.ParamLocationQuery, *params.Page); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Size != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "size", runtime.ParamLocationQuery, *params.Size); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetNpcNpcsCodeGetRequest generates requests for GetNpcNpcsCodeGet
+func NewGetNpcNpcsCodeGetRequest(server string, code string) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "code", runtime.ParamLocationPath, code)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/npcs/%s", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
+
+	return req, nil
+}
+
+// NewGetNpcItemsNpcsCodeItemsGetRequest generates requests for GetNpcItemsNpcsCodeItemsGet
+func NewGetNpcItemsNpcsCodeItemsGetRequest(server string, code string, params *GetNpcItemsNpcsCodeItemsGetParams) (*http.Request, error) {
+	var err error
+
+	var pathParam0 string
+
+	pathParam0, err = runtime.StyleParamWithLocation("simple", false, "code", runtime.ParamLocationPath, code)
+	if err != nil {
+		return nil, err
+	}
+
+	serverURL, err := url.Parse(server)
+	if err != nil {
+		return nil, err
+	}
+
+	operationPath := fmt.Sprintf("/npcs/%s/items", pathParam0)
+	if operationPath[0] == '/' {
+		operationPath = "." + operationPath
+	}
+
+	queryURL, err := serverURL.Parse(operationPath)
+	if err != nil {
+		return nil, err
+	}
+
+	if params != nil {
+		queryValues := queryURL.Query()
+
+		if params.Page != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "page", runtime.ParamLocationQuery, *params.Page); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		if params.Size != nil {
+
+			if queryFrag, err := runtime.StyleParamWithLocation("form", true, "size", runtime.ParamLocationQuery, *params.Size); err != nil {
+				return nil, err
+			} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
+				return nil, err
+			} else {
+				for k, v := range parsed {
+					for _, v2 := range v {
+						queryValues.Add(k, v2)
+					}
+				}
+			}
+
+		}
+
+		queryURL.RawQuery = queryValues.Encode()
+	}
+
+	req, err := http.NewRequest("GET", queryURL.String(), nil)
+	if err != nil {
+		return nil, err
+	}
 
 	return req, nil
 }
@@ -12716,6 +14433,12 @@ type ClientWithResponsesInterface interface {
 	// GetCharacterCharactersNameGetWithResponse request
 	GetCharacterCharactersNameGetWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*GetCharacterCharactersNameGetResponse, error)
 
+	// GetAllEffectsEffectsGetWithResponse request
+	GetAllEffectsEffectsGetWithResponse(ctx context.Context, params *GetAllEffectsEffectsGetParams, reqEditors ...RequestEditorFn) (*GetAllEffectsEffectsGetResponse, error)
+
+	// GetEffectEffectsCodeGetWithResponse request
+	GetEffectEffectsCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetEffectEffectsCodeGetResponse, error)
+
 	// GetAllEventsEventsGetWithResponse request
 	GetAllEventsEventsGetWithResponse(ctx context.Context, params *GetAllEventsEventsGetParams, reqEditors ...RequestEditorFn) (*GetAllEventsEventsGetResponse, error)
 
@@ -12804,9 +14527,6 @@ type ClientWithResponsesInterface interface {
 
 	ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithResponse(ctx context.Context, name string, body ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse, error)
 
-	// ActionChristmasExchangeMyNameActionChristmasExchangePostWithResponse request
-	ActionChristmasExchangeMyNameActionChristmasExchangePostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionChristmasExchangeMyNameActionChristmasExchangePostResponse, error)
-
 	// ActionCraftingMyNameActionCraftingPostWithBodyWithResponse request with any body
 	ActionCraftingMyNameActionCraftingPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionCraftingMyNameActionCraftingPostResponse, error)
 
@@ -12848,6 +14568,16 @@ type ClientWithResponsesInterface interface {
 
 	ActionMoveMyNameActionMovePostWithResponse(ctx context.Context, name string, body ActionMoveMyNameActionMovePostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionMoveMyNameActionMovePostResponse, error)
 
+	// ActionNpcBuyItemMyNameActionNpcBuyPostWithBodyWithResponse request with any body
+	ActionNpcBuyItemMyNameActionNpcBuyPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionNpcBuyItemMyNameActionNpcBuyPostResponse, error)
+
+	ActionNpcBuyItemMyNameActionNpcBuyPostWithResponse(ctx context.Context, name string, body ActionNpcBuyItemMyNameActionNpcBuyPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionNpcBuyItemMyNameActionNpcBuyPostResponse, error)
+
+	// ActionNpcSellItemMyNameActionNpcSellPostWithBodyWithResponse request with any body
+	ActionNpcSellItemMyNameActionNpcSellPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionNpcSellItemMyNameActionNpcSellPostResponse, error)
+
+	ActionNpcSellItemMyNameActionNpcSellPostWithResponse(ctx context.Context, name string, body ActionNpcSellItemMyNameActionNpcSellPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionNpcSellItemMyNameActionNpcSellPostResponse, error)
+
 	// ActionRecyclingMyNameActionRecyclingPostWithBodyWithResponse request with any body
 	ActionRecyclingMyNameActionRecyclingPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionRecyclingMyNameActionRecyclingPostResponse, error)
 
@@ -12882,6 +14612,15 @@ type ClientWithResponsesInterface interface {
 	ActionUseItemMyNameActionUsePostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionUseItemMyNameActionUsePostResponse, error)
 
 	ActionUseItemMyNameActionUsePostWithResponse(ctx context.Context, name string, body ActionUseItemMyNameActionUsePostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionUseItemMyNameActionUsePostResponse, error)
+
+	// GetAllNpcsNpcsGetWithResponse request
+	GetAllNpcsNpcsGetWithResponse(ctx context.Context, params *GetAllNpcsNpcsGetParams, reqEditors ...RequestEditorFn) (*GetAllNpcsNpcsGetResponse, error)
+
+	// GetNpcNpcsCodeGetWithResponse request
+	GetNpcNpcsCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetNpcNpcsCodeGetResponse, error)
+
+	// GetNpcItemsNpcsCodeItemsGetWithResponse request
+	GetNpcItemsNpcsCodeItemsGetWithResponse(ctx context.Context, code string, params *GetNpcItemsNpcsCodeItemsGetParams, reqEditors ...RequestEditorFn) (*GetNpcItemsNpcsCodeItemsGetResponse, error)
 
 	// GetAllResourcesResourcesGetWithResponse request
 	GetAllResourcesResourcesGetWithResponse(ctx context.Context, params *GetAllResourcesResourcesGetParams, reqEditors ...RequestEditorFn) (*GetAllResourcesResourcesGetResponse, error)
@@ -13141,6 +14880,50 @@ func (r GetCharacterCharactersNameGetResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r GetCharacterCharactersNameGetResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetAllEffectsEffectsGetResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *DataPageEffectSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r GetAllEffectsEffectsGetResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetAllEffectsEffectsGetResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetEffectEffectsCodeGetResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *EffectResponseSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r GetEffectEffectsCodeGetResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetEffectEffectsCodeGetResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -13719,28 +15502,6 @@ func (r ActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse) StatusCo
 	return 0
 }
 
-type ActionChristmasExchangeMyNameActionChristmasExchangePostResponse struct {
-	Body         []byte
-	HTTPResponse *http.Response
-	JSON200      *RewardDataResponseSchema
-}
-
-// Status returns HTTPResponse.Status
-func (r ActionChristmasExchangeMyNameActionChristmasExchangePostResponse) Status() string {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.Status
-	}
-	return http.StatusText(0)
-}
-
-// StatusCode returns HTTPResponse.StatusCode
-func (r ActionChristmasExchangeMyNameActionChristmasExchangePostResponse) StatusCode() int {
-	if r.HTTPResponse != nil {
-		return r.HTTPResponse.StatusCode
-	}
-	return 0
-}
-
 type ActionCraftingMyNameActionCraftingPostResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -13939,6 +15700,50 @@ func (r ActionMoveMyNameActionMovePostResponse) StatusCode() int {
 	return 0
 }
 
+type ActionNpcBuyItemMyNameActionNpcBuyPostResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *NpcMerchantTransactionResponseSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r ActionNpcBuyItemMyNameActionNpcBuyPostResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ActionNpcBuyItemMyNameActionNpcBuyPostResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type ActionNpcSellItemMyNameActionNpcSellPostResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *NpcMerchantTransactionResponseSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r ActionNpcSellItemMyNameActionNpcSellPostResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r ActionNpcSellItemMyNameActionNpcSellPostResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
 type ActionRecyclingMyNameActionRecyclingPostResponse struct {
 	Body         []byte
 	HTTPResponse *http.Response
@@ -14131,6 +15936,72 @@ func (r ActionUseItemMyNameActionUsePostResponse) Status() string {
 
 // StatusCode returns HTTPResponse.StatusCode
 func (r ActionUseItemMyNameActionUsePostResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetAllNpcsNpcsGetResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *DataPageNPCSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r GetAllNpcsNpcsGetResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetAllNpcsNpcsGetResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetNpcNpcsCodeGetResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *NPCResponseSchema
+}
+
+// Status returns HTTPResponse.Status
+func (r GetNpcNpcsCodeGetResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetNpcNpcsCodeGetResponse) StatusCode() int {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.StatusCode
+	}
+	return 0
+}
+
+type GetNpcItemsNpcsCodeItemsGetResponse struct {
+	Body         []byte
+	HTTPResponse *http.Response
+	JSON200      *DataPageNPCItem
+}
+
+// Status returns HTTPResponse.Status
+func (r GetNpcItemsNpcsCodeItemsGetResponse) Status() string {
+	if r.HTTPResponse != nil {
+		return r.HTTPResponse.Status
+	}
+	return http.StatusText(0)
+}
+
+// StatusCode returns HTTPResponse.StatusCode
+func (r GetNpcItemsNpcsCodeItemsGetResponse) StatusCode() int {
 	if r.HTTPResponse != nil {
 		return r.HTTPResponse.StatusCode
 	}
@@ -14414,6 +16285,24 @@ func (c *ClientWithResponses) GetCharacterCharactersNameGetWithResponse(ctx cont
 	return ParseGetCharacterCharactersNameGetResponse(rsp)
 }
 
+// GetAllEffectsEffectsGetWithResponse request returning *GetAllEffectsEffectsGetResponse
+func (c *ClientWithResponses) GetAllEffectsEffectsGetWithResponse(ctx context.Context, params *GetAllEffectsEffectsGetParams, reqEditors ...RequestEditorFn) (*GetAllEffectsEffectsGetResponse, error) {
+	rsp, err := c.GetAllEffectsEffectsGet(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetAllEffectsEffectsGetResponse(rsp)
+}
+
+// GetEffectEffectsCodeGetWithResponse request returning *GetEffectEffectsCodeGetResponse
+func (c *ClientWithResponses) GetEffectEffectsCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetEffectEffectsCodeGetResponse, error) {
+	rsp, err := c.GetEffectEffectsCodeGet(ctx, code, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetEffectEffectsCodeGetResponse(rsp)
+}
+
 // GetAllEventsEventsGetWithResponse request returning *GetAllEventsEventsGetResponse
 func (c *ClientWithResponses) GetAllEventsEventsGetWithResponse(ctx context.Context, params *GetAllEventsEventsGetParams, reqEditors ...RequestEditorFn) (*GetAllEventsEventsGetResponse, error) {
 	rsp, err := c.GetAllEventsEventsGet(ctx, params, reqEditors...)
@@ -14688,15 +16577,6 @@ func (c *ClientWithResponses) ActionWithdrawBankGoldMyNameActionBankWithdrawGold
 	return ParseActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse(rsp)
 }
 
-// ActionChristmasExchangeMyNameActionChristmasExchangePostWithResponse request returning *ActionChristmasExchangeMyNameActionChristmasExchangePostResponse
-func (c *ClientWithResponses) ActionChristmasExchangeMyNameActionChristmasExchangePostWithResponse(ctx context.Context, name string, reqEditors ...RequestEditorFn) (*ActionChristmasExchangeMyNameActionChristmasExchangePostResponse, error) {
-	rsp, err := c.ActionChristmasExchangeMyNameActionChristmasExchangePost(ctx, name, reqEditors...)
-	if err != nil {
-		return nil, err
-	}
-	return ParseActionChristmasExchangeMyNameActionChristmasExchangePostResponse(rsp)
-}
-
 // ActionCraftingMyNameActionCraftingPostWithBodyWithResponse request with arbitrary body returning *ActionCraftingMyNameActionCraftingPostResponse
 func (c *ClientWithResponses) ActionCraftingMyNameActionCraftingPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionCraftingMyNameActionCraftingPostResponse, error) {
 	rsp, err := c.ActionCraftingMyNameActionCraftingPostWithBody(ctx, name, contentType, body, reqEditors...)
@@ -14834,6 +16714,40 @@ func (c *ClientWithResponses) ActionMoveMyNameActionMovePostWithResponse(ctx con
 	return ParseActionMoveMyNameActionMovePostResponse(rsp)
 }
 
+// ActionNpcBuyItemMyNameActionNpcBuyPostWithBodyWithResponse request with arbitrary body returning *ActionNpcBuyItemMyNameActionNpcBuyPostResponse
+func (c *ClientWithResponses) ActionNpcBuyItemMyNameActionNpcBuyPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionNpcBuyItemMyNameActionNpcBuyPostResponse, error) {
+	rsp, err := c.ActionNpcBuyItemMyNameActionNpcBuyPostWithBody(ctx, name, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseActionNpcBuyItemMyNameActionNpcBuyPostResponse(rsp)
+}
+
+func (c *ClientWithResponses) ActionNpcBuyItemMyNameActionNpcBuyPostWithResponse(ctx context.Context, name string, body ActionNpcBuyItemMyNameActionNpcBuyPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionNpcBuyItemMyNameActionNpcBuyPostResponse, error) {
+	rsp, err := c.ActionNpcBuyItemMyNameActionNpcBuyPost(ctx, name, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseActionNpcBuyItemMyNameActionNpcBuyPostResponse(rsp)
+}
+
+// ActionNpcSellItemMyNameActionNpcSellPostWithBodyWithResponse request with arbitrary body returning *ActionNpcSellItemMyNameActionNpcSellPostResponse
+func (c *ClientWithResponses) ActionNpcSellItemMyNameActionNpcSellPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionNpcSellItemMyNameActionNpcSellPostResponse, error) {
+	rsp, err := c.ActionNpcSellItemMyNameActionNpcSellPostWithBody(ctx, name, contentType, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseActionNpcSellItemMyNameActionNpcSellPostResponse(rsp)
+}
+
+func (c *ClientWithResponses) ActionNpcSellItemMyNameActionNpcSellPostWithResponse(ctx context.Context, name string, body ActionNpcSellItemMyNameActionNpcSellPostJSONRequestBody, reqEditors ...RequestEditorFn) (*ActionNpcSellItemMyNameActionNpcSellPostResponse, error) {
+	rsp, err := c.ActionNpcSellItemMyNameActionNpcSellPost(ctx, name, body, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseActionNpcSellItemMyNameActionNpcSellPostResponse(rsp)
+}
+
 // ActionRecyclingMyNameActionRecyclingPostWithBodyWithResponse request with arbitrary body returning *ActionRecyclingMyNameActionRecyclingPostResponse
 func (c *ClientWithResponses) ActionRecyclingMyNameActionRecyclingPostWithBodyWithResponse(ctx context.Context, name string, contentType string, body io.Reader, reqEditors ...RequestEditorFn) (*ActionRecyclingMyNameActionRecyclingPostResponse, error) {
 	rsp, err := c.ActionRecyclingMyNameActionRecyclingPostWithBody(ctx, name, contentType, body, reqEditors...)
@@ -14945,6 +16859,33 @@ func (c *ClientWithResponses) ActionUseItemMyNameActionUsePostWithResponse(ctx c
 		return nil, err
 	}
 	return ParseActionUseItemMyNameActionUsePostResponse(rsp)
+}
+
+// GetAllNpcsNpcsGetWithResponse request returning *GetAllNpcsNpcsGetResponse
+func (c *ClientWithResponses) GetAllNpcsNpcsGetWithResponse(ctx context.Context, params *GetAllNpcsNpcsGetParams, reqEditors ...RequestEditorFn) (*GetAllNpcsNpcsGetResponse, error) {
+	rsp, err := c.GetAllNpcsNpcsGet(ctx, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetAllNpcsNpcsGetResponse(rsp)
+}
+
+// GetNpcNpcsCodeGetWithResponse request returning *GetNpcNpcsCodeGetResponse
+func (c *ClientWithResponses) GetNpcNpcsCodeGetWithResponse(ctx context.Context, code string, reqEditors ...RequestEditorFn) (*GetNpcNpcsCodeGetResponse, error) {
+	rsp, err := c.GetNpcNpcsCodeGet(ctx, code, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetNpcNpcsCodeGetResponse(rsp)
+}
+
+// GetNpcItemsNpcsCodeItemsGetWithResponse request returning *GetNpcItemsNpcsCodeItemsGetResponse
+func (c *ClientWithResponses) GetNpcItemsNpcsCodeItemsGetWithResponse(ctx context.Context, code string, params *GetNpcItemsNpcsCodeItemsGetParams, reqEditors ...RequestEditorFn) (*GetNpcItemsNpcsCodeItemsGetResponse, error) {
+	rsp, err := c.GetNpcItemsNpcsCodeItemsGet(ctx, code, params, reqEditors...)
+	if err != nil {
+		return nil, err
+	}
+	return ParseGetNpcItemsNpcsCodeItemsGetResponse(rsp)
 }
 
 // GetAllResourcesResourcesGetWithResponse request returning *GetAllResourcesResourcesGetResponse
@@ -15286,6 +17227,58 @@ func ParseGetCharacterCharactersNameGetResponse(rsp *http.Response) (*GetCharact
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest CharacterResponseSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetAllEffectsEffectsGetResponse parses an HTTP response from a GetAllEffectsEffectsGetWithResponse call
+func ParseGetAllEffectsEffectsGetResponse(rsp *http.Response) (*GetAllEffectsEffectsGetResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetAllEffectsEffectsGetResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest DataPageEffectSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetEffectEffectsCodeGetResponse parses an HTTP response from a GetEffectEffectsCodeGetWithResponse call
+func ParseGetEffectEffectsCodeGetResponse(rsp *http.Response) (*GetEffectEffectsCodeGetResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetEffectEffectsCodeGetResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest EffectResponseSchema
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
@@ -15972,32 +17965,6 @@ func ParseActionWithdrawBankGoldMyNameActionBankWithdrawGoldPostResponse(rsp *ht
 	return response, nil
 }
 
-// ParseActionChristmasExchangeMyNameActionChristmasExchangePostResponse parses an HTTP response from a ActionChristmasExchangeMyNameActionChristmasExchangePostWithResponse call
-func ParseActionChristmasExchangeMyNameActionChristmasExchangePostResponse(rsp *http.Response) (*ActionChristmasExchangeMyNameActionChristmasExchangePostResponse, error) {
-	bodyBytes, err := io.ReadAll(rsp.Body)
-	defer func() { _ = rsp.Body.Close() }()
-	if err != nil {
-		return nil, err
-	}
-
-	response := &ActionChristmasExchangeMyNameActionChristmasExchangePostResponse{
-		Body:         bodyBytes,
-		HTTPResponse: rsp,
-	}
-
-	switch {
-	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
-		var dest RewardDataResponseSchema
-		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
-			return nil, err
-		}
-		response.JSON200 = &dest
-
-	}
-
-	return response, nil
-}
-
 // ParseActionCraftingMyNameActionCraftingPostResponse parses an HTTP response from a ActionCraftingMyNameActionCraftingPostWithResponse call
 func ParseActionCraftingMyNameActionCraftingPostResponse(rsp *http.Response) (*ActionCraftingMyNameActionCraftingPostResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -16232,6 +18199,58 @@ func ParseActionMoveMyNameActionMovePostResponse(rsp *http.Response) (*ActionMov
 	return response, nil
 }
 
+// ParseActionNpcBuyItemMyNameActionNpcBuyPostResponse parses an HTTP response from a ActionNpcBuyItemMyNameActionNpcBuyPostWithResponse call
+func ParseActionNpcBuyItemMyNameActionNpcBuyPostResponse(rsp *http.Response) (*ActionNpcBuyItemMyNameActionNpcBuyPostResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ActionNpcBuyItemMyNameActionNpcBuyPostResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest NpcMerchantTransactionResponseSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseActionNpcSellItemMyNameActionNpcSellPostResponse parses an HTTP response from a ActionNpcSellItemMyNameActionNpcSellPostWithResponse call
+func ParseActionNpcSellItemMyNameActionNpcSellPostResponse(rsp *http.Response) (*ActionNpcSellItemMyNameActionNpcSellPostResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &ActionNpcSellItemMyNameActionNpcSellPostResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest NpcMerchantTransactionResponseSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
 // ParseActionRecyclingMyNameActionRecyclingPostResponse parses an HTTP response from a ActionRecyclingMyNameActionRecyclingPostWithResponse call
 func ParseActionRecyclingMyNameActionRecyclingPostResponse(rsp *http.Response) (*ActionRecyclingMyNameActionRecyclingPostResponse, error) {
 	bodyBytes, err := io.ReadAll(rsp.Body)
@@ -16456,6 +18475,84 @@ func ParseActionUseItemMyNameActionUsePostResponse(rsp *http.Response) (*ActionU
 	switch {
 	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
 		var dest UseItemResponseSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetAllNpcsNpcsGetResponse parses an HTTP response from a GetAllNpcsNpcsGetWithResponse call
+func ParseGetAllNpcsNpcsGetResponse(rsp *http.Response) (*GetAllNpcsNpcsGetResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetAllNpcsNpcsGetResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest DataPageNPCSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetNpcNpcsCodeGetResponse parses an HTTP response from a GetNpcNpcsCodeGetWithResponse call
+func ParseGetNpcNpcsCodeGetResponse(rsp *http.Response) (*GetNpcNpcsCodeGetResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetNpcNpcsCodeGetResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest NPCResponseSchema
+		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
+			return nil, err
+		}
+		response.JSON200 = &dest
+
+	}
+
+	return response, nil
+}
+
+// ParseGetNpcItemsNpcsCodeItemsGetResponse parses an HTTP response from a GetNpcItemsNpcsCodeItemsGetWithResponse call
+func ParseGetNpcItemsNpcsCodeItemsGetResponse(rsp *http.Response) (*GetNpcItemsNpcsCodeItemsGetResponse, error) {
+	bodyBytes, err := io.ReadAll(rsp.Body)
+	defer func() { _ = rsp.Body.Close() }()
+	if err != nil {
+		return nil, err
+	}
+
+	response := &GetNpcItemsNpcsCodeItemsGetResponse{
+		Body:         bodyBytes,
+		HTTPResponse: rsp,
+	}
+
+	switch {
+	case strings.Contains(rsp.Header.Get("Content-Type"), "json") && rsp.StatusCode == 200:
+		var dest DataPageNPCItem
 		if err := json.Unmarshal(bodyBytes, &dest); err != nil {
 			return nil, err
 		}
