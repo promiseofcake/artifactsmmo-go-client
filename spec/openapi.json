@@ -505,7 +505,7 @@
             "description": "This item is already equipped."
           },
           "484": {
-            "description": "Character can't equip more than 100 utilitys in the same slot."
+            "description": "Character can't equip more than 100 utilities in the same slot."
           },
           "497": {
             "description": "Character inventory is full."
@@ -1233,7 +1233,7 @@
         },
         "responses": {
           "200": {
-            "description": "Item successfully buy from the NPC.",
+            "description": "Item successfully bought from the NPC.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1275,7 +1275,7 @@
           "My characters"
         ],
         "summary": "Action Npc Sell Item",
-        "description": "Sell an item from an NPC on the character's map.",
+        "description": "Sell an item to an NPC on the character's map.",
         "operationId": "action_npc_sell_item_my__name__action_npc_sell_post",
         "security": [
           {
@@ -1308,7 +1308,7 @@
         },
         "responses": {
           "200": {
-            "description": "Item successfully sell to the NPC.",
+            "description": "Item successfully sold to the NPC.",
             "content": {
               "application/json": {
                 "schema": {
@@ -7491,8 +7491,7 @@
         "enum": [
           "equipment",
           "consumable",
-          "combat",
-          "item"
+          "combat"
         ],
         "title": "EffectType"
       },
@@ -7561,7 +7560,7 @@
             "maximum": 100.0,
             "minimum": 1.0,
             "title": "Quantity",
-            "description": "Item quantity. Applicable to utilitys only.",
+            "description": "Item quantity. Applicable to utilities only.",
             "default": 1
           }
         },
@@ -7693,12 +7692,12 @@
           "xp": {
             "type": "integer",
             "title": "Xp",
-            "description": "The amount of xp gained by the fight."
+            "description": "The amount of xp gained from the fight."
           },
           "gold": {
             "type": "integer",
             "title": "Gold",
-            "description": "The amount of gold gained by the fight."
+            "description": "The amount of gold gained from the fight."
           },
           "drops": {
             "items": {
@@ -7706,7 +7705,7 @@
             },
             "type": "array",
             "title": "Drops",
-            "description": "The items dropped by the fight."
+            "description": "The items dropped from the fight."
           },
           "turns": {
             "type": "integer",
@@ -9686,7 +9685,7 @@
             "maximum": 100.0,
             "minimum": 1.0,
             "title": "Quantity",
-            "description": "Item quantity. Applicable to utilitys only.",
+            "description": "Item quantity. Applicable to utilities only.",
             "default": 1
           }
         },

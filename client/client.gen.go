@@ -128,7 +128,6 @@ const (
 	EffectTypeCombat     EffectType = "combat"
 	EffectTypeConsumable EffectType = "consumable"
 	EffectTypeEquipment  EffectType = "equipment"
-	EffectTypeItem       EffectType = "item"
 )
 
 // Defines values for FightResult.
@@ -2226,7 +2225,7 @@ type EquipSchema struct {
 	// Code Item code.
 	Code string `json:"code"`
 
-	// Quantity Item quantity. Applicable to utilitys only.
+	// Quantity Item quantity. Applicable to utilities only.
 	Quantity *int `json:"quantity,omitempty"`
 
 	// Slot Item slot.
@@ -2285,10 +2284,10 @@ type FightResult string
 
 // FightSchema defines model for FightSchema.
 type FightSchema struct {
-	// Drops The items dropped by the fight.
+	// Drops The items dropped from the fight.
 	Drops []DropSchema `json:"drops"`
 
-	// Gold The amount of gold gained by the fight.
+	// Gold The amount of gold gained from the fight.
 	Gold int `json:"gold"`
 
 	// Logs The fight logs.
@@ -2306,7 +2305,7 @@ type FightSchema struct {
 	// Turns Numbers of the turns of the combat.
 	Turns int `json:"turns"`
 
-	// Xp The amount of xp gained by the fight.
+	// Xp The amount of xp gained from the fight.
 	Xp int `json:"xp"`
 }
 
@@ -3128,7 +3127,7 @@ type TokenResponseSchema struct {
 
 // UnequipSchema defines model for UnequipSchema.
 type UnequipSchema struct {
-	// Quantity Item quantity. Applicable to utilitys only.
+	// Quantity Item quantity. Applicable to utilities only.
 	Quantity *int `json:"quantity,omitempty"`
 
 	// Slot Item slot.
