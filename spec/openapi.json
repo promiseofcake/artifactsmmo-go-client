@@ -3,7 +3,7 @@
   "info": {
     "title": "Artifacts API",
     "description": "\nArtifacts is an API-based MMO game where you can manage 5 characters to explore, fight, gather resources, craft items and much more.\n\nWebsite: https://artifactsmmo.com/\n\nDocumentation: https://docs.artifactsmmo.com/\n\nOpenAPI Spec: https://api.artifactsmmo.com/openapi.json\n",
-    "version": "3.3"
+    "version": "4.0"
   },
   "paths": {
     "/my/bank": {
@@ -1194,6 +1194,156 @@
         }
       }
     },
+    "/my/{name}/action/npc/buy": {
+      "post": {
+        "tags": [
+          "My characters"
+        ],
+        "summary": "Action Npc Buy Item",
+        "description": "Buy an item from an NPC on the character's map.",
+        "operationId": "action_npc_buy_item_my__name__action_npc_buy_post",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Character name",
+              "description": "Name of your character."
+            },
+            "description": "Name of your character."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NpcMerchantBuySchema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Item successfully buy from the NPC.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NpcMerchantTransactionResponseSchema"
+                }
+              }
+            }
+          },
+          "598": {
+            "description": "NPC not found on this map."
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "497": {
+            "description": "Character inventory is full."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          },
+          "486": {
+            "description": "An action is already in progress by your character."
+          },
+          "492": {
+            "description": "Insufficient gold on your character."
+          },
+          "441": {
+            "description": "This item cannot be purchased."
+          },
+          "404": {
+            "description": "Item not found."
+          }
+        }
+      }
+    },
+    "/my/{name}/action/npc/sell": {
+      "post": {
+        "tags": [
+          "My characters"
+        ],
+        "summary": "Action Npc Sell Item",
+        "description": "Sell an item from an NPC on the character's map.",
+        "operationId": "action_npc_sell_item_my__name__action_npc_sell_post",
+        "security": [
+          {
+            "JWTBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "Character name",
+              "description": "Name of your character."
+            },
+            "description": "Name of your character."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NpcMerchantBuySchema"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Item successfully sell to the NPC.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NpcMerchantTransactionResponseSchema"
+                }
+              }
+            }
+          },
+          "598": {
+            "description": "NPC not found on this map."
+          },
+          "498": {
+            "description": "Character not found."
+          },
+          "497": {
+            "description": "Character inventory is full."
+          },
+          "499": {
+            "description": "Character in cooldown."
+          },
+          "486": {
+            "description": "An action is already in progress by your character."
+          },
+          "478": {
+            "description": "Missing item or insufficient quantity."
+          },
+          "442": {
+            "description": "This item cannot be sold."
+          },
+          "404": {
+            "description": "Item not found."
+          }
+        }
+      }
+    },
     "/my/{name}/action/recycling": {
       "post": {
         "tags": [
@@ -1811,65 +1961,6 @@
         }
       }
     },
-    "/my/{name}/action/christmas/exchange": {
-      "post": {
-        "tags": [
-          "My characters"
-        ],
-        "summary": "Action Christmas Exchange",
-        "description": "Exchange 1 gift for a random reward.",
-        "operationId": "action_christmas_exchange_my__name__action_christmas_exchange_post",
-        "security": [
-          {
-            "JWTBearer": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "name",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "^[a-zA-Z0-9_-]+$",
-              "title": "Character name",
-              "description": "Name of your character."
-            },
-            "description": "Name of your character."
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The gift have been successfully exchanged.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RewardDataResponseSchema"
-                }
-              }
-            }
-          },
-          "498": {
-            "description": "Character not found."
-          },
-          "499": {
-            "description": "Character in cooldown."
-          },
-          "486": {
-            "description": "An action is already in progress by your character."
-          },
-          "598": {
-            "description": "Santa Claus not found on this map."
-          },
-          "478": {
-            "description": "Missing item or insufficient quantity."
-          },
-          "497": {
-            "description": "Character inventory is full."
-          }
-        }
-      }
-    },
     "/my/{name}/action/delete": {
       "post": {
         "tags": [
@@ -2290,7 +2381,7 @@
             }
           },
           "404": {
-            "description": "achievement not found."
+            "description": "Achievement not found."
           }
         }
       }
@@ -2503,6 +2594,96 @@
           },
           "404": {
             "description": "Character not found."
+          }
+        }
+      }
+    },
+    "/effects": {
+      "get": {
+        "tags": [
+          "Effects"
+        ],
+        "summary": "Get All Effects",
+        "description": "List of all effects. Effects are used by equipment, tools, runes, consumables and monsters. An effect is an action that produces an effect on the game.",
+        "operationId": "get_all_effects_effects_get",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched effects.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_EffectSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/effects/{code}": {
+      "get": {
+        "tags": [
+          "Effects"
+        ],
+        "summary": "Get Effect",
+        "description": "Retrieve the details of a badge.",
+        "operationId": "get_effect_effects__code__get",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "achievement code",
+              "description": "The code of the achievement."
+            },
+            "description": "The code of the achievement."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched effect.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EffectResponseSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "effect not found."
           }
         }
       }
@@ -3366,6 +3547,177 @@
         }
       }
     },
+    "/npcs": {
+      "get": {
+        "tags": [
+          "NPCs"
+        ],
+        "summary": "Get All Npcs",
+        "description": "Fetch NPCs details.",
+        "operationId": "get_all_npcs_npcs_get",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/NPCType_a-zA-Z0-9_-_____"
+                }
+              ],
+              "title": "NPC type",
+              "description": "The type of the NPC."
+            },
+            "description": "The type of the NPC."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched NPCs details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_NPCSchema_"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/npcs/{code}": {
+      "get": {
+        "tags": [
+          "NPCs"
+        ],
+        "summary": "Get Npc",
+        "description": "Retrieve the details of a NPC.",
+        "operationId": "get_npc_npcs__code__get",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "NPC code",
+              "description": "The code of the NPC."
+            },
+            "description": "The code of the NPC."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched NPC.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NPCResponseSchema"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NPC not found."
+          }
+        }
+      }
+    },
+    "/npcs/{code}/items": {
+      "get": {
+        "tags": [
+          "NPCs"
+        ],
+        "summary": "Get Npc Items",
+        "description": "Retrieve the items list of a NPC. If the NPC has items to buy or sell, they will be displayed.",
+        "operationId": "get_npc_items_npcs__code__items_get",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$",
+              "title": "NPC code",
+              "description": "The code of the NPC."
+            },
+            "description": "The code of the NPC."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Page number",
+              "default": 1,
+              "title": "Page"
+            },
+            "description": "Page number"
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "maximum": 100,
+              "minimum": 1,
+              "description": "Page size",
+              "default": 50,
+              "title": "Size"
+            },
+            "description": "Page size"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched NPC.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataPage_NPCItem_"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NPC not found."
+          }
+        }
+      }
+    },
     "/resources": {
       "get": {
         "tags": [
@@ -3971,6 +4323,11 @@
             "type": "integer",
             "title": "Achievements Points",
             "description": "Achievements points."
+          },
+          "gold": {
+            "type": "integer",
+            "title": "Gold",
+            "description": "Gold in the account."
           }
         },
         "type": "object",
@@ -3978,13 +4335,17 @@
           "position",
           "account",
           "status",
-          "achievements_points"
+          "achievements_points",
+          "gold"
         ],
         "title": "AccountLeaderboardSchema"
       },
       "AccountLeaderboardType": {
         "type": "string",
-        "const": "achievements_points",
+        "enum": [
+          "achievements_points",
+          "gold"
+        ],
         "title": "AccountLeaderboardType"
       },
       "AccountLeaderboardType_a-zA-Z0-9_-_____": {
@@ -4105,7 +4466,8 @@
           "crafting",
           "recycling",
           "task",
-          "other"
+          "other",
+          "use"
         ],
         "title": "AchievementType"
       },
@@ -4121,6 +4483,8 @@
           "gathering",
           "buy_ge",
           "sell_ge",
+          "buy_npc",
+          "sell_npc",
           "cancel_ge",
           "delete_item",
           "deposit",
@@ -4148,7 +4512,7 @@
           "code": {
             "type": "string",
             "title": "Code",
-            "description": "Code of the event. This is the event's unique identifier (ID)."
+            "description": "Code of the event."
           },
           "map": {
             "allOf": [
@@ -4831,8 +5195,7 @@
           "gearcrafting",
           "jewelrycrafting",
           "cooking",
-          "alchemy",
-          "gold"
+          "alchemy"
         ],
         "title": "CharacterLeaderboardType"
       },
@@ -5120,17 +5483,22 @@
           "haste": {
             "type": "integer",
             "title": "Haste",
-            "description": "*Character Haste. Increase speed attack (reduce fight cooldown)"
+            "description": "*Increase speed attack (reduce fight cooldown)"
           },
           "critical_strike": {
             "type": "integer",
             "title": "Critical Strike",
-            "description": "*Not available, on the roadmap. Character Critical   Strike. Critical strikes increase the attack's damage."
+            "description": "% Critical strike. Critical strikes adds 50% extra damage to an attack (1.5x)."
           },
-          "stamina": {
+          "wisdom": {
             "type": "integer",
-            "title": "Stamina",
-            "description": "*Not available, on the roadmap. Regenerates life at the start of each turn."
+            "title": "Wisdom",
+            "description": "Wisdom increases the amount of XP gained from fights (1% extra per 10 wisdom)."
+          },
+          "prospecting": {
+            "type": "integer",
+            "title": "Prospecting",
+            "description": "Prospecting increases the chances of getting better loot (1% extra per 10 PP)."
           },
           "attack_fire": {
             "type": "integer",
@@ -5152,45 +5520,50 @@
             "title": "Attack Air",
             "description": "Air attack."
           },
+          "dmg": {
+            "type": "integer",
+            "title": "Dmg",
+            "description": "% Damage. Damage increases your attack in all elements."
+          },
           "dmg_fire": {
             "type": "integer",
             "title": "Dmg Fire",
-            "description": "% Fire damage."
+            "description": "% Fire damage. Damage increases your fire attack."
           },
           "dmg_earth": {
             "type": "integer",
             "title": "Dmg Earth",
-            "description": "% Earth damage."
+            "description": "% Earth damage. Damage increases your earth attack."
           },
           "dmg_water": {
             "type": "integer",
             "title": "Dmg Water",
-            "description": "% Water damage."
+            "description": "% Water damage. Damage increases your water attack."
           },
           "dmg_air": {
             "type": "integer",
             "title": "Dmg Air",
-            "description": "% Air damage."
+            "description": "% Air damage. Damage increases your air attack."
           },
           "res_fire": {
             "type": "integer",
             "title": "Res Fire",
-            "description": "% Fire resistance."
+            "description": "% Fire resistance. Reduces fire attack."
           },
           "res_earth": {
             "type": "integer",
             "title": "Res Earth",
-            "description": "% Earth resistance."
+            "description": "% Earth resistance. Reduces earth attack."
           },
           "res_water": {
             "type": "integer",
             "title": "Res Water",
-            "description": "% Water resistance."
+            "description": "% Water resistance. Reduces water attack."
           },
           "res_air": {
             "type": "integer",
             "title": "Res Air",
-            "description": "% Air resistance."
+            "description": "% Air resistance. Reduces air attack."
           },
           "x": {
             "type": "integer",
@@ -5217,6 +5590,11 @@
             "type": "string",
             "title": "Weapon Slot",
             "description": "Weapon slot."
+          },
+          "rune_slot": {
+            "type": "string",
+            "title": "Rune Slot",
+            "description": "Rune slot."
           },
           "shield_slot": {
             "type": "string",
@@ -5295,6 +5673,11 @@
             "title": "Utility2 Slot Quantity",
             "description": "Utility 2 quantity."
           },
+          "bag_slot": {
+            "type": "string",
+            "title": "Bag Slot",
+            "description": "Bag slot."
+          },
           "task": {
             "type": "string",
             "title": "Task",
@@ -5367,11 +5750,13 @@
           "max_hp",
           "haste",
           "critical_strike",
-          "stamina",
+          "wisdom",
+          "prospecting",
           "attack_fire",
           "attack_earth",
           "attack_water",
           "attack_air",
+          "dmg",
           "dmg_fire",
           "dmg_earth",
           "dmg_water",
@@ -5384,6 +5769,7 @@
           "y",
           "cooldown",
           "weapon_slot",
+          "rune_slot",
           "shield_slot",
           "helmet_slot",
           "body_armor_slot",
@@ -5399,6 +5785,7 @@
           "utility1_slot_quantity",
           "utility2_slot",
           "utility2_slot_quantity",
+          "bag_slot",
           "task",
           "task_type",
           "task_progress",
@@ -6002,6 +6389,73 @@
         ],
         "title": "DataPage[DropRateSchema]"
       },
+      "DataPage_EffectSchema_": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/EffectSchema"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "total": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "size": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Size"
+          },
+          "pages": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "total",
+          "page",
+          "size"
+        ],
+        "title": "DataPage[EffectSchema]"
+      },
       "DataPage_EventSchema_": {
         "properties": {
           "data": {
@@ -6471,6 +6925,140 @@
         ],
         "title": "DataPage[MonsterSchema]"
       },
+      "DataPage_NPCItem_": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/NPCItem"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "total": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "size": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Size"
+          },
+          "pages": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "total",
+          "page",
+          "size"
+        ],
+        "title": "DataPage[NPCItem]"
+      },
+      "DataPage_NPCSchema_": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/NPCSchema"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "total": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Total"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "size": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Size"
+          },
+          "pages": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pages"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data",
+          "total",
+          "page",
+          "size"
+        ],
+        "title": "DataPage[NPCSchema]"
+      },
       "DataPage_ResourceSchema_": {
         "properties": {
           "data": {
@@ -6827,6 +7415,87 @@
         ],
         "title": "DropSchema"
       },
+      "EffectResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/EffectSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "EffectResponseSchema"
+      },
+      "EffectSchema": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Name of the monster."
+          },
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "The code of the effect. This is the effect's unique identifier (ID)."
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "description": "Description of the effect. This is a brief description of the effect."
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EffectType"
+              }
+            ],
+            "description": "Type of the effect."
+          },
+          "subtype": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/EffectSubtype"
+              }
+            ],
+            "description": "Subtype of the effect."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "code",
+          "description",
+          "type",
+          "subtype"
+        ],
+        "title": "EffectSchema"
+      },
+      "EffectSubtype": {
+        "type": "string",
+        "enum": [
+          "stat",
+          "other",
+          "heal",
+          "buff",
+          "debuff",
+          "special",
+          "gathering",
+          "teleport",
+          "gold"
+        ],
+        "title": "EffectSubtype"
+      },
+      "EffectType": {
+        "type": "string",
+        "enum": [
+          "equipment",
+          "consumable",
+          "combat",
+          "item"
+        ],
+        "title": "EffectType"
+      },
       "EquipRequestSchema": {
         "properties": {
           "cooldown": {
@@ -6965,7 +7634,7 @@
           "code": {
             "type": "string",
             "title": "Code",
-            "description": "Code of the event. This is the event's unique identifier (ID)."
+            "description": "Code of the event."
           },
           "maps": {
             "items": {
@@ -7180,7 +7849,7 @@
             "type": "integer",
             "minimum": 1.0,
             "title": "Tax",
-            "description": "Order creation tax (5%, minimum 1)"
+            "description": "Order creation tax (3%, minimum 1)"
           }
         },
         "type": "object",
@@ -7527,26 +8196,6 @@
         ],
         "title": "InventorySlot"
       },
-      "ItemEffectSchema": {
-        "properties": {
-          "name": {
-            "type": "string",
-            "title": "Name",
-            "description": "Effect name."
-          },
-          "value": {
-            "type": "integer",
-            "title": "Value",
-            "description": "Effect value."
-          }
-        },
-        "type": "object",
-        "required": [
-          "name",
-          "value"
-        ],
-        "title": "ItemEffectSchema"
-      },
       "ItemResponseSchema": {
         "properties": {
           "data": {
@@ -7594,7 +8243,7 @@
           },
           "effects": {
             "items": {
-              "$ref": "#/components/schemas/ItemEffectSchema"
+              "$ref": "#/components/schemas/SimpleEffectSchema"
             },
             "type": "array",
             "title": "Effects",
@@ -7645,7 +8294,9 @@
           "artifact2",
           "artifact3",
           "utility1",
-          "utility2"
+          "utility2",
+          "bag",
+          "rune"
         ],
         "title": "ItemSlot"
       },
@@ -7664,7 +8315,9 @@
           "ring",
           "artifact",
           "currency",
-          "consumable"
+          "consumable",
+          "rune",
+          "bag"
         ],
         "title": "ItemType"
       },
@@ -7748,6 +8401,8 @@
           "gathering",
           "buy_ge",
           "sell_ge",
+          "buy_npc",
+          "sell_npc",
           "cancel_ge",
           "delete_item",
           "deposit",
@@ -7798,7 +8453,8 @@
           "workshop",
           "bank",
           "grand_exchange",
-          "tasks_master"
+          "tasks_master",
+          "npc"
         ],
         "title": "MapContentType"
       },
@@ -7935,6 +8591,19 @@
             "title": "Res Air",
             "description": "Monster % air resistance."
           },
+          "critical_strike": {
+            "type": "integer",
+            "title": "Critical Strike",
+            "description": "Monster % critical strike."
+          },
+          "effects": {
+            "items": {
+              "$ref": "#/components/schemas/SimpleEffectSchema"
+            },
+            "type": "array",
+            "title": "Effects",
+            "description": "List of effects."
+          },
           "min_gold": {
             "type": "integer",
             "title": "Min Gold",
@@ -7968,6 +8637,7 @@
           "res_earth",
           "res_water",
           "res_air",
+          "critical_strike",
           "min_gold",
           "max_gold",
           "drops"
@@ -8067,6 +8737,208 @@
           "data"
         ],
         "title": "MyCharactersListSchema"
+      },
+      "NPCItem": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "The code of the NPC. This is the NPC's unique identifier (ID)."
+          },
+          "npc": {
+            "type": "string",
+            "title": "Npc",
+            "description": "Code of the NPC that sells/buys the item."
+          },
+          "buy_price": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Buy Price",
+            "description": "Price to buy the item."
+          },
+          "sell_price": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sell Price",
+            "description": "Price to sell the item."
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "npc",
+          "buy_price",
+          "sell_price"
+        ],
+        "title": "NPCItem"
+      },
+      "NPCResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/NPCSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "NPCResponseSchema"
+      },
+      "NPCSchema": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "description": "Name of the NPC."
+          },
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "The code of the NPC. This is the NPC's unique identifier (ID)."
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "description": "Description of the NPC."
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NPCType"
+              }
+            ],
+            "description": "Type of the NPC."
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "code",
+          "description",
+          "type"
+        ],
+        "title": "NPCSchema"
+      },
+      "NPCType": {
+        "type": "string",
+        "const": "merchant",
+        "title": "NPCType"
+      },
+      "NPCType_a-zA-Z0-9_-_____": {
+        "$ref": "#/components/schemas/NPCType"
+      },
+      "NpcItemTransactionSchema": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Item code."
+          },
+          "quantity": {
+            "type": "integer",
+            "title": "Quantity",
+            "description": "Item quantity."
+          },
+          "price": {
+            "type": "integer",
+            "title": "Price",
+            "description": "Item price."
+          },
+          "total_price": {
+            "type": "integer",
+            "title": "Total Price",
+            "description": "Total price of the transaction."
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "quantity",
+          "price",
+          "total_price"
+        ],
+        "title": "NpcItemTransactionSchema"
+      },
+      "NpcMerchantBuySchema": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code",
+            "description": "Item code."
+          },
+          "quantity": {
+            "type": "integer",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "title": "Quantity",
+            "description": "Item quantity."
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "quantity"
+        ],
+        "title": "NpcMerchantBuySchema"
+      },
+      "NpcMerchantTransactionResponseSchema": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/NpcMerchantTransactionSchema"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "NpcMerchantTransactionResponseSchema"
+      },
+      "NpcMerchantTransactionSchema": {
+        "properties": {
+          "cooldown": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CooldownSchema"
+              }
+            ],
+            "description": "Cooldown details."
+          },
+          "transaction": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/NpcItemTransactionSchema"
+              }
+            ],
+            "description": "Transaction details."
+          },
+          "character": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CharacterSchema"
+              }
+            ],
+            "description": "Character details."
+          }
+        },
+        "type": "object",
+        "required": [
+          "cooldown",
+          "transaction",
+          "character"
+        ],
+        "title": "NpcMerchantTransactionSchema"
       },
       "RecyclingDataSchema": {
         "properties": {
@@ -8305,6 +9177,27 @@
           "gold"
         ],
         "title": "RewardsSchema"
+      },
+      "SimpleEffectSchema": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]+$",
+            "title": "Code",
+            "description": "Effect code."
+          },
+          "value": {
+            "type": "integer",
+            "title": "Value",
+            "description": "Effect value."
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "value"
+        ],
+        "title": "SimpleEffectSchema"
       },
       "SimpleItemSchema": {
         "properties": {
